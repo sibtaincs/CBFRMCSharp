@@ -1,0 +1,524 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ComplaintManagementModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="RefCountry">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Country" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="EntryDate" Type="datetime" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="UserEntryID" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UMDataAccess">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="bigint" Nullable="false" />
+    <Property Name="AllowedUserID" Type="bigint" Nullable="false" />
+    <Property Name="FormID" Type="bigint" Nullable="false" />
+    <Property Name="EntryDate" Type="datetime" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="UserEntryID" Type="bigint" Nullable="false" />
+    <Property Name="DeletedByID" Type="bigint" />
+    <Property Name="DeletedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="UMForm">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="URL" Type="varchar" MaxLength="150" />
+    <Property Name="ParentID" Type="bigint" />
+    <Property Name="ModuleID" Type="int" Nullable="false" />
+    <Property Name="FormOrder" Type="int" />
+    <Property Name="Icon" Type="varchar" MaxLength="50" />
+    <Property Name="EntryDate" Type="datetime" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="UserEntryID" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UMFormRole">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FormID" Type="bigint" Nullable="false" />
+    <Property Name="RoleID" Type="bigint" Nullable="false" />
+    <Property Name="EntryDate" Type="datetime" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="UserEntryID" Type="bigint" Nullable="false" />
+    <Property Name="DeletedByID" Type="bigint" />
+    <Property Name="DeletedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="UMFormRoleAction">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FormRoleID" Type="bigint" Nullable="false" />
+    <Property Name="RefActionID" Type="bigint" Nullable="false" />
+    <Property Name="EntryDate" Type="datetime" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="UserEntryID" Type="bigint" Nullable="false" />
+    <Property Name="DeletedByID" Type="bigint" />
+    <Property Name="DeletedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="UMRefAction">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="EntryDate" Type="datetime" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="UserEntryID" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UMRefModule">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ModuleURL" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="icon" Type="varchar" MaxLength="50" />
+    <Property Name="Logo" Type="varchar" MaxLength="150" />
+    <Property Name="EntryDate" Type="datetime" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="UserEntryID" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UMRefRole">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsFullAccess" Type="bit" />
+    <Property Name="EntryDate" Type="datetime" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="UserEntryID" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UMRefUserStatus">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="EntryDate" Type="datetime" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="UserEntryID" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UMRoleModuleLink">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleID" Type="bigint" Nullable="false" />
+    <Property Name="ModuleID" Type="int" />
+    <Property Name="ModuleLink" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="icon" Type="varchar" MaxLength="50" />
+    <Property Name="Logo" Type="varchar" MaxLength="150" />
+    <Property Name="EntryDate" Type="datetime" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="UserEntryID" Type="bigint" Nullable="false" />
+    <Property Name="DeletedByID" Type="bigint" />
+    <Property Name="DeletedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="UMUser">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserLoginID" Type="varchar" MaxLength="100" />
+    <Property Name="Password" Type="varchar" MaxLength="100" />
+    <Property Name="LocationId" Type="int" />
+    <Property Name="UserName" Type="varchar" MaxLength="70" />
+    <Property Name="Email" Type="varchar" MaxLength="100" />
+    <Property Name="PhoneNumber" Type="varchar" MaxLength="50" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsOnsiteUser" Type="int" Nullable="false" />
+    <Property Name="IsADUser" Type="int" />
+    <Property Name="IsExternalIncidentUser" Type="int" />
+    <Property Name="IsSendEmail" Type="int" />
+    <Property Name="IsCognosUser" Type="int" />
+    <Property Name="RefUserStatusID" Type="int" Nullable="false" />
+    <Property Name="DateAccepted" Type="datetime" />
+    <Property Name="EntryDate" Type="datetime" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="UserEntryID" Type="bigint" Nullable="false" />
+    <Property Name="LastUpdatedDate" Type="datetime" />
+    <Property Name="UpdatedUserID" Type="bigint" />
+  </EntityType>
+  <EntityType Name="UMUserRole">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="bigint" Nullable="false" />
+    <Property Name="RoleID" Type="bigint" Nullable="false" />
+    <Property Name="EntryDate" Type="datetime" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="UserEntryID" Type="bigint" Nullable="false" />
+    <Property Name="DeletedByID" Type="bigint" />
+    <Property Name="DeletedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="UserCountry">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="bigint" Nullable="false" />
+    <Property Name="CountryID" Type="int" Nullable="false" />
+    <Property Name="EntryDate" Type="datetime" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="UserEntryID" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserLevel">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="bigint" Nullable="false" />
+    <Property Name="LevelID" Type="int" Nullable="false" />
+    <Property Name="EntryDate" Type="datetime" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="UserEntryID" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserLoginHistory">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserEntryID" Type="int" />
+    <Property Name="LoginDate" Type="datetime" Nullable="false" />
+    <Property Name="IPAddress" Type="varchar" MaxLength="100" />
+    <Property Name="UserName" Type="varchar" MaxLength="100" />
+    <Property Name="Email" Type="varchar" MaxLength="100" />
+    <Property Name="LocationID" Type="int" />
+    <Property Name="LogoDate" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_DataAccess_UserAllowedID">
+    <End Role="UMUser" Type="Self.UMUser" Multiplicity="1" />
+    <End Role="UMDataAccess" Type="Self.UMDataAccess" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UMUser">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UMDataAccess">
+        <PropertyRef Name="AllowedUserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DataAccess_UserID">
+    <End Role="UMUser" Type="Self.UMUser" Multiplicity="1" />
+    <End Role="UMDataAccess" Type="Self.UMDataAccess" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UMUser">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UMDataAccess">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Form_RefModule">
+    <End Role="UMRefModule" Type="Self.UMRefModule" Multiplicity="1" />
+    <End Role="UMForm" Type="Self.UMForm" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UMRefModule">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UMForm">
+        <PropertyRef Name="ModuleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FormRole_Form">
+    <End Role="UMForm" Type="Self.UMForm" Multiplicity="1" />
+    <End Role="UMFormRole" Type="Self.UMFormRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UMForm">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UMFormRole">
+        <PropertyRef Name="FormID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FormRole_RefRole">
+    <End Role="UMRefRole" Type="Self.UMRefRole" Multiplicity="1" />
+    <End Role="UMFormRole" Type="Self.UMFormRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UMRefRole">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UMFormRole">
+        <PropertyRef Name="RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FormRoleAction_FormRole">
+    <End Role="UMFormRole" Type="Self.UMFormRole" Multiplicity="1" />
+    <End Role="UMFormRoleAction" Type="Self.UMFormRoleAction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UMFormRole">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UMFormRoleAction">
+        <PropertyRef Name="FormRoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FormRoleAction_RefAction">
+    <End Role="UMRefAction" Type="Self.UMRefAction" Multiplicity="1" />
+    <End Role="UMFormRoleAction" Type="Self.UMFormRoleAction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UMRefAction">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UMFormRoleAction">
+        <PropertyRef Name="RefActionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_RefUserStatus">
+    <End Role="UMRefUserStatus" Type="Self.UMRefUserStatus" Multiplicity="1" />
+    <End Role="UMUser" Type="Self.UMUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UMRefUserStatus">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UMUser">
+        <PropertyRef Name="RefUserStatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserRole_RefRole">
+    <End Role="UMRefRole" Type="Self.UMRefRole" Multiplicity="1" />
+    <End Role="UMUserRole" Type="Self.UMUserRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UMRefRole">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UMUserRole">
+        <PropertyRef Name="RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserRole_User">
+    <End Role="UMUser" Type="Self.UMUser" Multiplicity="1" />
+    <End Role="UMUserRole" Type="Self.UMUserRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UMUser">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UMUserRole">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="FnSplit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="List" Type="nvarchar" Mode="In" />
+    <Parameter Name="SplitOn" Type="nvarchar" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Value" Type="nvarchar" MaxLength="100" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="GetDateRange" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="minDate_Str" Type="nvarchar" Mode="In" />
+    <Parameter Name="maxDate_Str" Type="nvarchar" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="Date" Type="date" Nullable="false" />
+          <Property Name="DateNameString" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="IMCspGetEmployeeDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FullName" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="IMCspGetEmployeeDetails2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FullName" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="IMCspGetUrlLinks" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ModuleID" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="spGetAllForm" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ModuleID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spGetAllowedFormAction" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="RoleID" Type="bigint" Mode="In" />
+    <Parameter Name="FormID" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="spGetAllowedFormRole" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="RoleID" Type="int" Mode="In" />
+    <Parameter Name="ModuleID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spGetAllowedUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="bigint" Mode="In" />
+    <Parameter Name="FormID" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="spGetCity" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="spGetCityByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="LocationId" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="spGetCountry" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="spGetDisallowedFormAction" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="RoleID" Type="bigint" Mode="In" />
+    <Parameter Name="FormID" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="spGetDisallowedFormRole" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="RoleID" Type="int" Mode="In" />
+    <Parameter Name="ModuleID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spGetDisallowedUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="bigint" Mode="In" />
+    <Parameter Name="FormID" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="spGetForm" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="RoleID" Type="bigint" Mode="In" />
+    <Parameter Name="ModuleID" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="spGetFormAction" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FormID" Type="bigint" Mode="In" />
+    <Parameter Name="RoleID" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="spGetLoginDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserLoginID" Type="varchar" Mode="In" />
+    <Parameter Name="Password" Type="varchar" Mode="In" />
+    <Parameter Name="RoleID" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="spGetLoginDetailWithoutPasswrd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserLoginID" Type="varchar" Mode="In" />
+    <Parameter Name="Password" Type="varchar" Mode="In" />
+    <Parameter Name="RoleID" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="spGetLoginHistory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SDate" Type="varchar" Mode="In" />
+    <Parameter Name="EDate" Type="varchar" Mode="In" />
+    <Parameter Name="UserName" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spGetLoginHistoryDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserName" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spGetModule" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="RoleID" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="spGetModule2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="RoleID" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="spGetModuleLinks" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="spGetRole" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserLoginID" Type="varchar" Mode="In" />
+    <Parameter Name="Password" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spGetRoleList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="spGetRoleOfUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="spGetRoleWithOutPass" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserLoginID" Type="varchar" Mode="In" />
+    <Parameter Name="Password" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spGetUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="bigint" Mode="In" />
+    <Parameter Name="RoleID" Type="int" Mode="In" />
+    <Parameter Name="CountryID" Type="int" Mode="In" />
+    <Parameter Name="UserName" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spGetUserAssignedCountries" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="spGetUserAssignedRole" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="spGetUserAssignedViewLevel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="spGetUserExternal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="spGetUserForgotPassword" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserName" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spGetUsersDD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="spGetUserStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="spGetUserUnAssignedCountries" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="spGetUserUnAssignedRole" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="spGetUserUnAssignedViewLevel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="UMspGetCountry" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="UMspGetUMDashboardCounterValue" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="bigint" Mode="In" />
+    <Parameter Name="Date" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="ComplaintManagementModelStoreContainer">
+    <EntitySet Name="RefCountry" EntityType="Self.RefCountry" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UMDataAccess" EntityType="Self.UMDataAccess" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UMForm" EntityType="Self.UMForm" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UMFormRole" EntityType="Self.UMFormRole" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UMFormRoleAction" EntityType="Self.UMFormRoleAction" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UMRefAction" EntityType="Self.UMRefAction" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UMRefModule" EntityType="Self.UMRefModule" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UMRefRole" EntityType="Self.UMRefRole" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UMRefUserStatus" EntityType="Self.UMRefUserStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UMRoleModuleLink" EntityType="Self.UMRoleModuleLink" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UMUser" EntityType="Self.UMUser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UMUserRole" EntityType="Self.UMUserRole" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserCountry" EntityType="Self.UserCountry" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserLevel" EntityType="Self.UserLevel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserLoginHistory" EntityType="Self.UserLoginHistory" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_DataAccess_UserAllowedID" Association="Self.FK_DataAccess_UserAllowedID">
+      <End Role="UMUser" EntitySet="UMUser" />
+      <End Role="UMDataAccess" EntitySet="UMDataAccess" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DataAccess_UserID" Association="Self.FK_DataAccess_UserID">
+      <End Role="UMUser" EntitySet="UMUser" />
+      <End Role="UMDataAccess" EntitySet="UMDataAccess" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Form_RefModule" Association="Self.FK_Form_RefModule">
+      <End Role="UMRefModule" EntitySet="UMRefModule" />
+      <End Role="UMForm" EntitySet="UMForm" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FormRole_Form" Association="Self.FK_FormRole_Form">
+      <End Role="UMForm" EntitySet="UMForm" />
+      <End Role="UMFormRole" EntitySet="UMFormRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FormRole_RefRole" Association="Self.FK_FormRole_RefRole">
+      <End Role="UMRefRole" EntitySet="UMRefRole" />
+      <End Role="UMFormRole" EntitySet="UMFormRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FormRoleAction_FormRole" Association="Self.FK_FormRoleAction_FormRole">
+      <End Role="UMFormRole" EntitySet="UMFormRole" />
+      <End Role="UMFormRoleAction" EntitySet="UMFormRoleAction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FormRoleAction_RefAction" Association="Self.FK_FormRoleAction_RefAction">
+      <End Role="UMRefAction" EntitySet="UMRefAction" />
+      <End Role="UMFormRoleAction" EntitySet="UMFormRoleAction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_RefUserStatus" Association="Self.FK_User_RefUserStatus">
+      <End Role="UMRefUserStatus" EntitySet="UMRefUserStatus" />
+      <End Role="UMUser" EntitySet="UMUser" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserRole_RefRole" Association="Self.FK_UserRole_RefRole">
+      <End Role="UMRefRole" EntitySet="UMRefRole" />
+      <End Role="UMUserRole" EntitySet="UMUserRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserRole_User" Association="Self.FK_UserRole_User">
+      <End Role="UMUser" EntitySet="UMUser" />
+      <End Role="UMUserRole" EntitySet="UMUserRole" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

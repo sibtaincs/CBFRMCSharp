@@ -1,0 +1,305 @@
+﻿@model CBFRM.Areas.ComplainManagement.Models.UserViewModel
+@using NonFactors.Mvc.Grid;
+
+
+@{
+	ViewBag.Title = "Tracker";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+@section styles{
+
+	@Styles.Render("~/Content/DataTable/css")
+	<!-- Styles -->
+	@*<link href="~/Content/assets/global/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css" rel="stylesheet" type="text/css" />
+		<link href="~/Content/assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css" rel="stylesheet" />
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css" rel="stylesheet" />
+		<link href="~/Content/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
+		<link href="~/Content/assets/global/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
+		<link href="~/Content/assets/global/plugins/select2/css/select2-bootstrap.min.css" rel="stylesheet" type="text/css" />*@
+	@*<link href="~/Content/assets/global/plugins/bootstrap-multiselect/css/bootstrap-multiselect.css" rel="stylesheet" />*@
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+
+}
+<link href="~/Content/application.css" rel="stylesheet" />
+<link href="~/Content/MvcGrid/mvc-grid.css" rel="stylesheet" type="text/css" />
+
+<style>
+
+	@@media all and (orientation: landscape) and (min-width: 1366px) {
+		.table td,
+		.table th {
+			font-size: 12px !important;
+		}
+	}
+
+	@@media all and (orientation: landscape) and (min-width: 620px) and (max-width: 1365px) {
+		.table td,
+		.table th {
+			font-size: 10px !important;
+		}
+	}
+
+	.pagination > .active > a {
+		background-color: #337ab7 !important;
+		border-color: #337ab7 !important;
+	}
+
+	.theadth {
+		color: white;
+		background-color: #337ab7;
+	}
+
+	.classheadcenter {
+		text-align: center;
+	}
+
+	.label-success {
+		background-color: #36c6d3;
+	}
+
+	.dataTables_scrollBody {
+	}
+
+	.portlet.box {
+		border: 1px solid #1C3FAA;
+		border-radius: 30px !important;
+		background-color: none;
+	}
+
+	.note.note-default {
+		background-color: #1C3FAA !important;
+		border-color: #1C3FAA !important;
+	}
+
+	@@media (min-width: 1281px) {
+		.dataTables_scrollBody {
+			height: calc(100vh - 400px) !important;
+		}
+	}
+
+	@@media (min-width: 1025px) and (max-width: 1280px) {
+		.dataTables_scrollBody {
+			height: calc(100vh - 500px) !important;
+		}
+	}
+
+	@@media (min-width: 768px) and (max-width: 1024px) {
+		.dataTables_scrollBody {
+			height: calc(100vh - 500px) !important;
+		}
+	}
+
+	@@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+		.dataTables_scrollBody {
+			height: calc(100vh - 500px) !important;
+		}
+	}
+
+	@@media (min-width: 481px) and (max-width: 767px) {
+		.dataTables_scrollBody {
+			height: calc(100vh - 700px) !important;
+		}
+	}
+
+	@@media (min-width: 320px) and (max-width: 480px) {
+		.dataTables_scrollBody {
+			height: calc(100vh - 700px) !important;
+		}
+	}
+</style>
+
+
+<div class="page-container">
+	<div class="page-content-wrapper">
+		<!-- BEGIN CONTENT BODY -->
+		<div class="page-content" style="background: #1C3FAA;">
+			<div class="portlet box last-line" style="background: #FFFFFF; margin-top: 20px;">
+
+				<div style="padding: 25px">
+					<div class="input-group" style="float: right; margin-bottom:15px;">
+						<a href="/ComplainManagement/ComplainForm/Index" class="btn yellow-gold">
+							<i class="fa fa-plus"></i>
+							Add New Complaint
+
+						</a>
+
+
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							@(Html
+								.Grid(Model.spEditCBS).Build(c =>
+								{
+
+									c.Add(x => x.CommunityBasedComplaintID).Titled("ID").Filterable(true).Sortable(true);
+
+									c.Add(x => x.ReceivedDateForGrid).Titled("Date").Filterable(true).Formatted("{0: MM/dd/yyyy}");
+
+									c.Add(x => x.CountryName).Titled("Country").Filterable(true).Sortable(true);
+												//.Filterable(GridFilterType.Multi).Sortable(true);
+												c.Add(x => x.VulnerabilityTypeName).Titled("Vulnerability").Sortable(true);
+
+									c.Add(x => x.FieldSectorCode).Titled("Program/Sector").Filterable(true).Sortable(true);
+
+									c.Add(x => x.ProjectName).Titled("Grant Code").Filterable(true).Sortable(true);
+
+									c.Add(x => x.ComplaintCategoryShortName).Titled("Category").Filterable(true).Sortable(true);
+
+									c.Add(x => x.ComplaintStatusName).Titled("Status")
+									.Filterable(true).Sortable(true)
+									.RenderedAs(x =>
+									{
+										if (x.ComplaintStatusName == "Complaint Closed")
+											return "<span style=\"color: green;\"> " + x.ComplaintStatusName + " </span> ";
+										return "<span > " + x.ComplaintStatusName + " </span> ";
+
+									}).Encoded(false);
+
+									c.Add(x => x.AssignedName).Titled("Assigned To").Filterable(true).Sortable(true);
+
+									c.Add(x => x.DaysafterRecived).Filterable(true).Titled("Days left").RenderedAs(x =>
+									{
+										if (x.DaysafterRecived == 0)
+											return "<span class=\"label label-sm label-warning Bold\" style=\"font-weight:100; margin-left: 30%; width: 40%; margin-right:30%;\"></span>";
+										else if (x.DaysafterRecived < 0)
+											return "<span class=\"label label-sm label-danger Bold\" style=\"font-weight:100; margin-left: 30%; width: 40%; margin-right:30%;\">" + x.DaysafterRecived + "</span>";
+										else if (x.DaysafterRecived > 10 && x.DaysafterRecived <= 20)
+											return "<span class=\"label label-sm label-primary Bold\" style=\"font-weight:100; margin-left: 30%; width: 40%; margin-right:30%;\">" + x.DaysafterRecived + "</span>";
+										else if (x.DaysafterRecived > 20 && x.DaysafterRecived <= 30)
+											return "<span class=\"label label-sm label-success Bold\" style=\"font-weight:100; margin-left: 30%; width: 40%; margin-right:30%;\">" + x.DaysafterRecived + "</span>";
+										else
+											return "<span class=\"label label-sm label-default Bold\" style=\"font-weight:100; margin-left: 30%; width: 40%; margin-right:30%;\">" + x.DaysafterRecived + "</span>";
+
+									}).Encoded(false);
+
+									c.Add(x => "<a href=\"../../ComplainManagement/ComplainForm/Edit/" + x.CommunityBasedComplaintID + "\" class=\"btn  btn-light\"><img id=\"ctl00_XXX\" src=\"../../img/Tracker.png\" /></a>").Titled("Edit").Encoded(false);
+
+									c.Add(d => d).Titled("Delete").RenderedAs(d =>
+									{
+										if (Model.spGetRoles.Any(x => x.CountryCode == d.CountryCode && x.GroupName == "Meal Coordinator" && x.ReadAccessLevel == "Full" && x.FieldSiteName == "All"))
+										{
+											return "<button onclick='showMessageConfirmation(this, " + d.CommunityBasedComplaintID + ")' class=\"btn btn-sm btn-danger\"><i class=\"fa fa-trash\"></i></button>";
+										}
+										if (Model.spGetRoles.Any(x => x.CountryCode == "All" && x.GroupName == "IT" && x.ReadAccessLevel == "Full" && x.FieldSiteName == "All"))
+										{
+											return "<button onclick='showMessageConfirmation(this, " + d.CommunityBasedComplaintID + ")' class=\"btn btn-sm btn-danger\"><i class=\"fa fa-trash\"></i></button>";
+										}
+										return "<button onclick='showMessageConfirmation(this, " + d.CommunityBasedComplaintID + ")' class=\"btn btn-sm btn-danger\" disabled><i class=\"fa fa-trash\"></i></button>";
+									}).Encoded(false);
+								})
+								.Empty("No data found")
+								.Pageable(pager =>
+								{
+									pager.ShowPageSizes = true;
+									pager.RowsPerPage = 10;
+								})
+								 .Filterable(GridFilterType.Double)
+								 .Sortable()
+								 .Pageable()
+							)
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script language="JavaScript" type="text/javascript" src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="~/Scripts/MvcGrid/mvc-grid.js"></script>
+<script>
+	[].forEach.call(document.getElementsByClassName('mvc-grid'), function (element) {
+		new MvcGrid(element);
+	});
+</script>
+<script>
+	function showMessageConfirmation(row, ID) {
+		debugger;
+		swal({
+			title: 'Are your sure you want to delete This  Complain',
+			text: "Complain ID  " + ID,
+			type: 'warning',
+			allowOutsideClick: false,
+			showConfirmButton: true,
+			showCancelButton: true,
+			confirmButtonClass: 'btn-danger',
+			cancelButtonClass: 'btn-info',
+			closeOnConfirm: false,
+			closeOnCancel: true,
+			confirmButtonText: 'Yes, Delete It',
+			cancelButtonText: 'No, I am not sure',
+		},
+			function (isConfirm) {
+				if (isConfirm) {
+					DeleteRecord(row, ID);
+
+				} else {
+					'Cancelled',
+						'Complain ID Not Deleted :)',
+						'error'
+				}
+			});
+	}
+	//delete ajax function to delete any record
+	function DeleteRecord(row, ID) {
+		if (ID > 0) {
+
+
+			debugger;
+			$.ajax({
+				type: 'GET',
+				url: '/ComplainManagement/ComplainDetails/Delete',
+				dataType: 'json',
+				data: { "ID": ID },
+				async: true,
+				beforeSend: function () {
+					debugger;
+
+					$('#ProcessingModal').modal('show');
+				},
+				complete: function () {
+					$('#ProcessingModal').modal('hide');
+				},
+				success: function (data) {
+					debugger;
+					if (data.length > 0) {
+						if (data == 'Deleted') {
+							$(row).closest("tr").remove();
+							//sr = Number(sr) - 1;
+							showMessage("Success", "Record Deleted Successfully", "success", "btn-success");
+						}
+						else {
+							showMessage("Oops, Something went wrong", data, "warning", "btn-danger");
+						}
+					}
+				},
+				error: function () {
+
+					showMessage("Oops, Something went wrong", "Error Occured while Ajax Call, Please contact with administrator", "warning", "btn-danger");
+				}
+			});
+
+		}
+
+	}
+
+	function showMessage(MessageTitle, MsgText, ALType, BtnClass) {
+		debugger;
+		swal({
+			title: MessageTitle,
+			text: MsgText,
+			allowOutsideClick: true,
+			type: ALType,
+			showCancelButton: false,
+			confirmButtonClass: BtnClass,
+			confirmButtonText: "Okay",
+			closeOnConfirm: false
+
+		});
+	}
+
+</script>

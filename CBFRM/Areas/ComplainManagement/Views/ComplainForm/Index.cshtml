@@ -1,0 +1,4192 @@
+﻿@model CBFRM.Areas.ComplainManagement.Models.UserViewModel
+@{
+	ViewBag.Title = "Complain Form";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+
+
+	int ComID = 0;
+	string ctrID = "";
+	string fsCode = "";
+	string SD = "";
+	string UUser = "";
+	string Recdt = "";
+	bool IMCStaffFlag = true;
+	string RecByEDWPName = "";
+	int RecByEDWPID = 0;
+	string RByNonIMCName = "";
+	string ETimestamp = "";
+	int CCMCBC = 0;
+	string Province = "";
+	string DistrictText = "";
+	string OCMCBC = "";
+	string LocationText = "";
+	string CommunityText = "";
+	string ProID = "";
+	string FSC = "";
+	string FSCOtherSectorText = "";
+	int VulID = 0;
+	string subj = "";
+	string ComplaintDescription = "";
+	int EDWComplaintantID = 0;
+	int Age = 0;
+	string SexCodee = "";
+	string LDCode = "";
+	string OtherLDCode = "";
+	string PName = "";
+	string Phone = "";
+	string Email = "";
+	string Address = "";
+	string RelationToProgram = "";
+	string OCAvenueText = "";
+	int ClassfiID = 0;
+	int catID = -1;
+	string ACDate = "";
+	int ACM = 0;
+	int ACKByEDWPID = 0;
+	string ACKEDWPName = "";
+	string ACkOCMT = "";
+	string NoackDesc = "";
+	int RefLevel = 0;
+	int REFCountryEDWPID = 0;
+	string REFCountryEDWName = "";
+	int CMHQ = 0;
+	string HQDate = "";
+	string HQOCCM = "";
+	string NoRRD = "";
+	string IDateofreferral = "";
+	string IComments = "";
+	int FIRSTRESPEDWPID = 0;
+	string FIRSTRESPEDWName = "";
+	string NonIMCName = "";
+	string HQDisclosure = "";
+	string ReferralAgency = "";
+	string ExtPersonName = "";
+	string PersonPositionText = "";
+	string RefDate = "";
+	string ExtComment = "";
+	string InvDes = "";
+	string Corrective = "";
+	string POCN = "";
+	string ResDate = "";
+	string RepDate = "";
+	int RepCMID = 0;
+	string RepOtherComm = "";
+	string NoRepDesc = "";
+	int APPRESPEDWPID = 0;
+	string APPRESPEDWName = "";
+	string RAppealDate = "";
+	int RAppealCMID = 0;
+	string RAppealOCC = "";
+	string AppDate = null;
+	int AppCMID = 0;
+	string AppOCMtext = "";
+	string ProceDes = "";
+	string AResolutionDate = "";
+	string ApResolutionDes = "";
+	string ClosureDate = "";
+	string closedby = "";
+	int closedbypersonID = 0;
+
+
+
+
+
+	bool AddressedFlag = false;
+	bool ProcessExplainedFlag = false;
+	bool TimelineDiscussedFlag = false;
+	bool ExplainedFlag = false;
+	bool FollowUpFlag = false;
+	string ddlenabledisable = "";
+	string ddlenabledisablefsc = "";
+	string ResponseAppealYNStyle = "display:none";
+	string ResponseAppealStyle = "display:none";
+	string AppealTabHide = "";
+	string AppealStyle = "";
+
+
+
+	string RDOCMstyle = "display:none";
+
+	if (Model.spEditCBS.Count > 0)
+	{
+		ComID = Convert.ToInt32(Model.spEditCBS[0].CommunityBasedComplaintID);
+		ctrID = Convert.ToString(Model.spEditCBS[0].CountryCode);
+
+		if (ctrID != null)
+		{
+			ddlenabledisable = "disabled";
+
+
+		}
+
+
+		fsCode = Convert.ToString(Model.spEditCBS[0].FieldSiteCode);
+		if (fsCode != null)
+		{
+			ddlenabledisablefsc = "disabled";
+
+
+		}
+		SD = Convert.ToString(Model.spEditCBS[0].SubmitDate);
+		UUser = Convert.ToString(Model.spEditCBS[0].UpdateUser);
+		Recdt = Convert.ToString(Model.spEditCBS[0].ReceivedDate);
+		IMCStaffFlag = Convert.ToBoolean(Model.spEditCBS[0].ReceivedByIMCStaffFlag);
+		RecByEDWPID = Convert.ToInt32(Model.spEditCBS[0].ReceivedByEDWPersonID);
+		RecByEDWPName = Convert.ToString(Model.spEditCBS[0].FullName);
+		RByNonIMCName = Convert.ToString(Model.spEditCBS[0].ReceivedByNonIMCName);
+		ETimestamp = Convert.ToString(Model.spEditCBS[0].EnteredTimestamp);
+		CCMCBC = Convert.ToInt32(Model.spEditCBS[0].ComplaintCommunicationMethodID);
+		ProID = Convert.ToString(Model.spEditCBS[0].ProjectIdentifier);
+		subj = Convert.ToString(Model.spEditCBS[0].SubjectText);
+		ComplaintDescription = Convert.ToString(Model.spEditCBS[0].ComplaintDescription);
+		ClassfiID = Convert.ToInt32(Model.spEditCBS[0].ComplaintClassificationID);
+		//catID = Convert.ToInt32(Model.spEditCBS[0].ComplaintCategoryID);
+		if (Model.spEditCBS[0].ComplaintCategoryID == null)
+		{
+
+			catID = -1;
+
+		}
+		else
+		{
+			catID = Convert.ToInt32(Model.spEditCBS[0].ComplaintCategoryID);
+		}
+
+		NoackDesc = Convert.ToString(Model.spEditCBS[0].NoAcknowledgementReasonDescription);
+		RefLevel = Convert.ToInt32(Model.spEditCBS[0].InternalReferralLevelID);
+		NoRRD = Convert.ToString(Model.spEditCBS[0].NoReferralReasonDescription);
+		NoRepDesc = Convert.ToString(Model.spEditCBS[0].NoResponseReasonDescription);
+		ClosureDate = Convert.ToString(Model.spEditCBS[0].ClosedDate);
+
+		if (ClosureDate == null)
+		{
+			ClosureDate = null;
+			AppealTabHide = "";
+			AppealStyle = "cursor: no-drop";
+		}
+		else
+		{
+			AppealTabHide = "tab";
+			AppealStyle = "";
+
+
+
+		}
+		closedbypersonID = Convert.ToInt32(Model.spEditCBS[0].ClosedByEDWPersonID);
+		closedby = Convert.ToString(Model.spEditCBS[0].ClosedbyPerson);
+		NonIMCName = Convert.ToString(Model.spEditCBS[0].ResponseByNonIMCName);
+	}
+	if (Model.spEditlocation.Count > 0)
+	{
+		Province = Convert.ToString(Model.spEditlocation[0].ProvinceText);
+		DistrictText = Convert.ToString(Model.spEditlocation[0].DistrictText);
+		LocationText = Convert.ToString(Model.spEditlocation[0].LocationText);
+		CommunityText = Convert.ToString(Model.spEditlocation[0].CommunityText);
+	}
+	//if (Model.spEditFieldSector.Count > 0)
+	//{
+	//	FSC = Convert.ToString(Model.spEditFieldSector[0].FieldSectorCode);
+	//	FSCOtherSectorText = Convert.ToString(Model.spEditFieldSector[0].OtherSectorText);
+	//}
+	if (Model.spEditVulnerability.Count > 0)
+	{
+		VulID = Convert.ToInt32(Model.spEditVulnerability[0].VulnerabilityTypeID);
+	}
+
+	if (Model.spEditComplainDetails.Count > 0)
+	{
+		EDWComplaintantID = Convert.ToInt32(Model.spEditComplainDetails[0].EDWComplainantID);
+		Age = Convert.ToInt32(Model.spEditComplainDetails[0].AgeYearNumber);
+		SexCodee = Convert.ToString(Model.spEditComplainDetails[0].SexCode);
+		LDCode = Convert.ToString(Model.spEditComplainDetails[0].PrimaryLanguageDialectCode);
+		OtherLDCode = Convert.ToString(Model.spEditComplainDetails[0].OtherLanguageDialectText);
+		PName = Convert.ToString(Model.spEditComplainDetails[0].PersonName);
+		Phone = Convert.ToString(Model.spEditComplainDetails[0].PhoneNumber);
+		Email = Convert.ToString(Model.spEditComplainDetails[0].EmailAddress);
+		Address = Convert.ToString(Model.spEditComplainDetails[0].AddressText);
+		RelationToProgram = Convert.ToString(Model.spEditComplainDetails[0].ComplainantProgramRelationshipText);
+		OCAvenueText = Convert.ToString(Model.spEditComplainDetails[0].OtherCommunicationAvenueText);
+		AddressedFlag = Convert.ToBoolean(Model.spEditComplainDetails[0].ComplainantQuestionsAddressedFlag);
+		ProcessExplainedFlag = Convert.ToBoolean(Model.spEditComplainDetails[0].HandlingProcessExplainedFlag);
+		TimelineDiscussedFlag = Convert.ToBoolean(Model.spEditComplainDetails[0].ProcessTimelineDiscussedFlag);
+		ExplainedFlag = Convert.ToBoolean(Model.spEditComplainDetails[0].ResponseReceivalExplainedFlag);
+		FollowUpFlag = Convert.ToBoolean(Model.spEditComplainDetails[0].FollowUpContactDetailsFlag);
+
+	}
+
+	if (Model.spEditComplaintCommunicationAck.Count > 0)
+	{
+
+		ACDate = Convert.ToString(Model.spEditComplaintCommunicationAck[0].CommunicationDate);
+		if (ACDate == "01/01/0001")
+		{
+			ACDate = null;
+
+
+		}
+		ACM = Convert.ToInt32(Model.spEditComplaintCommunicationAck[0].CommunicationMethodID);
+		ACKByEDWPID = Convert.ToInt32(Model.spEditComplaintCommunicationAck[0].EDWPersonID);
+		ACKEDWPName = Convert.ToString(Model.spEditComplaintCommunicationAck[0].FullName);
+		ACkOCMT = Convert.ToString(Model.spEditComplaintCommunicationAck[0].OtherComplaintCommunicationMethodText);
+
+
+	}
+	if (Model.spEditComplaintCommunication.Count > 0)
+	{
+		REFCountryEDWPID = Convert.ToInt32(Model.spEditComplaintCommunication[0].EDWPersonID);
+		REFCountryEDWName = Convert.ToString(Model.spEditComplaintCommunication[0].FullName);
+		IDateofreferral = Convert.ToString(Model.spEditComplaintCommunication[0].CommunicationDate);
+
+		if (IDateofreferral == "01/01/0001")
+		{
+			IDateofreferral = null;
+
+
+		}
+		IComments = Convert.ToString(Model.spEditComplaintCommunication[0].Comment);
+
+	}
+
+	if (Model.spEditComplaintCommunicationHQ.Count > 0)
+	{
+
+		CMHQ = Convert.ToInt32(Model.spEditComplaintCommunicationHQ[0].CommunicationMethodID);
+		HQDate = Convert.ToString(Model.spEditComplaintCommunicationHQ[0].CommunicationDate);
+
+		if (HQDate == "01/01/0001")
+		{
+			HQDate = null;
+		}
+		HQOCCM = Convert.ToString(Model.spEditComplaintCommunicationHQ[0].OtherComplaintCommunicationMethodText);
+
+	}
+
+	if (Model.spEditComplaintCommunicationFR.Count > 0) {
+
+		FIRSTRESPEDWPID = Convert.ToInt32(Model.spEditComplaintCommunicationFR[0].EDWPersonID);
+		FIRSTRESPEDWName = Convert.ToString(Model.spEditComplaintCommunicationFR[0].FullName);
+		RepDate = Convert.ToString(Model.spEditComplaintCommunicationFR[0].CommunicationDate);
+		if (RepDate == "01/01/0001")
+		{
+			RepDate = null;
+		}
+		RepCMID = Convert.ToInt32(Model.spEditComplaintCommunicationFR[0].CommunicationMethodID);
+		RepOtherComm = Convert.ToString(Model.spEditComplaintCommunicationFR[0].OtherComplaintCommunicationMethodText);
+
+
+		if (RepOtherComm != null)
+		{
+			RDOCMstyle = "display:block";
+		}
+		else
+		{
+			RDOCMstyle = "display:none";
+		}
+
+	}
+
+	if (Model.spEditComplaintCommunicationAR.Count > 0)
+	{
+		APPRESPEDWPID = Convert.ToInt32(Model.spEditComplaintCommunicationAR[0].EDWPersonID);
+		APPRESPEDWName = Convert.ToString(Model.spEditComplaintCommunicationAR[0].FullName);
+		RAppealDate = Convert.ToString(Model.spEditComplaintCommunicationAR[0].CommunicationDate);
+		if (RAppealDate == "01/01/0001")
+		{
+			RAppealDate = null;
+		}
+		RAppealCMID = Convert.ToInt32(Model.spEditComplaintCommunicationAR[0].CommunicationMethodID);
+		RAppealOCC = Convert.ToString(Model.spEditComplaintCommunicationAR[0].OtherComplaintCommunicationMethodText);
+
+	}
+
+	if (Model.spEditExternal.Count > 0)
+	{
+
+		HQDisclosure = Convert.ToString(Model.spEditExternal[0].HQDisclosureAuthorizationText);
+		ReferralAgency = Convert.ToString(Model.spEditExternal[0].ReferralAgencyName);
+		ExtPersonName = Convert.ToString(Model.spEditExternal[0].ReferralPersonName);
+		PersonPositionText = Convert.ToString(Model.spEditExternal[0].ReferralPersonPositionText);
+		RefDate = Convert.ToString(Model.spEditExternal[0].ReferralDate);
+		if (RefDate == "01/01/0001")
+		{
+			RefDate = null;
+
+
+		}
+		ExtComment = Convert.ToString(Model.spEditExternal[0].ContactComment);
+	}
+	if (Model.spEditResolution.Count > 0)
+	{
+		InvDes = Convert.ToString(Model.spEditResolution[0].InvestigationDescription);
+		Corrective = Convert.ToString(Model.spEditResolution[0].CorrectiveActionDescription);
+		POCN = Convert.ToString(Model.spEditResolution[0].InvestigationPointOfContactName);
+		ResDate = Convert.ToString(Model.spEditResolution[0].ResolutionDate);
+
+		if (ResDate == "01/01/0001")
+		{
+			ResDate = null;
+		}
+
+
+
+	}
+	if (Model.spEditComplaintAppeal.Count > 0)
+	{
+		AppDate = Convert.ToString(Model.spEditComplaintAppeal[0].AppealDate);
+		AppCMID = Convert.ToInt32(Model.spEditComplaintAppeal[0].AppealReceivedCommunicationMethodID);
+		AppOCMtext = Convert.ToString(Model.spEditComplaintAppeal[0].OtherComplaintCommunicationMethodText);
+		ProceDes = Convert.ToString(Model.spEditComplaintAppeal[0].ProcessDescription);
+		AResolutionDate = Convert.ToString(Model.spEditComplaintAppeal[0].AppealResolutionDate);
+		ApResolutionDes = Convert.ToString(Model.spEditComplaintAppeal[0].AppealResolutionDescription);
+
+		if (AppDate == "01/01/0001")
+		{
+			AppDate = null;
+
+			ResponseAppealYNStyle = "display:none";
+			ResponseAppealStyle = "display:none";
+			//AppealTabHide  = "display:block";
+
+
+		}
+		else
+		{
+			ResponseAppealYNStyle = "display:block";
+			ResponseAppealStyle = "display:block";
+
+		}
+		if (AResolutionDate == "01/01/0001")
+		{
+			AResolutionDate = null;
+		}
+
+
+	}
+
+
+	}
+
+
+
+	@section styles{
+
+		@Styles.Render("~/Content/DataTable/css")
+	<!-- Styles -->
+
+	<link href="~/Content/assets/global/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css" rel="stylesheet" type="text/css" />
+	<link href="~/Content/assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css" rel="stylesheet" />
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css" rel="stylesheet" />
+	<link href="~/Content/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
+	<link href="~/Content/assets/global/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
+	<link href="~/Content/assets/global/plugins/select2/css/select2-bootstrap.min.css" rel="stylesheet" type="text/css" />
+	<link href="~/Content/assets/global/plugins/bootstrap-multiselect/css/bootstrap-multiselect.css" rel="stylesheet" />
+	<link href="~/Content/application.css" rel="stylesheet" />
+
+}
+
+
+
+<form role="form" id="CBFValidation" action="#">
+<div class="page-container">
+<div class="page-content-wrapper">
+<!-- BEGIN CONTENT BODY -->
+<div class="page-content">
+
+<div class="portlet box  blue-soft">
+<div class="portlet-title">
+<div class="caption" style="font-size: 20px; font-weight:bold">
+<i class=""></i>Complaint Form
+</div>
+<div class="tools"> </div>
+</div>
+
+<div class="portlet-body" style="background-color:#eff3f8;font-weight:bold">
+<div class="row">
+<div class="col-md-3">
+	<div class="form-group form-md-line-input form-md-floating-label has-success"> 
+		<input id="txtCommunityBasedComplaintID" disabled name="CommunityBasedComplaintID" class="form-control" type="text" value="@ComID" title="Complain Number" />
+		<label for="txtCommunityBasedComplaintID"> Complain ID</label>
+	</div>
+</div>
+
+<div class="col-md-5">
+
+	<input type="number" id="lblEDWComplaintantID" name="EDWComplaintantID" hidden value="@EDWComplaintantID" />
+	<div class="form-group form-md-line-input form-md-floating-label has-success"> 
+
+		<select @ddlenabledisable class="form-control tip-top color red" id="dllCountry" name="CountryCode" data-toggle="tooltip">
+										
+			<option value="" ></option>
+			@foreach (var item in Model.spGetCountries.OrderBy(x => x.CountryName))
+			{
+
+				if (item.CountryCode == ctrID)
+				{
+					<option value="@item.CountryCode" selected  >@item.CountryName</option>
+				}
+				else
+				{
+					<option value="@item.CountryCode" > @item.CountryName </option>
+				}
+			}
+
+		</select>
+		<label for="dllCountry">Country</label>
+	</div>
+</div>
+<div class="col-md-4">
+
+	<div class="form-group form-md-line-input form-md-floating-label has-success"> 
+		<select @ddlenabledisablefsc class="form-control" id="dllFieldSite" name="FieldSiteCode">
+			<option value=""></option>
+
+			@foreach (var item in Model.spGetFieldSiteCode.OrderBy(x => x.CountryCode))
+			{
+				if (item.FieldSiteCode == fsCode)
+				{
+					<option value="@item.FieldSiteCode" selected>@item.FieldSiteName</option>
+				}
+				else
+				{
+					<option value="@item.FieldSiteCode"> @item.FieldSiteName </option>
+				}
+			}
+		</select>
+		<label for="dllFieldSite">Field Site Name</label>
+
+	</div>
+</div>
+</div>
+<div class="row" style="display:none" id="main">
+<div class="col-md-3 col-sm-3 col-xs-3">
+	<ul class="nav nav-tabs tabs-left" id="tabstrip">
+		<li class="active">
+			<a href="#tab_6_1" data-toggle="tab">Complaint Details</a>
+		</li>
+		<li>
+			<a href="#tab_6_2" data-toggle="tab">Acknowledgment</a>
+		</li>
+		<li>
+			<a href="#tab_6_3" data-toggle="tab">Referral </a>
+		</li>
+		<li>
+			<a href="#tab_6_4" data-toggle="tab">Resolution</a>
+		</li>
+		<li>
+			<a href="#tab_6_5" data-toggle="tab" title="Response-communicating resolution back to the complainant or feedback provider">Response to Complainant</a>
+		</li>
+		<li  >
+			<a href="#tab_6_6" id="appealTab" style="@AppealStyle" data-toggle="@AppealTabHide" title="Appeal will enable after closure">Appeal</a>
+		</li>
+		<li>
+			<a href="#tab_6_7" data-toggle="tab">Closure</a>
+		</li>
+	</ul>
+</div>
+<br />
+<div class="col-md-9 col-sm-9 col-xs-9">
+	<div class="tab-content">
+		<div class="tab-pane active" id="tab_6_1">
+			<div class="portlet box blue-soft">
+				<div class="portlet-title">
+					<div class="caption">
+						<i class="fa fa-gift"></i>Feedback/Complaint
+					</div>
+					<div class="tools">
+						<a href="" class="collapse" data-original-title="" title=""> </a>
+
+					</div>
+				</div>
+				<div class="portlet-body form">
+					<div class="form-body">
+						<div class="row">
+							<div class="col-md-4">
+
+								<div class="form-group">
+									<label style="color:#999; font-size: 13px">Date of Entry :</label>
+									<label style="color:black;font-weight: 600" id="lblSubmitDate" name="SubmitDate">@SD</label>
+
+								</div>
+							</div>
+							<!--/span-->
+							<div class="col-md-4">
+
+								<!--/span-->
+							</div>
+
+							<div class="col-md-4">
+
+								<div class="form-group">
+									<label style="color:#999; font-size: 13px">Logged By:</label>
+									<label style="color:black;font-weight: 600" id="lblEnteredByEDWPersonID" name="EnteredByEDWPersonID">@UUser</label>
+
+
+								</div>
+
+							</div>
+
+						</div>
+						<ul class="nav nav-tabs nav-tabs-line nav-tabs-inverse Bold"></ul>
+						<div class="row">
+							<div class="col-md-4">
+
+
+								<div class="form-group form-md-line-input form-md-floating-label has-success">
+									<input id="txtReceivedDate" value="@Recdt" data-date-format="dd/mm/yyyy" name="ReceivedDate" data-date-end-date="+0d" class="form-control  datepicker" size="16" type="text" />
+									<label for="txtReceivedDate">Date feedback/complaint Received</label>
+								</div>
+
+
+							</div>
+							<div class="col-md-1">
+								@{
+									string IMCStaffFlagStyle = "display:block";
+									string ReciviedByDetailsstyle = "display:none";
+
+									if (EDWComplaintantID == 0)
+									{
+										IMCStaffFlag = true;
+
+									}
+
+									if (IMCStaffFlag == false)
+									{
+										IMCStaffFlagStyle = "display:none";
+										ReciviedByDetailsstyle = "display:block";
+
+									}
+								}
+								<label class="customlablecheck" onclick="myFunction()">
+									<input type="checkbox" checked="@IMCStaffFlag" id="chkReceivedByIMCStaffFlag" title="Un Check For Non IMC Staff Name" name="ReceivedByIMCStaffFlag">&nbsp;IMC Staff
+								</label>
+							</div>
+							<div class="col-md-3" id="ReciviedByDetails" style="@IMCStaffFlagStyle">
+
+								<div class="form-group form-md-line-input form-md-floating-label has-success">
+									<input placeholder="Received by" value="@RecByEDWPName" id="txtReceivedByEDWPersonID" name="ReceivedByEDWPersonID" class="form-control RecievedByDivStyle" />
+							
+								
+								</div>
+
+								<input id="lblrecivedbyID" name="ReceivedByEDWPersonID" class="form-control" type="hidden" value="@RecByEDWPID" />
+
+							</div>
+							
+							<div class="col-md-3" id="RecivedByNonIMCDetails" style="@ReciviedByDetailsstyle">
+
+								<div class="form-group form-md-line-input form-md-floating-label has-success">
+									<input id="txtReceivedByNonIMCName" name="ReceivedByNonIMCName" maxlength="80" class="form-control" type="text" value="@RByNonIMCName" />
+									<label for="txtReceivedByNonIMCName">Received By Non IMC Name</label>
+								</div>
+
+
+							</div>
+							<div class="col-md-4">
+
+
+								<div class="form-group form-md-line-input form-md-floating-label has-success">
+									<input id="txtDateComplainwasRaised" value="@ETimestamp" data-date-format="dd/mm/yyyy" name="EnteredTimestamp" data-date-end-date="-0d" class="form-control  datepicker tip-top color red" size="16" type="text" data-toggle="tooltip" title="Date feedback/complaint was raised (if different from date received)" />
+									<label for="txtDateComplainwasRaised">Date Complain was raised</label>
+								</div>
+							</div>
+
+						</div>
+						<div class="row">
+							<div class="col-md-4">
+
+								<div class="form-group form-md-line-input form-md-floating-label has-success"> 
+									<select class="form-control tip-top color red" id="dllComplaintCommunicationMethodID" name="ComplaintCommunicationMethodID" data-toggle="tooltip" title="Feedback/Complaint Channel(how feedback complaint was received)">
+										<option value=""></option>
+										@foreach (var item in Model.spGetCommunicationMethod.OrderBy(x => x.SubmittalDisplaySequenceNumber))
+										{
+											if (item.CommunicationMethodID == CCMCBC)
+											{
+												<option value=@item.CommunicationMethodID selected>@item.CommunicationMethodName</option>
+											}
+											else
+											{
+												<option value=@item.CommunicationMethodID> @item.CommunicationMethodName </option>
+											}
+										}
+									</select>
+									<label for="dllComplaintCommunicationMethodID">Complaint Channel</label>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group form-md-line-input form-md-floating-label has-success"> 
+
+									<input id="txtProvinceText" maxlength="80" class="form-control" value="@Province" name="ProvinceText" />
+									<label for="txtProvinceText">Governorate/Province</label>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group form-md-line-input form-md-floating-label has-success"> 
+									<input id="txtDistrictText" maxlength="80" class="form-control" value="@DistrictText" name="DistrictText" />
+									<label for="txtDistrictText">District</label>
+								</div>
+
+							</div>
+						</div>
+						<div class="row" id="OtherComplaintCommunicationMethodTextDetails" style="display:none">
+							<div class="col-md-12">
+
+
+								<div class="form-group form-md-line-input form-md-floating-label has-success"> 
+									<input id="txtOtherComplaintCommunicationMethodText" type="text" maxlength="80" class="form-control" value="@OCMCBC" name="OtherComplaintCommunicationMethodText" />
+									<label for="txtOtherComplaintCommunicationMethodText ">Other Complaint Communication Method</label>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-4">
+
+								<div class="form-group form-md-line-input form-md-floating-label has-success"> 
+									<input id="txtLocationText" maxlength="80" text" class="form-control" value="@LocationText" name="LocationText" />
+									<label for="txtLocationText">Location/ camp /facility</label>
+								</div>
+							</div>
+							<div class="col-md-4">
+
+								<div class="form-group form-md-line-input form-md-floating-label has-success"> 
+									<input id="txtCommunityText" maxlength="80" text" class="form-control" value="@CommunityText" name="CommunityText" />
+									<label for="txtCommunityText">Village/ community</label>
+								</div>
+
+							</div>
+
+							<div class="col-md-4">
+								<div class="form-group form-md-line-input form-md-floating-label has-success"> 
+									<select class="form-control" id="ddlProjectIdentifier" name="ProjectIdentifier">
+										<option value=""></option>
+
+										@foreach (var item in Model.spGetvProjectByID.OrderBy(x => x.DropDownDisplay))
+										{
+											if (item.ProjectIdentifier == ProID)
+											{
+												<option value="@item.ProjectIdentifier" selected>@item.DropDownDisplay</option>
+											}
+											else
+											{
+												<option value="@item.ProjectIdentifier"> @item.DropDownDisplay </option>
+											}
+										}
+
+									</select>
+									<label for="ddlProjectIdentifier">Grant Code</label>
+								</div>
+
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<div class="form-group ">
+									<label style="color:#999">
+										Sector/Program
+									</label>
+									<select id="dllFieldSectorCode" name="FieldSectorCode" class="form-control select2" multiple data-label="left" data-select-all="true" data-width="100%" data-filter="true" data-action-onchange="true">
+
+										@foreach (var item in Model.spGetFieldSector.OrderBy(x => x.DisplaySequenceNumber))
+										{
+											bool selected;
+											selected = false;
+
+
+											if (Model.spEditFieldSector.Count > 0)
+											{
+												foreach (var scid in Model.spEditFieldSector)
+												{
+													if (scid.FieldSectorCode == item.FieldSectorCode)
+													{
+														<option value="@item.FieldSectorCode" selected>@item.FieldSectorName</option>
+														selected = true;
+														break;
+													}
+												}
+											}
+
+											if (selected == false)
+											{
+
+												<option value="@item.FieldSectorCode">@item.FieldSectorName</option>
+											}
+
+										}
+
+									</select>
+								</div>
+
+							</div>
+						</div>
+
+						@{
+							string OtherSectorProgramStyle = "display:none";
+							if (Model.spEditFieldSector.Count > 0)
+							{
+
+								FSCOtherSectorText = Convert.ToString(Model.spEditFieldSector[0].OtherSectorText);
+
+								if (FSCOtherSectorText == null || FSCOtherSectorText == "")
+								{
+									OtherSectorProgramStyle = "display:none";
+								}
+								else
+								{
+									OtherSectorProgramStyle = "display:block";
+
+								}
+							}
+						}
+						<div class="row" id="OtherSectorProgram" style="@OtherSectorProgramStyle">
+							<div class="col-md-12">
+								@if (Model.spEditFieldSector.Count > 0)
+								{
+
+									FSCOtherSectorText = Convert.ToString(Model.spEditFieldSector[0].OtherSectorText);
+								}
+								<div class="form-group form-md-line-input form-md-floating-label has-success"> 
+									<input id="txtOtherSectorProgram" type="text" maxlength="80" class="form-control" value="@FSCOtherSectorText" name="OtherSectorProgram" />
+									<label for="txtOtherSectorProgram">Other Sector/Program</label>
+
+									<span id="remainSectorProg" class="ClassRemaing pull-right">80 </span>
+									<span class="ClassRemaing pull-right">characters remaining &nbsp;&nbsp;</span>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<div class="form-group">
+									<label style="color:#999">
+										Vulnerability Type
+									</label>
+
+									<select id="ddlVulnerabilityTypeID" name="VulnerabilityTypeID" class="form-control select2" multiple data-label="left" data-select-all="true" data-width="100%" data-filter="true" data-action-onchange="true">
+
+										@*multi check dropdown code*@
+
+
+										@foreach (var item in Model.spGetVulnerabilityType.OrderBy(x => x.DisplaySequenceNumber))
+										{
+											bool selected;
+											selected = false;
+
+											if (Model.spEditVulnerability.Count > 0)
+											{
+												foreach (var scid in Model.spEditVulnerability)
+												{
+													if (scid.VulnerabilityTypeID == item.VulnerabilityTypeID)
+													{
+														<option value=@item.VulnerabilityTypeID selected>@item.VulnerabilityTypeName</option>
+														selected = true;
+														break;
+													}
+												}
+											}
+
+											if (selected == false)
+											{
+
+												<option value=@item.VulnerabilityTypeID>@item.VulnerabilityTypeName</option>
+											}
+
+										}
+
+
+									</select>
+
+								</div>
+
+							</div>
+
+						</div>
+
+						<div class="row">
+							<div class="col-md-12">
+
+								<div class="form-group form-md-line-input form-md-floating-label has-success" title="This is PII Field"> 
+
+									<input id="txtSubject" text" class="form-control " value="@subj" name="Subject" />
+
+									<label for="txtSubject"><span class="fa fa-lock form-control-feedback"></span>Subject of complaint / Witness/ Victim (if other than Complainant)</label>
+									<span id="remainSubject" class="ClassRemaing pull-right">80</span>
+									<span class="ClassRemaing pull-right">characters remaining &nbsp;&nbsp;</span>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<div class="form-group form-md-line-input form-md-floating-label has-success">
+									<textarea id="txtComplaintDescription" maxlength="250" class="form-control" name="ComplaintDescription">@ComplaintDescription</textarea>
+
+									<label for="txtComplaintDescription">Description <span style="color:red;font-size:x-small">( Do not record any PII here,instead, record these details  the "Subject of complaint/ Witness/ Victim (if other than complainant)" field  above)</span></label>
+
+
+									<span id="RemComplaintDescription" class="ClassRemaing pull-right" title="characters remaining">  250 </span>
+									<span class="ClassRemaing pull-right">characters remaining &nbsp;&nbsp;</span>
+									@*<span class="ClassRemaing pull-left">
+
+										<span style="color:red;font-size:x-small">Note: do not record any personnaly identifiable information (PII) in the description,instead, record these details  the "Subject of complaint/ Witness/ Victim (if other than complainant)" field </span>
+									</span>*@
+								</div>
+
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<div class="portlet box blue-soft">
+				<div class="portlet-title">
+					<div class="caption">
+						<i class="fa fa-gift"></i>Feedback Provider/Complainant Details
+					</div>
+					<div class="tools">
+						<a href="javascript:;" class="expand" data-original-title="" title=""> </a>
+
+					</div>
+				</div>
+				<div class="portlet-body">
+					<div class="row">
+
+
+
+						<div class="col-md-4">
+
+							<div class="form-group form-md-line-input form-md-floating-label has-success"> 
+								<input type="number" value="@Age" id="txtAgeYearNumber" name="AgeYearNumber" class="form-control" />
+								<label for="txtAgeYearNumber">Age(in years)</label>
+
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group form-md-line-input form-md-floating-label has-success"> 
+								<select class="form-control" id="ddlSexCode" name="SexCode">
+									<option value=""></option>
+									@foreach (var item in Model.spGetGender.OrderBy(x => x.SexName))
+									{
+										if (item.SexCode == SexCodee)
+										{
+											<option value=@item.SexCode selected>@item.SexName</option>
+										}
+										else
+										{
+											<option value=@item.SexCode> @item.SexName </option>
+										}
+
+
+									}
+								</select>
+								<label for="ddlSexCode">Gender</label>
+
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group form-md-line-input form-md-floating-label has-success"> 
+								<select class="form-control " id="ddlLanguageName" name="LanguageDialectCode">
+									<option value=""></option>
+									@foreach (var item in Model.spGetLanguageDialect.OrderBy(x => x.DisplaySequenceNumber))
+									{
+										if (item.LanguageDialectCode == LDCode)
+										{
+											<option value=@item.LanguageDialectCode.Trim() selected>@item.LanguageName</option>
+										}
+										else
+										{
+
+											<option value="@item.LanguageDialectCode.Trim()">@item.LanguageName</option>
+										}
+
+									}
+								</select>
+								<label for="ddlLanguageName">Language understood</label>
+							</div>
+						</div>
+
+					</div>
+					<div class="row" id="OtherlanguagesDetails" style="display:none">
+						<div class="col-md-12">
+
+							<div class="form-group form-md-line-input form-md-floating-label has-success"> 
+								<input id="txtOtherLanguageDialectText" type="text" maxlength="80" class="form-control" value="@OtherLDCode" name="OtherLanguageDialectText" />
+								<label for="txtOtherLanguageDialectText ">Other language</label>
+								<span id="remainVul" class="ClassRemaing pull-right">80</span>
+								<span class="ClassRemaing pull-right">characters remaining &nbsp;&nbsp;</span>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-4">
+							<div class="form-group form-md-line-input form-md-floating-label has-success" title="This is PII Field"> 
+
+								<input id="txtPersonName" type="text" maxlength="40" class="form-control " value="@PName" name="PersonName" />
+								<label for="txtPersonName"><span class="fa fa-lock form-control-feedback"></span>Name</label>
+							</div>
+						</div>
+					
+							<div class="col-md-4">
+								
+								<div class="form-group form-md-line-input form-md-floating-label has-success" title="This is PII Field"> 
+
+									<input id="txtPhoneNumber" type="text" maxlength="20" class="form-control" value="@Phone" name="PhoneNumber" />
+
+									<label for="txtPhoneNumber"><span class="fa fa-lock form-control-feedback"></span>Phone Number </label>
+
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group form-md-line-input form-md-floating-label has-success" title="This is PII Field">  
+									<input id="txtEmailAddress" type="email" maxlength="255" class="form-control" value="@Email" name="EmailAddress" />
+									<label for="txtEmailAddress"><span class="fa fa-lock form-control-feedback"></span>Email</label>
+								</div>
+							</div>
+
+						</div>
+					<div class="row">
+
+						<div class="col-md-12">
+
+							<div class="form-group form-md-line-input form-md-floating-label has-success" title="This is PII Field"> 
+
+                           <textarea id="txtAddressText" class="form-control" maxlength="400" name="AddressText">@Address</textarea>
+								<label for="txtAddressText"><span class="fa fa-lock form-control-feedback"></span>Address</label>
+							</div>
+
+						</div>
+
+
+
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+
+
+							<div class="form-group form-md-line-input form-md-floating-label has-success"> 
+								<input id="txtComplainantProgramRelationshipText" maxlength="80" class="form-control" value="@RelationToProgram" name="ComplainantProgramRelationshipText" />
+								<label for="txtComplainantProgramRelationshipText">Feedback Provider/Complainant's relation to program</label>
+							</div>
+
+						</div>
+						<div class="col-md-6">
+
+							<div class="form-group form-md-line-input form-md-floating-label has-success" title="This is PII Field"> 
+								<input id="txtOtherCommunicationAvenueText" maxlength="80" class="form-control" value="@OCAvenueText" name="OtherCommunicationAvenueText" />
+								<label for="txtOtherCommunicationAvenueText"><span class="fa fa-lock form-control-feedback"></span>Other means of communication with complainant</label>
+							</div>
+
+						</div>
+
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+
+							<div class="form-group">
+								<label style="color:#999">Can we contact the complainant?:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<input type="checkbox" id="chkComplainantAllowContactFlag" checked="@Model.spEditComplainDetails[0].ComplainantAllowContactFlag" name="ComplainantAllowContactFlag" class="make-switch pull-right" data-on-text="Yes" data-off-text="No">
+							</div>
+
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<label style="color:#999">Can we visit the complainant?:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<input type="checkbox" id="chkComplainantAllowVisitFlag" checked="@Model.spEditComplainDetails[0].ComplainantAllowVisitFlag" name="ComplainantAllowVisitFlag" class="make-switch" data-on-text="Yes" data-off-text="No" data-default-text-on="Yes">
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="portlet box blue-soft">
+				<div class="portlet-title">
+					<div class="caption ">
+					
+						<i class="fa fa-lock"></i>
+						<span class="caption-subject font-white bold">Add  Documents:</span><br />
+						<span class="font-white" style="font-family:sans-serif ;font-size:small">
+							Please note that file size limit is 5 MB and Document Title need to be specified.
+							Following file types are allowed: pdf, jpg, png, doc, docx, xls, xlsx, gif
+						</span>
+					</div>
+				</div>
+				<div class="portlet-body form">
+					<div class="row">
+						<div class="col-md-12">
+							<!-- BEGIN PORTLET-->
+							<div class="portlet light form-fit ">
+
+								<div class="portlet-body form">
+									<!-- BEGIN FORM-->
+									@*<form action="#" class="form-horizontal form-bordered">*@
+									<div class="form-body">
+
+										<div class="form-group">
+											<label class="control-label col-md-2 pull-left" style="color:#999">Add Files <span style="color:red;">  </span></label>
+											<div class="col-md-10">
+												<div class="fileinput fileinput-new" data-provides="fileinput">
+													<span class="btn yellow-crusta btn-file">
+														<span class="fileinput-new"> Select file <i class="fa fa-copy"></i> </span>
+
+														<input type="hidden"><input id="FileUpload" type="file" multiple name="...">
+													</span>
+
+												</div>
+											</div>
+										</div>
+
+										<div class="table-scrollable">
+											<script>var sr = 0;</script>
+											<table class="table table-striped table-bordered table-hover" id="TableFiles">
+												<thead>
+													<tr>
+														<th style="color:#999"> Sr No </th>
+														<th style="color:#999"> File Name </th>
+														<th style="display:none">
+															Document Title
+															<span style="color:red;"> * </span>
+														</th>
+														<th style="display:none"> Remarks </th>
+														<th>  </th>
+														<th>  </th>
+														<th style="display:none"> Status </th>
+													</tr>
+												</thead>
+												<tbody>
+													@{
+														int docsr = 0;
+													}
+													@foreach (var item in Model.spGetCBCDcouments.Where(x => x.AppealDocumentFlag == false))
+													{
+														docsr++;
+														<tr>
+															<td>@docsr</td>
+															<td>@item.SupportingDocumentDescription</td>
+															<td style="display:none">@item.CommunityBasedComplaintID</td>
+															<td style="display:none">@item.CommunityBasedComplaintDocID</td>
+															<td><a download href="@item.DocumentHyperlink" class="btn btn-sm btn-primary"><i class='fa fa-download'></i>  Download </a></td>
+															<td> <button id='btnDelete' onclick='showMessageConfirmation(this,@item.CommunityBasedComplaintDocID)' type='button' class='btn btn-sm btn-danger'> <i class='fa fa-trash'></i> Delete </button></td>
+															<td style="display:none">2</td>
+														</tr>
+													}
+												</tbody>
+											</table>
+											<script></script>
+										</div>
+
+										@*</form>*@
+										<!-- END FORM-->
+									</div>
+								</div>
+								<!-- END PORTLET-->
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+
+			</div>
+			<div class="portlet box blue-soft">
+				<div class="portlet-title">
+					<div class="caption">
+						<i class="fa fa-gift"></i>Categorization of Feedback/Complaint
+					</div>
+					<div class="tools">
+						<a href="javascript:;" class="expand" data-original-title="" title=""> </a>
+
+					</div>
+				</div>
+
+				<div class="portlet-body">
+					<div class="row">
+						<div class="col-md-4">
+							<div class="form-group form-md-line-input form-md-floating-label has-success"> 
+
+								<select class="form-control" id="dllClassification" name="ComplaintClassificationID">
+									<option value=""></option>
+									@foreach (var item in Model.spGetClassification.OrderBy(x => x.DisplaySequenceNumber))
+									{
+										if (item.ComplaintClassificationID == ClassfiID)
+										{
+											<option value=@item.ComplaintClassificationID selected>@item.ComplaintClassificationName</option>
+										}
+										else
+										{
+											<option value="@item.ComplaintClassificationID">@item.ComplaintClassificationName</option>
+										}
+									}
+								</select>
+								<label for="dllClassification">Complaint Classification</label>
+
+							</div>
+
+						</div>
+						<div class="col-md-8">
+							<div class="form-group form-md-line-input form-md-floating-label has-success"> 
+								<select class="form-control" id="ddlComplaintCategoryName" name="ComplaintCategoryID">
+									<option value="-1"></option>
+
+									@foreach (var item in Model.spGetCategories.OrderBy(x => x.ComplaintCategoryName))
+									{
+										if (item.ComplaintCategoryID == catID)
+										{
+											<option value="@item.ComplaintCategoryID" selected>@item.ComplaintCategoryName</option>
+										}
+										else
+										{
+											<option value="@item.ComplaintCategoryID">@item.ComplaintCategoryName</option>
+										}
+									}
+								</select>
+								<label for="ddlComplaintCategory">Category</label>
+
+							</div>
+
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12" id="TextArea" style="display:none;">
+							<div class="form-group"> 
+<textarea id="lbldescription" class="form-control" style="font-size: 10px !important;font-weight: 600 !important;" cols="120" rows="4" readonly></textarea>
+							</div>
+
+						</div>
+					</div>
+
+
+				</div>
+			</div>
+		</div>
+		<div class="tab-pane fade" id="tab_6_2">
+			<div class="portlet box blue-soft">
+				<div class="portlet-title">
+					<div class="caption">
+						<i class="fa fa-gift"></i>Acknowledgment
+					</div>
+					<div class="tools">
+						<a href="javascript:;" class="expand" data-original-title="" title=""> </a>
+					</div>
+				</div>
+				<div class="portlet-body">
+					<div class="row">
+						<div class="col-md-4">
+							<label style="color:#999">
+								Acknowledgment Provided?
+							</label>
+
+						</div>
+						<div class="col-md-4">
+							<div class="form-group">
+								<input type="checkbox" checked="@Model.spEditCBS[0].AcknowledgementProvidedFlag" id="chkAcknowledgementProvidedFlag" name="AcknowledgementProvidedFlag" class="make-switch" data-on-text="Yes" data-off-text="No">
+							</div>
+
+						</div>
+
+						@{
+							string ackstyle = "display:none";
+							string ackotherComstyle = "";
+							string ackCommentIfNo = "display:block";
+							if (Model.spEditCBS[0].AcknowledgementProvidedFlag == true)
+							{
+								ackstyle = "display:block";
+								ackCommentIfNo = "display:none";
+								ackCommentIfNo = "display:none";
+
+
+
+							}
+							if (Model.spEditCBS[0].ComplaintCommunicationMethodID == 43)
+							{
+								ackotherComstyle = "display:block";
+
+
+							}
+							else
+							{
+								ackotherComstyle = "display:none";
+							}
+						}
+					</div>
+					<div class="row" id="AcknowledgmentDetail1" style="@ackstyle">
+						<div class="col-md-4">
+
+							<div class="form-group form-md-line-input form-md-floating-label has-success"> 
+
+								<input id="txtAcknowledgementProvidedDate" value="@ACDate" data-date-format="dd/mm/yyyy" name="AcknowledgementProvidedDate" data-date-end-date="+0d" class="form-control datepicker" size="16" />
+								<label for="txtAcknowledgementProvidedDate">Date</label>
+							</div>
+
+						</div>
+						<div class="col-md-4">
+							<div class="form-group form-md-line-input form-md-floating-label has-success"> 
+								<select class="form-control" id="ddlAcknowledgementCommunicationMethodID" name="AcknowledgementCommunicationMethodID">
+									<option value=""></option>
+									@foreach (var item in Model.spGetCommunicationMethodGeneral.OrderBy(x => x.GeneralDisplaySequenceNumber))
+									{
+
+										if (item.CommunicationMethodID == ACM)
+										{
+											<option value=@item.CommunicationMethodID selected>@item.CommunicationMethodName</option>
+										}
+										else
+										{
+											<option value="@item.CommunicationMethodID">@item.CommunicationMethodName</option>
+										}
+
+
+									}
+								</select>
+								<label for="ddlAcknowledgementCommunicationMethodID">Communicated Via</label>
+
+							</div>
+
+						</div>
+						<div class="col-md-4">
+
+							<div class="form-group form-md-line-input form-md-floating-label has-success"> 
+								<input placeholder="Received by" value="@ACKEDWPName" id="txtAcknowledgeby" name="EDWPersonID" class="form-control" style="width:430px" type="text" />
+							</div>
+							<input id="lblAcknowledgeby" name="EDWPersonID" class="form-control" type="hidden" value="@ACKByEDWPID" />
+
+
+						</div>
+					</div>
+					<div class="row" id="OtherComplaintCommunicationMethodAck" style="@ackotherComstyle">
+						<div class="col-md-12">
+							<div class="form-group form-md-line-input form-md-floating-label has-success"> 
+
+								<input id="txtOtherComplaintCommunicationMethodTextAck" class="form-control" value="@ACkOCMT" name="OtherComplaintCommunicationMethodText" />
+								<label for="txtOtherComplaintCommunicationMethodTextAck">Other Complaint Communication Method</label>
+							</div>
+						</div>
+					</div>
+					<div class="row" id="AcknowledgmentDetail2" style="@ackstyle">
+						<div class="col-md-8">
+							<style>
+								.customlablecheck {
+									color: #999;
+									font-size: 13px;
+								}
+
+								.customlablechecklist {
+									font-weight: bold;
+									color: #999;
+								}
+
+								.ClassRemaing {
+									font-size: 08px;
+									color: #999;
+								}
+							</style>
+							<div class="form-group">
+								<label class="customlablechecklist">Informed Consent Checklist</label>
+								<div class="input-group">
+
+									<div>
+										<label class="customlablecheck">
+										</label>
+										<br />
+										<label class="customlablecheck">
+											<input type="checkbox" checked="@AddressedFlag" id="chkComplainantQuestionsAddressedFlag" name="ComplainantQuestionsAddressedFlag">&nbsp;&nbsp;Allow for,and address,any question from complainant
+										</label>
+										<br />
+										<label class="customlablecheck">
+											<input type="checkbox" checked="@ProcessExplainedFlag" id="chkHandlingProcessExplainedFlag" name="HandlingProcessExplainedFlag">&nbsp;&nbsp;Explain complaint handling process (what happens next)
+										</label>
+										<br />
+										<label class="customlablecheck">
+											<input type="checkbox" checked="@TimelineDiscussedFlag" id="chkProcessTimelineDiscussedFlag" name="ProcessTimelineDiscussedFlag">&nbsp;&nbsp;Discuss timeline (how long will the process take)
+										</label>
+										<br />
+										<label class="customlablecheck">
+											<input type="checkbox" checked="@ExplainedFlag" id="chkResponseReceivalExplainedFlag" name="ResponseReceivalExplainedFlag">&nbsp;&nbsp;Explain how they will receive response
+										</label>
+										<br />
+										@*@Model.spEditComplainDetails[0].FollowUpContactDetailsFlag*@
+										<label class="customlablecheck">
+											<input type="checkbox" checked="@FollowUpFlag" id="chkFollowUpContactDetailsFlag" name="FollowUpContactDetailsFlag">&nbsp;&nbsp;Provide follow-up contact details (explain how they can contact IMC with additional details
+										</label>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row" id="AcknowledgmentCommentsDetail" style="@ackCommentIfNo">
+						<div class="col-md-12">
+							<div class="form-group form-md-line-input form-md-floating-label has-success"> 
+								<input id="txtNoAcknowledgementReasonDescription" type="text" class="form-control" value="@NoackDesc" name="NoAcknowledgementReasonDescription" />
+								<label for="txtNoAcknowledgementReasonDescription">Comments</label>
+							</div>
+
+
+						</div>
+					</div>
+
+
+				</div>
+			</div>
+
+
+
+		</div>
+		<div class="tab-pane fade" id="tab_6_3">
+			<div class="portlet box blue-soft">
+				<div class="portlet-title">
+					<div class="caption">
+						<i class="fa fa-gift"></i>Referral
+					</div>
+					<div class="tools">
+						<a href="javascript:;" class="expand" data-original-title="" title=""> </a>
+
+					</div>
+				</div>
+
+				<div class="portlet-body">
+					<div class="row">
+						<div class="col-md-4">
+							<label style="color:#999">
+								Referral Required?
+							</label>
+
+						</div>
+						<div class="col-md-4">
+							<div class="form-group">
+								<input type="checkbox" checked="@Model.spEditCBS[0].ReferralRequiredFlag" id="chkReferralRequiredFlag" name="ReferralRequiredFlag" class="make-switch" data-on-text="Yes" data-off-text="No">
+							</div>
+
+						</div>
+
+
+					</div>
+					@{
+						string Externalralstyle = "display:none";
+						string UserAssignedDetailsStyle = "display:none";
+						string NodetailStyle = "display:block";
+						string ReferralStaff = "display:none";
+						string IRDetailStyle = "display:none";
+						string EthicsDetailsStyle = "display:none";
+						string ED1 = "display:none";
+						string ED2 = "display:none";
+						if (@Model.spEditCBS[0].ReferralRequiredFlag == true)
+						{
+							NodetailStyle = "display:none";
+
+							if (@Model.spEditCBS[0].ComplaintClassificationID == 20)
+							{
+								UserAssignedDetailsStyle = "display:block";
+								if (@Model.spEditCBS[0].InternalReferralLevelID == 45)
+								{
+									ReferralStaff = "display:block";
+									IRDetailStyle = "display:block";
+									EthicsDetailsStyle = "display:none";
+									IRDetailStyle = "display:block";
+									ED1 = "display:none";
+									ED2 = "display:none";
+								}
+								else if (@Model.spEditCBS[0].InternalReferralLevelID == 46)
+								{
+									UserAssignedDetailsStyle = "display:block";
+									ReferralStaff = "display:none";
+									IRDetailStyle = "display:none";
+									EthicsDetailsStyle = "display:block";
+									IRDetailStyle = "display:none";
+									ED1 = "display:block";
+									ED2 = "display:none";
+								}
+							}
+							else if (@Model.spEditCBS[0].ComplaintClassificationID == 21)
+							{
+								Externalralstyle = "display:block";
+								IRDetailStyle = "display:none";
+
+								UserAssignedDetailsStyle = "display:none";
+								NodetailStyle = "display:none";
+								ReferralStaff = "display:none";
+								EthicsDetailsStyle = "display:none";
+							}
+
+						}
+						else
+						{
+							NodetailStyle = "display:block";
+							Externalralstyle = "display:none";
+							UserAssignedDetailsStyle = "display:none";
+							ReferralStaff = "display:none";
+							IRDetailStyle = "display:none";
+							EthicsDetailsStyle = "display:none";
+						}
+
+					}
+					<div class="row">
+						<div class="col-md-6" id="UserAssignedDetails" style="@UserAssignedDetailsStyle">
+
+
+							<div class="form-group form-md-line-input form-md-floating-label has-success"> 
+								<select class="form-control" id="dllReferralLevel" name="ReferralLevelID">
+									<option value=""></option>
+									@foreach (var item in Model.spGetReferrallevel.OrderBy(x => x.ReferralLevelName))
+									{
+										if (item.ReferralLevelID == RefLevel)
+										{
+											<option value=@item.ReferralLevelID selected>@item.ReferralLevelName</option>
+										}
+										else
+										{
+											<option value="@item.ReferralLevelID">@item.ReferralLevelName</option>
+										}
+									}
+
+								</select>
+								<label for="dllReferralLevel">
+									Referral Level
+								</label>
+							</div>
+						</div>
+						<div class="col-md-6" id="ReferStaffDetails" style="@ReferralStaff">
+
+							<div class="form-group form-md-line-input form-md-floating-label has-success"> 
+								<input placeholder="Referred to" id="txtReferedTo" type="text" class="form-control" style="width:500px" value="@REFCountryEDWName" name="FullName" />
+							</div>
+							<input id="lblReferedTo" name="EDWPersonID" class="form-control" type="hidden" value="@REFCountryEDWPID" />
+
+						</div>
+						<div class="col-md-6" id="EthicsDetails" style="@EthicsDetailsStyle">
+							<div class="form-group form-md-line-input form-md-floating-label has-success"> 
+
+								<select class="form-control" id="dllethics" name="CommunicationMethodID">
+									<option value=""></option>
+
+									@foreach (var item in Model.spGetvCMEthics)
+									{
+										if (item.CommunicationMethodID == CMHQ)
+										{
+											<option value="@item.CommunicationMethodID" selected>@item.CommunicationMethodName</option>
+										}
+										else
+										{
+											<option value="@item.CommunicationMethodID">@item.CommunicationMethodName</option>
+										}
+
+
+									}
+								</select>
+								<label for="dllethics">
+									Communication Method
+								</label>
+							</div>
+						</div>
+
+						<div class="col-md-6" id="EthicsOtherDetails1" style="@ED1">
+
+							<div class="form-group form-md-line-input form-md-floating-label has-success"> 
+								<input id="txtHQsentDate" value="@HQDate" data-date-format="dd/mm/yyyy" name="CommunicationDate" data-date-end-date="+0d" class="form-control datepicker" size="16" type="text" />
+								<label for="txtHQsentDate">
+									Date
+								</label>
+							</div>
+
+
+						</div>
+
+						@foreach (var item in Model.spEditComplaintCommunication.Where(x => x.CommunicationStageID == 52))
+						{
+							HQOCCM = Convert.ToString(item.OtherComplaintCommunicationMethodText);
+							if (HQOCCM != null)
+							{
+								ED2 = "display:block";
+
+
+							}
+							else
+							{
+								ED2 = "display:none";
+							}
+						}
+						<div class="col-md-6" id="EthicsOtherDetails" style="@ED2">
+
+							<div class="form-group form-md-line-input form-md-floating-label has-success"> 
+								<input id="txtOtherCommunicatioMethodInternal" value="@HQOCCM" type="text" class="form-control" name="OtherComplaintCommunicationMethodText" />
+
+								<label for="txtOtherCommunicatioMethodInternal">
+									Other Communication Method
+								</label>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="row">
+						<div class="col-md-12" id="ifNoDetails" style="@NodetailStyle">
+							<div class="form-group form-md-line-input form-md-floating-label has-success"> 
+								<textarea id="txtNoReferralReasonDescription" maxlength="255" class="form-control" name="NoReferralReasonDescription">@NoRRD</textarea>
+								<label for="txtNoReferralReasonDescription">
+									Comments
+								</label>
+							</div>
+
+						</div>
+					</div>
+				</div>
+				<div class="portlet box blue-soft" id="InternalReferralDetails" style="@IRDetailStyle">
+					<div class="portlet-title">
+						<div class="caption">
+							<i class="fa fa-gift"></i>Referee Comments
+						</div>
+						<div class="tools">
+							<a href="javascript:;" class="expand" data-original-title="" title=""> </a>
+
+						</div>
+					</div>
+					<div class="portlet-body ">
+						<div class="row">
+							<div class="col-md-4">
+
+								<div class="form-group form-md-line-input form-md-floating-label has-success"> 
+									<input id="txtInternalDateofreferral" value="@IDateofreferral" data-date-format="dd/mm/yyyy" name="CommunicationDate" data-date-end-date="+0d" class="form-control datepicker" size="16" type="text" />
+									<label for="txtInternalDateofreferral">
+										Date
+									</label>
+								</div>
+							</div>
+
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+
+								<div class="form-group form-md-line-input form-md-floating-label has-success"> 
+									<textarea id="txtInternalReferralcomments" type="text" class="form-control" name="Comment">@IComments</textarea>
+									<label for="txtInternalReferralcomments">
+										Comments
+									</label>
+
+								</div>
+
+							</div>
+
+
+						</div>
+					</div>
+				</div>
+				<div class="portlet box blue-soft" id="ExternalReferralDetails" style="@Externalralstyle">
+					<div class="portlet-title">
+						<div class="caption">
+							<i class="fa fa-gift"></i>External Referral
+						</div>
+						<div class="tools">
+							<a href="javascript:;" class="expand" data-original-title="" title=""> </a>
+						</div>
+					</div>
+					<div class="portlet-body">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="form-group form-md-line-input form-md-floating-label has-success"> 
+
+
+									<input id="txtHQDisclosureAuthorizationText" type="text" maxlength="20" class="form-control" value="@HQDisclosure" name="HQDisclosureAuthorizationText" />
+
+									<label for="txtHQDisclosureAuthorizationText">
+										HQ Disclosure Authorization
+									</label>
+
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-4">
+								<div class="form-group form-md-line-input form-md-floating-label has-success"> 
+
+									<input id="txtReferralAgencyName" type="text" class="form-control" value="@ReferralAgency" name="ReferralAgencyName" />
+									<label for="txtReferralAgencyName">
+										Organization/ Agency complaint referred to
+									</label>
+								</div>
+							</div>
+							<div class="col-md-4">
+
+								<div class="form-group form-md-line-input form-md-floating-label has-success"> 
+									<input id="txtReferralPersonName" type="text" class="form-control" value="@ExtPersonName" name="ReferralPersonName" />
+									<label for="txtReferralPersonName">
+										Name
+									</label>
+								</div>
+							</div>
+							<div class="col-md-4">
+
+								<div class="form-group form-md-line-input form-md-floating-label has-success"> 
+									<input id="txtReferralPersonPositionText" type="text" class="form-control" value="@PersonPositionText" name="ReferralPersonPositionText" />
+									<label for="txtReferralPersonPositionText">
+										Position
+									</label>
+								</div>
+
+
+
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-4">
+								<div class="form-group form-md-line-input form-md-floating-label has-success"> 
+
+									<input id="txtExtReferralDate" value="@RefDate" data-date-format="dd/mm/yyyy" name="ReferralDate" data-date-end-date="+0d" class="form-control datepicker" size="16" type="text" />
+									<label for="txtExtReferralDate">
+										Date of referral
+									</label>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group form-md-line-input form-md-floating-label has-success"> 
+
+									<input id="txtExternalContactComment" name="ContactComment" class="form-control" type="text" value="@ExtComment" />
+									<label for="txtExternalContactComment">
+										Contact information/ Details
+									</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<div class="tab-pane fade" id="tab_6_4">
+			<div class="portlet box blue-soft">
+				<div class="portlet-title">
+					<div class="caption">
+						<i class="fa fa-gift"></i>Resolution
+					</div>
+					<div class="tools">
+						<a href="javascript:;" class="expand" data-original-title="" title=""> </a>
+
+					</div>
+				</div>
+				<div class="portlet-body">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group form-md-line-input form-md-floating-label has-success"> 
+
+                         <textarea id="txtInvestigationDescription" maxlength="255" type="text" class="form-control" name="InvestigationDescription">@InvDes</textarea>
+								<label for="txtInvestigationDescription">
+									Description of investigation (if required)
+								</label>
+							</div>
+
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group form-md-line-input form-md-floating-label has-success"> 
+                <textarea id="txtCorrectiveActionDescription" maxlength="255" type="text" class="form-control" value="" name="CorrectiveActionDescription">@Corrective</textarea>
+								<label for="txtCorrectiveActionDescription">
+									Description of corrective action and resolution process
+								</label>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group form-md-line-input form-md-floating-label has-success"> 
+
+								<input id="txtInvestigationPointOfContactName" maxlength="80" type="text" class="form-control" value="@POCN" name="InvestigationPointOfContactName" />
+								<label for="txtInvestigationPointOfContactName">
+									Point of contact for the investigation  (if required)
+								</label>
+
+							</div>
+
+
+						</div>
+						<div class="col-md-6">
+
+							<div class="form-group form-md-line-input form-md-floating-label has-success"> 
+								<input id="txtResolutionDate" value="@ResDate" data-date-format="dd/mm/yyyy" name="ResolutionDate" data-date-end-date="+0d" class="form-control datepicker" size="16" type="text" />
+								<label for="txtResolutionDate">
+									Date of resolution is taken (action/decision)
+								</label>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<div class="tab-pane fade" id="tab_6_5">
+			<div class="portlet box blue-soft">
+				<div class="portlet-title">
+					<div class="caption">
+						<i class="fa fa-gift"></i>Response
+					</div>
+					<div class="tools">
+						<a href="javascript:;" class="expand" data-original-title="" title=""> </a>
+					</div>
+				</div>
+				<div class="portlet-body">
+					<div class="row">
+						<div class="col-md-4">
+							<label style="color:#999">
+								Response Provided?
+							</label>
+
+						</div>
+						<div class="col-md-4">
+							<div class="form-group">
+								<input type="checkbox" checked="@Model.spEditCBS[0].ResponseProvidedFlag" id="chkResponseProvidedFlag" name="ResponseProvidedFlag" class="make-switch" data-on-text="Yes" data-off-text="No">
+							</div>
+
+						</div>
+					</div>
+					@{
+						string RDetailsStyle = "display:none";
+						string RDetailsStyle1 = "display:none";
+
+						string RComDetailsStyle = "display:none";
+
+
+
+						if (@Model.spEditCBS[0].ResponseProvidedFlag == true)
+						{
+
+							RDetailsStyle = "display:block";
+							RDetailsStyle1 = "display:block";
+							RDOCMstyle = "display:block";
+							RComDetailsStyle = "display:none";
+
+
+
+						}
+						else
+						{
+							RDetailsStyle = "display:none";
+							RDetailsStyle1 = "display:none";
+							RDOCMstyle = "display:none";
+							RComDetailsStyle = "display:block";
+						}
+						//if (@Model.spEditCBS[0].ResponseAppeal == true)
+						//{
+						//	ResponseAppealStyle = "display:block";
+						//}
+						//else
+						//{
+						//	ResponseAppealStyle = "display:none";
+						//}
+
+					}
+					<div class="row" id="ResponseDetail" style="@RDetailsStyle">
+						<div class="col-md-4">
+							@{
+								if (FIRSTRESPEDWPID == 0)
+								{
+									FIRSTRESPEDWPID = Convert.ToInt32(Session["EDWPersonID"]);
+									FIRSTRESPEDWName = Convert.ToString(Session["FullName"]);
+								}
+							}
+
+							<div class="form-group form-md-line-input form-md-floating-label has-success"> 
+
+								<input placeholder="Response Communited by" value="@FIRSTRESPEDWName" id="txtResponseCommunited" type="text" class="form-control RecievedByDivStyle" name="FullName" />
+
+							</div>
+
+							<input id="lblResponseCommunitedby" name="EDWPersonID" class="form-control" type="hidden" value="@FIRSTRESPEDWPID" />
+
+						</div>
+						<div class="col-md-4">
+
+							<div class="form-group form-md-line-input form-md-floating-label has-success"> 
+
+								<input id="txtResponseByNonIMCName" name="ResponseByNonIMCName" class="form-control" maxlength="80" value="@NonIMCName" />
+
+								<label for="txtResponseByNonIMCName">
+									Response By Non IMC Name
+								</label>
+							</div>
+						</div>
+						<div class="col-md-4">
+
+							<div class="form-group form-md-line-input form-md-floating-label has-success"> 
+
+								<input id="txtCommunicationDate" value="@RepDate" data-date-format="dd/mm/yyyy" name="CommunicationDate" data-date-end-date="+0d" class="form-control datepicker" size="16" />
+
+								<label for="txtCommunicationDate">
+									Date response sent to complainant
+								</label>
+							</div>
+						</div>
+
+					</div>
+					<div class="row" id="ResponseDetail1" style="@RDetailsStyle1">
+						<div class="col-md-12">
+							<div class="form-group form-md-line-input form-md-floating-label has-success"> 
+
+								<select class="form-control" id="ddlResponseCommunicationMethodID" name="CommunicationMethodID">
+									<option value=""></option>
+									@foreach (var item in Model.spGetCommunicationMethodGeneral.OrderBy(x => x.GeneralDisplaySequenceNumber))
+									{
+										if (item.CommunicationMethodID == RepCMID)
+										{
+											<option value=@item.CommunicationMethodID selected>@item.CommunicationMethodName</option>
+										}
+										else
+										{
+											<option value=@item.CommunicationMethodID> @item.CommunicationMethodName </option>
+										}
+									}
+								</select>
+
+								<label for="ddlResponseCommunicationMethodID">
+									Communication Method
+								</label>
+							</div>
+						</div>
+					</div>
+
+
+
+				
+					<div class="row" id="OtherComplaintCommunicationMethodResponse" style="@RDOCMstyle">
+						<div class="col-md-12">
+							<div class="form-group form-md-line-input form-md-floating-label has-success"> 
+
+								<input id="txtOtherComplaintCommunicationMethodTextResponse" class="form-control" value="@RepOtherComm" name="OtherComplaintCommunicationMethodText" />
+								<label for="txtOtherComplaintCommunicationMethodTextResponse">Other Complaint Communication Method</label>
+							</div>
+						</div>
+					</div>
+					<div class="row" id="ResponseDetailComments" style="@RComDetailsStyle">
+						<div class="col-md-12">
+							<div class="form-group form-md-line-input form-md-floating-label has-success"> 
+
+								<input id="txtNoResponseReasonDescription" type="text" class="form-control" value="@NoRepDesc" name="NoResponseReasonDescription" />
+								<label for="txtNoResponseReasonDescription">Comments</label>
+							</div>
+
+
+						</div>
+					</div>
+
+					<div class="divider"></div>
+					
+
+					<div class="row" id="ResponseAppealYN" style="@ResponseAppealYNStyle">
+						<div class="col-md-4">
+							<label style="color:#999">
+								Response Provided For Appeal?
+							</label>
+
+						</div>
+						<div class="col-md-4">
+							<div class="form-group">
+								<input type="checkbox" checked="@Model.spEditCBS[0].ResponseAppeal" id="chkResponseProvidedFlagAppeal" name="ResponseProvidedFlagAppeal" class="make-switch" data-on-color="success" data-off-color="danger" data-on-text="Yes" data-off-text="No">
+							</div>
+
+						</div>
+					</div>
+
+					<div class="row" id="ResponseAppealDetails" style="@ResponseAppealStyle">
+						<div class="col-md-6">
+							@{
+								if (APPRESPEDWPID == 0)
+								{
+									APPRESPEDWPID = Convert.ToInt32(Session["EDWPersonID"]);
+									APPRESPEDWName = Convert.ToString(Session["FullName"]);
+								}
+							}
+							<div class="form-group form-md-line-input form-md-floating-label has-success"> 
+								<input placeholder="Response Communited by" id="txtResponseCommunitedAppeal" value="@APPRESPEDWName" type="text" class="form-control RecievedByDivStyle" name="FullName" />
+							</div>
+							<input id="lbltxtResponseCommunitedAppeal" name="EDWPersonID" value="@APPRESPEDWPID" class="form-control" type="hidden" />
+						</div>
+						<div class="col-md-6">
+
+
+							<div class="form-group form-md-line-input form-md-floating-label has-success"> 
+								<input id="txtCommunicationDateAppeal" value="@RAppealDate" data-date-format="dd/mm/yyyy" name="CommunicationDate" data-date-end-date="+0d" class="form-control datepicker" size="16" />
+
+								<label for="txtCommunicationDateAppeal">
+									Date response sent to complainant
+								</label>
+							</div>
+						</div>
+						<div class="col-md-12">
+
+							<div class="form-group form-md-line-input form-md-floating-label has-success"> 
+
+								<select class="form-control" id="ddlResponseCommunicationMethodIDAppeal" name="CommunicationMethodID">
+									<option value=""></option>
+									@foreach (var item in Model.spGetCommunicationMethodGeneral.OrderBy(x => x.GeneralDisplaySequenceNumber))
+									{
+										if (item.CommunicationMethodID == RAppealCMID)
+										{
+											<option value=@item.CommunicationMethodID selected>@item.CommunicationMethodName</option>
+										}
+										else
+										{
+											<option value="@item.CommunicationMethodID">@item.CommunicationMethodName</option>
+										}
+									}
+								</select>
+
+								<label for="ddlResponseCommunicationMethodIDAppeal">
+									Communication Method
+								</label>
+
+
+							</div>
+						</div>
+
+						@{string appealresponsestyle = "display:none"; }
+						@foreach (var item in Model.spEditComplaintCommunication.Where(x => x.CommunicationStageID == 57))
+						{
+							RAppealOCC = Convert.ToString(item.OtherComplaintCommunicationMethodText);
+							if (RAppealOCC != null)
+							{
+								appealresponsestyle = "display:block";
+							}
+							else
+							{
+								appealresponsestyle = "display:none";
+							}
+						}
+						<div class="col-md-12" id="ResponseAppealOthertext" style="@appealresponsestyle">
+							<div class="form-group form-md-line-input form-md-floating-label has-success"> 
+
+								<input id="txtOtherCCMTextAppeal" class="form-control" value="@RAppealOCC" name="OtherComplaintCommunicationMethodText" />
+								<label for="txtOtherCCMTextAppeal">Other Complaint Communication Method</label>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<div class="tab-pane fade" id="tab_6_6">
+			<div class="portlet box blue-soft">
+				<div class="portlet-title">
+					<div class="caption">
+						<i class="fa fa-gift"></i>Appeal
+					</div>
+					<div class="tools">
+						<a href="javascript:;" class="expand" data-original-title="" title=""> </a>
+
+					</div>
+				</div>
+				<div class="portlet-body">
+
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group form-md-line-input form-md-floating-label has-success">
+
+
+								<input id="txtAppealDate" value="@AppDate" data-date-format="dd/mm/yyyy" name="AppealDate" data-date-end-date="+0d" class="form-control datepicker" size="16" type="text" />
+
+								<label for="txtAppealDate">
+									Date Appeal was reveived
+								</label>
+							</div>
+						</div>
+
+
+						<div class="col-md-6">
+							<div class="form-group form-md-line-input form-md-floating-label has-success">
+
+								<select class="form-control" id="ddlAppealReceivedCommunicationMethodID" name="AppealReceivedCommunicationMethodID">
+									<option value=""></option>
+									@foreach (var item in Model.spGetCommunicationMethod.OrderBy(x => x.SubmittalDisplaySequenceNumber))
+									{
+										if (item.CommunicationMethodID == AppCMID)
+										{
+											<option value=@item.CommunicationMethodID selected>@item.CommunicationMethodName</option>
+										}
+										else
+										{
+											<option value="@item.CommunicationMethodID">@item.CommunicationMethodName</option>
+										}
+
+									}
+								</select>
+
+								<label for="ddlAppealReceivedCommunicationMethodID">
+									Appeal received via
+								</label>
+							</div>
+						</div>
+					</div>
+					<div class="row" id="OtherComplaintCommunicationMethodAppealDetails" style="display:none">
+						<div class="col-md-12">
+							<div class="form-group form-md-line-input form-md-floating-label has-success">
+
+								<input id="txtOtherComplaintCommunicationMethodTextAppeal" value="@AppOCMtext" type="text" maxlength="80" class="form-control" name="OtherComplaintCommunicationMethodText" />
+								<label for="txtOtherComplaintCommunicationMethodTextAppeal">Other Complaint Communication Method</label>
+
+
+							</div>
+						</div>
+					</div>
+					<div class="row">
+
+						<div class="col-md-6">
+							<div class="form-group form-group form-md-line-input form-md-floating-label has-success">
+
+
+								<input placeholder="search appeal committee persons name" id="txtAppealComm" name="" style="width:640px" class="form-control" />
+
+							</div>
+						</div>
+						<div class="col-md-2">
+							<div class="form-group form-group form-md-line-input form-md-floating-label has-success">
+								<button type="button" id="btnAddAppeal" class="btn btn-default green"> <i class="fa fa-plus"></i>Add Appeal Committee</button>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group form-group form-md-line-input form-md-floating-label has-success">
+								<input id="txtAppealEDWID" placeholder="employee id" class="form-control" value="" type="hidden" />
+
+							</div>
+						</div>
+
+					</div>
+
+					<div class="row">
+						<div class="col-md-12" style="padding-right:5px;padding-left:5px;">
+							<div class="portlet box blue-soft" id="prtBoxAppVAS">
+								<div class="portlet-title">
+									<div class="caption">
+										Appeal Committee
+									</div>
+									<div class="tools">
+										<a href="javascript:;" class="collapse" data-original-title="" title=""> </a>
+
+									</div>
+								</div>
+								<div class="portlet-body">
+
+									<div class="table-scrollable">
+										<table class="table table-striped table-hover" id="tblAC">
+											<thead>
+												<tr>
+													<th>S.No </th>
+													<th>Full Name </th>
+													<th>EDW Person ID</th>
+
+													<th> </th>
+												</tr>
+											</thead>
+											<tbody>
+												@{
+													int docsr22 = 0;
+												}
+											
+													@foreach (var item in Model.spEditAppealCommittee)
+													{
+														docsr22++;
+														<tr>
+															<td>@docsr22</td>
+															@*<td>@item.CommunityBasedComplaintID</td>*@
+															<td>@item.FullName</td>
+															<td>@item.EDWPersonID</td>
+															<td> <button id='btnDelete' onclick='showMessageConfirmation3(this,0)' type='button' class='btn btn-sm btn-danger'> <i class='fa fa-trash'></i> Delete </button></td>
+															<td style="display:none">2</td>
+														</tr>
+
+
+													}
+											
+
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+
+
+
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group form-md-line-input form-md-floating-label has-success">
+								<textarea id="txtProcessDescription" class="form-control" maxlength="255" value="" name="ProcessDescription">@ProceDes</textarea>
+								<label for="txtProcessDescription">
+									Description/Summary of appeal process
+								</label>
+								<span id="remain2" class="ClassRemaing pull-right">255 </span>
+								<span class="ClassRemaing pull-right">characters remaining &nbsp;&nbsp;</span>
+							</div>
+
+						</div>
+					</div>
+
+				</div>
+			</div>
+				<div class="portlet box blue-soft" title="This is PII Field">
+					<div class="portlet-title">
+
+						<div class="caption ">
+							<i class="fa fa-lock"></i>
+							<span class="caption-subject font-white bold">Add Appeal Documents:</span><br />
+							<span class="font-white" style="font-family:sans-serif ;font-size:small">
+								Please note that file size limit is 5 MB and Document Title need to be specified.
+								Following file types are allowed: pdf, jpg, png, doc, docx, xls, xlsx, gif
+							</span>
+						</div>
+						<div class="tools">
+							<a href="javascript:;" class="expand" data-original-title="" title=""> </a>
+
+						</div>
+					</div>
+					<div class="portlet-body form">
+						<div class="row">
+							<div class="col-md-12">
+								<!-- BEGIN PORTLET-->
+								<div class="portlet light form-fit ">
+
+									<div class="portlet-body form">
+										<!-- BEGIN FORM-->
+										@*<form action="#" class="form-horizontal form-bordered">*@
+										<div class="form-body">
+
+											<div class="form-group">
+												<label class="control-label col-md-2 pull-left" style="color:#999">Add Files <span style="color:red;">  </span></label>
+												<div class="col-md-10">
+													<div class="fileinput fileinput-new" data-provides="fileinput">
+														<span class="btn blue btn-file">
+															<span class="fileinput-new"> Select file <i class="fa fa-copy"></i> </span>
+
+															<input type="hidden"><input id="FileUpload1" type="file" multiple name="...">
+														</span>
+
+													</div>
+												</div>
+											</div>
+
+											<div class="table-scrollable">
+												<script>var sr2 = 0;</script>
+												<table class="table table-striped table-bordered table-hover" id="TableFiles1">
+													<thead>
+														<tr>
+															<th style="color:#999"> Sr No </th>
+															<th style="color:#999"> File Name </th>
+															<th style="display:none">
+																Document Title
+																<span style="color:red;"> * </span>
+															</th>
+															<th style="display:none"> Remarks </th>
+															<th>  </th>
+															<th>  </th>
+															<th style="display:none"> Status </th>
+														</tr>
+													</thead>
+													<tbody>
+
+
+
+
+														@{
+															int docsr2 = 0;
+														}
+														@foreach (var item in Model.spGetCBCDcouments.Where(x => x.AppealDocumentFlag == true))
+														{
+															docsr2++;
+															<tr>
+																<td>@docsr2</td>
+																<td>@item.SupportingDocumentDescription</td>
+																<td style="display:none">@item.CommunityBasedComplaintID</td>
+																<td style="display:none">@item.CommunityBasedComplaintDocID</td>
+																<td><a download href="@item.DocumentHyperlink" class="btn btn-sm btn-primary"><i class='fa fa-download'></i>  Download </a></td>
+																<td> <button id='btnDelete' onclick='showMessageConfirmation2(this,@item.CommunityBasedComplaintDocID)' type='button' class='btn btn-sm btn-danger'> <i class='fa fa-trash'></i> Delete </button></td>
+																<td style="display:none">2</td>
+															</tr>
+
+
+														}
+
+
+
+
+													</tbody>
+												</table>
+												<script></script>
+											</div>
+
+
+
+
+										</div>
+
+										@*</form>*@
+										<!-- END FORM-->
+									</div>
+								</div>
+								<!-- END PORTLET-->
+							</div>
+						</div>
+
+					</div>
+				</div>
+				<div class="portlet box blue-soft">
+					<div class="portlet-title">
+						<div class="caption">
+							<i class="fa fa-gift"></i>Appeal Resolution Details
+						</div>
+						<div class="tools">
+							<a href="javascript:;" class="expand" data-original-title="" title=""> </a>
+
+						</div>
+					</div>
+					<div class="portlet-body">
+						<div class="row">
+							<div class="col-md-4">
+								<div class="form-group form-md-line-input form-md-floating-label has-success">
+
+									<input id="txtAppealResolutionDate" value="@AResolutionDate" data-date-format="dd/mm/yyyy" name="AppealResolutionDate" data-date-end-date="+0d" class="form-control datepicker" size="16" />
+
+									<label for="txtAppealResolutionDate">
+										Appeal Resolution Date
+									</label>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+
+								<div class="form-group form-md-line-input form-md-floating-label has-success">
+                                 <textarea id="txtAppealResolutionDescription" class="form-control" value="" maxlength="255" name="AppealResolutionDescription">@ApResolutionDes</textarea>
+									<label for="txtAppealResolutionDescription">
+										Comments
+									</label>
+									<span id="remain" class="ClassRemaing pull-right">255</span>
+									<span class="ClassRemaing pull-right"> characters remaining &nbsp;&nbsp;</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			
+
+		</div>
+		<div class="tab-pane fade" id="tab_6_7">
+				<div class="portlet box blue-soft">
+					<div class="portlet-title">
+						<div class="caption">
+							<i class="fa fa-gift"></i>Feedback/Complaint Closure
+						</div>
+						<div class="tools">
+							<a href="javascript:;" class="expand" data-original-title="" title=""> </a>
+
+						</div>
+					</div>
+					<div class="portlet-body">
+
+
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group form-md-line-input form-md-floating-label has-success">
+
+									<input id="txtClosedDate" value="@ClosureDate" data-date-format="dd/mm/yyyy" name="ClosedDate" data-date-end-date="+0d" class="form-control datepicker" size="16" type="text" />
+									<label for="txtClosedDate">
+										Date Closed
+									</label>
+								</div>
+							</div>
+							@{
+
+
+
+								if (closedbypersonID == 0)
+								{
+									closedbypersonID = Convert.ToInt32(Session["EDWPersonID"]);
+
+								}
+							}
+							<div class="col-md-6">
+								<div class="form-group form-md-line-input form-md-floating-label has-success">
+
+									<input id="txtClosedByPersonName" value="@closedby" disabled name="ClosedByEDWPersonID" class="form-control" type="text" />
+
+
+									<label for="txtClosedByPersonName">
+										Closed by
+									</label>
+
+								</div>
+								<input id="lblClosedByEDWPersonID" name="ClosedByEDWPersonID" type="hidden" value="@closedbypersonID" />
+
+							</div>
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+			<button type="button" id="btnSaveUser" class="btn btn-primary btn-lg"> <i class="fa fa-save"></i> Save Complaint  </button>
+			@*<button type="button" id="btnSaveUser1" class="btn btn-primary btn-lg"> <i class="fa fa-save"></i> Save My Complaint  </button>*@
+
+		
+
+
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</form>
+@section scripts{
+
+	@Scripts.Render("~/bundles/DataTable/jquery")
+	<script src="~/Content/assets/global/plugins/typeahead/handlebars.min.js" type="text/javascript"></script>
+	<script src="~/Content/assets/global/plugins/typeahead/typeahead.bundle.min.js" type="text/javascript"></script>
+	<script src="~/Content/assets/pages/scripts/components-typeahead.js" type="text/javascript"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js"></script>
+	<script src="~/Content/assets/global/plugins/select2/js/select2.full.min.js"></script>
+	<script src="~/Content/assets/pages/scripts/components-select2.min.js" type="text/javascript"></script>
+	@*<script src="~/Content/assets/pages/scripts/form-validation.js"></script>*@
+	@*<script src="~/Content/assets/pages/scripts/form-validation-Application.js"></script>*@
+	<script>
+
+		$('.datepicker').datepicker({ todayHighlight: true });
+
+		var formData = new FormData();
+		var IsFlagChecked = false;
+		var formData2 = new FormData();
+		var IsReturnedFromEdit = 0;
+		var ResponseProvidedFlag = false;
+			var viewBag = "";
+		$(document).ready(function () {
+
+			 IsReturnedFromEdit = "@TempData["IsEdit"]";
+
+					   if ($('#dllFieldSite').val() != "") {
+						   $("#main").show();
+					   }
+					   else {
+						   $("#main").hide();
+					   }
+
+
+
+					try {
+						viewBag = "@TempData["message"]";
+
+
+					}
+					catch (Exception)
+					{
+
+					}
+				});
+      //below code is for showing controls on  selecting other options in dropdowns
+		function myFunction() {
+			debugger;
+			if ($('#chkReceivedByIMCStaffFlag').is(":checked")) {
+				$("#ReciviedByDetails").show();
+				$("#RecivedByNonIMCDetails").hide();
+			} else {
+				$("#RecivedByNonIMCDetails").show();
+				$("#ReciviedByDetails").hide();
+			}
+		}
+
+			$('#dllComplaintCommunicationMethodID').change(function () {
+
+			debugger;
+
+			if ($('#dllComplaintCommunicationMethodID').val() == 43) {
+			$("#OtherComplaintCommunicationMethodTextDetails").show();
+
+			}
+			else {
+			$("#OtherComplaintCommunicationMethodTextDetails").hide();
+			}
+
+			});
+
+			$('#dllFieldSectorCode').change(function () {
+			if ($('#dllFieldSectorCode').val() == 'OTHER') {
+			     $("#OtherSectorProgram").show();
+			}
+			else {
+			$("#OtherSectorProgram").hide();
+			}
+			});
+
+			$('#ddlAcknowledgementCommunicationMethodID').change(function () {
+
+			debugger;
+
+			if ($('#ddlAcknowledgementCommunicationMethodID').val() == 43) {
+			$("#OtherComplaintCommunicationMethodAck").show();
+
+			}
+			else {
+			$("#OtherComplaintCommunicationMethodAck").hide();
+			}
+
+			});
+
+			$('#ddlResponseCommunicationMethodID').change(function () {
+
+			debugger;
+
+			if ($('#ddlResponseCommunicationMethodID').val() == 43) {
+
+				$("#OtherComplaintCommunicationMethodResponse").show();
+
+			}
+			else if ($('#ddlResponseCommunicationMethodID').val() != 43){
+			$("#OtherComplaintCommunicationMethodResponse").hide();
+			}
+
+			});
+
+			$('#ddlAppealReceivedCommunicationMethodID').change(function () {
+
+			debugger;
+
+			if ($('#ddlAppealReceivedCommunicationMethodID').val() == 43) {
+			$("#OtherComplaintCommunicationMethodAppealDetails").show();
+
+			}
+			else {
+			$("#OtherComplaintCommunicationMethodAppealDetails").hide();
+			}
+
+			});
+
+			$('#ddlLanguageName').change(function () {
+
+			debugger;
+
+			if ($('#ddlLanguageName').val() == "OTHER") {
+			$("#OtherlanguagesDetails").show();
+
+			}
+			else {
+			$("#OtherlanguagesDetails").hide();
+			}
+
+			});
+			//email validation
+			$('#txtEmailAddress').change(function () {
+			debugger;
+			if (!ValidateEmail($("#txtEmailAddress").val())) {
+			        showMessage("Alert", "Please input valid email address", "warning", "btn-danger");
+			}
+			});
+			function ValidateEmail(email) {
+			var expr = /^([\w-\.]+)@@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+			return expr.test(email);
+			};
+			//Date validation
+	   $("#txtDateComplainwasRaised").change(function () {
+					debugger;
+					var a = $('#txtReceivedDate').val();
+					if (a == null || a == "") {
+
+					showMessage("Alert","Please input feedback complaint recived date first", "warning", "btn-danger");
+					}
+					else {
+					var b = $('#txtDateComplainwasRaised').val();
+					var fromdate = a.split("/");
+					var todate = b.split("/");
+
+					var fdate = new Date(fromdate[2], fromdate[1], fromdate[0]); //Year, Month, Date
+					var tdate = new Date(todate[2], todate[1], todate[0]); //Year, Month, Date
+						if (tdate > fdate) {
+					$("#txtDateComplainwasRaised").datepicker('setDate', "");
+
+						showMessage("Alert Date", "Must be less than or equals to Complain Recived Date", "warning", "btn-danger");
+
+					}
+
+			}
+
+		});
+		$("#txtAcknowledgementProvidedDate").change(function () {
+			debugger;
+			var a = $('#txtReceivedDate').val();
+			if (a == null || a == "") {
+
+				showMessage("Alert", "Please input feedback complaint recived date first", "warning", "btn-danger");
+			}
+			else {
+				var b = $('#txtAcknowledgementProvidedDate').val();
+				var fromdate = a.split("/");
+				var todate = b.split("/");
+
+				var fdate = new Date(fromdate[2], fromdate[1], fromdate[0]); //Year, Month, Date
+				var tdate = new Date(todate[2], todate[1], todate[0]); //Year, Month, Date
+				if (tdate < fdate) {
+					$("#txtAcknowledgementProvidedDate").datepicker('setDate', "");
+
+					showMessage("Alert Date", "Must be greater than or equals to Received Date", "warning", "btn-danger");
+
+				}
+
+			}
+
+		});
+		$("#txtInternalDateofreferral").change(function () {
+			debugger;
+			var a = $('#txtReceivedDate').val();
+			if (a == null || a == "") {
+
+				showMessage("Alert", "Please input feedback complaint recived date first", "warning", "btn-danger");
+			}
+			else {
+				var b = $('#txtInternalDateofreferral').val();
+				var fromdate = a.split("/");
+				var todate = b.split("/");
+
+				var fdate = new Date(fromdate[2], fromdate[1], fromdate[0]); //Year, Month, Date
+				var tdate = new Date(todate[2], todate[1], todate[0]); //Year, Month, Date
+				if (tdate < fdate) {
+					$("#txtInternalDateofreferral").datepicker('setDate', "");
+
+					showMessage("Alert Date", "Must be greater than or equals to Received Date", "warning", "btn-danger");
+
+				}
+
+			}
+
+		});
+		$("#txtHQsentDate").change(function () {
+			debugger;
+			var a = $('#txtReceivedDate').val();
+			if (a == null || a == "") {
+
+				showMessage("Alert", "Please input feedback complaint recived date first", "warning", "btn-danger");
+			}
+			else {
+				var b = $('#txtHQsentDate').val();
+				var fromdate = a.split("/");
+				var todate = b.split("/");
+
+				var fdate = new Date(fromdate[2], fromdate[1], fromdate[0]); //Year, Month, Date
+				var tdate = new Date(todate[2], todate[1], todate[0]); //Year, Month, Date
+				if (tdate < fdate) {
+					$("#txtHQsentDate").datepicker('setDate', "");
+
+					showMessage("Alert Date", "Must be greater than or equals to Received Date", "warning", "btn-danger");
+
+				}
+
+			}
+
+		});
+		$("#txtResolutionDate").change(function () {
+			debugger;
+			var a = $('#txtReceivedDate').val();
+			if (a == null || a == "") {
+
+				showMessage("Alert", "Please input feedback complaint recived date first", "warning", "btn-danger");
+			}
+			else {
+				var b = $('#txtResolutionDate').val();
+				var fromdate = a.split("/");
+				var todate = b.split("/");
+
+				var fdate = new Date(fromdate[2], fromdate[1], fromdate[0]); //Year, Month, Date
+				var tdate = new Date(todate[2], todate[1], todate[0]); //Year, Month, Date
+				if (tdate < fdate) {
+					$("#txtResolutionDate").datepicker('setDate', "");
+
+					showMessage("Alert Date", "Must be greater than or equals to Received Date", "warning", "btn-danger");
+
+				}
+
+			}
+
+		});
+		$("#txtCommunicationDate").change(function () {
+			debugger;
+			var a = $('#txtReceivedDate').val();
+			if (a == null || a == "") {
+
+				showMessage("Alert", "Please input feedback complaint recived date first", "warning", "btn-danger");
+			}
+			else {
+				var b = $('#txtCommunicationDate').val();
+				var fromdate = a.split("/");
+				var todate = b.split("/");
+
+				var fdate = new Date(fromdate[2], fromdate[1], fromdate[0]); //Year, Month, Date
+				var tdate = new Date(todate[2], todate[1], todate[0]); //Year, Month, Date
+				if (tdate < fdate) {
+					$("#txtCommunicationDate").datepicker('setDate', "");
+
+					showMessage("Alert Date", "Must be greater than or equals to Received Date", "warning", "btn-danger");
+
+				}
+
+			}
+
+		});
+		$("#txtAppealDate").change(function () {
+			debugger;
+			var a = $('#txtReceivedDate').val();
+			if (a == null || a == "") {
+
+				showMessage("Alert", "Please input feedback complaint recived date first", "warning", "btn-danger");
+			}
+			else {
+				var b = $('#txtAppealDate').val();
+				var fromdate = a.split("/");
+				var todate = b.split("/");
+
+				var fdate = new Date(fromdate[2], fromdate[1], fromdate[0]); //Year, Month, Date
+				var tdate = new Date(todate[2], todate[1], todate[0]); //Year, Month, Date
+				if (tdate < fdate) {
+					$("#txtAppealDate").datepicker('setDate', "");
+
+					showMessage("Alert Date", "Must be greater than or equals to Received Date", "warning", "btn-danger");
+
+				}
+
+			}
+
+		});
+
+
+
+		$("#txtAppealResolutionDate").change(function () {
+			debugger;
+			var a = $('#txtReceivedDate').val();
+			if (a == null || a == "") {
+
+				showMessage("Alert", "Please input feedback complaint recived date first", "warning", "btn-danger");
+			}
+			else {
+				var b = $('#txtAppealResolutionDate').val();
+				var fromdate = a.split("/");
+				var todate = b.split("/");
+
+				var fdate = new Date(fromdate[2], fromdate[1], fromdate[0]); //Year, Month, Date
+				var tdate = new Date(todate[2], todate[1], todate[0]); //Year, Month, Date
+				if (tdate < fdate) {
+					$("#txtAppealResolutionDate").datepicker('setDate', "");
+
+					showMessage("Alert Date", "Must be greater than or equals to Received Date", "warning", "btn-danger");
+
+				}
+
+			}
+
+		});
+
+
+		$("#txtClosedDate").change(function () {
+			debugger;
+
+			if ($('#txtClosedDate').val() == "") {
+				$("#appealTab").attr("data-toggle", "");
+				$("#appealTab").attr("style", "cursor: no-drop");
+				
+			}
+			else {
+				$("#appealTab").attr("data-toggle", "tab");
+				$("#appealTab").attr("style", "");
+
+			}
+
+
+			var a = $('#txtReceivedDate').val();
+			if (a == null || a == "") {
+				$("#Apealdid").hide();
+				showMessage("Alert", "Please input feedback complaint recived date first", "warning", "btn-danger");
+			}
+			else {
+				var b = $('#txtClosedDate').val();
+				var fromdate = a.split("/");
+				var todate = b.split("/");
+
+				var fdate = new Date(fromdate[2], fromdate[1], fromdate[0]); //Year, Month, Date
+				var tdate = new Date(todate[2], todate[1], todate[0]); //Year, Month, Date
+				if (tdate < fdate) {
+					$("#txtClosedDate").datepicker('setDate', "");
+
+					showMessage("Alert Date", "Must be greater than or equals to Received Date", "warning", "btn-danger");
+					//$("#TabID").show();
+				}
+				
+			}
+			
+
+		});
+			//this code is use to hide and show Internal and external form
+
+		
+
+		$('#chkReferralRequiredFlag').on('switchChange.bootstrapSwitch', function (event, state) {
+		debugger;
+			if (state == true) {
+				IsFlagChecked = true;
+		        	$("#ifNoDetails").hide();
+				if ($('#dllClassification').val() == 20) {
+					$("#UserAssignedDetails").show();
+				}
+				else if ($('#dllClassification').val() == 21){
+
+					$("#ExternalReferralDetails").show();
+				}
+
+
+			}
+			else if (state == false) {
+
+				IsFlagChecked = false;
+				$("#ifNoDetails").show();
+				$("#InternalReferralDetails").hide();
+				$("#ExternalReferralDetails").hide();
+				$("#UserAssignedDetails").hide();
+				$("#EthicsDetails").hide();
+				$("#ReferStaffDetails").hide();
+
+				$("#EthicsOtherDetails1").hide();
+				$("#EthicsOtherDetails").hide();
+
+				$("#Externalcheck").hide();
+
+
+		}
+		});
+	    $('#dllClassification').change(function () {
+
+			debugger;
+
+	if ($('#dllClassification').val() == 20) {
+
+		//	$("#UserAssignedDetails").show();
+			$("#Externalcheck").hide();
+			$("#ExternalReferralDetails").hide();
+	     	//$("#ifNoDetails").hide();
+			}
+	else if ($('#dllClassification').val() == 21) {
+
+			$("#InternalReferralDetails").hide();
+			$("#Externalcheck").show();
+			$("#EthicsOtherDetails1").hide();
+            $("#UserAssignedDetails").hide();
+			$("#EthicsDetails").hide();
+			$("#EthicsOtherDetails").hide();
+			$("#ReferStaffDetails").hide();
+		//	$("#ExternalReferralDetails").show();
+
+			//$("#ifNoDetails").hide();
+			}
+			});
+		$('#dllReferralLevel').change(function () {
+
+			debugger;
+
+			if ($('#dllReferralLevel').val() == 45) {
+						$("#ReferStaffDetails").show();
+						$("#EthicsDetails").hide();
+				$("#EthicsOtherDetails").hide();
+				$("#EthicsOtherDetails1").hide();
+
+			$("#InternalReferralDetails").show();
+			}
+			else if ($('#dllReferralLevel').val() == 46) {
+					$("#ReferStaffDetails").hide();
+					$("#EthicsDetails").show();
+					$("#InternalReferralDetails").hide();
+					$("#EthicsOtherDetails").hide();
+					$("#EthicsOtherDetails1").show();
+			}
+			});
+		$('#dllethics').change(function () {
+
+			debugger;
+
+			if ($('#dllethics').val() == 43) {
+			$("#EthicsOtherDetails").show();
+
+			}
+			else {
+			$("#EthicsOtherDetails").hide();
+			}
+
+				});
+
+			//this below code is for response controls hide and show
+
+			$('#chkResponseProvidedFlag').on('switchChange.bootstrapSwitch', function (event, state) {
+			    if (state == true) {
+						$("#ResponseDetail").show();
+						$("#ResponseDetail1").show();
+						$("#ResponseDetailComments").hide();
+					ResponseProvidedFlag = true;
+		            	}
+		     	else {
+						$("#ResponseDetail").hide();
+						$("#ResponseDetail1").hide();
+						$("#OtherComplaintCommunicationMethodResponse").hide();
+						$("#ResponseDetailComments").show();
+					ResponseProvidedFlag = false;
+					
+			         }
+			     });
+			$('#chkAcknowledgementProvidedFlag').on('switchChange.bootstrapSwitch', function (event, state) {
+		      	if (state == true) {
+					    $("#AcknowledgmentDetail1").show();
+					    $("#AcknowledgmentDetail2").show();
+		    			$("#AcknowledgmentCommentsDetail").hide();
+		    	}
+			else {
+					$("#AcknowledgmentDetail1").hide();
+					$("#AcknowledgmentDetail2").hide();
+					$("#OtherComplaintCommunicationMethodAck").hide();
+					$("#AcknowledgmentCommentsDetail").show();
+
+					//$("#ddlAcknowledgementCommunicationMethodID").val('');
+					//$("#txtAcknowledgementProvidedDate").val('');
+
+					//$("#chkComplainantQuestionsAddressedFlag").prop("checked", false);
+					//$("#chkHandlingProcessExplainedFlag").prop("checked", false);
+					//$("#chkResponseReceivalExplainedFlag").prop("checked", false);
+					//$("#chkFollowUpContactDetailsFlag").prop("checked", false);
+					//$("#chkProcessTimelineDiscussedFlag").prop("checked", false);
+
+			  }
+			});
+
+		//$('#chkResponseProvidedFlagAppeal').on('switchChange.bootstrapSwitch', function (event, state) {
+		//	if (state == true) {
+		//		$("#ResponseAppealDetails").show();
+
+		//				}
+		//				else {
+		//					$("#ResponseAppealDetails").hide();
+						
+		//				}
+		//			});
+			$('#ddlResponseCommunicationMethodIDAppeal').change(function () {
+						debugger;
+						if ($('#ddlResponseCommunicationMethodIDAppeal').val() ==43) {
+							$("#ResponseAppealOthertext").show();
+						}
+						else {
+							$("#ResponseAppealOthertext").hide();
+						}
+					});
+
+			//this below code is use to show maximum length and remaings in comment boxes
+			var maxchars = 255;
+			$('#txtAppealResolutionDescription').keyup(function () {
+			       var tlength = $(this).val().length;
+			       $(this).val($(this).val().substring(0, maxchars));
+					var tlength = $(this).val().length;
+					remain = maxchars - parseInt(tlength);
+					$('#remain').text(remain);
+			});
+			var maxchars2 = 255;
+			$('#txtProcessDescription').keyup(function () {
+					var tlength = $(this).val().length;
+					$(this).val($(this).val().substring(0, maxchars2));
+					var tlength = $(this).val().length;
+					remain = maxchars2 - parseInt(tlength);
+					$('#remain2').text(remain);
+			});
+			var maxcharSectorProgram = 80;
+			$('#txtOtherSectorProgram').keyup(function () {
+					var tlength = $(this).val().length;
+					$(this).val($(this).val().substring(0, maxcharSectorProgram));
+					var tlength = $(this).val().length;
+					remain = maxcharSectorProgram - parseInt(tlength);
+					$('#remainSectorProg').text(remain);
+
+			});
+			var maxcharVul = 80;
+			$('#txtOtherVulnerabilityType').keyup(function () {
+					var tlength = $(this).val().length;
+					$(this).val($(this).val().substring(0, maxcharVul));
+					var tlength = $(this).val().length;
+					remain = maxcharVul - parseInt(tlength);
+					$('#remainVul').text(remain);
+
+			});
+			var maxcharSubject = 80;
+			$('#txtSubject').keyup(function () {
+					var tlength = $(this).val().length;
+					$(this).val($(this).val().substring(0, maxcharSubject));
+					var tlength = $(this).val().length;
+					remain = maxcharSubject - parseInt(tlength);
+					$('#remainSubject').text(remain);
+
+			});
+			var maxcharremainCD = 250;
+			$('#txtComplaintDescription').keyup(function () {
+					var tlength = $(this).val().length;
+					$(this).val($(this).val().substring(0, maxcharremainCD));
+					var tlength = $(this).val().length;
+					remain = maxcharremainCD - parseInt(tlength);
+						$('#RemComplaintDescription').text(remain);
+
+		});
+
+
+		  $('#ddlComplaintCategoryName').change(function () {
+			debugger;
+        	Catid = $('#ddlComplaintCategoryName').val().trim();
+			//$("#TextArea").delay(0).fadeOut();
+			if (Catid != "" && Number(Catid) > 0) {
+				debugger;
+				$.ajax({
+					type: 'Get',
+					url: '/ComplainManagement/ComplainForm/spGetCategory',
+					dataType: 'json',
+
+					data: { catid: Catid },
+					async: false,
+					success: function (data) {
+						debugger;
+						if (data != null) {
+							if (Object.keys(data).length != 0) {
+								$.each(data, function (key, value) {
+
+									$('#TextArea').show();
+									$('#lbldescription').val(value.ComplaintCategoryDescription);
+
+								});
+							}
+						}
+					},
+					error: function () {
+
+						showMessage("Oops, Something went wrong", "Error Occured while Routing Charges Ajax Call, Please contact with administrator", "warning", "btn-danger");
+					}
+				});
+
+			}
+		});
+
+		  $('#dllFieldSite').change(function () {
+
+			debugger;
+
+			if ($('#dllFieldSite').val() != "") {
+				$("#main").show();
+			}
+			else {
+				$("#main").hide();
+			}
+
+		});
+
+               //Below code is use to call ajax to fill user details in textboxex
+				$(document).ready(function () {
+						$("#txtReceivedByEDWPersonID").blur(function () {
+						debugger;
+						var ReceivedByEDWPersonID = $('#txtReceivedByEDWPersonID').val();
+						if (ReceivedByEDWPersonID != "") {
+						debugger;
+						$.ajax({
+						type: 'GET',
+						url: '/ComplainManagement/ComplainForm/GetUserDetails',
+						datatype: "json",
+						contentType: 'application/json; charset=utf-8',
+						data: { "UserName": ReceivedByEDWPersonID },
+
+						async: false,
+						success: function (data) {
+						debugger;
+						if (data != null) {
+						if (Object.keys(data).length != 0) {
+						$.each(data, function (key, value) {
+						//$('#TxtName').val(value.FullName);
+
+
+						$('#txtReceivedByEDWPersonID').val(value.FullName);
+
+						$('#lblrecivedbyID').val(value.EDWPersonID);
+
+				});
+				}
+				}
+				},
+				error: function (xhr) {
+				showMessage("Oops, Something went wrong", "Error Occured while Ajax Call to load Modules, Please contact with administrator", "warning", "btn-danger");
+				}
+				});
+
+				}
+				});
+
+
+				});
+				$(document).ready(function () {
+						$("#txtReferedTo").blur(function () {
+						debugger;
+						var txtReferedTo = $('#txtReferedTo').val();
+						if (txtReferedTo != "") {
+						debugger;
+						$.ajax({
+						type: 'GET',
+						url: '/ComplainManagement/ComplainForm/GetUserDetails',
+						datatype: "json",
+						contentType: 'application/json; charset=utf-8',
+						data: { "UserName": txtReferedTo },
+
+						async: false,
+						success: function (data) {
+						debugger;
+						if (data != null) {
+						if (Object.keys(data).length != 0) {
+						$.each(data, function (key, value) {
+						//$('#TxtName').val(value.FullName);
+
+
+						$('#txtReferedTo').val(value.FullName);
+
+						$('#lblReferedTo').val(value.EDWPersonID);
+
+				});
+				}
+				}
+				},
+				error: function (xhr) {
+				showMessage("Oops, Something went wrong", "Error Occured while Ajax Call to load Modules, Please contact with administrator", "warning", "btn-danger");
+				}
+				});
+
+				}
+				});
+
+
+				});
+				$(document).ready(function () {
+						$("#txtResponseCommunited").blur(function () {
+						debugger;
+						var txtResponseCommunited = $('#txtResponseCommunited').val();
+						if (txtResponseCommunited != "") {
+						debugger;
+						$.ajax({
+						type: 'GET',
+						url: '/ComplainManagement/ComplainForm/GetUserDetails',
+						datatype: "json",
+						contentType: 'application/json; charset=utf-8',
+						data: { "UserName": txtResponseCommunited },
+
+						async: false,
+						success: function (data) {
+						debugger;
+						if (data != null) {
+						if (Object.keys(data).length != 0) {
+						$.each(data, function (key, value) {
+						//$('#TxtName').val(value.FullName);
+
+
+						$('#txtResponseCommunited').val(value.FullName);
+
+						$('#lblResponseCommunitedby').val(value.EDWPersonID);
+
+				});
+				}
+				}
+				},
+				error: function (xhr) {
+				showMessage("Oops, Something went wrong", "Error Occured while Ajax Call to load Modules, Please contact with administrator", "warning", "btn-danger");
+				}
+				});
+
+				}
+				});
+
+
+				});
+				$(document).ready(function () {
+			     	$("#txtResponseCommunitedAppeal").blur(function () {
+						debugger;
+						var txtResponseCommunitedAppeal = $('#txtResponseCommunitedAppeal').val();
+						if (txtResponseCommunitedAppeal != "") {
+							debugger;
+							$.ajax({
+								type: 'GET',
+								url: '/ComplainManagement/ComplainForm/GetUserDetails',
+								datatype: "json",
+								contentType: 'application/json; charset=utf-8',
+								data: { "UserName": txtResponseCommunitedAppeal },
+
+								async: false,
+								success: function (data) {
+									debugger;
+									if (data != null) {
+										if (Object.keys(data).length != 0) {
+											$.each(data, function (key, value) {
+												//$('#TxtName').val(value.FullName);
+
+
+												$('#txtResponseCommunitedAppeal').val(value.FullName);
+
+												$('#lbltxtResponseCommunitedAppeal').val(value.EDWPersonID);
+
+											});
+										}
+									}
+								},
+								error: function (xhr) {
+									showMessage("Oops, Something went wrong", "Error Occured while Ajax Call to load Modules, Please contact with administrator", "warning", "btn-danger");
+								}
+							});
+
+						}
+				});
+
+
+						});
+		        $(document).ready(function () {
+				     $("#txtAcknowledgeby").blur(function () {
+			         	debugger;
+					   var txtAcknowledgeby = $('#txtAcknowledgeby').val();
+					   if (txtAcknowledgeby != "") {
+					debugger;
+					$.ajax({
+						type: 'GET',
+						url: '/ComplainManagement/ComplainForm/Acknowledge',
+						datatype: "json",
+						contentType: 'application/json; charset=utf-8',
+						data: { "UserName": txtAcknowledgeby },
+
+						async: false,
+						success: function (data) {
+							debugger;
+							if (data != null) {
+								if (Object.keys(data).length != 0) {
+									$.each(data, function (key, value) {
+										//$('#TxtName').val(value.FullName);
+
+
+										$('#txtAcknowledgeby').val(value.FullName);
+
+										$('#lblAcknowledgeby').val(value.EDWPersonID);
+
+									});
+								}
+							}
+						},
+						error: function (xhr) {
+							showMessage("Oops, Something went wrong", "Error Occured while Ajax Call to load Modules, Please contact with administrator", "warning", "btn-danger");
+						}
+					});
+
+				}
+			});
+
+
+		});
+	         	$(document).ready(function () {
+					  $("#txtAppealComm").focusout(function () {
+				debugger;
+				var txtAppealComm = $('#txtAppealComm').val();
+				if (txtAppealComm != "") {
+					debugger;
+					$.ajax({
+						type: 'GET',
+						url: '/ComplainManagement/ComplainForm/Acknowledge',
+						datatype: "json",
+						contentType: 'application/json; charset=utf-8',
+						data: { "UserName": txtAppealComm },
+
+						async: false,
+						success: function (data) {
+							debugger;
+							if (data != null) {
+								if (Object.keys(data).length != 0) {
+									$.each(data, function (key, value) {
+										$('#txtAppealComm').val(value.FullName);
+										$('#txtAppealEDWID').val(value.EDWPersonID);
+
+									});
+								}
+							}
+						},
+						error: function (xhr) {
+							showMessage("Oops, Something went wrong", "Error Occured while Ajax Call to load Modules, Please contact with administrator", "warning", "btn-danger");
+						}
+					});
+
+				}
+			});
+
+
+	                    	});
+
+	          	$('#dllClassification').change(function () {
+					debugger;
+					var htm = "";
+					var $select = $('#ddlComplaintCategoryName');
+					$select.html(htm);
+					//$select.append('<option value="">Select</option>');
+					try {
+						var ClassificationID = Number($('#dllClassification').val());
+						if (ClassificationID > 0) {
+							debugger;
+							$.ajax({
+								type: 'GET',
+								url: '/ComplainManagement/ComplainForm/GetCategoryRefral',
+								datatype: "json",
+								contentType: 'application/json; charset=utf-8',
+								data: { "ClassificationID": ClassificationID },
+								async: false,
+								success: function (data) {
+									debugger;
+									if (data != null) {
+										if (Object.keys(data).length != 0) {
+											$.each(data, function (key, value) {
+												$select.append($("<option />").val(value.ComplaintCategoryID).html(value.ComplaintCategoryName));
+
+
+											});
+										}
+									}
+								},
+								error: function (xhr) {
+									showMessage("Oops, Something went wrong", "Error Occured while Ajax Call to load Complaint Category, Please contact with administrator", "warning", "btn-danger");
+								}
+							});
+
+						}
+					}
+					catch (Exception) {
+						showMessage("Error Occured while Loading the Complaint Category", Exception.message, "warning", "btn-danger");
+					}
+		});
+	           	$('#dllCountry').change(function () {
+
+
+						debugger;
+						  var htm = "";
+						  var htm1 = "";
+						  var $select = $('#dllFieldSite');
+						  $select.html(htm);
+						  $select.append('<option value=""> </option>');
+
+						  var $select1 = $('#ddlProjectIdentifier');
+						  $select1.html(htm1);
+						  $select1.append('<option value=""> </option>');
+						 
+						  
+						try {
+							var CountryCode =$('#dllCountry').val();
+							if (CountryCode != "") {
+								debugger;
+								$.ajax({
+									type: 'GET',
+									url: '/ComplainManagement/ComplainForm/GetFieldSite',
+									datatype: "json",
+									contentType: 'application/json; charset=utf-8',
+									data: { "CountryCode": CountryCode },
+									async: false,
+									success: function (data) {
+										debugger;
+										if (data != null) {
+											if (Object.keys(data).length != 0) {
+												$.each(data, function (key, value) {
+													$select.append($("<option />").val(value.FieldSiteCode).html(value.FieldSiteName));
+
+
+												});
+											}
+										}
+									},
+									error: function (xhr) {
+										showMessage("Oops, Something went wrong", "Error Occured while Ajax Call to load Complaint Category, Please contact with administrator", "warning", "btn-danger");
+									}
+								});
+								$.ajax({
+									type: 'GET',
+									url: '/ComplainManagement/ComplainForm/GetProject',
+									datatype: "json",
+									contentType: 'application/json; charset=utf-8',
+									data: { "CountryCode": CountryCode },
+									async: false,
+									success: function (data) {
+										debugger;
+										if (data != null) {
+											if (Object.keys(data).length != 0) {
+												$.each(data, function (key, value) {
+													$select1.append($("<option />").val(value.ProjectIdentifier).html(value.DropDownDisplay));
+
+
+												});
+											}
+										}
+									},
+									error: function (xhr) {
+										showMessage("Oops, Something went wrong", "Error Occured while Ajax Call to load Project, Please contact with administrator", "warning", "btn-danger");
+									}
+								});
+							}
+							
+						}
+						catch (Exception) {
+							showMessage("Error Occured while Loading the Complaint Category", Exception.message, "warning", "btn-danger");
+						}
+	            	});
+
+					var viewBag = "";
+					var DeletedMedia = [];
+					var DeletedMediaAppeal = [];
+		// SAVE  FUNCTIONS
+
+	
+
+		$('#btnSaveUser').on('click', function () {
+
+
+					var CommunityBasedComplaintID = 0;
+		    	debugger;
+			var IsDBSaved = 0;
+			var Finalmsg = "";
+
+					//debugger;
+
+							if (validator()) {
+								try {
+
+									var CBC = {
+										//CommunityBasedComplaint  Table Fields
+										ID: $('#txtCommunityBasedComplaintID').val(),
+										CountryCode: $('#dllCountry').val(),
+										ComplaintCommunicationMethodID: Number($('#dllComplaintCommunicationMethodID').val()),
+										ComplaintCategoryID: Number($('#ddlComplaintCategoryName').val()),
+										ComplaintClassificationID: Number($('#dllClassification').val()),
+										FieldSiteCode: $('#dllFieldSite').val(),
+										ProjectIdentifier: $('#ddlProjectIdentifier').val(),
+										SubmitDate: $('#lblSubmitDate').val(),
+										ReceivedDate: FormatDate2($('#txtReceivedDate').val()),
+										ReceivedByEDWPersonID: Number($('#lblrecivedbyID').val()),//hidden label be insert instead of Name
+										ReceivedByIMCStaffFlag: $("#chkReceivedByIMCStaffFlag").prop("checked") == true ? 1 : 0,
+										ReceivedByNonIMCName: $('#txtReceivedByNonIMCName').val(),
+										EnteredTimestamp: FormatDate2($('#txtDateComplainwasRaised').val()),
+										EnteredByEDWPersonID: Number($('#lblEnteredByEDWPersonID').val()), // this is hidden fields value
+										ClosedDate: FormatDate2($('#txtClosedDate').val()),
+										ClosedByEDWPersonID: $('#lblClosedByEDWPersonID').val(),
+										ComplaintDescription: $('#txtComplaintDescription').val(),
+										OtherComplaintCommunicationMethodText: $('#txtOtherComplaintCommunicationMethodText').val(),
+										SubjectText: $('#txtSubject').val(),
+										AcknowledgementProvidedFlag: $("#chkAcknowledgementProvidedFlag").prop("checked") == true ? 1 : 0,
+										AppealedFlag: $("#chkResponseProvidedFlagAppeal").prop("checked") == true ? 1 : 0,
+										ResponseProvidedFlag: $("#chkResponseProvidedFlag").prop("checked") == true ? 1 : 0,
+										ReferralRequiredFlag: $("#chkReferralRequiredFlag").prop("checked") == true ? 1 : 0,
+										//ReferralTypeID: Number($('#dllReferralTypeID').val()),
+										InternalReferralLevelID: Number($('#dllReferralLevel').val()),
+										NoAcknowledgementReasonDescription: $('#txtNoAcknowledgementReasonDescription').val(),
+										NoReferralReasonDescription: $('#txtNoReferralReasonDescription').val(),
+										NoResponseReasonDescription: $('#txtNoResponseReasonDescription').val(),
+										ResponseByNonIMCName: $('#txtResponseByNonIMCName').val()
+
+									}
+									var selectedOptions = [];
+									$("#dllFieldSectorCode option:selected").each(function () {
+										var value = $(this).val();
+
+										if ($.trim(value)) {
+											selectedOptions.push({
+												'FieldSectorCode': value,
+												'OtherSectorText': $('#txtOtherSectorProgram').val()
+											}
+											);
+										}
+									});
+									var Vuloptions = [];
+									$("#ddlVulnerabilityTypeID option:selected").each(function () {
+										var value = $(this).val();
+										if ($.trim(value)) {
+											Vuloptions.push({
+												'VulnerabilityTypeID': value.trim()
+											});
+										}
+									});
+									var Loc = {
+
+										//CommunityBasedComplainLocation Table Fields
+										ProvinceText: $('#txtProvinceText').val(),
+										DistrictText: $('#txtDistrictText').val(),
+										LocationText: $('#txtLocationText').val(),
+										CommunityText: $('#txtCommunityText').val()
+
+									}
+									var CD = {
+										//VComplaintDetails Table Fields CompianID
+										EDWComplaintantID: $('#lblEDWComplaintantID').val(),
+										//CommunityBasedComplaintID  Main Table column backend
+										AgeYearNumber: $('#txtAgeYearNumber').val(),
+										PrimaryLanguageDialectCode: $('#ddlLanguageName').val(),
+										SexCode: $('#ddlSexCode').val(),
+										PersonName: $('#txtPersonName').val(),
+										AddressText: $('#txtAddressText').val(),
+										PhoneNumber: $('#txtPhoneNumber').val(),
+										EmailAddress: $('#txtEmailAddress').val(),
+										ComplainantProgramRelationshipText: $('#txtComplainantProgramRelationshipText').val(),
+										OtherCommunicationAvenueText: $('#txtOtherCommunicationAvenueText').val(),
+										ComplainantAllowContactFlag: $("#chkComplainantAllowContactFlag").prop("checked") == true ? 1 : 0,
+										ComplainantAllowVisitFlag: $("#chkComplainantAllowVisitFlag").prop("checked") == true ? 1 : 0,
+										OtherLanguageDialectText: $('#txtOtherLanguageDialectText').val(),
+										ComplainantQuestionsAddressedFlag: $('#chkComplainantQuestionsAddressedFlag').prop("checked") == true ? 1 : 0,
+										FollowUpContactDetailsFlag: $('#chkFollowUpContactDetailsFlag').prop("checked") == true ? 1 : 0,
+										HandlingProcessExplainedFlag: $('#chkHandlingProcessExplainedFlag').prop("checked") == true ? 1 : 0,
+										ProcessTimelineDiscussedFlag: $('#chkProcessTimelineDiscussedFlag').prop("checked") == true ? 1 : 0,
+										ResponseReceivalExplainedFlag: $('#chkResponseReceivalExplainedFlag').prop("checked") == true ? 1 : 0,
+									}
+									var CT = {
+
+										AckEDWPersonID: $('#lblAcknowledgeby').val(),
+										AckCommunicationDate: FormatDate2($('#txtAcknowledgementProvidedDate').val()),
+										AckCommunicationMethodID: Number($('#ddlAcknowledgementCommunicationMethodID').val()),
+										AckOtherCCMText: $('#txtOtherComplaintCommunicationMethodTextAck').val(),
+
+										//Internal
+										InternalEDWPersonID: $('#lblReferedTo').val(),
+										InternalCommunicationDate: FormatDate2($('#txtInternalDateofreferral').val()),
+										InternaltxtHQCommunicationDate: FormatDate2($('#txtHQsentDate').val()),
+										InternalCommunicationMethodID: $('#dllethics').val(),
+										InternalComment: $('#txtInternalReferralcomments').val(),
+										InternalOtherCCMText: $('#txtOtherCommunicatioMethodInternal').val(),
+
+										//First Response
+										FirstResponseEDWPersonID: $('#lblResponseCommunitedby').val(),
+										FirstResponseCommunicationDate: FormatDate2($('#txtCommunicationDate').val()),
+										FirstResponseCommunicationStageID: 53,
+										FirstResponseCommunicationMethodID: $('#ddlResponseCommunicationMethodID').val(),
+										FirstResponseComment: $('#txtResponseComments').val(),
+										FirstResponseOtherCCMText: $('#txtOtherComplaintCommunicationMethodTextResponse').val(),
+
+										//Appeal Response
+
+										//ResponseProvidedFlagAppeal: $('#chkResponseProvidedFlagAppeal').prop("checked") == true ? 1 : 0,
+										AppealResponseEDWPersonID: $('#lbltxtResponseCommunitedAppeal').val(),
+										AppealResponseCommunicationDate: FormatDate2($('#txtCommunicationDateAppeal').val()),
+
+										AppealResponseCommunicationMethodID: $('#ddlResponseCommunicationMethodIDAppeal').val(),
+
+										AppealResponseOtherCCMText: $('#txtOtherCCMTextAppeal').val(),
+										//AppealResponseComment
+									}
+									var External = {
+										// External Table Fields with communicatioID
+										ReferralDate: FormatDate2($('#txtExtReferralDate').val()),
+										ReferralAgencyName: $('#txtReferralAgencyName').val(),
+										ReferralPersonName: $('#txtReferralPersonName').val(),
+										ReferralPersonPositionText: $('#txtReferralPersonPositionText').val(),
+										ContactComment: $('#txtExternalContactComment').val(),
+										HQDisclosureAuthorizationText: $('#txtHQDisclosureAuthorizationText').val()
+									}
+									var Resolution = {
+										//Resolution with CompianID
+										InvestigationDescription: $('#txtInvestigationDescription').val(),
+										InvestigationPointOfContactName: $('#txtInvestigationPointOfContactName').val(),
+										CorrectiveActionDescription: $('#txtCorrectiveActionDescription').val(),
+										ResolutionDate: FormatDate2($('#txtResolutionDate').val())
+									}
+									var ComAppeal = {
+										//Appeal Table and Appeal Committee table fields
+										AppealDate: FormatDate2($('#txtAppealDate').val()),
+										ProcessDescription: $('#txtProcessDescription').val(),
+										AppealReceivedCommunicationMethodID: $('#ddlAppealReceivedCommunicationMethodID').val(),
+										AppealResolutionDate: FormatDate2($('#txtAppealResolutionDate').val()),
+										AppealResolutionDescription: $('#txtAppealResolutionDescription').val(),
+										OtherComplaintCommunicationMethodText: $('#txtOtherComplaintCommunicationMethodTextAppeal').val()
+									}
+									var ACoptions = [];
+
+									//$("#ddlEDWPersonIDAppealCommittee option:selected").each(function () {
+									//	var value = $(this).val();
+									//	if ($.trim(value)) {
+									//		ACoptions.push({
+									//			'EDWPersonID': value.trim(),
+									//		});
+									//	}
+									//});
+
+									$("#tblAC tr:gt(0)").each(function () {
+										var value = $(this);
+										var appcommedwid = $.trim(value.find('td:eq(2)').html());//td:eq(0) means first td of this row
+
+									
+										if ($.trim(appcommedwid)) {
+											ACoptions.push({
+												'EDWPersonID': appcommedwid.trim(),
+											});
+										}
+
+									});
+
+
+									var urlToSave = "@Url.Action("SaveComplaint", "ComplainForm", new { Area = "ComplainManagement" })";
+									debugger;
+									$.ajax({
+										dataType: "json",
+										contentType: 'application/json; charset=utf-8',
+										traditional: true,
+										url: urlToSave,
+										type: "POST",
+										async: false,
+										data: JSON.stringify({ "compID": $('#txtCommunityBasedComplaintID').val(), "edwID": $('#lblEDWComplaintantID').val() , "CBC": CBC, "Vul": Vuloptions, "Loc": Loc, "CD": CD, "External": External, "CT": CT, "Resolution": Resolution, "FieldSector": selectedOptions, "ComAppeal": ComAppeal, "AC": ACoptions, "DeletedMedia": DeletedMedia, "DeletedMediaAppeal": DeletedMediaAppeal}),
+
+										success: function (data) {
+											debugger;
+											if (data != null) {
+
+													var msg = data.split("-");
+													if (msg[0] == "Saved" || msg[0] == "Updated") {
+														CommunityBasedComplaintID = msg[1];
+														IsDBSaved = 1;
+														Finalmsg =  " Complaint ID  :" + CommunityBasedComplaintID ;
+
+													}
+													else {
+														showMessage("Alert", "Error Occurred while saving the records", "warning", "btn-danger");
+													}
+
+
+
+											}
+										},
+
+										error: function () {
+
+											showMessage("Oops, Something went wrong", "Error Occured while Ajax Call, Please contact with administrator", "warning", "btn-danger");
+
+										}
+									});
+
+
+
+									//initial form  media
+									var isNewMedia = 0;
+									$('#TableFiles tbody tr').each(function () {
+										debugger;
+										var $tds = $(this).find('td');
+										if ($tds.eq(6).text() == 1) {
+											isNewMedia = 1;
+										}
+									});
+									//appeal media
+									var isNewMediaAppeal = 0;
+									$('#TableFiles1 tbody tr').each(function () {
+										debugger;
+										var $tds = $(this).find('td');
+										if ($tds.eq(6).text() == 1) {
+											isNewMediaAppeal = 1;
+										}
+									});
+									debugger;
+									if (CommunityBasedComplaintID > 0 && sr > 0 && isNewMedia == 1) {
+										formData.delete('CommunityBasedComplaintID');
+										formData.append('CommunityBasedComplaintID', CommunityBasedComplaintID);
+										$('#TableFiles tbody tr').each(function () {
+											debugger;
+											var $tds = $(this).find('td');
+
+											formData.delete($tds.eq(1).text() + '-Title');
+											formData.delete($tds.eq(1).text() + '-Remarks');
+
+											formData.append($tds.eq(1).text() + '-Title', $("#txtTitle-" + $tds.eq(0).text()).val());
+											formData.append($tds.eq(1).text() + '-Remarks', $("#txtRemarks-" + $tds.eq(0).text()).val());
+
+											$tds.eq(6).text(2);
+
+										});
+										debugger;
+										$.ajax({
+											type: 'POST',
+											url: '/ComplainManagement/ComplainForm/UploadFile',
+											dataType: 'json',
+											enctype: 'multipart/form-data',
+											processData: false,
+											contentType: false,
+											//data: JSON.stringify({ "ApplicationDetail": Application }),
+											data: formData,
+											async: true,
+											beforeSend: function () {
+												debugger;
+												//$('#ProcessingModal').modal('show');
+											},
+											complete: function () {
+												//$('#ProcessingModal').modal('hide');
+											},
+											cache: false,
+											success: function (data) {
+												debugger;
+												if (data.length > 0) {
+													if (data == "Uploaded") {
+														Finalmsg = Finalmsg + ", and Complaint files also uploaded";
+
+													}
+													else {
+														showMessage("Something went wrong while Uploading Media", data, "warning", "btn-danger");
+													}
+												}
+											},
+											error: function () {
+												showMessage("Oops, Something went wrong", "Error Occured while Ajax Call, Please contact with administrator", "warning", "btn-danger");
+											}
+										});
+									}
+
+									if (CommunityBasedComplaintID > 0 && sr2 > 0 && isNewMediaAppeal == 1) {
+										formData2.delete('CommunityBasedComplaintID');
+										formData2.append('CommunityBasedComplaintID', CommunityBasedComplaintID);
+										$('#TableFiles1 tbody tr').each(function () {
+											debugger;
+											var $tds = $(this).find('td');
+
+											formData2.delete($tds.eq(1).text() + '-Title');
+											formData2.delete($tds.eq(1).text() + '-Remarks');
+
+											formData2.append($tds.eq(1).text() + '-Title', $("#txtTitle-" + $tds.eq(0).text()).val());
+											formData2.append($tds.eq(1).text() + '-Remarks', $("#txtRemarks-" + $tds.eq(0).text()).val());
+
+											$tds.eq(6).text(2);
+
+										});
+										debugger;
+										$.ajax({
+											type: 'POST',
+											url: '/ComplainManagement/ComplainForm/UploadFileAppeal',
+											dataType: 'json',
+											enctype: 'multipart/form-data',
+											processData: false,
+											contentType: false,
+											//data: JSON.stringify({ "ApplicationDetail": Application }),
+											data: formData2,
+											async: true,
+											beforeSend: function () {
+												debugger;
+												//$('#ProcessingModal').modal('show');
+											},
+											complete: function () {
+												//$('#ProcessingModal').modal('hide');
+											},
+											cache: false,
+											success: function (data) {
+												debugger;
+												if (data.length > 0) {
+													if (data == "Uploaded") {
+														Finalmsg = Finalmsg + ", and Complaint Appeal files also uploaded";
+													}
+													else {
+														showMessage("Something went wrong while Uploading Media", data, "warning", "btn-danger");
+													}
+												}
+											},
+											error: function () {
+												showMessage("Oops, Something went wrong", "Error Occured while Ajax Call, Please contact with administrator", "warning", "btn-danger");
+											}
+										});
+									}
+
+
+									debugger;
+									if (IsDBSaved == 1 && IsReturnedFromEdit==0) {
+										showMessageSuccess("Complain  Successfully Submitted", Finalmsg, "success", "btn-success", CommunityBasedComplaintID );
+									}
+									else if (IsDBSaved == 1 && IsReturnedFromEdit == 1) {
+										showMessage("Complain  Successfully Submitted", Finalmsg, "success", "btn-success");
+									}
+								}
+								catch (Exception)
+								{
+									showMessage("Error Occured while Saving the Application", Exception.message, "warning", "btn-danger");
+								}
+							}
+
+
+					});
+
+
+		//form validation
+		function validator() {
+			var result = true;
+
+			var fieldRequired = "Following Fields are mandatory: ";
+
+			if ($('#dllFieldSite').val() == "") {
+				result = false;
+				fieldRequired = fieldRequired + " Select FieldSite,"
+			}
+
+			if ($('#txtReceivedDate').val() == "") {
+				result = false;
+				fieldRequired = fieldRequired + " Date feedback/complaint Received,"
+
+			}
+			if ($('#txtDateComplainwasRaised').val() == "") {
+				result = false;
+				fieldRequired = fieldRequired + " Date Complain was Raised,"
+			}
+
+			if ($('#txtInvestigationDescription').val() != "" || $('#txtInvestigationPointOfContactName').val() != "" || $('#txtCorrectiveActionDescription').val() != "" )
+			{
+				// external date intern country date /internal hq date or comments texbox
+				if ($('#txtExtReferralDate').val() != "" || $('#txtInternalDateofreferral').val() != "" || $('#txtHQsentDate').val() != "" || $('#txtNoReferralReasonDescription').val() != "" ) {
+
+						if ($('#txtResolutionDate').val() == "") {
+							result = false;
+							fieldRequired = fieldRequired + "Date Resolution is Required,"
+						}
+						
+				}
+				else {
+
+					result = false;
+					fieldRequired = fieldRequired + "Add Referral Details First "
+				}
+
+			}
+			if ($('#dllReferralLevel').val() == 45) {
+				if ($('#txtReferedTo').val() == "") {
+					result = false;
+					fieldRequired = fieldRequired + "Refered To is Required On Referral,"
+				}
+				if ($('#txtInternalDateofreferral').val() == "") {
+					result = false;
+					fieldRequired = fieldRequired + "Internal Date  is Required,"
+				}
+			}
+
+			if ($('#txtReferralPersonName').val() != "" || $('#txtExternalContactComment').val() != "" || $('#txtHQDisclosureAuthorizationText').val() != "" || $('#txtReferralPersonPositionText').val() != "") {
+
+				if ($('#txtExtReferralDate').val() == "") {
+					result = false;
+					fieldRequired = fieldRequired + "External Date  is Required,"
+				}
+				if ($('#txtReferralAgencyName').val() == "") {
+					result = false;
+					fieldRequired = fieldRequired + "Referral Agency Name  is Required,"
+				}
+
+			}
+			if ($('#ddlResponseCommunicationMethodID').val() != "" ) {
+
+				if ($('#txtCorrectiveActionDescription').val() != "" ) {
+
+					if ($('#txtCommunicationDate').val() == "") {
+						result = false;
+						fieldRequired = fieldRequired + "Date Response is Required,"
+					}
+
+				}
+				else {
+
+					result = false;
+					fieldRequired = fieldRequired + "Add Resolution details first before adding Response details "
+				}
+
+			}
+
+			if ($('#txtNoResponseReasonDescription').val() != "") {
+
+				if ($('#txtCorrectiveActionDescription').val() == "") {
+
+					result = false;
+					fieldRequired = fieldRequired + "Add Resolution details first before adding Response details ,"
+				}
+			}
+
+			if ($('#ddlResponseCommunicationMethodIDAppeal').val() != "") {
+				if ($('#txtCommunicationDateAppeal').val() == "") {
+					result = false;
+					fieldRequired = fieldRequired + "Date Appeal Response is Required,"
+
+				}
+			}
+			if ($('#ddlAppealReceivedCommunicationMethodID').val() != "") {
+					if ($('#txtAppealDate').val() == "") {
+						result = false;
+						fieldRequired = fieldRequired + "Appeal Date is Required,"
+					}
+			}
+
+			if ($('#txtClosedDate').val() != "") {
+
+				debugger;
+				//|| $('#txtNoResponseReasonDescription').val() != ""
+				if ($('#txtCommunicationDate').val() != "" || $('#txtNoResponseReasonDescription').val() != "") {
+					result = true;
+				
+				}
+				else {
+					result = false;
+					fieldRequired = fieldRequired + "Add Response details first "
+				}
+				
+			}
+
+
+
+			if (result == false) {
+				showMessage("Validation Summary", fieldRequired, "warning", "btn-danger");
+			}
+			return result;
+		}
+	
+
+		//formatedDate
+		function showMessage(MessageTitle, MsgText, ALType, BtnClass) {
+				debugger;
+				swal({
+				title: MessageTitle,
+				text: MsgText,
+				allowOutsideClick: true,
+				type: ALType,
+				showCancelButton: false,
+				confirmButtonClass: BtnClass,
+				confirmButtonText: "Okay",
+				closeOnConfirm: false
+
+				});
+		}
+		
+		function FormatDate2(date) {
+
+				var dtParts = date.split('/');
+				day = dtParts[0];
+				month = dtParts[1];
+				year = dtParts[2];
+
+				//if (month.length < 2) month = '0' + month;
+				//if (day.length < 2) day = '0' + day;
+				var Finaldate = [year, month, day].join('-');
+				return Finaldate;
+				//return [day, month, year].join('/');
+		}
+		//this method is use to delete a doc grid
+		function DeleteDoc(row, ID) {
+
+		debugger;
+
+		var status = $(row).closest("tr").find('td').eq(6).text().trim()
+
+		if (status == 1) {
+
+		formData.delete($(row).closest("tr").find('td').eq(1).text().trim());
+		$(row).closest("tr").remove();
+		sr = Number(sr) - 1;
+
+		}
+		else if (status == 2 && ID > 0) {
+		$(row).closest("tr").find('td').eq(6).text("3");
+		$(row).closest("tr").hide();
+
+		DeletedMedia.push({
+			CommunityBasedComplaintDocID: ID
+
+		});
+		}
+
+		swal.close();
+		}
+		function DeleteDoc2(row, ID) {
+
+		debugger;
+
+		var status = $(row).closest("tr").find('td').eq(6).text().trim()
+
+		if (status == 1) {
+
+					formData2.delete($(row).closest("tr").find('td').eq(1).text().trim());
+					$(row).closest("tr").remove();
+					sr2 = Number(sr2) - 1;
+
+		}
+		else if (status == 2 && ID > 0) {
+					$(row).closest("tr").find('td').eq(6).text("3");
+					$(row).closest("tr").hide();
+
+					DeletedMediaAppeal.push({
+					CommunityBasedComplaintDocID: ID
+
+
+		});
+		}
+
+		swal.close();
+		}
+		$("#FileUpload").on("change", function () {
+					debugger;
+					var files = $(this).get(0).files;
+					var tableRow = "";
+					var Ext = "";
+					var Size = 0;
+		for (var i = 0; i < files.length; i++) {
+
+						Ext = files[i].name.substring(files[i].name.lastIndexOf('.') + 1, files[i].name.length).toLowerCase();
+						Size = (Number(files[i].size) / 1024) / 1024; // Divided once with 1024 converts into KB and divided twice with 1024 converts into MB
+						if (Ext == 'pdf' || Ext == 'jpg' || Ext == 'png' || Ext == 'doc' || Ext == 'docx' || Ext == 'xls' || Ext == 'xlsx' || Ext == 'gif' || Ext == 'jpeg') {
+						if (Size <= 10) {
+						formData.append(files[i].name, files[i]);
+						sr += 1;
+						tableRow += "<tr>";
+						tableRow += "<td>" + sr + "</td>"
+						tableRow += "<td>" + files[i].name + "</td>";
+						tableRow += "<td><input   type='hidden' class='form-control' id='txtTitle-" + sr + "' /> </td>";
+
+						tableRow += "<td><input  type='hidden' class='form-control' id='txtRemarks-" + sr + "' /> </td>";
+						tableRow += "<td></td>"
+						tableRow += "<td><button onclick='showMessageConfirmation(this,0)'  type='button' class='btn btn-sm btn-danger'>";
+						tableRow += " <i class='fa fa-trash'></i> Delete</button></td>";
+						tableRow += "<td style='display:none'>1</td>"
+						tableRow += "</tr>"
+		}
+		else {
+	           	showMessage("File size exceeded ", files[i].name + " is greater then 10 MB, Maximum 10 MB allowed to upload", "warning", "btn-danger");
+		     }
+		}
+		else {
+		         showMessage("File type not allowed ", files[i].name + ", this file type is not allowed", "warning", "btn-danger");
+	     	}
+		}
+
+		$("#TableFiles tbody").append(tableRow);
+		});
+
+	
+		$("#FileUpload1").on("change", function () {
+						debugger;
+						var files = $(this).get(0).files;
+						var tableRow = "";
+						var Ext = "";
+						var Size = 0;
+
+
+		for (var i = 0; i < files.length; i++) {
+
+						Ext = files[i].name.substring(files[i].name.lastIndexOf('.') + 1, files[i].name.length).toLowerCase();
+						Size = (Number(files[i].size) / 1024) / 1024; // Divided once with 1024 converts into KB and divided twice with 1024 converts into MB
+						if (Ext == 'pdf' || Ext == 'jpg' || Ext == 'png' || Ext == 'doc' || Ext == 'docx' || Ext == 'xls' || Ext == 'xlsx' || Ext == 'gif' || Ext == 'jpeg') {
+						if (Size <= 10) {
+						formData2.append(files[i].name, files[i]);
+						sr2 += 1;
+						tableRow += "<tr>";
+						tableRow += "<td>" + sr2 + "</td>"
+						tableRow += "<td>" + files[i].name + "</td>";
+						tableRow += "<td><input   type='hidden' class='form-control' id='txtTitle-" + sr2 + "' /> </td>";
+
+						tableRow += "<td><input  type='hidden' class='form-control' id='txtRemarks-" + sr2 + "' /> </td>";
+						tableRow += "<td></td>"
+						tableRow += "<td><button onclick='showMessageConfirmation2(this,0)'  type='button' class='btn btn-sm btn-danger'>";
+						tableRow += " <i class='fa fa-trash'></i> Delete</button></td>";
+						tableRow += "<td style='display:none'>1</td>"
+						tableRow += "</tr>"
+		}
+		else {
+		              showMessage("File size exceeded ", files[i].name + " is greater then 10 MB, Maximum 10 MB allowed to upload", "warning", "btn-danger");
+		        }
+		     }
+		else {
+	                	showMessage("File type not allowed ", files[i].name + ", this file type is not allowed", "warning", "btn-danger");
+		     }
+		}
+
+		$("#TableFiles1 tbody").append(tableRow);
+		});
+		function showMessageSuccess(MessageTitle, MsgText, ALType, BtnClass, ID) {
+			//  $('#ProcessingModal').modal('hide');
+			swal({
+				title: MessageTitle,
+				text: MsgText,
+				allowOutsideClick: false,
+				type: ALType,
+				showCancelButton: false,
+				confirmButtonClass: BtnClass,
+				confirmButtonText: "Okay",
+				closeOnConfirm: false
+
+
+			},
+				function () {
+					var url = '/ComplainManagement/ComplainForm/Edit?ID=' + ID;
+					window.location.href = url;
+					//window.location.reload();
+				});
+		}
+
+	
+		function showMessageConfirmation(row, ID) {
+		debugger;
+		var fileName = $(row).closest("tr").find('td').eq(1).text().trim();
+
+
+						swal({
+						title: 'Are your sure you want to delete document',
+						text: fileName,
+						type: 'warning',
+						allowOutsideClick: false,
+						showConfirmButton: true,
+						showCancelButton: true,
+						confirmButtonClass: 'btn-danger',
+						cancelButtonClass: 'btn-info',
+						closeOnConfirm: false,
+						closeOnCancel: true,
+						confirmButtonText: 'Yes, Delete It',
+						cancelButtonText: 'No, I am not sure',
+						},
+						function (isConfirm) {
+						if (isConfirm) {
+						DeleteDoc(row, ID);
+						} else {
+
+						}
+		});
+
+
+		}
+		function showMessageConfirmation2(row, ID) {
+		debugger;
+
+
+		var fileName = $(row).closest("tr").find('td').eq(1).text().trim();
+
+
+					swal({
+					title: 'Are your sure you want to delete document',
+					text: fileName,
+					type: 'warning',
+					allowOutsideClick: false,
+					showConfirmButton: true,
+					showCancelButton: true,
+					confirmButtonClass: 'btn-danger',
+					cancelButtonClass: 'btn-info',
+					closeOnConfirm: false,
+					closeOnCancel: true,
+					confirmButtonText: 'Yes, Delete It',
+					cancelButtonText: 'No, I am not sure',
+		},
+		function (isConfirm) {
+					if (isConfirm) {
+					DeleteDoc2(row, ID);
+					} else {
+
+					}
+		});
+
+
+		}
+		function showMessageConfirmation3(row, ID) {
+			debugger;
+
+
+			var fileName = $(row).closest("tr").find('td').eq(1).text().trim();
+
+
+			swal({
+				title: 'Are your sure you want to delete row',
+				text: fileName,
+				type: 'warning',
+				allowOutsideClick: false,
+				showConfirmButton: true,
+				showCancelButton: true,
+				confirmButtonClass: 'btn-danger',
+				cancelButtonClass: 'btn-info',
+				closeOnConfirm: false,
+				closeOnCancel: true,
+				confirmButtonText: 'Yes, Delete It',
+				cancelButtonText: 'No, I am not sure',
+			},
+				function (isConfirm) {
+					if (isConfirm) {
+						DeleteAppealRow(row, ID);
+					} else {
+
+					}
+				});
+
+
+		}
+		function DeleteAppealRow(row, ID) {
+
+			$(row).closest('tr').remove();
+			AppealResetSr();
+			swal.close();
+		}
+
+		function AppealResetSr() {
+			debugger;
+			var sr = 0;
+			var table = $("#tblAC tbody");
+			table.find('tr').each(function (i) {
+				var $Etds = $(this).find('td');
+				debugger;
+					sr = sr + 1;
+					 $Etds.eq(0).text(sr);
+
+				//$(row).closest("tr").find('td').eq(6).text("3");
+
+
+
+			});
+		}
+
+		
+		$("#btnAddAppeal").click(function () {
+			var table = $("#tblAC tbody");
+			debugger;
+			var name = $("#txtAppealComm").val();
+			var AppealEDWID = $("#txtAppealEDWID").val();
+			var tableRow = "";
+
+			if (AppealEDWID != "") {
+
+				IsAlreadyExist = 0;
+
+				table.find('tr').each(function (i) {
+					var $Etds = $(this).find('td'),
+
+						ExistingID = $Etds.eq(2).text().trim();
+
+
+
+					if (Number(ExistingID) == AppealEDWID) {
+						showMessage("Already selected ", name, "warning", "btn-danger");
+						
+						IsAlreadyExist = 1;
+						return false;
+					}
+
+
+				});
+
+
+				if (IsAlreadyExist == 0) {
+
+
+
+
+						sr += 1;
+						tableRow += "<tr>";
+						tableRow += "<td></td>"
+						tableRow += "<td>" + name + "</td>"
+						tableRow += "<td>" + AppealEDWID + "</td>";
+						tableRow += "<td><button onclick='showMessageConfirmation3(this,0)'  type='button' class='btn btn-sm btn-danger'>";
+						tableRow += " <i class='fa fa-trash'></i> Delete</button></td>";
+						tableRow += "<td style='display:none'>1</td>"
+						tableRow += "</tr>"
+						$("#tblAC tbody").append(tableRow);
+
+						AppealResetSr();
+						$("#txtAppealComm").val('');
+						$("#txtAppealEDWID").val('');
+					
+					
+				}
+			}
+			else {
+
+				showMessage("This Persons Does Not exists ", name, "warning", "btn-danger");
+			}
+
+
+		});
+
+		
+	</script>
+
+
+}
+

@@ -1,0 +1,535 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ComplaintManagementModelStoreContainer" CdmEntityContainer="UserManagementEntities">
+    <EntitySetMapping Name="UMDataAccesses">
+      <EntityTypeMapping TypeName="ComplaintManagementModel.UMDataAccess">
+        <MappingFragment StoreEntitySet="UMDataAccess">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="AllowedUserID" ColumnName="AllowedUserID" />
+          <ScalarProperty Name="FormID" ColumnName="FormID" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="UserEntryID" ColumnName="UserEntryID" />
+          <ScalarProperty Name="DeletedByID" ColumnName="DeletedByID" />
+          <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UMForms">
+      <EntityTypeMapping TypeName="ComplaintManagementModel.UMForm">
+        <MappingFragment StoreEntitySet="UMForm">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="URL" ColumnName="URL" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+          <ScalarProperty Name="ModuleID" ColumnName="ModuleID" />
+          <ScalarProperty Name="FormOrder" ColumnName="FormOrder" />
+          <ScalarProperty Name="Icon" ColumnName="Icon" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="UserEntryID" ColumnName="UserEntryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UMFormRoles">
+      <EntityTypeMapping TypeName="ComplaintManagementModel.UMFormRole">
+        <MappingFragment StoreEntitySet="UMFormRole">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="FormID" ColumnName="FormID" />
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="UserEntryID" ColumnName="UserEntryID" />
+          <ScalarProperty Name="DeletedByID" ColumnName="DeletedByID" />
+          <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UMFormRoleActions">
+      <EntityTypeMapping TypeName="ComplaintManagementModel.UMFormRoleAction">
+        <MappingFragment StoreEntitySet="UMFormRoleAction">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="FormRoleID" ColumnName="FormRoleID" />
+          <ScalarProperty Name="RefActionID" ColumnName="RefActionID" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="UserEntryID" ColumnName="UserEntryID" />
+          <ScalarProperty Name="DeletedByID" ColumnName="DeletedByID" />
+          <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UMRefActions">
+      <EntityTypeMapping TypeName="ComplaintManagementModel.UMRefAction">
+        <MappingFragment StoreEntitySet="UMRefAction">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="UserEntryID" ColumnName="UserEntryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UMRefModules">
+      <EntityTypeMapping TypeName="ComplaintManagementModel.UMRefModule">
+        <MappingFragment StoreEntitySet="UMRefModule">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ModuleURL" ColumnName="ModuleURL" />
+          <ScalarProperty Name="icon" ColumnName="icon" />
+          <ScalarProperty Name="Logo" ColumnName="Logo" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="UserEntryID" ColumnName="UserEntryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UMRefRoles">
+      <EntityTypeMapping TypeName="ComplaintManagementModel.UMRefRole">
+        <MappingFragment StoreEntitySet="UMRefRole">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="IsFullAccess" ColumnName="IsFullAccess" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="UserEntryID" ColumnName="UserEntryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UMRefUserStatus">
+      <EntityTypeMapping TypeName="ComplaintManagementModel.UMRefUserStatu">
+        <MappingFragment StoreEntitySet="UMRefUserStatus">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="UserEntryID" ColumnName="UserEntryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UMRoleModuleLinks">
+      <EntityTypeMapping TypeName="ComplaintManagementModel.UMRoleModuleLink">
+        <MappingFragment StoreEntitySet="UMRoleModuleLink">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="ModuleID" ColumnName="ModuleID" />
+          <ScalarProperty Name="ModuleLink" ColumnName="ModuleLink" />
+          <ScalarProperty Name="icon" ColumnName="icon" />
+          <ScalarProperty Name="Logo" ColumnName="Logo" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="UserEntryID" ColumnName="UserEntryID" />
+          <ScalarProperty Name="DeletedByID" ColumnName="DeletedByID" />
+          <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UMUsers">
+      <EntityTypeMapping TypeName="ComplaintManagementModel.UMUser">
+        <MappingFragment StoreEntitySet="UMUser">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UserLoginID" ColumnName="UserLoginID" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="IsOnsiteUser" ColumnName="IsOnsiteUser" />
+          <ScalarProperty Name="IsADUser" ColumnName="IsADUser" />
+          <ScalarProperty Name="IsExternalIncidentUser" ColumnName="IsExternalIncidentUser" />
+          <ScalarProperty Name="IsSendEmail" ColumnName="IsSendEmail" />
+          <ScalarProperty Name="IsCognosUser" ColumnName="IsCognosUser" />
+          <ScalarProperty Name="RefUserStatusID" ColumnName="RefUserStatusID" />
+          <ScalarProperty Name="DateAccepted" ColumnName="DateAccepted" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="UserEntryID" ColumnName="UserEntryID" />
+          <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+          <ScalarProperty Name="UpdatedUserID" ColumnName="UpdatedUserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UMUserRoles">
+      <EntityTypeMapping TypeName="ComplaintManagementModel.UMUserRole">
+        <MappingFragment StoreEntitySet="UMUserRole">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="UserEntryID" ColumnName="UserEntryID" />
+          <ScalarProperty Name="DeletedByID" ColumnName="DeletedByID" />
+          <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserCountries">
+      <EntityTypeMapping TypeName="ComplaintManagementModel.UserCountry">
+        <MappingFragment StoreEntitySet="UserCountry">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="UserEntryID" ColumnName="UserEntryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserLevels">
+      <EntityTypeMapping TypeName="ComplaintManagementModel.UserLevel">
+        <MappingFragment StoreEntitySet="UserLevel">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="LevelID" ColumnName="LevelID" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="UserEntryID" ColumnName="UserEntryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserLoginHistories">
+      <EntityTypeMapping TypeName="ComplaintManagementModel.UserLoginHistory">
+        <MappingFragment StoreEntitySet="UserLoginHistory">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="UserEntryID" ColumnName="UserEntryID" />
+          <ScalarProperty Name="LoginDate" ColumnName="LoginDate" />
+          <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+          <ScalarProperty Name="LogoDate" ColumnName="LogoDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionName="ComplaintManagementModel.Store.FnSplit" FunctionImportName="FnSplit">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ComplaintManagementModel.FnSplit_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionName="ComplaintManagementModel.Store.GetDateRange" FunctionImportName="GetDateRange">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ComplaintManagementModel.GetDateRange_Result">
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="DateNameString" ColumnName="DateNameString" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="IMCspGetEmployeeDetails" FunctionName="ComplaintManagementModel.Store.IMCspGetEmployeeDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ComplaintManagementModel.IMCspGetEmployeeDetails_Result">
+          <ScalarProperty Name="CurrentlyEmployedFlag" ColumnName="CurrentlyEmployedFlag" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="IMCspGetEmployeeDetails2" FunctionName="ComplaintManagementModel.Store.IMCspGetEmployeeDetails2">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ComplaintManagementModel.IMCspGetEmployeeDetails2_Result">
+          <ScalarProperty Name="CurrentlyEmployedFlag" ColumnName="CurrentlyEmployedFlag" />
+          <ScalarProperty Name="CPMasterEmployeeId" ColumnName="CPMasterEmployeeId" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="CAMID" ColumnName="CAMID" />
+          <ScalarProperty Name="saMAccountName" ColumnName="saMAccountName" />
+          <ScalarProperty Name="InternalOrganizationName" ColumnName="InternalOrganizationName" />
+          <ScalarProperty Name="JobTitleName" ColumnName="JobTitleName" />
+          <ScalarProperty Name="ExternalPositionTitle" ColumnName="ExternalPositionTitle" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="StaffGroupName" ColumnName="StaffGroupName" />
+          <ScalarProperty Name="WorkEmailAddress" ColumnName="WorkEmailAddress" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="IMCspGetUrlLinks" FunctionName="ComplaintManagementModel.Store.IMCspGetUrlLinks">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ComplaintManagementModel.IMCspGetUrlLinks_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="URL" ColumnName="URL" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetAllForm" FunctionName="ComplaintManagementModel.Store.spGetAllForm">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ComplaintManagementModel.spGetAllForm_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="URL" ColumnName="URL" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+          <ScalarProperty Name="ModuleID" ColumnName="ModuleID" />
+          <ScalarProperty Name="FormOrder" ColumnName="FormOrder" />
+          <ScalarProperty Name="Icon" ColumnName="Icon" />
+          <ScalarProperty Name="ModuleName" ColumnName="ModuleName" />
+          <ScalarProperty Name="ModuleURL" ColumnName="ModuleURL" />
+          <ScalarProperty Name="Logo" ColumnName="Logo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetAllowedFormAction" FunctionName="ComplaintManagementModel.Store.spGetAllowedFormAction">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ComplaintManagementModel.spGetAllowedFormAction_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ActionName" ColumnName="ActionName" />
+          <ScalarProperty Name="RefActionID" ColumnName="RefActionID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetAllowedFormRole" FunctionName="ComplaintManagementModel.Store.spGetAllowedFormRole">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ComplaintManagementModel.spGetAllowedFormRole_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="FormID" ColumnName="FormID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetAllowedUser" FunctionName="ComplaintManagementModel.Store.spGetAllowedUser">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ComplaintManagementModel.spGetAllowedUser_Result">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserLoginID" ColumnName="UserLoginID" />
+          <ScalarProperty Name="AllowedID" ColumnName="AllowedID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetDisallowedFormAction" FunctionName="ComplaintManagementModel.Store.spGetDisallowedFormAction">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ComplaintManagementModel.spGetDisallowedFormAction_Result">
+          <ScalarProperty Name="ActionID" ColumnName="ActionID" />
+          <ScalarProperty Name="ActionName" ColumnName="ActionName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetDisallowedFormRole" FunctionName="ComplaintManagementModel.Store.spGetDisallowedFormRole">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ComplaintManagementModel.spGetDisallowedFormRole_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetDisallowedUser" FunctionName="ComplaintManagementModel.Store.spGetDisallowedUser">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ComplaintManagementModel.spGetDisallowedUser_Result">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserLoginID" ColumnName="UserLoginID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetForm" FunctionName="ComplaintManagementModel.Store.spGetForm">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ComplaintManagementModel.spGetForm_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="URL" ColumnName="URL" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+          <ScalarProperty Name="IsChildExist" ColumnName="IsChildExist" />
+          <ScalarProperty Name="Icon" ColumnName="Icon" />
+          <ScalarProperty Name="ModuleID" ColumnName="ModuleID" />
+          <ScalarProperty Name="ModuleName" ColumnName="ModuleName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetFormAction" FunctionName="ComplaintManagementModel.Store.spGetFormAction">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ComplaintManagementModel.spGetFormAction_Result">
+          <ScalarProperty Name="RefActionID" ColumnName="RefActionID" />
+          <ScalarProperty Name="ActionName" ColumnName="ActionName" />
+          <ScalarProperty Name="FormID" ColumnName="FormID" />
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetLoginDetail" FunctionName="ComplaintManagementModel.Store.spGetLoginDetail">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ComplaintManagementModel.spGetLoginDetail_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UserLoginID" ColumnName="UserLoginID" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetLoginDetailWithoutPasswrd" FunctionName="ComplaintManagementModel.Store.spGetLoginDetailWithoutPasswrd">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ComplaintManagementModel.spGetLoginDetailWithoutPasswrd_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UserLoginID" ColumnName="UserLoginID" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+          <ScalarProperty Name="IsCognosUser" ColumnName="IsCognosUser" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetModule" FunctionName="ComplaintManagementModel.Store.spGetModule">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ComplaintManagementModel.spGetModule_Result">
+          <ScalarProperty Name="ModuleID" ColumnName="ModuleID" />
+          <ScalarProperty Name="ModuleName" ColumnName="ModuleName" />
+          <ScalarProperty Name="ModuleURL" ColumnName="ModuleURL" />
+          <ScalarProperty Name="icon" ColumnName="icon" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetModule2" FunctionName="ComplaintManagementModel.Store.spGetModule2">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ComplaintManagementModel.spGetModule2_Result">
+          <ScalarProperty Name="ModuleID" ColumnName="ModuleID" />
+          <ScalarProperty Name="ModuleName" ColumnName="ModuleName" />
+          <ScalarProperty Name="ModuleURL" ColumnName="ModuleURL" />
+          <ScalarProperty Name="icon" ColumnName="icon" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetModuleLinks" FunctionName="ComplaintManagementModel.Store.spGetModuleLinks">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ComplaintManagementModel.spGetModuleLinks_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="ModuleID" ColumnName="ModuleID" />
+          <ScalarProperty Name="ModuleLink" ColumnName="ModuleLink" />
+          <ScalarProperty Name="icon" ColumnName="icon" />
+          <ScalarProperty Name="Logo" ColumnName="Logo" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="UserEntryID" ColumnName="UserEntryID" />
+          <ScalarProperty Name="DeletedByID" ColumnName="DeletedByID" />
+          <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
+          <ScalarProperty Name="ModuleName" ColumnName="ModuleName" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="FormID" ColumnName="FormID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetRole" FunctionName="ComplaintManagementModel.Store.spGetRole">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ComplaintManagementModel.spGetRole_Result">
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetRoleList" FunctionName="ComplaintManagementModel.Store.spGetRoleList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ComplaintManagementModel.spGetRoleList_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="IsFullAccess" ColumnName="IsFullAccess" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="UserEntryID" ColumnName="UserEntryID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetRoleOfUser" FunctionName="ComplaintManagementModel.Store.spGetRoleOfUser">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ComplaintManagementModel.spGetRoleOfUser_Result">
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetRoleWithOutPass" FunctionName="ComplaintManagementModel.Store.spGetRoleWithOutPass">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ComplaintManagementModel.spGetRoleWithOutPass_Result">
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetUser" FunctionName="ComplaintManagementModel.Store.spGetUser" />
+    <FunctionImportMapping FunctionImportName="spGetUserAssignedCountries" FunctionName="ComplaintManagementModel.Store.spGetUserAssignedCountries" />
+    <FunctionImportMapping FunctionImportName="spGetUserAssignedRole" FunctionName="ComplaintManagementModel.Store.spGetUserAssignedRole">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ComplaintManagementModel.spGetUserAssignedRole_Result">
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="UserRoleID" ColumnName="UserRoleID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetUserAssignedViewLevel" FunctionName="ComplaintManagementModel.Store.spGetUserAssignedViewLevel" />
+    <FunctionImportMapping FunctionImportName="spGetUserExternal" FunctionName="ComplaintManagementModel.Store.spGetUserExternal" />
+    <FunctionImportMapping FunctionImportName="spGetUserForgotPassword" FunctionName="ComplaintManagementModel.Store.spGetUserForgotPassword">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ComplaintManagementModel.spGetUserForgotPassword_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserLoginID" ColumnName="UserLoginID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetUsersDD" FunctionName="ComplaintManagementModel.Store.spGetUsersDD" />
+    <FunctionImportMapping FunctionImportName="spGetUserStatus" FunctionName="ComplaintManagementModel.Store.spGetUserStatus">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ComplaintManagementModel.spGetUserStatus_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UserStatus" ColumnName="UserStatus" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetUserUnAssignedCountries" FunctionName="ComplaintManagementModel.Store.spGetUserUnAssignedCountries" />
+    <FunctionImportMapping FunctionImportName="spGetUserUnAssignedRole" FunctionName="ComplaintManagementModel.Store.spGetUserUnAssignedRole">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ComplaintManagementModel.spGetUserUnAssignedRole_Result">
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetUserUnAssignedViewLevel" FunctionName="ComplaintManagementModel.Store.spGetUserUnAssignedViewLevel" />
+    <FunctionImportMapping FunctionImportName="UMspGetCountry" FunctionName="ComplaintManagementModel.Store.UMspGetCountry" />
+    <FunctionImportMapping FunctionImportName="UMspGetUMDashboardCounterValue" FunctionName="ComplaintManagementModel.Store.UMspGetUMDashboardCounterValue">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ComplaintManagementModel.UMspGetUMDashboardCounterValue_Result">
+          <ScalarProperty Name="UserCount" ColumnName="UserCount" />
+          <ScalarProperty Name="RoleCount" ColumnName="RoleCount" />
+          <ScalarProperty Name="ModuleCount" ColumnName="ModuleCount" />
+          <ScalarProperty Name="FormCount" ColumnName="FormCount" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetLoginHistory" FunctionName="ComplaintManagementModel.Store.spGetLoginHistory" />
+    <FunctionImportMapping FunctionImportName="spGetLoginHistoryDetails" FunctionName="ComplaintManagementModel.Store.spGetLoginHistoryDetails" />
+    <FunctionImportMapping FunctionImportName="spGetCity" FunctionName="ComplaintManagementModel.Store.spGetCity" />
+    <FunctionImportMapping FunctionImportName="spGetCityByID" FunctionName="ComplaintManagementModel.Store.spGetCityByID" />
+    <EntitySetMapping Name="RefCountries">
+      <EntityTypeMapping TypeName="ComplaintManagementModel.RefCountry">
+        <MappingFragment StoreEntitySet="RefCountry">
+          <ScalarProperty Name="UserEntryID" ColumnName="UserEntryID" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="spGetCountry" FunctionName="ComplaintManagementModel.Store.spGetCountry">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ComplaintManagementModel.spGetCountry_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="UserEntryID" ColumnName="UserEntryID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

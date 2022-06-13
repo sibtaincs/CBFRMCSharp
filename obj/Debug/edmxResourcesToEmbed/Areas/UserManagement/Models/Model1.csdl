@@ -1,0 +1,716 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ComplaintManagementModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <ComplexType Name="FnSplit_Result">
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Value" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </ComplexType>
+  <ComplexType Name="GetDateRange_Result">
+    <Property Name="Date" Type="DateTime" Nullable="false" />
+    <Property Name="DateNameString" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="UMDataAccess">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int64" Nullable="false" />
+    <Property Name="AllowedUserID" Type="Int64" Nullable="false" />
+    <Property Name="FormID" Type="Int64" Nullable="false" />
+    <Property Name="EntryDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="UserEntryID" Type="Int64" Nullable="false" />
+    <Property Name="DeletedByID" Type="Int64" />
+    <Property Name="DeletedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="UMUser" Relationship="Self.FK_DataAccess_UserAllowedID" FromRole="UMDataAccess" ToRole="UMUser" />
+    <NavigationProperty Name="UMUser1" Relationship="Self.FK_DataAccess_UserID" FromRole="UMDataAccess" ToRole="UMUser" />
+  </EntityType>
+  <EntityType Name="UMForm">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="URL" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="ParentID" Type="Int64" />
+    <Property Name="ModuleID" Type="Int32" Nullable="false" />
+    <Property Name="FormOrder" Type="Int32" />
+    <Property Name="Icon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EntryDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="UserEntryID" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="UMRefModule" Relationship="Self.FK_Form_RefModule" FromRole="UMForm" ToRole="UMRefModule" />
+    <NavigationProperty Name="UMFormRoles" Relationship="Self.FK_FormRole_Form" FromRole="UMForm" ToRole="UMFormRole" />
+  </EntityType>
+  <EntityType Name="UMFormRole">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FormID" Type="Int64" Nullable="false" />
+    <Property Name="RoleID" Type="Int64" Nullable="false" />
+    <Property Name="EntryDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="UserEntryID" Type="Int64" Nullable="false" />
+    <Property Name="DeletedByID" Type="Int64" />
+    <Property Name="DeletedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="UMForm" Relationship="Self.FK_FormRole_Form" FromRole="UMFormRole" ToRole="UMForm" />
+    <NavigationProperty Name="UMRefRole" Relationship="Self.FK_FormRole_RefRole" FromRole="UMFormRole" ToRole="UMRefRole" />
+    <NavigationProperty Name="UMFormRoleActions" Relationship="Self.FK_FormRoleAction_FormRole" FromRole="UMFormRole" ToRole="UMFormRoleAction" />
+  </EntityType>
+  <EntityType Name="UMFormRoleAction">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FormRoleID" Type="Int64" Nullable="false" />
+    <Property Name="RefActionID" Type="Int64" Nullable="false" />
+    <Property Name="EntryDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="UserEntryID" Type="Int64" Nullable="false" />
+    <Property Name="DeletedByID" Type="Int64" />
+    <Property Name="DeletedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="UMFormRole" Relationship="Self.FK_FormRoleAction_FormRole" FromRole="UMFormRoleAction" ToRole="UMFormRole" />
+    <NavigationProperty Name="UMRefAction" Relationship="Self.FK_FormRoleAction_RefAction" FromRole="UMFormRoleAction" ToRole="UMRefAction" />
+  </EntityType>
+  <EntityType Name="UMRefAction">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EntryDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="UserEntryID" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="UMFormRoleActions" Relationship="Self.FK_FormRoleAction_RefAction" FromRole="UMRefAction" ToRole="UMFormRoleAction" />
+  </EntityType>
+  <EntityType Name="UMRefModule">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ModuleURL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="icon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Logo" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="EntryDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="UserEntryID" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="UMForms" Relationship="Self.FK_Form_RefModule" FromRole="UMRefModule" ToRole="UMForm" />
+  </EntityType>
+  <EntityType Name="UMRefRole">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IsFullAccess" Type="Boolean" />
+    <Property Name="EntryDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="UserEntryID" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="UMFormRoles" Relationship="Self.FK_FormRole_RefRole" FromRole="UMRefRole" ToRole="UMFormRole" />
+    <NavigationProperty Name="UMUserRoles" Relationship="Self.FK_UserRole_RefRole" FromRole="UMRefRole" ToRole="UMUserRole" />
+  </EntityType>
+  <EntityType Name="UMRefUserStatu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EntryDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="UserEntryID" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="UMUsers" Relationship="Self.FK_User_RefUserStatus" FromRole="UMRefUserStatus" ToRole="UMUser" />
+  </EntityType>
+  <EntityType Name="UMRoleModuleLink">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleID" Type="Int64" Nullable="false" />
+    <Property Name="ModuleID" Type="Int32" />
+    <Property Name="ModuleLink" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="icon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Logo" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="EntryDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="UserEntryID" Type="Int64" Nullable="false" />
+    <Property Name="DeletedByID" Type="Int64" />
+    <Property Name="DeletedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="UMUser">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserLoginID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="LocationId" Type="Int32" />
+    <Property Name="UserName" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsOnsiteUser" Type="Int32" Nullable="false" />
+    <Property Name="IsADUser" Type="Int32" />
+    <Property Name="IsExternalIncidentUser" Type="Int32" />
+    <Property Name="IsSendEmail" Type="Int32" />
+    <Property Name="IsCognosUser" Type="Int32" />
+    <Property Name="RefUserStatusID" Type="Int32" Nullable="false" />
+    <Property Name="DateAccepted" Type="DateTime" Precision="3" />
+    <Property Name="EntryDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="UserEntryID" Type="Int64" Nullable="false" />
+    <Property Name="LastUpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedUserID" Type="Int64" />
+    <NavigationProperty Name="UMDataAccesses" Relationship="Self.FK_DataAccess_UserAllowedID" FromRole="UMUser" ToRole="UMDataAccess" />
+    <NavigationProperty Name="UMDataAccesses1" Relationship="Self.FK_DataAccess_UserID" FromRole="UMUser" ToRole="UMDataAccess" />
+    <NavigationProperty Name="UMRefUserStatu" Relationship="Self.FK_User_RefUserStatus" FromRole="UMUser" ToRole="UMRefUserStatus" />
+    <NavigationProperty Name="UMUserRoles" Relationship="Self.FK_UserRole_User" FromRole="UMUser" ToRole="UMUserRole" />
+  </EntityType>
+  <EntityType Name="UMUserRole">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int64" Nullable="false" />
+    <Property Name="RoleID" Type="Int64" Nullable="false" />
+    <Property Name="EntryDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="UserEntryID" Type="Int64" Nullable="false" />
+    <Property Name="DeletedByID" Type="Int64" />
+    <Property Name="DeletedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="UMRefRole" Relationship="Self.FK_UserRole_RefRole" FromRole="UMUserRole" ToRole="UMRefRole" />
+    <NavigationProperty Name="UMUser" Relationship="Self.FK_UserRole_User" FromRole="UMUserRole" ToRole="UMUser" />
+  </EntityType>
+  <EntityType Name="UserCountry">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int64" Nullable="false" />
+    <Property Name="CountryID" Type="Int32" Nullable="false" />
+    <Property Name="EntryDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="UserEntryID" Type="Int64" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserLevel">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int64" Nullable="false" />
+    <Property Name="LevelID" Type="Int32" Nullable="false" />
+    <Property Name="EntryDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="UserEntryID" Type="Int64" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserLoginHistory">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserEntryID" Type="Int32" />
+    <Property Name="LoginDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IPAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="LocationID" Type="Int32" />
+    <Property Name="LogoDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK_DataAccess_UserAllowedID">
+    <End Role="UMUser" Type="Self.UMUser" Multiplicity="1" />
+    <End Role="UMDataAccess" Type="Self.UMDataAccess" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UMUser">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UMDataAccess">
+        <PropertyRef Name="AllowedUserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DataAccess_UserID">
+    <End Role="UMUser" Type="Self.UMUser" Multiplicity="1" />
+    <End Role="UMDataAccess" Type="Self.UMDataAccess" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UMUser">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UMDataAccess">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Form_RefModule">
+    <End Role="UMRefModule" Type="Self.UMRefModule" Multiplicity="1" />
+    <End Role="UMForm" Type="Self.UMForm" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UMRefModule">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UMForm">
+        <PropertyRef Name="ModuleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FormRole_Form">
+    <End Role="UMForm" Type="Self.UMForm" Multiplicity="1" />
+    <End Role="UMFormRole" Type="Self.UMFormRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UMForm">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UMFormRole">
+        <PropertyRef Name="FormID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FormRole_RefRole">
+    <End Role="UMRefRole" Type="Self.UMRefRole" Multiplicity="1" />
+    <End Role="UMFormRole" Type="Self.UMFormRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UMRefRole">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UMFormRole">
+        <PropertyRef Name="RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FormRoleAction_FormRole">
+    <End Role="UMFormRole" Type="Self.UMFormRole" Multiplicity="1" />
+    <End Role="UMFormRoleAction" Type="Self.UMFormRoleAction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UMFormRole">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UMFormRoleAction">
+        <PropertyRef Name="FormRoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FormRoleAction_RefAction">
+    <End Role="UMRefAction" Type="Self.UMRefAction" Multiplicity="1" />
+    <End Role="UMFormRoleAction" Type="Self.UMFormRoleAction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UMRefAction">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UMFormRoleAction">
+        <PropertyRef Name="RefActionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserRole_RefRole">
+    <End Role="UMRefRole" Type="Self.UMRefRole" Multiplicity="1" />
+    <End Role="UMUserRole" Type="Self.UMUserRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UMRefRole">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UMUserRole">
+        <PropertyRef Name="RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_RefUserStatus">
+    <End Role="UMRefUserStatus" Type="Self.UMRefUserStatu" Multiplicity="1" />
+    <End Role="UMUser" Type="Self.UMUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UMRefUserStatus">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UMUser">
+        <PropertyRef Name="RefUserStatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserRole_User">
+    <End Role="UMUser" Type="Self.UMUser" Multiplicity="1" />
+    <End Role="UMUserRole" Type="Self.UMUserRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UMUser">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UMUserRole">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="UserManagementEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="UMDataAccesses" EntityType="Self.UMDataAccess" />
+    <EntitySet Name="UMForms" EntityType="Self.UMForm" />
+    <EntitySet Name="UMFormRoles" EntityType="Self.UMFormRole" />
+    <EntitySet Name="UMFormRoleActions" EntityType="Self.UMFormRoleAction" />
+    <EntitySet Name="UMRefActions" EntityType="Self.UMRefAction" />
+    <EntitySet Name="UMRefModules" EntityType="Self.UMRefModule" />
+    <EntitySet Name="UMRefRoles" EntityType="Self.UMRefRole" />
+    <EntitySet Name="UMRefUserStatus" EntityType="Self.UMRefUserStatu" />
+    <EntitySet Name="UMRoleModuleLinks" EntityType="Self.UMRoleModuleLink" />
+    <EntitySet Name="UMUsers" EntityType="Self.UMUser" />
+    <EntitySet Name="UMUserRoles" EntityType="Self.UMUserRole" />
+    <EntitySet Name="UserCountries" EntityType="Self.UserCountry" />
+    <EntitySet Name="UserLevels" EntityType="Self.UserLevel" />
+    <EntitySet Name="UserLoginHistories" EntityType="Self.UserLoginHistory" />
+    <AssociationSet Name="FK_DataAccess_UserAllowedID" Association="Self.FK_DataAccess_UserAllowedID">
+      <End Role="UMUser" EntitySet="UMUsers" />
+      <End Role="UMDataAccess" EntitySet="UMDataAccesses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DataAccess_UserID" Association="Self.FK_DataAccess_UserID">
+      <End Role="UMUser" EntitySet="UMUsers" />
+      <End Role="UMDataAccess" EntitySet="UMDataAccesses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Form_RefModule" Association="Self.FK_Form_RefModule">
+      <End Role="UMRefModule" EntitySet="UMRefModules" />
+      <End Role="UMForm" EntitySet="UMForms" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FormRole_Form" Association="Self.FK_FormRole_Form">
+      <End Role="UMForm" EntitySet="UMForms" />
+      <End Role="UMFormRole" EntitySet="UMFormRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FormRole_RefRole" Association="Self.FK_FormRole_RefRole">
+      <End Role="UMRefRole" EntitySet="UMRefRoles" />
+      <End Role="UMFormRole" EntitySet="UMFormRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FormRoleAction_FormRole" Association="Self.FK_FormRoleAction_FormRole">
+      <End Role="UMFormRole" EntitySet="UMFormRoles" />
+      <End Role="UMFormRoleAction" EntitySet="UMFormRoleActions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FormRoleAction_RefAction" Association="Self.FK_FormRoleAction_RefAction">
+      <End Role="UMRefAction" EntitySet="UMRefActions" />
+      <End Role="UMFormRoleAction" EntitySet="UMFormRoleActions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserRole_RefRole" Association="Self.FK_UserRole_RefRole">
+      <End Role="UMRefRole" EntitySet="UMRefRoles" />
+      <End Role="UMUserRole" EntitySet="UMUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_RefUserStatus" Association="Self.FK_User_RefUserStatus">
+      <End Role="UMRefUserStatus" EntitySet="UMRefUserStatus" />
+      <End Role="UMUser" EntitySet="UMUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserRole_User" Association="Self.FK_UserRole_User">
+      <End Role="UMUser" EntitySet="UMUsers" />
+      <End Role="UMUserRole" EntitySet="UMUserRoles" />
+    </AssociationSet>
+    <FunctionImport Name="FnSplit" IsComposable="true" ReturnType="Collection(ComplaintManagementModel.FnSplit_Result)">
+      <Parameter Name="List" Mode="In" Type="String" />
+      <Parameter Name="SplitOn" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetDateRange" IsComposable="true" ReturnType="Collection(ComplaintManagementModel.GetDateRange_Result)">
+      <Parameter Name="minDate_Str" Mode="In" Type="String" />
+      <Parameter Name="maxDate_Str" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="IMCspGetEmployeeDetails" ReturnType="Collection(ComplaintManagementModel.IMCspGetEmployeeDetails_Result)">
+      <Parameter Name="FullName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="IMCspGetEmployeeDetails2" ReturnType="Collection(ComplaintManagementModel.IMCspGetEmployeeDetails2_Result)">
+      <Parameter Name="FullName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="IMCspGetUrlLinks" ReturnType="Collection(ComplaintManagementModel.IMCspGetUrlLinks_Result)">
+      <Parameter Name="ModuleID" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="spGetAllForm" ReturnType="Collection(ComplaintManagementModel.spGetAllForm_Result)">
+      <Parameter Name="ModuleID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spGetAllowedFormAction" ReturnType="Collection(ComplaintManagementModel.spGetAllowedFormAction_Result)">
+      <Parameter Name="RoleID" Mode="In" Type="Int64" />
+      <Parameter Name="FormID" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="spGetAllowedFormRole" ReturnType="Collection(ComplaintManagementModel.spGetAllowedFormRole_Result)">
+      <Parameter Name="RoleID" Mode="In" Type="Int32" />
+      <Parameter Name="ModuleID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spGetAllowedUser" ReturnType="Collection(ComplaintManagementModel.spGetAllowedUser_Result)">
+      <Parameter Name="UserID" Mode="In" Type="Int64" />
+      <Parameter Name="FormID" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="spGetDisallowedFormAction" ReturnType="Collection(ComplaintManagementModel.spGetDisallowedFormAction_Result)">
+      <Parameter Name="RoleID" Mode="In" Type="Int64" />
+      <Parameter Name="FormID" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="spGetDisallowedFormRole" ReturnType="Collection(ComplaintManagementModel.spGetDisallowedFormRole_Result)">
+      <Parameter Name="RoleID" Mode="In" Type="Int32" />
+      <Parameter Name="ModuleID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spGetDisallowedUser" ReturnType="Collection(ComplaintManagementModel.spGetDisallowedUser_Result)">
+      <Parameter Name="UserID" Mode="In" Type="Int64" />
+      <Parameter Name="FormID" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="spGetForm" ReturnType="Collection(ComplaintManagementModel.spGetForm_Result)">
+      <Parameter Name="RoleID" Mode="In" Type="Int64" />
+      <Parameter Name="ModuleID" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="spGetFormAction" ReturnType="Collection(ComplaintManagementModel.spGetFormAction_Result)">
+      <Parameter Name="FormID" Mode="In" Type="Int64" />
+      <Parameter Name="RoleID" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="spGetLoginDetail" ReturnType="Collection(ComplaintManagementModel.spGetLoginDetail_Result)">
+      <Parameter Name="UserLoginID" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+      <Parameter Name="RoleID" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="spGetLoginDetailWithoutPasswrd" ReturnType="Collection(ComplaintManagementModel.spGetLoginDetailWithoutPasswrd_Result)">
+      <Parameter Name="UserLoginID" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+      <Parameter Name="RoleID" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="spGetModule" ReturnType="Collection(ComplaintManagementModel.spGetModule_Result)">
+      <Parameter Name="RoleID" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="spGetModule2" ReturnType="Collection(ComplaintManagementModel.spGetModule2_Result)">
+      <Parameter Name="RoleID" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="spGetModuleLinks" ReturnType="Collection(ComplaintManagementModel.spGetModuleLinks_Result)" />
+    <FunctionImport Name="spGetRole" ReturnType="Collection(ComplaintManagementModel.spGetRole_Result)">
+      <Parameter Name="UserLoginID" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spGetRoleList" ReturnType="Collection(ComplaintManagementModel.spGetRoleList_Result)" />
+    <FunctionImport Name="spGetRoleOfUser" ReturnType="Collection(ComplaintManagementModel.spGetRoleOfUser_Result)">
+      <Parameter Name="UserID" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="spGetRoleWithOutPass" ReturnType="Collection(ComplaintManagementModel.spGetRoleWithOutPass_Result)">
+      <Parameter Name="UserLoginID" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spGetUser">
+      <Parameter Name="ID" Mode="In" Type="Int64" />
+      <Parameter Name="RoleID" Mode="In" Type="Int32" />
+      <Parameter Name="CountryID" Mode="In" Type="Int32" />
+      <Parameter Name="UserName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spGetUserAssignedCountries">
+      <Parameter Name="UserID" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="spGetUserAssignedRole" ReturnType="Collection(ComplaintManagementModel.spGetUserAssignedRole_Result)">
+      <Parameter Name="UserID" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="spGetUserAssignedViewLevel">
+      <Parameter Name="UserID" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="spGetUserExternal" />
+    <FunctionImport Name="spGetUserForgotPassword" ReturnType="Collection(ComplaintManagementModel.spGetUserForgotPassword_Result)">
+      <Parameter Name="UserName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spGetUsersDD" />
+    <FunctionImport Name="spGetUserStatus" ReturnType="Collection(ComplaintManagementModel.spGetUserStatus_Result)" />
+    <FunctionImport Name="spGetUserUnAssignedCountries">
+      <Parameter Name="UserID" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="spGetUserUnAssignedRole" ReturnType="Collection(ComplaintManagementModel.spGetUserUnAssignedRole_Result)">
+      <Parameter Name="UserID" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="spGetUserUnAssignedViewLevel">
+      <Parameter Name="UserID" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="UMspGetCountry" />
+    <FunctionImport Name="UMspGetUMDashboardCounterValue" ReturnType="Collection(ComplaintManagementModel.UMspGetUMDashboardCounterValue_Result)">
+      <Parameter Name="UserID" Mode="In" Type="Int64" />
+      <Parameter Name="Date" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spGetLoginHistory">
+      <Parameter Name="SDate" Mode="In" Type="String" />
+      <Parameter Name="EDate" Mode="In" Type="String" />
+      <Parameter Name="UserName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spGetLoginHistoryDetails">
+      <Parameter Name="UserName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spGetCity" />
+    <FunctionImport Name="spGetCityByID">
+      <Parameter Name="LocationId" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <EntitySet Name="RefCountries" EntityType="ComplaintManagementModel.RefCountry" />
+    <FunctionImport Name="spGetCountry" ReturnType="Collection(ComplaintManagementModel.spGetCountry_Result)" />
+  </EntityContainer>
+  <ComplexType Name="IMCspGetEmployeeDetails_Result">
+    <Property Type="Boolean" Name="CurrentlyEmployedFlag" Nullable="false" />
+    <Property Type="String" Name="FullName" Nullable="false" MaxLength="300" />
+  </ComplexType>
+  <ComplexType Name="IMCspGetEmployeeDetails2_Result">
+    <Property Type="Boolean" Name="CurrentlyEmployedFlag" Nullable="false" />
+    <Property Type="String" Name="CPMasterEmployeeId" Nullable="true" MaxLength="12" />
+    <Property Type="String" Name="FullName" Nullable="false" MaxLength="300" />
+    <Property Type="String" Name="CAMID" Nullable="true" MaxLength="4000" />
+    <Property Type="String" Name="saMAccountName" Nullable="true" MaxLength="4000" />
+    <Property Type="String" Name="InternalOrganizationName" Nullable="false" MaxLength="80" />
+    <Property Type="String" Name="JobTitleName" Nullable="false" MaxLength="80" />
+    <Property Type="String" Name="ExternalPositionTitle" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="FirstName" Nullable="false" MaxLength="80" />
+    <Property Type="String" Name="LastName" Nullable="false" MaxLength="80" />
+    <Property Type="String" Name="StaffGroupName" Nullable="false" MaxLength="80" />
+    <Property Type="String" Name="WorkEmailAddress" Nullable="true" MaxLength="255" />
+  </ComplexType>
+  <ComplexType Name="IMCspGetUrlLinks_Result">
+    <Property Type="Int64" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Description" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="URL" Nullable="true" MaxLength="150" />
+  </ComplexType>
+  <ComplexType Name="spGetAllForm_Result">
+    <Property Type="Int64" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Description" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="URL" Nullable="true" MaxLength="150" />
+    <Property Type="Int64" Name="ParentID" Nullable="true" />
+    <Property Type="Int32" Name="ModuleID" Nullable="false" />
+    <Property Type="Int32" Name="FormOrder" Nullable="true" />
+    <Property Type="String" Name="Icon" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ModuleName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="ModuleURL" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="Logo" Nullable="true" MaxLength="150" />
+  </ComplexType>
+  <ComplexType Name="spGetAllowedFormAction_Result">
+    <Property Type="Int64" Name="ID" Nullable="false" />
+    <Property Type="String" Name="ActionName" Nullable="false" MaxLength="50" />
+    <Property Type="Int64" Name="RefActionID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="spGetAllowedFormRole_Result">
+    <Property Type="Int64" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Description" Nullable="false" MaxLength="50" />
+    <Property Type="Int64" Name="FormID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="spGetAllowedUser_Result">
+    <Property Type="Int64" Name="UserID" Nullable="false" />
+    <Property Type="String" Name="UserLoginID" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="AllowedID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="spGetDisallowedFormAction_Result">
+    <Property Type="Int64" Name="ActionID" Nullable="false" />
+    <Property Type="String" Name="ActionName" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="spGetDisallowedFormRole_Result">
+    <Property Type="Int64" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Description" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="spGetDisallowedUser_Result">
+    <Property Type="Int64" Name="UserID" Nullable="false" />
+    <Property Type="String" Name="UserLoginID" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="spGetForm_Result">
+    <Property Type="Int64" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Description" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="URL" Nullable="true" MaxLength="150" />
+    <Property Type="Int64" Name="ParentID" Nullable="true" />
+    <Property Type="Int32" Name="IsChildExist" Nullable="false" />
+    <Property Type="String" Name="Icon" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="ModuleID" Nullable="false" />
+    <Property Type="String" Name="ModuleName" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="spGetFormAction_Result">
+    <Property Type="Int64" Name="RefActionID" Nullable="false" />
+    <Property Type="String" Name="ActionName" Nullable="false" MaxLength="50" />
+    <Property Type="Int64" Name="FormID" Nullable="false" />
+    <Property Type="Int64" Name="RoleID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="spGetLoginDetail_Result">
+    <Property Type="Int64" Name="ID" Nullable="false" />
+    <Property Type="String" Name="UserLoginID" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Password" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="UserName" Nullable="true" MaxLength="70" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="100" />
+    <Property Type="Int64" Name="RoleID" Nullable="false" />
+    <Property Type="String" Name="RoleName" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="LocationId" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spGetLoginDetailWithoutPasswrd_Result">
+    <Property Type="Int64" Name="ID" Nullable="false" />
+    <Property Type="String" Name="UserLoginID" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Password" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="UserName" Nullable="true" MaxLength="70" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="100" />
+    <Property Type="Int64" Name="RoleID" Nullable="false" />
+    <Property Type="String" Name="RoleName" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="LocationId" Nullable="true" />
+    <Property Type="Int32" Name="IsCognosUser" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spGetModule_Result">
+    <Property Type="Int32" Name="ModuleID" Nullable="false" />
+    <Property Type="String" Name="ModuleName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="ModuleURL" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="icon" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="spGetModule2_Result">
+    <Property Type="Int32" Name="ModuleID" Nullable="false" />
+    <Property Type="String" Name="ModuleName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="ModuleURL" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="icon" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="spGetModuleLinks_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="Int64" Name="RoleID" Nullable="false" />
+    <Property Type="Int32" Name="ModuleID" Nullable="true" />
+    <Property Type="String" Name="ModuleLink" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="icon" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Logo" Nullable="true" MaxLength="150" />
+    <Property Type="DateTime" Name="EntryDate" Nullable="false" Precision="23" />
+    <Property Type="Boolean" Name="IsDeleted" Nullable="false" />
+    <Property Type="Int64" Name="UserEntryID" Nullable="false" />
+    <Property Type="Int64" Name="DeletedByID" Nullable="true" />
+    <Property Type="DateTime" Name="DeletedDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="ModuleName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="RoleName" Nullable="false" MaxLength="50" />
+    <Property Type="Int64" Name="FormID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="spGetRole_Result">
+    <Property Type="Int64" Name="RoleID" Nullable="false" />
+    <Property Type="String" Name="RoleName" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="spGetRoleList_Result">
+    <Property Type="Int64" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Description" Nullable="false" MaxLength="50" />
+    <Property Type="Boolean" Name="IsFullAccess" Nullable="false" />
+    <Property Type="DateTime" Name="EntryDate" Nullable="false" Precision="23" />
+    <Property Type="Boolean" Name="IsDeleted" Nullable="false" />
+    <Property Type="Int64" Name="UserEntryID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="spGetRoleOfUser_Result">
+    <Property Type="Int64" Name="RoleID" Nullable="false" />
+    <Property Type="String" Name="RoleName" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="spGetRoleWithOutPass_Result">
+    <Property Type="Int64" Name="RoleID" Nullable="false" />
+    <Property Type="String" Name="RoleName" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="spGetUserAssignedRole_Result">
+    <Property Type="Int64" Name="RoleID" Nullable="false" />
+    <Property Type="String" Name="RoleName" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="UserRoleID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="spGetUserForgotPassword_Result">
+    <Property Type="Int64" Name="Id" Nullable="false" />
+    <Property Type="String" Name="UserLoginID" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="FirstName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="LastName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="spGetUserStatus_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="UserStatus" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="spGetUserUnAssignedRole_Result">
+    <Property Type="Int64" Name="RoleID" Nullable="false" />
+    <Property Type="String" Name="RoleName" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="UMspGetUMDashboardCounterValue_Result">
+    <Property Type="Int32" Name="UserCount" Nullable="false" />
+    <Property Type="Int32" Name="RoleCount" Nullable="false" />
+    <Property Type="Int32" Name="ModuleCount" Nullable="false" />
+    <Property Type="Int32" Name="FormCount" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="RefCountry">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Country" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="EntryDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="UserEntryID" Type="Int64" Nullable="false" />
+  </EntityType>
+  <ComplexType Name="spGetCountry_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Country" Nullable="false" MaxLength="100" />
+    <Property Type="DateTime" Name="EntryDate" Nullable="false" Precision="23" />
+    <Property Type="Boolean" Name="IsDeleted" Nullable="false" />
+    <Property Type="Int64" Name="UserEntryID" Nullable="false" />
+  </ComplexType>
+</Schema>

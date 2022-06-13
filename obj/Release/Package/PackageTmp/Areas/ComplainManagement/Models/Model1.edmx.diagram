@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="441e85cbe34348d28fdb50d11b6bc249" Name="Diagram1">
+        <EntityTypeShape EntityType="EDWModel.vDonor_Name" Width="1.5" PointX="8.25" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EDWModel.vFieldSite" Width="1.5" PointX="4.5" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EDWModel.vSex" Width="1.5" PointX="12.375" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="EDWModel.vCommunicationMethod" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EDWModel.vCommunityBasedComplaintDocumentation" Width="1.5" PointX="6.5" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EDWModel.vComplaintAppeal" Width="1.5" PointX="8.625" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="EDWModel.vComplaintAppealCommittee" Width="1.5" PointX="5" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EDWModel.vComplaintCategory" Width="1.5" PointX="6.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="EDWModel.vComplaintResolution" Width="1.5" PointX="10.5" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EDWModel.vComplaintStatus" Width="1.5" PointX="1" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EDWModel.vExternalReferral" Width="1.5" PointX="1.625" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EDWModel.vLanguageDialect" Width="2" PointX="10.5" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="EDWModel.vUserManager" Width="1.5" PointX="14.125" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="EDWModel.vCommunityBasedComplaintFieldSector" Width="1.5" PointX="8.625" PointY="8" />
+        <EntityTypeShape EntityType="EDWModel.vComplainantVulnerability" Width="1.5" PointX="7.375" PointY="11.75" />
+        <EntityTypeShape EntityType="EDWModel.vComplaintClassification" Width="3.25" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="EDWModel.vCommunityBasedComplaint" Width="1.5" PointX="4.375" PointY="11.75" />
+        <EntityTypeShape EntityType="EDWModel.vComplainantDetail" Width="1.5" PointX="9.375" PointY="11.75" />
+        <EntityTypeShape EntityType="EDWModel.vPersonVulnerabilityType" Width="1.5" PointX="11.375" PointY="11.75" />
+        <EntityTypeShape EntityType="EDWModel.vCommunicationStage" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="EDWModel.vComplaintCommunication" Width="1.5" PointX="0.75" PointY="12.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

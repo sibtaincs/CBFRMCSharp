@@ -1,0 +1,312 @@
+﻿
+@{
+
+
+
+    long ModuleID = 0;
+    long RoleID = 0;
+    CBFRM.Areas.ComplainManagement.Models.ComplaintManagementEntities db = new CBFRM.Areas.ComplainManagement.Models.ComplaintManagementEntities();
+
+
+    try
+    {
+        ModuleID = Convert.ToInt64(Session["ModuleID"]);
+        RoleID = Convert.ToInt64(Session["RoleID"]);
+
+    }
+    catch
+    {
+        Response.Redirect("Login/Index");
+
+    }
+
+
+    List<CBFRM.Areas.ComplainManagement.Models.spGetForm_Result> spGetForm = new List<CBFRM.Areas.ComplainManagement.Models.spGetForm_Result>();
+    spGetForm = db.spGetForm(RoleID, 1).ToList();
+
+
+}
+
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+
+
+
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - Complaint System</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+
+    <meta content="" name="author" />
+    @*<link href="~/Content/~/Content/assets/pages/css/Font.css" rel="stylesheet" />*@
+
+    @Styles.Render("~/Content/css")
+
+    <link rel="shortcut icon" href="~/Content/images/favicon.ico" />
+    @RenderSection("styles", required: false)
+</head>
+
+
+<!-- END HEAD -->
+<body class="page-container-bg-solid">
+    <div class="page-wrapper">
+        <div class="page-wrapper-row">
+            <div class="page-wrapper-top">
+                <!-- BEGIN HEADER -->
+                <div class="page-header">
+                    <!-- BEGIN HEADER TOP -->
+                    <div class="page-header-top">
+                        <div class="container">
+                            <!-- BEGIN LOGO -->
+                            <div class="page-logo">
+                                <a href="/ComplainManagement/ComplainDetails/Index">
+                                 
+                                    <img src="~/Content/assets/layouts/layout3/img/logo-default.jpg" alt="logo" class="logo-default">
+                                </a>
+                            </div>
+                            <!-- END LOGO -->
+                            <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+                            <a href="javascript:;" class="menu-toggler"></a>
+                            <!-- END RESPONSIVE MENU TOGGLER -->
+                            <!-- BEGIN TOP NAVIGATION MENU -->
+                            <div class="top-menu">
+                                <ul class="nav navbar-nav pull-right">
+
+                                    <li class="dropdown dropdown-user dropdown-dark">
+                                        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                          
+                                            <span class="username username-hide-on-mobile"> @Session["UserName"]  </span>
+                                            <i class="icon-user"></i>
+                                        </a>
+                                        <ul class="dropdown-menu dropdown-menu-default">
+                                            @*<li>
+                                                <a href="page_user_profile_1.html">
+                                                    <i class="icon-user"></i> logout
+                                                </a>
+                                            </li>*@
+                                            <li>
+                                                <a href="~/ComplainManagement/Login/Index">
+                                                    <i class="icon-key"></i> Log Out
+                                                </a>
+                                            </li>
+
+                                        </ul>
+                                    </li>
+
+                                </ul>
+                            </div>
+                            <!-- END TOP NAVIGATION MENU -->
+                        </div>
+                    </div>
+                    <!-- END HEADER TOP -->
+                    <!-- BEGIN HEADER MENU -->
+                    <div class="page-header-menu">
+                        <div class="container">
+                
+                            @*<div class="hor-menu  ">
+                                <ul class="nav navbar-nav">
+                                    <li aria-haspopup="true" class="menu-dropdown classic-menu-dropdown ">
+                                        <a href="javascript:;">
+                                            Home
+                                            <span class="arrow"></span>
+                                        </a>
+                                        <ul class="dropdown-menu pull-left">
+                                            <li aria-haspopup="true" class=" ">
+                                                <a href="index.html" class="nav-link  ">
+                                                    <i class="icon-bar-chart"></i> Dashboard
+                                                    <span class="badge badge-success">1</span>
+                                                </a>
+                                            </li>
+                                            <li aria-haspopup="true" class=" ">
+                                                <a href="dashboard_2.html" class="nav-link  ">
+                                                    <i class="icon-bubbles"></i> Complain Form
+                                                    <span class="badge badge-default">2</span>
+                                                </a>
+                                            </li>
+                                            <li aria-haspopup="true" class=" ">
+                                                <a href="dashboard_3.html" class="nav-link  ">
+                                                    <i class="icon-info"></i> Complain Tracker
+                                                    <span class="badge badge-danger">3</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                </ul>
+                            </div>*@
+                            <div class="hor-menu  ">
+                                <ul class="nav navbar-nav">
+                                    @foreach (var item in spGetForm.Where(x => x.ParentID == 0))
+                                    {
+                                    <li aria-haspopup="true" class="menu-dropdown classic-menu-dropdown ">
+
+
+                                        @if (item.IsChildExist == 1)
+                                        {
+                                            <a href="javascript:;" class="nav-link nav-toggle">
+                                                <span class="arrow"></span>
+                                                <span class="title">@item.Description</span>
+
+                                            </a>
+
+                                        }
+                                        else
+
+                                        {
+                                            if (item.Description == "Dashboard")
+                                            {
+
+                                                @*<a href="~/@item.URL?ModuleID=@item.ModuleID" class="nav-link">*@
+                                            <a href="~/@item.URL" class="nav-link">
+
+                                                <span class="title">@item.Description</span>
+                                                @*<i class="@item.Icon"></i>*@
+                                            </a>
+
+                                            }
+                                            else
+                                            {
+                                                <a href="~/@item.URL" class="nav-link">
+                                                    @*<i class="@item.Icon"></i>*@
+                                                    <span class="title">@item.Description</span>
+
+                                                </a>
+                                            }
+
+                                        }
+                                                <ul class="dropdown-menu pull-left">
+                                                    @{
+                                                        string hrf = "";
+                                                        foreach (var item2 in spGetForm.Where(x => x.ParentID != 0 && x.ParentID == item.ID))
+                                                        {
+                                                            hrf = "";
+
+                                                            hrf = item2.URL;
+                                                            //}
+                                                            <li aria-haspopup="true" class=" ">
+                                                                <a href="~/@hrf">
+                                                                    <i class="@item2.Icon"></i>
+                                                                    <span class="title"> @item2.Description</span>
+                                                                </a>
+                                                            </li>
+
+                                                        }
+                                                    }
+                                                </ul>
+                                    </li>
+                                    }
+                                </ul>
+                            </div>
+                            <!-- END MEGA MENU -->
+                        </div>
+                    </div>
+                    <!-- END HEADER MENU -->
+                </div>
+                <!-- END HEADER -->
+            </div>
+        </div>
+        <div class="page-wrapper-row full-height">
+            <div class="page-wrapper-middle">
+                <!-- BEGIN CONTAINER -->
+                <div class="page-container">
+                    <!-- BEGIN CONTENT -->
+                    <div class="page-content-wrapper">
+                        <!-- BEGIN CONTENT BODY -->
+                        <!-- BEGIN PAGE HEAD-->
+                        @RenderBody()
+
+
+                        <!-- END PAGE CONTENT BODY -->
+                        <!-- END CONTENT BODY -->
+                    </div>
+                    <!-- END CONTENT -->
+
+                </div>
+                <!-- END CONTAINER -->
+            </div>
+        </div>
+        <div class="page-wrapper-row">
+            <div class="page-wrapper-bottom">
+                <!-- BEGIN FOOTER -->
+                <!-- BEGIN PRE-FOOTER -->
+                <div class="page-prefooter">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-3 col-sm-6 col-xs-12 footer-block">
+                                <h2>About</h2>
+                                <p>This Complain Management System </p>
+                            </div>
+                            @*<div class="col-md-3 col-sm-6 col-xs12 footer-block">
+                                    <h2>Subscribe Email</h2>
+                                    <div class="subscribe-form">
+                                        <form action="javascript:;">
+                                            <div class="input-group">
+                                                <input type="text" placeholder="mail@email.com" class="form-control">
+                                                <span class="input-group-btn">
+                                                    <button class="btn" type="submit">Submit</button>
+                                                </span>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>*@
+                            <div class="col-md-3 col-sm-6 col-xs-12 footer-block">
+                                <h2>Follow Us On</h2>
+                                <ul class="social-icons">
+                                    <li>
+                                        <a href="javascript:;" data-original-title="rss" class="rss"></a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;" data-original-title="facebook" class="facebook"></a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;" data-original-title="twitter" class="twitter"></a>
+                                    </li>
+
+                                    <li>
+                                        <a href="javascript:;" data-original-title="linkedin" class="linkedin"></a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                            @*<div class="col-md-3 col-sm-6 col-xs-12 footer-block">
+                                    <h2>Contacts</h2>
+                                    <address class="margin-bottom-40">
+                                        Phone: 800 123 3456
+                                        <br> Email:
+                                        <a href="mailto:info@metronic.com">info@metronic.com</a>
+                                    </address>
+                                </div>*@
+                        </div>
+                    </div>
+                </div>
+                <!-- END PRE-FOOTER -->
+                <!-- BEGIN INNER FOOTER -->
+                <div class="page-footer">
+                    <div class="container">
+                        2020 &copy; International Medical Corps
+                        <a target="_blank" href="">IMC</a> &nbsp;|&nbsp;
+                    </div>
+                </div>
+                <div class="scroll-to-top">
+                    <i class="icon-arrow-up"></i>
+                </div>
+                <!-- END INNER FOOTER -->
+                <!-- END FOOTER -->
+            </div>
+        </div>
+    </div>
+    <!-- BEGIN QUICK NAV -->
+
+    <div class="quick-nav-overlay"></div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+    <!-- END THEME LAYOUT SCRIPTS -->
+</body>
+</html>

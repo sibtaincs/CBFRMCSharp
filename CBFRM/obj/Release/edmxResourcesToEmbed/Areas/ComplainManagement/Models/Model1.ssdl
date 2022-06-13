@@ -1,0 +1,1109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EDWModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'EDW.vdbo.vDonor_Name' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vDonor_Name">
+    <Key>
+      <PropertyRef Name="CompanyCode" />
+      <PropertyRef Name="DonorIdentifier" />
+      <PropertyRef Name="DonorName" />
+      <PropertyRef Name="DonorShortName" />
+      <PropertyRef Name="DonorTypeCode" />
+      <PropertyRef Name="DonorCategoryCode" />
+    </Key>
+    <Property Name="CompanyCode" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="DonorIdentifier" Type="char" MaxLength="12" Nullable="false" />
+    <Property Name="DonorName" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="DonorShortName" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="DonorTypeCode" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="DonorCategoryCode" Type="varchar" MaxLength="15" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'EDW.vdbo.vFieldSite' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vFieldSite">
+    <Key>
+      <PropertyRef Name="FieldSiteCode" />
+      <PropertyRef Name="FieldSiteName" />
+      <PropertyRef Name="FieldSiteShortName" />
+      <PropertyRef Name="CountryCode" />
+      <PropertyRef Name="ActiveFlag" />
+      <PropertyRef Name="DisplaySequenceNumber" />
+    </Key>
+    <Property Name="FieldSiteCode" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="FieldSiteName" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="FieldSiteShortName" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="CountryCode" Type="char" MaxLength="3" Nullable="false" />
+    <Property Name="ActiveFlag" Type="bit" Nullable="false" />
+    <Property Name="DisplaySequenceNumber" Type="smallint" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'EDW.vdbo.vSex' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vSex">
+    <Key>
+      <PropertyRef Name="SexCode" />
+      <PropertyRef Name="SexName" />
+      <PropertyRef Name="SexShortName" />
+      <PropertyRef Name="DisplaySequenceNumber" />
+    </Key>
+    <Property Name="SexCode" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="SexName" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="SexShortName" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="DisplaySequenceNumber" Type="smallint" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'EDW.vOPS_CBF.vCommunicationMethod' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vCommunicationMethod">
+    <Key>
+      <PropertyRef Name="CommunicationMethodID" />
+      <PropertyRef Name="CommunicationMethodName" />
+      <PropertyRef Name="CommunicationMethodShortName" />
+      <PropertyRef Name="GeneralOptionFlag" />
+      <PropertyRef Name="GeneralDisplaySequenceNumber" />
+      <PropertyRef Name="ReferralOptionFlag" />
+      <PropertyRef Name="ReferralDisplaySequenceNumber" />
+      <PropertyRef Name="SubmittalOptionFlag" />
+      <PropertyRef Name="SubmittalDisplaySequenceNumber" />
+    </Key>
+    <Property Name="CommunicationMethodID" Type="tinyint" Nullable="false" />
+    <Property Name="CommunicationMethodName" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="CommunicationMethodShortName" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="GeneralOptionFlag" Type="bit" Nullable="false" />
+    <Property Name="GeneralDisplaySequenceNumber" Type="tinyint" Nullable="false" />
+    <Property Name="ReferralOptionFlag" Type="bit" Nullable="false" />
+    <Property Name="ReferralDisplaySequenceNumber" Type="tinyint" Nullable="false" />
+    <Property Name="SubmittalOptionFlag" Type="bit" Nullable="false" />
+    <Property Name="SubmittalDisplaySequenceNumber" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'EDW.vOPS_CBF.vCommunicationStage' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vCommunicationStage">
+    <Key>
+      <PropertyRef Name="CommunicationStageID" />
+      <PropertyRef Name="CommunicationStageName" />
+      <PropertyRef Name="CommunicationStageShortName" />
+      <PropertyRef Name="DisplaySequenceNumber" />
+    </Key>
+    <Property Name="CommunicationStageID" Type="tinyint" Nullable="false" />
+    <Property Name="CommunicationStageName" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="CommunicationStageShortName" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ReminderDayCount" Type="tinyint" />
+    <Property Name="DisplaySequenceNumber" Type="smallint" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'EDW.vOPS_CBF.vCommunityBasedComplaint' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vCommunityBasedComplaint">
+    <Key>
+      <PropertyRef Name="CommunityBasedComplaintID" />
+      <PropertyRef Name="CountryCode" />
+      <PropertyRef Name="ComplaintStatusID" />
+      <PropertyRef Name="ReceivedDate" />
+      <PropertyRef Name="EnteredTimestamp" />
+      <PropertyRef Name="EnteredByEDWPersonID" />
+      <PropertyRef Name="UpdateUser" />
+      <PropertyRef Name="SourceDeletedFlag" />
+      <PropertyRef Name="CreateTimestamp" />
+      <PropertyRef Name="CreateUser" />
+      <PropertyRef Name="LastUpdateTimestamp" />
+      <PropertyRef Name="LastUpdateUser" />
+    </Key>
+    <Property Name="CommunityBasedComplaintID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CountryCode" Type="char" MaxLength="3" Nullable="false" />
+    <Property Name="FacilityID" Type="smallint" />
+    <Property Name="FieldSiteCode" Type="varchar" MaxLength="20" />
+    <Property Name="ComplaintCategoryID" Type="tinyint" />
+    <Property Name="ComplaintClassificationID" Type="tinyint" />
+    <Property Name="ComplaintCommunicationMethodID" Type="tinyint" />
+    <Property Name="ComplaintStatusID" Type="tinyint" Nullable="false" />
+    <Property Name="DonorCompanyCode" Type="char" MaxLength="2" />
+    <Property Name="DonorIdentifier" Type="char" MaxLength="12" />
+    <Property Name="ProjectIdentifier" Type="varchar" MaxLength="30" />
+    <Property Name="SubmitDate" Type="date" />
+    <Property Name="ReceivedDate" Type="date" Nullable="false" />
+    <Property Name="ReceivedByEDWPersonID" Type="int" />
+    <Property Name="ReceivedByNonIMCName" Type="varchar" MaxLength="80" />
+    <Property Name="ResponseByNonIMCName" Type="varchar" MaxLength="80" />
+    <Property Name="EnteredTimestamp" Type="datetime2" Precision="0" Nullable="false" />
+    <Property Name="EnteredByEDWPersonID" Type="int" Nullable="false" />
+    <Property Name="ClosedDate" Type="date" />
+    <Property Name="ClosedByEDWPersonID" Type="int" />
+    <Property Name="ComplaintDescription" Type="varchar" MaxLength="255" />
+    <Property Name="OtherComplaintCommunicationMethodText" Type="varchar" MaxLength="80" />
+    <Property Name="SubjectText" Type="varchar" MaxLength="80" />
+    <Property Name="AcknowledgementProvidedFlag" Type="bit" />
+    <Property Name="AppealedFlag" Type="bit" />
+    <Property Name="ReceivedByIMCStaffFlag" Type="bit" />
+    <Property Name="ResponseProvidedFlag" Type="bit" />
+    <Property Name="ReferralRequiredFlag" Type="bit" />
+    <Property Name="ReferralTypeID" Type="tinyint" />
+    <Property Name="InternalReferralLevelID" Type="tinyint" />
+    <Property Name="NoAcknowledgementReasonDescription" Type="varchar" MaxLength="255" />
+    <Property Name="NoReferralReasonDescription" Type="varchar" MaxLength="255" />
+    <Property Name="NoResponseReasonDescription" Type="varchar" MaxLength="255" />
+    <Property Name="UpdateUser" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="SourceDeletedFlag" Type="bit" Nullable="false" />
+    <Property Name="CreateTimestamp" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="CreateUser" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="LastUpdateTimestamp" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="LastUpdateUser" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'EDW.vOPS_CBF.vCommunityBasedComplaintDocumentation' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vCommunityBasedComplaintDocumentation">
+    <Key>
+      <PropertyRef Name="CommunityBasedComplaintDocID" />
+      <PropertyRef Name="CommunityBasedComplaintID" />
+      <PropertyRef Name="DocumentHyperlink" />
+      <PropertyRef Name="AppealDocumentFlag" />
+      <PropertyRef Name="UpdateUser" />
+      <PropertyRef Name="SourceDeletedFlag" />
+      <PropertyRef Name="CreateTimestamp" />
+      <PropertyRef Name="CreateUser" />
+      <PropertyRef Name="LastUpdateTimestamp" />
+      <PropertyRef Name="LastUpdateUser" />
+    </Key>
+    <Property Name="CommunityBasedComplaintDocID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CommunityBasedComplaintID" Type="int" Nullable="false" />
+    <Property Name="DocumentHyperlink" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="SupportingDocumentDescription" Type="varchar" MaxLength="255" />
+    <Property Name="AppealDocumentFlag" Type="bit" Nullable="false" />
+    <Property Name="UpdateUser" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="SourceDeletedFlag" Type="bit" Nullable="false" />
+    <Property Name="CreateTimestamp" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="CreateUser" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="LastUpdateTimestamp" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="LastUpdateUser" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'EDW.vOPS_CBF.vCommunityBasedComplaintFieldSector' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vCommunityBasedComplaintFieldSector">
+    <Key>
+      <PropertyRef Name="CommunityBasedComplaintID" />
+      <PropertyRef Name="FieldSectorCode" />
+      <PropertyRef Name="SourceDeletedFlag" />
+      <PropertyRef Name="CreateTimestamp" />
+      <PropertyRef Name="CreateUser" />
+      <PropertyRef Name="LastUpdateTimestamp" />
+      <PropertyRef Name="LastUpdateUser" />
+    </Key>
+    <Property Name="CommunityBasedComplaintID" Type="int" Nullable="false" />
+    <Property Name="FieldSectorCode" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="OtherSectorText" Type="varchar" MaxLength="80" />
+    <Property Name="SourceDeletedFlag" Type="bit" Nullable="false" />
+    <Property Name="CreateTimestamp" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="CreateUser" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="LastUpdateTimestamp" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="LastUpdateUser" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'EDW.vOPS_CBF.vCommunityBasedComplaintLocation' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vCommunityBasedComplaintLocation">
+    <Key>
+      <PropertyRef Name="CommunityBasedComplaintID" />
+      <PropertyRef Name="LocationText" />
+      <PropertyRef Name="UpdateUser" />
+      <PropertyRef Name="SourceDeletedFlag" />
+      <PropertyRef Name="CreateTimestamp" />
+      <PropertyRef Name="CreateUser" />
+      <PropertyRef Name="LastUpdateTimestamp" />
+      <PropertyRef Name="LastUpdateUser" />
+    </Key>
+    <Property Name="CommunityBasedComplaintID" Type="int" Nullable="false" />
+    <Property Name="LocationText" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="CommunityText" Type="varchar" MaxLength="80" />
+    <Property Name="DistrictText" Type="varchar" MaxLength="80" />
+    <Property Name="ProvinceText" Type="varchar" MaxLength="80" />
+    <Property Name="UpdateUser" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="SourceDeletedFlag" Type="bit" Nullable="false" />
+    <Property Name="CreateTimestamp" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="CreateUser" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="LastUpdateTimestamp" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="LastUpdateUser" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'EDW.vOPS_CBF.vComplainantDetail' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vComplainantDetail">
+    <Key>
+      <PropertyRef Name="EDWComplainantID" />
+      <PropertyRef Name="CommunityBasedComplaintID" />
+      <PropertyRef Name="UpdateUser" />
+      <PropertyRef Name="SourceDeletedFlag" />
+      <PropertyRef Name="CreateTimestamp" />
+      <PropertyRef Name="CreateUser" />
+      <PropertyRef Name="LastUpdateTimestamp" />
+      <PropertyRef Name="LastUpdateUser" />
+    </Key>
+    <Property Name="EDWComplainantID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CommunityBasedComplaintID" Type="int" Nullable="false" />
+    <Property Name="AgeYearNumber" Type="tinyint" />
+    <Property Name="PrimaryLanguageDialectCode" Type="char" MaxLength="8" />
+    <Property Name="SexCode" Type="char" MaxLength="1" />
+    <Property Name="AnonymousFlag" Type="bit" />
+    <Property Name="PersonName" Type="varchar" MaxLength="40" />
+    <Property Name="AddressText" Type="varchar" MaxLength="400" />
+    <Property Name="PhoneNumber" Type="varchar" MaxLength="20" />
+    <Property Name="EmailAddress" Type="varchar" MaxLength="255" />
+    <Property Name="ComplainantProgramRelationshipText" Type="varchar" MaxLength="80" />
+    <Property Name="OtherCommunicationAvenueText" Type="varchar" MaxLength="80" />
+    <Property Name="OtherLanguageDialectText" Type="varchar" MaxLength="80" />
+    <Property Name="ComplainantAllowContactFlag" Type="bit" />
+    <Property Name="ComplainantAllowVisitFlag" Type="bit" />
+    <Property Name="ComplainantQuestionsAddressedFlag" Type="bit" />
+    <Property Name="FollowUpContactDetailsFlag" Type="bit" />
+    <Property Name="HandlingProcessExplainedFlag" Type="bit" />
+    <Property Name="ProcessTimelineDiscussedFlag" Type="bit" />
+    <Property Name="ResponseReceivalExplainedFlag" Type="bit" />
+    <Property Name="UpdateUser" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="SourceDeletedFlag" Type="bit" Nullable="false" />
+    <Property Name="CreateTimestamp" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="CreateUser" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="LastUpdateTimestamp" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="LastUpdateUser" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'EDW.vOPS_CBF.vComplainantVulnerability' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vComplainantVulnerability">
+    <Key>
+      <PropertyRef Name="EDWComplainantID" />
+      <PropertyRef Name="VulnerabilityTypeID" />
+      <PropertyRef Name="SourceDeletedFlag" />
+      <PropertyRef Name="CreateTimestamp" />
+      <PropertyRef Name="CreateUser" />
+      <PropertyRef Name="LastUpdateTimestamp" />
+      <PropertyRef Name="LastUpdateUser" />
+    </Key>
+    <Property Name="EDWComplainantID" Type="int" Nullable="false" />
+    <Property Name="VulnerabilityTypeID" Type="tinyint" Nullable="false" />
+    <Property Name="SourceDeletedFlag" Type="bit" Nullable="false" />
+    <Property Name="CreateTimestamp" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="CreateUser" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="LastUpdateTimestamp" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="LastUpdateUser" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'EDW.vOPS_CBF.vComplaintAppeal' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vComplaintAppeal">
+    <Key>
+      <PropertyRef Name="CommunityBasedComplaintID" />
+      <PropertyRef Name="AppealDate" />
+      <PropertyRef Name="UpdateUser" />
+      <PropertyRef Name="SourceDeletedFlag" />
+      <PropertyRef Name="CreateTimestamp" />
+      <PropertyRef Name="CreateUser" />
+      <PropertyRef Name="LastUpdateTimestamp" />
+      <PropertyRef Name="LastUpdateUser" />
+    </Key>
+    <Property Name="CommunityBasedComplaintID" Type="int" Nullable="false" />
+    <Property Name="AppealDate" Type="date" Nullable="false" />
+    <Property Name="ProcessDescription" Type="varchar" MaxLength="255" />
+    <Property Name="AppealReceivedCommunicationMethodID" Type="tinyint" />
+    <Property Name="OtherComplaintCommunicationMethodText" Type="varchar" MaxLength="80" />
+    <Property Name="AppealResolutionDescription" Type="varchar" MaxLength="255" />
+    <Property Name="AppealResolutionDate" Type="date" />
+    <Property Name="UpdateUser" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="SourceDeletedFlag" Type="bit" Nullable="false" />
+    <Property Name="CreateTimestamp" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="CreateUser" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="LastUpdateTimestamp" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="LastUpdateUser" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'EDW.vOPS_CBF.vComplaintAppealCommittee' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vComplaintAppealCommittee">
+    <Key>
+      <PropertyRef Name="CommunityBasedComplaintID" />
+      <PropertyRef Name="EDWPersonID" />
+      <PropertyRef Name="UpdateUser" />
+      <PropertyRef Name="SourceDeletedFlag" />
+      <PropertyRef Name="CreateTimestamp" />
+      <PropertyRef Name="CreateUser" />
+      <PropertyRef Name="LastUpdateTimestamp" />
+      <PropertyRef Name="LastUpdateUser" />
+    </Key>
+    <Property Name="CommunityBasedComplaintID" Type="int" Nullable="false" />
+    <Property Name="EDWPersonID" Type="int" Nullable="false" />
+    <Property Name="UpdateUser" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="SourceDeletedFlag" Type="bit" Nullable="false" />
+    <Property Name="CreateTimestamp" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="CreateUser" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="LastUpdateTimestamp" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="LastUpdateUser" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'EDW.vOPS_CBF.vComplaintCategory' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vComplaintCategory">
+    <Key>
+      <PropertyRef Name="ComplaintCategoryID" />
+      <PropertyRef Name="ComplaintCategoryName" />
+      <PropertyRef Name="ComplaintCategoryShortName" />
+      <PropertyRef Name="ComplaintCategoryRating" />
+      <PropertyRef Name="ComplaintCategoryDescription" />
+    </Key>
+    <Property Name="ComplaintCategoryID" Type="tinyint" Nullable="false" />
+    <Property Name="ComplaintCategoryName" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="ComplaintCategoryShortName" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ComplaintCategoryRating" Type="tinyint" Nullable="false" />
+    <Property Name="ComplaintCategoryDescription" Type="varchar" MaxLength="400" Nullable="false" />
+    <Property Name="ComplaintClassificationID" Type="tinyint" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'EDW.vOPS_CBF.vComplaintClassification' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vComplaintClassification">
+    <Key>
+      <PropertyRef Name="ComplaintClassificationID" />
+      <PropertyRef Name="ComplaintClassificationName" />
+      <PropertyRef Name="DisplaySequenceNumber" />
+    </Key>
+    <Property Name="ComplaintClassificationID" Type="tinyint" Nullable="false" />
+    <Property Name="ComplaintClassificationName" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="ComplaintClassificationDescription" Type="varchar" MaxLength="255" />
+    <Property Name="DisplaySequenceNumber" Type="smallint" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'EDW.vOPS_CBF.vComplaintCommunication' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vComplaintCommunication">
+    <Key>
+      <PropertyRef Name="CommunityBasedComplaintID" />
+      <PropertyRef Name="EDWPersonID" />
+      <PropertyRef Name="CommunicationDate" />
+      <PropertyRef Name="CommunicationStageID" />
+      <PropertyRef Name="FromPersonFlag" />
+      <PropertyRef Name="UpdateUser" />
+      <PropertyRef Name="CreateTimestamp" />
+      <PropertyRef Name="CreateUser" />
+      <PropertyRef Name="LastUpdateTimestamp" />
+      <PropertyRef Name="LastUpdateUser" />
+    </Key>
+    <Property Name="CommunityBasedComplaintID" Type="int" Nullable="false" />
+    <Property Name="EDWPersonID" Type="int" Nullable="false" />
+    <Property Name="CommunicationDate" Type="date" Nullable="false" />
+    <Property Name="CommunicationStageID" Type="tinyint" Nullable="false" />
+    <Property Name="CommunicationMethodID" Type="tinyint" />
+    <Property Name="Comment" Type="varchar" MaxLength="255" />
+    <Property Name="OtherComplaintCommunicationMethodText" Type="varchar" MaxLength="80" />
+    <Property Name="FromPersonFlag" Type="bit" Nullable="false" />
+    <Property Name="UpdateUser" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="CreateTimestamp" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="CreateUser" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="LastUpdateTimestamp" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="LastUpdateUser" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'EDW.vOPS_CBF.vComplaintResolution' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vComplaintResolution">
+    <Key>
+      <PropertyRef Name="CommunityBasedComplaintID" />
+      <PropertyRef Name="InvestigationDescription" />
+      <PropertyRef Name="UpdateUser" />
+      <PropertyRef Name="SourceDeletedFlag" />
+      <PropertyRef Name="CreateTimestamp" />
+      <PropertyRef Name="CreateUser" />
+      <PropertyRef Name="LastUpdateTimestamp" />
+      <PropertyRef Name="LastUpdateUser" />
+    </Key>
+    <Property Name="CommunityBasedComplaintID" Type="int" Nullable="false" />
+    <Property Name="InvestigationDescription" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="InvestigationPointOfContactName" Type="varchar" MaxLength="80" />
+    <Property Name="CorrectiveActionDescription" Type="varchar" MaxLength="255" />
+    <Property Name="ResolutionDate" Type="date" />
+    <Property Name="UpdateUser" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="SourceDeletedFlag" Type="bit" Nullable="false" />
+    <Property Name="CreateTimestamp" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="CreateUser" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="LastUpdateTimestamp" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="LastUpdateUser" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'EDW.vOPS_CBF.vComplaintStatus' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vComplaintStatus">
+    <Key>
+      <PropertyRef Name="ComplaintStatusID" />
+      <PropertyRef Name="ComplaintStatusName" />
+      <PropertyRef Name="ComplaintStatusShortName" />
+      <PropertyRef Name="DisplaySequenceNumber" />
+    </Key>
+    <Property Name="ComplaintStatusID" Type="tinyint" Nullable="false" />
+    <Property Name="ComplaintStatusName" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="ComplaintStatusShortName" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="DisplaySequenceNumber" Type="smallint" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'EDW.vOPS_CBF.vExternalReferral' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vExternalReferral">
+    <Key>
+      <PropertyRef Name="CommunityBasedComplaintID" />
+      <PropertyRef Name="ReferralDate" />
+      <PropertyRef Name="ReferralAgencyName" />
+      <PropertyRef Name="UpdateUser" />
+      <PropertyRef Name="SourceDeletedFlag" />
+      <PropertyRef Name="CreateTimestamp" />
+      <PropertyRef Name="CreateUser" />
+      <PropertyRef Name="LastUpdateTimestamp" />
+      <PropertyRef Name="LastUpdateUser" />
+    </Key>
+    <Property Name="CommunityBasedComplaintID" Type="int" Nullable="false" />
+    <Property Name="ReferralDate" Type="date" Nullable="false" />
+    <Property Name="ReferralAgencyName" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="ReferralPersonName" Type="varchar" MaxLength="80" />
+    <Property Name="ReferralPersonPositionText" Type="varchar" MaxLength="80" />
+    <Property Name="ContactComment" Type="varchar" MaxLength="255" />
+    <Property Name="HQDisclosureAuthorizationText" Type="varchar" MaxLength="20" />
+    <Property Name="UpdateUser" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="SourceDeletedFlag" Type="bit" Nullable="false" />
+    <Property Name="CreateTimestamp" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="CreateUser" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="LastUpdateTimestamp" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="LastUpdateUser" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'EDW.vOPS_CBF.vLanguageDialect' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vLanguageDialect">
+    <Key>
+      <PropertyRef Name="LanguageDialectCode" />
+      <PropertyRef Name="LanguageName" />
+      <PropertyRef Name="LanguageShortName" />
+      <PropertyRef Name="DisplaySequenceNumber" />
+    </Key>
+    <Property Name="LanguageDialectCode" Type="char" MaxLength="8" Nullable="false" />
+    <Property Name="LanguageName" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="LanguageShortName" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ISOLanguageCode" Type="char" MaxLength="2" />
+    <Property Name="DialectName" Type="varchar" MaxLength="40" />
+    <Property Name="DisplaySequenceNumber" Type="smallint" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'EDW.vOPS_CBF.vPersonVulnerabilityType' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vPersonVulnerabilityType">
+    <Key>
+      <PropertyRef Name="VulnerabilityTypeID" />
+      <PropertyRef Name="DisplaySequenceNumber" />
+    </Key>
+    <Property Name="VulnerabilityTypeID" Type="tinyint" Nullable="false" />
+    <Property Name="VulnerabilityTypeName" Type="varchar" MaxLength="80" />
+    <Property Name="VulnerabilityTypeShortName" Type="varchar" MaxLength="20" />
+    <Property Name="DisplaySequenceNumber" Type="smallint" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'EDW.vOPS_CBF.vUserManager' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vUserManager">
+    <Key>
+      <PropertyRef Name="EDWPersonID" />
+      <PropertyRef Name="GroupName" />
+      <PropertyRef Name="CountryCode" />
+      <PropertyRef Name="FieldSiteName" />
+      <PropertyRef Name="ReadAccessLevel" />
+      <PropertyRef Name="SourceDeletedFlag" />
+      <PropertyRef Name="CreateTimestamp" />
+      <PropertyRef Name="CreateUser" />
+      <PropertyRef Name="LastUpdateTimestamp" />
+      <PropertyRef Name="LastUpdateUser" />
+    </Key>
+    <Property Name="EDWPersonID" Type="int" Nullable="false" />
+    <Property Name="GroupName" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="CountryCode" Type="char" MaxLength="3" Nullable="false" />
+    <Property Name="FieldSiteName" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="ReadAccessLevel" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="SourceDeletedFlag" Type="bit" Nullable="false" />
+    <Property Name="CreateTimestamp" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="CreateUser" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="LastUpdateTimestamp" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="LastUpdateUser" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <Function Name="spDelete_CBCDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="vOPS_CBF_ExtApp">
+    <Parameter Name="CommunityBasedComplaintID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spDelete_CBFAppealCommittee" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="vOPS_CBF_ExtApp">
+    <Parameter Name="CommunityBasedComplaintID" Type="int" Mode="In" />
+    <Parameter Name="UpdateUser" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spDelete_CBFFieldSector" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="vOPS_CBF_ExtApp">
+    <Parameter Name="CommunityBasedComplaintID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spDelete_CBFVulnerability" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="vOPS_CBF_ExtApp">
+    <Parameter Name="EDWComplainantID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spEDITAppealCommittee" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="vOPS_CBF_ExtApp">
+    <Parameter Name="CommunityBasedComplaintID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spEDITCommunityBasedComplaintDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="vOPS_CBF_ExtApp">
+    <Parameter Name="CommunityBasedComplaintID" Type="int" Mode="In" />
+    <Parameter Name="SDate" Type="varchar" Mode="In" />
+    <Parameter Name="EDate" Type="varchar" Mode="In" />
+    <Parameter Name="StatusID" Type="varchar" Mode="In" />
+    <Parameter Name="CountryCode" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spEDITComplainantDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="vOPS_CBF_ExtApp">
+    <Parameter Name="CommunityBasedComplaintID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spEDITComplaintAppeal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="vOPS_CBF_ExtApp">
+    <Parameter Name="CommunityBasedComplaintID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spEDITComplaintCommunication" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="vOPS_CBF_ExtApp">
+    <Parameter Name="CommunityBasedComplaintID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spEDITComplaintCommunicationACK" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="vOPS_CBF_ExtApp">
+    <Parameter Name="CommunityBasedComplaintID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spEDITComplaintCommunicationAR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="vOPS_CBF_ExtApp">
+    <Parameter Name="CommunityBasedComplaintID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spEDITComplaintCommunicationFR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="vOPS_CBF_ExtApp">
+    <Parameter Name="CommunityBasedComplaintID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spEDITComplaintCommunicationHQ" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="vOPS_CBF_ExtApp">
+    <Parameter Name="CommunityBasedComplaintID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spEDITComplaintLocation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="vOPS_CBF_ExtApp">
+    <Parameter Name="CommunityBasedComplaintID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spEDITComplaintResolution" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="vOPS_CBF_ExtApp">
+    <Parameter Name="CommunityBasedComplaintID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spEDITComplaintVulnerability" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="vOPS_CBF_ExtApp">
+    <Parameter Name="EDWComplainantID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spEDITExternalReferral" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="vOPS_CBF_ExtApp">
+    <Parameter Name="CommunityBasedComplaintID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spEDITFieldSector" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="vOPS_CBF_ExtApp">
+    <Parameter Name="CommunityBasedComplaintID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spGetAppealCommitteNames" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="vOPS_CBF_ExtApp" />
+  <Function Name="spGetCategory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="vOPS_CBF_ExtApp" />
+  <Function Name="spGetCategoryByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="vOPS_CBF_ExtApp">
+    <Parameter Name="ComplaintCategoryID" Type="tinyint" Mode="In" />
+  </Function>
+  <Function Name="spGetCategoryRefral" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="vOPS_CBF_ExtApp">
+    <Parameter Name="ClassificationID" Type="tinyint" Mode="In" />
+  </Function>
+  <Function Name="spGetCommunicationStage" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="vOPS_CBF_ExtApp" />
+  <Function Name="spGetComplainClassification" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="vOPS_CBF_ExtApp" />
+  <Function Name="spGetComplaintStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="vOPS_CBF_ExtApp" />
+  <Function Name="spGetCountry" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="vOPS_CBF_ExtApp" />
+  <Function Name="spGetFieldSite" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="vOPS_CBF_ExtApp">
+    <Parameter Name="CountryCode" Type="char" Mode="In" />
+  </Function>
+  <Function Name="spGetFieldSiteByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="vOPS_CBF_ExtApp">
+    <Parameter Name="CountryCode" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spGetFieldSiteDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="vOPS_CBF_ExtApp" />
+  <Function Name="spGetPersonVulnerabilityType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="vOPS_CBF_ExtApp" />
+  <Function Name="spGetReferrallevel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="vOPS_CBF_ExtApp" />
+  <Function Name="spGetReferralType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="vOPS_CBF_ExtApp" />
+  <Function Name="spGetvCommunicationMethod" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="vOPS_CBF_ExtApp" />
+  <Function Name="spGetvCommunicationMethodEthics" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="vOPS_CBF_ExtApp" />
+  <Function Name="spGetvCommunicationMethodGenral" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="vOPS_CBF_ExtApp" />
+  <Function Name="spGetvCommunicationStage" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="vOPS_CBF_ExtApp" />
+  <Function Name="spGetvCommunityBasedComplaintDocumentation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="vOPS_CBF_ExtApp">
+    <Parameter Name="CommunityBasedComplaintID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spGetvComplaintCategory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="vOPS_CBF_ExtApp" />
+  <Function Name="spGetvDonor_Name" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="vOPS_CBF_ExtApp" />
+  <Function Name="spGetvFieldSector" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="vOPS_CBF_ExtApp" />
+  <Function Name="spGetvGender" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="vOPS_CBF_ExtApp" />
+  <Function Name="spGetvLanguageDialect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="vOPS_CBF_ExtApp" />
+  <Function Name="spGetvProject_Name" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="vOPS_CBF_ExtApp" />
+  <Function Name="spGetvProjectByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="vOPS_CBF_ExtApp">
+    <Parameter Name="CountryCode" Type="char" Mode="In" />
+  </Function>
+  <Function Name="spGetvSearchUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="vOPS_CBF_ExtApp">
+    <Parameter Name="FullName" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spGetvUserAssign" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="vOPS_CBF_ExtApp" />
+  <Function Name="spGetvUserAssign2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="vOPS_CBF_ExtApp">
+    <Parameter Name="UserName" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spGetvUserManager" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="vOPS_CBF_ExtApp">
+    <Parameter Name="EDWPersonID" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="spGetvvUserDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="vOPS_CBF_ExtApp">
+    <Parameter Name="UserName" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spInsert_vCBCDocumentation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="vOPS_CBF_ExtApp">
+    <Parameter Name="CommunityBasedComplaintID" Type="int" Mode="In" />
+    <Parameter Name="DocumentHyperlink" Type="varchar" Mode="In" />
+    <Parameter Name="SupportingDocumentDescription" Type="varchar" Mode="In" />
+    <Parameter Name="UpdateUser" Type="varchar" Mode="In" />
+    <Parameter Name="AppealDocumentFlag" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="spInsert_vCBCDocumentationAppeal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="vOPS_CBF_ExtApp">
+    <Parameter Name="CommunityBasedComplaintID" Type="int" Mode="In" />
+    <Parameter Name="DocumentHyperlink" Type="varchar" Mode="In" />
+    <Parameter Name="SupportingDocumentDescription" Type="varchar" Mode="In" />
+    <Parameter Name="AppealDocumentFlag" Type="bit" Mode="In" />
+    <Parameter Name="UpdateUser" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spSave_CBCAcknowledgement" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="vOPS_CBF_ExtApp">
+    <Parameter Name="CommunityBasedComplaintID" Type="int" Mode="In" />
+    <Parameter Name="EDWPersonID" Type="int" Mode="In" />
+    <Parameter Name="CommunicationDate" Type="date" Mode="In" />
+    <Parameter Name="CommunicationStageID" Type="tinyint" Mode="In" />
+    <Parameter Name="CommunicationMethodID" Type="tinyint" Mode="In" />
+    <Parameter Name="Comment" Type="varchar" Mode="In" />
+    <Parameter Name="OtherComplaintCommunicationMethodText" Type="varchar" Mode="In" />
+    <Parameter Name="UpdateUser" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spSave_CBCExternalReferral" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="vOPS_CBF_ExtApp">
+    <Parameter Name="CommunityBasedComplaintID" Type="int" Mode="In" />
+    <Parameter Name="ReferralDate" Type="date" Mode="In" />
+    <Parameter Name="ReferralAgencyName" Type="varchar" Mode="In" />
+    <Parameter Name="ReferralPersonName" Type="varchar" Mode="In" />
+    <Parameter Name="ReferralPersonPositionText" Type="varchar" Mode="In" />
+    <Parameter Name="ContactComment" Type="varchar" Mode="In" />
+    <Parameter Name="HQDisclosureAuthorizationText" Type="varchar" Mode="In" />
+    <Parameter Name="UpdateUser" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spSave_CBCFieldSector" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="vOPS_CBF_ExtApp">
+    <Parameter Name="CommunityBasedComplaintID" Type="int" Mode="In" />
+    <Parameter Name="FieldSectorCode" Type="varchar" Mode="In" />
+    <Parameter Name="OtherSectorText" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spSave_CBCInternalReferralCountryLevel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="vOPS_CBF_ExtApp">
+    <Parameter Name="CommunityBasedComplaintID" Type="int" Mode="In" />
+    <Parameter Name="EDWPersonID" Type="int" Mode="In" />
+    <Parameter Name="CommunicationDate" Type="date" Mode="In" />
+    <Parameter Name="CommunicationStageID" Type="tinyint" Mode="In" />
+    <Parameter Name="Comment" Type="varchar" Mode="In" />
+    <Parameter Name="FromPersonFlag" Type="bit" Mode="In" />
+    <Parameter Name="UpdateUser" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spSave_CBCInternalReferralHQLevel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="vOPS_CBF_ExtApp">
+    <Parameter Name="CommunityBasedComplaintID" Type="int" Mode="In" />
+    <Parameter Name="EDWPersonID" Type="int" Mode="In" />
+    <Parameter Name="CommunicationDate" Type="date" Mode="In" />
+    <Parameter Name="CommunicationStageID" Type="tinyint" Mode="In" />
+    <Parameter Name="CommunicationMethodID" Type="tinyint" Mode="In" />
+    <Parameter Name="Comment" Type="varchar" Mode="In" />
+    <Parameter Name="OtherComplaintCommunicationMethodText" Type="varchar" Mode="In" />
+    <Parameter Name="UpdateUser" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spSave_CBCLocation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="vOPS_CBF_ExtApp">
+    <Parameter Name="CommunityBasedComplaintID" Type="int" Mode="In" />
+    <Parameter Name="LocationText" Type="varchar" Mode="In" />
+    <Parameter Name="CommunityText" Type="varchar" Mode="In" />
+    <Parameter Name="DistrictText" Type="varchar" Mode="In" />
+    <Parameter Name="ProvinceText" Type="varchar" Mode="In" />
+    <Parameter Name="UpdateUser" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spSave_CBCResolution" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="vOPS_CBF_ExtApp">
+    <Parameter Name="CommunityBasedComplaintID" Type="int" Mode="In" />
+    <Parameter Name="InvestigationDescription" Type="varchar" Mode="In" />
+    <Parameter Name="InvestigationPointOfContactName" Type="varchar" Mode="In" />
+    <Parameter Name="CorrectiveActionDescription" Type="varchar" Mode="In" />
+    <Parameter Name="ResolutionDate" Type="date" Mode="In" />
+    <Parameter Name="UpdateUser" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spSave_CBCResponse" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="vOPS_CBF_ExtApp">
+    <Parameter Name="CommunityBasedComplaintID" Type="int" Mode="In" />
+    <Parameter Name="EDWPersonID" Type="int" Mode="In" />
+    <Parameter Name="CommunicationDate" Type="date" Mode="In" />
+    <Parameter Name="CommunicationStageID" Type="tinyint" Mode="In" />
+    <Parameter Name="CommunicationMethodID" Type="tinyint" Mode="In" />
+    <Parameter Name="Comment" Type="varchar" Mode="In" />
+    <Parameter Name="OtherComplaintCommunicationMethodText" Type="varchar" Mode="In" />
+    <Parameter Name="UpdateUser" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spSave_CBCResponseAppeal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="vOPS_CBF_ExtApp">
+    <Parameter Name="CommunityBasedComplaintID" Type="int" Mode="In" />
+    <Parameter Name="EDWPersonID" Type="int" Mode="In" />
+    <Parameter Name="CommunicationDate" Type="date" Mode="In" />
+    <Parameter Name="CommunicationStageID" Type="tinyint" Mode="In" />
+    <Parameter Name="CommunicationMethodID" Type="tinyint" Mode="In" />
+    <Parameter Name="Comment" Type="varchar" Mode="In" />
+    <Parameter Name="OtherComplaintCommunicationMethodText" Type="varchar" Mode="In" />
+    <Parameter Name="UpdateUser" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spSave_CBCVulnerability" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="vOPS_CBF_ExtApp">
+    <Parameter Name="EDWComplainantID" Type="int" Mode="In" />
+    <Parameter Name="VulnerabilityTypeID" Type="tinyint" Mode="In" />
+  </Function>
+  <Function Name="spSave_CBFAppealCommittee" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="vOPS_CBF_ExtApp">
+    <Parameter Name="CommunityBasedComplaintID" Type="int" Mode="In" />
+    <Parameter Name="EDWPersonID" Type="int" Mode="In" />
+    <Parameter Name="UpdateUser" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spSave_CommunityBasedComplaint" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="vOPS_CBF_ExtApp">
+    <Parameter Name="ComplaintID" Type="int" Mode="In" />
+    <Parameter Name="CountryCode" Type="char" Mode="In" />
+    <Parameter Name="FieldSiteCode" Type="varchar" Mode="In" />
+    <Parameter Name="ComplaintCategoryID" Type="tinyint" Mode="In" />
+    <Parameter Name="ComplaintClassificationID" Type="tinyint" Mode="In" />
+    <Parameter Name="ComplaintCommunicationMethodID" Type="tinyint" Mode="In" />
+    <Parameter Name="ComplaintStatusID" Type="tinyint" Mode="In" />
+    <Parameter Name="DonorCompanyCode" Type="char" Mode="In" />
+    <Parameter Name="ProjectIdentifier" Type="varchar" Mode="In" />
+    <Parameter Name="SubmitDate" Type="date" Mode="In" />
+    <Parameter Name="ReceivedDate" Type="date" Mode="In" />
+    <Parameter Name="ReceivedByEDWPersonID" Type="int" Mode="In" />
+    <Parameter Name="EnteredTimestamp" Type="datetime" Mode="In" />
+    <Parameter Name="EnteredByEDWPersonID" Type="int" Mode="In" />
+    <Parameter Name="ClosedDate" Type="date" Mode="In" />
+    <Parameter Name="ClosedByEDWPersonID" Type="int" Mode="In" />
+    <Parameter Name="ComplaintDescription" Type="varchar" Mode="In" />
+    <Parameter Name="OtherComplaintCommunicationMethodText" Type="varchar" Mode="In" />
+    <Parameter Name="SubjectText" Type="varchar" Mode="In" />
+    <Parameter Name="AcknowledgementProvidedFlag" Type="bit" Mode="In" />
+    <Parameter Name="AppealedFlag" Type="bit" Mode="In" />
+    <Parameter Name="ResponseProvidedFlag" Type="bit" Mode="In" />
+    <Parameter Name="ReferralRequiredFlag" Type="bit" Mode="In" />
+    <Parameter Name="InternalReferralLevelID" Type="tinyint" Mode="In" />
+    <Parameter Name="NoAcknowledgementReasonDescription" Type="varchar" Mode="In" />
+    <Parameter Name="NoReferralReasonDescription" Type="varchar" Mode="In" />
+    <Parameter Name="NoResponseReasonDescription" Type="varchar" Mode="In" />
+    <Parameter Name="ReceivedByIMCStaffFlag" Type="bit" Mode="In" />
+    <Parameter Name="ReceivedByNonIMCName" Type="varchar" Mode="In" />
+    <Parameter Name="ResponseByNonIMCName" Type="varchar" Mode="In" />
+    <Parameter Name="UpdateUser" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spSave_ComplaintAppeal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="vOPS_CBF_ExtApp">
+    <Parameter Name="CommunityBasedComplaintID" Type="int" Mode="In" />
+    <Parameter Name="AppealDate" Type="date" Mode="In" />
+    <Parameter Name="ProcessDescription" Type="varchar" Mode="In" />
+    <Parameter Name="AppealReceivedCommunicationMethodID" Type="tinyint" Mode="In" />
+    <Parameter Name="OtherComplaintCommunicationMethodText" Type="varchar" Mode="In" />
+    <Parameter Name="AppealResolutionDescription" Type="varchar" Mode="In" />
+    <Parameter Name="AppealResolutionDate" Type="date" Mode="In" />
+    <Parameter Name="UpdateUser" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spSave_vComplainantDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="vOPS_CBF_ExtApp">
+    <Parameter Name="EDWComplainantID" Type="int" Mode="In" />
+    <Parameter Name="CommunityBasedComplaintID" Type="int" Mode="In" />
+    <Parameter Name="AgeYearNumber" Type="tinyint" Mode="In" />
+    <Parameter Name="PrimaryLanguageDialectCode" Type="char" Mode="In" />
+    <Parameter Name="SexCode" Type="char" Mode="In" />
+    <Parameter Name="PersonName" Type="varchar" Mode="In" />
+    <Parameter Name="AddressText" Type="varchar" Mode="In" />
+    <Parameter Name="PhoneNumber" Type="varchar" Mode="In" />
+    <Parameter Name="EmailAddress" Type="varchar" Mode="In" />
+    <Parameter Name="ComplainantProgramRelationshipText" Type="varchar" Mode="In" />
+    <Parameter Name="OtherCommunicationAvenueText" Type="varchar" Mode="In" />
+    <Parameter Name="OtherLanguageDialectText" Type="varchar" Mode="In" />
+    <Parameter Name="ComplainantAllowContactFlag" Type="bit" Mode="In" />
+    <Parameter Name="ComplainantAllowVisitFlag" Type="bit" Mode="In" />
+    <Parameter Name="ComplainantQuestionsAddressedFlag" Type="bit" Mode="In" />
+    <Parameter Name="FollowUpContactDetailsFlag" Type="bit" Mode="In" />
+    <Parameter Name="HandlingProcessExplainedFlag" Type="bit" Mode="In" />
+    <Parameter Name="ProcessTimelineDiscussedFlag" Type="bit" Mode="In" />
+    <Parameter Name="ResponseReceivalExplainedFlag" Type="bit" Mode="In" />
+    <Parameter Name="UpdateUser" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spUpdate_vCBCDocumentation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="vOPS_CBF_ExtApp">
+    <Parameter Name="CommunityBasedComplaintDocID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spUpdate_vCBCDocumentationAppeal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="vOPS_CBF_ExtApp">
+    <Parameter Name="CommunityBasedComplaintDocID" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="EDWModelStoreContainer">
+    <EntitySet Name="vDonor_Name" EntityType="Self.vDonor_Name" store:Type="Views" store:Schema="vdbo">
+      <DefiningQuery>SELECT 
+    [vDonor_Name].[CompanyCode] AS [CompanyCode], 
+    [vDonor_Name].[DonorIdentifier] AS [DonorIdentifier], 
+    [vDonor_Name].[DonorName] AS [DonorName], 
+    [vDonor_Name].[DonorShortName] AS [DonorShortName], 
+    [vDonor_Name].[DonorTypeCode] AS [DonorTypeCode], 
+    [vDonor_Name].[DonorCategoryCode] AS [DonorCategoryCode]
+    FROM [vdbo].[vDonor_Name] AS [vDonor_Name]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vFieldSite" EntityType="Self.vFieldSite" store:Type="Views" store:Schema="vdbo">
+      <DefiningQuery>SELECT 
+    [vFieldSite].[FieldSiteCode] AS [FieldSiteCode], 
+    [vFieldSite].[FieldSiteName] AS [FieldSiteName], 
+    [vFieldSite].[FieldSiteShortName] AS [FieldSiteShortName], 
+    [vFieldSite].[CountryCode] AS [CountryCode], 
+    [vFieldSite].[ActiveFlag] AS [ActiveFlag], 
+    [vFieldSite].[DisplaySequenceNumber] AS [DisplaySequenceNumber]
+    FROM [vdbo].[vFieldSite] AS [vFieldSite]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vSex" EntityType="Self.vSex" store:Type="Views" store:Schema="vdbo">
+      <DefiningQuery>SELECT 
+    [vSex].[SexCode] AS [SexCode], 
+    [vSex].[SexName] AS [SexName], 
+    [vSex].[SexShortName] AS [SexShortName], 
+    [vSex].[DisplaySequenceNumber] AS [DisplaySequenceNumber]
+    FROM [vdbo].[vSex] AS [vSex]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vCommunicationMethod" EntityType="Self.vCommunicationMethod" store:Type="Views" store:Schema="vOPS_CBF">
+      <DefiningQuery>SELECT 
+    [vCommunicationMethod].[CommunicationMethodID] AS [CommunicationMethodID], 
+    [vCommunicationMethod].[CommunicationMethodName] AS [CommunicationMethodName], 
+    [vCommunicationMethod].[CommunicationMethodShortName] AS [CommunicationMethodShortName], 
+    [vCommunicationMethod].[GeneralOptionFlag] AS [GeneralOptionFlag], 
+    [vCommunicationMethod].[GeneralDisplaySequenceNumber] AS [GeneralDisplaySequenceNumber], 
+    [vCommunicationMethod].[ReferralOptionFlag] AS [ReferralOptionFlag], 
+    [vCommunicationMethod].[ReferralDisplaySequenceNumber] AS [ReferralDisplaySequenceNumber], 
+    [vCommunicationMethod].[SubmittalOptionFlag] AS [SubmittalOptionFlag], 
+    [vCommunicationMethod].[SubmittalDisplaySequenceNumber] AS [SubmittalDisplaySequenceNumber]
+    FROM [vOPS_CBF].[vCommunicationMethod] AS [vCommunicationMethod]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vCommunicationStage" EntityType="Self.vCommunicationStage" store:Type="Views" store:Schema="vOPS_CBF">
+      <DefiningQuery>SELECT 
+    [vCommunicationStage].[CommunicationStageID] AS [CommunicationStageID], 
+    [vCommunicationStage].[CommunicationStageName] AS [CommunicationStageName], 
+    [vCommunicationStage].[CommunicationStageShortName] AS [CommunicationStageShortName], 
+    [vCommunicationStage].[ReminderDayCount] AS [ReminderDayCount], 
+    [vCommunicationStage].[DisplaySequenceNumber] AS [DisplaySequenceNumber]
+    FROM [vOPS_CBF].[vCommunicationStage] AS [vCommunicationStage]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vCommunityBasedComplaint" EntityType="Self.vCommunityBasedComplaint" store:Type="Views" store:Schema="vOPS_CBF">
+      <DefiningQuery>SELECT 
+    [vCommunityBasedComplaint].[CommunityBasedComplaintID] AS [CommunityBasedComplaintID], 
+    [vCommunityBasedComplaint].[CountryCode] AS [CountryCode], 
+    [vCommunityBasedComplaint].[FacilityID] AS [FacilityID], 
+    [vCommunityBasedComplaint].[FieldSiteCode] AS [FieldSiteCode], 
+    [vCommunityBasedComplaint].[ComplaintCategoryID] AS [ComplaintCategoryID], 
+    [vCommunityBasedComplaint].[ComplaintClassificationID] AS [ComplaintClassificationID], 
+    [vCommunityBasedComplaint].[ComplaintCommunicationMethodID] AS [ComplaintCommunicationMethodID], 
+    [vCommunityBasedComplaint].[ComplaintStatusID] AS [ComplaintStatusID], 
+    [vCommunityBasedComplaint].[DonorCompanyCode] AS [DonorCompanyCode], 
+    [vCommunityBasedComplaint].[DonorIdentifier] AS [DonorIdentifier], 
+    [vCommunityBasedComplaint].[ProjectIdentifier] AS [ProjectIdentifier], 
+    [vCommunityBasedComplaint].[SubmitDate] AS [SubmitDate], 
+    [vCommunityBasedComplaint].[ReceivedDate] AS [ReceivedDate], 
+    [vCommunityBasedComplaint].[ReceivedByEDWPersonID] AS [ReceivedByEDWPersonID], 
+    [vCommunityBasedComplaint].[ReceivedByNonIMCName] AS [ReceivedByNonIMCName], 
+    [vCommunityBasedComplaint].[ResponseByNonIMCName] AS [ResponseByNonIMCName], 
+    [vCommunityBasedComplaint].[EnteredTimestamp] AS [EnteredTimestamp], 
+    [vCommunityBasedComplaint].[EnteredByEDWPersonID] AS [EnteredByEDWPersonID], 
+    [vCommunityBasedComplaint].[ClosedDate] AS [ClosedDate], 
+    [vCommunityBasedComplaint].[ClosedByEDWPersonID] AS [ClosedByEDWPersonID], 
+    [vCommunityBasedComplaint].[ComplaintDescription] AS [ComplaintDescription], 
+    [vCommunityBasedComplaint].[OtherComplaintCommunicationMethodText] AS [OtherComplaintCommunicationMethodText], 
+    [vCommunityBasedComplaint].[SubjectText] AS [SubjectText], 
+    [vCommunityBasedComplaint].[AcknowledgementProvidedFlag] AS [AcknowledgementProvidedFlag], 
+    [vCommunityBasedComplaint].[AppealedFlag] AS [AppealedFlag], 
+    [vCommunityBasedComplaint].[ReceivedByIMCStaffFlag] AS [ReceivedByIMCStaffFlag], 
+    [vCommunityBasedComplaint].[ResponseProvidedFlag] AS [ResponseProvidedFlag], 
+    [vCommunityBasedComplaint].[ReferralRequiredFlag] AS [ReferralRequiredFlag], 
+    [vCommunityBasedComplaint].[ReferralTypeID] AS [ReferralTypeID], 
+    [vCommunityBasedComplaint].[InternalReferralLevelID] AS [InternalReferralLevelID], 
+    [vCommunityBasedComplaint].[NoAcknowledgementReasonDescription] AS [NoAcknowledgementReasonDescription], 
+    [vCommunityBasedComplaint].[NoReferralReasonDescription] AS [NoReferralReasonDescription], 
+    [vCommunityBasedComplaint].[NoResponseReasonDescription] AS [NoResponseReasonDescription], 
+    [vCommunityBasedComplaint].[UpdateUser] AS [UpdateUser], 
+    [vCommunityBasedComplaint].[SourceDeletedFlag] AS [SourceDeletedFlag], 
+    [vCommunityBasedComplaint].[CreateTimestamp] AS [CreateTimestamp], 
+    [vCommunityBasedComplaint].[CreateUser] AS [CreateUser], 
+    [vCommunityBasedComplaint].[LastUpdateTimestamp] AS [LastUpdateTimestamp], 
+    [vCommunityBasedComplaint].[LastUpdateUser] AS [LastUpdateUser]
+    FROM [vOPS_CBF].[vCommunityBasedComplaint] AS [vCommunityBasedComplaint]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vCommunityBasedComplaintDocumentation" EntityType="Self.vCommunityBasedComplaintDocumentation" store:Type="Views" store:Schema="vOPS_CBF">
+      <DefiningQuery>SELECT 
+    [vCommunityBasedComplaintDocumentation].[CommunityBasedComplaintDocID] AS [CommunityBasedComplaintDocID], 
+    [vCommunityBasedComplaintDocumentation].[CommunityBasedComplaintID] AS [CommunityBasedComplaintID], 
+    [vCommunityBasedComplaintDocumentation].[DocumentHyperlink] AS [DocumentHyperlink], 
+    [vCommunityBasedComplaintDocumentation].[SupportingDocumentDescription] AS [SupportingDocumentDescription], 
+    [vCommunityBasedComplaintDocumentation].[AppealDocumentFlag] AS [AppealDocumentFlag], 
+    [vCommunityBasedComplaintDocumentation].[UpdateUser] AS [UpdateUser], 
+    [vCommunityBasedComplaintDocumentation].[SourceDeletedFlag] AS [SourceDeletedFlag], 
+    [vCommunityBasedComplaintDocumentation].[CreateTimestamp] AS [CreateTimestamp], 
+    [vCommunityBasedComplaintDocumentation].[CreateUser] AS [CreateUser], 
+    [vCommunityBasedComplaintDocumentation].[LastUpdateTimestamp] AS [LastUpdateTimestamp], 
+    [vCommunityBasedComplaintDocumentation].[LastUpdateUser] AS [LastUpdateUser]
+    FROM [vOPS_CBF].[vCommunityBasedComplaintDocumentation] AS [vCommunityBasedComplaintDocumentation]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vCommunityBasedComplaintFieldSector" EntityType="Self.vCommunityBasedComplaintFieldSector" store:Type="Views" store:Schema="vOPS_CBF">
+      <DefiningQuery>SELECT 
+    [vCommunityBasedComplaintFieldSector].[CommunityBasedComplaintID] AS [CommunityBasedComplaintID], 
+    [vCommunityBasedComplaintFieldSector].[FieldSectorCode] AS [FieldSectorCode], 
+    [vCommunityBasedComplaintFieldSector].[OtherSectorText] AS [OtherSectorText], 
+    [vCommunityBasedComplaintFieldSector].[SourceDeletedFlag] AS [SourceDeletedFlag], 
+    [vCommunityBasedComplaintFieldSector].[CreateTimestamp] AS [CreateTimestamp], 
+    [vCommunityBasedComplaintFieldSector].[CreateUser] AS [CreateUser], 
+    [vCommunityBasedComplaintFieldSector].[LastUpdateTimestamp] AS [LastUpdateTimestamp], 
+    [vCommunityBasedComplaintFieldSector].[LastUpdateUser] AS [LastUpdateUser]
+    FROM [vOPS_CBF].[vCommunityBasedComplaintFieldSector] AS [vCommunityBasedComplaintFieldSector]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vCommunityBasedComplaintLocation" EntityType="Self.vCommunityBasedComplaintLocation" store:Type="Views" store:Schema="vOPS_CBF">
+      <DefiningQuery>SELECT 
+    [vCommunityBasedComplaintLocation].[CommunityBasedComplaintID] AS [CommunityBasedComplaintID], 
+    [vCommunityBasedComplaintLocation].[LocationText] AS [LocationText], 
+    [vCommunityBasedComplaintLocation].[CommunityText] AS [CommunityText], 
+    [vCommunityBasedComplaintLocation].[DistrictText] AS [DistrictText], 
+    [vCommunityBasedComplaintLocation].[ProvinceText] AS [ProvinceText], 
+    [vCommunityBasedComplaintLocation].[UpdateUser] AS [UpdateUser], 
+    [vCommunityBasedComplaintLocation].[SourceDeletedFlag] AS [SourceDeletedFlag], 
+    [vCommunityBasedComplaintLocation].[CreateTimestamp] AS [CreateTimestamp], 
+    [vCommunityBasedComplaintLocation].[CreateUser] AS [CreateUser], 
+    [vCommunityBasedComplaintLocation].[LastUpdateTimestamp] AS [LastUpdateTimestamp], 
+    [vCommunityBasedComplaintLocation].[LastUpdateUser] AS [LastUpdateUser]
+    FROM [vOPS_CBF].[vCommunityBasedComplaintLocation] AS [vCommunityBasedComplaintLocation]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vComplainantDetail" EntityType="Self.vComplainantDetail" store:Type="Views" store:Schema="vOPS_CBF">
+      <DefiningQuery>SELECT 
+    [vComplainantDetail].[EDWComplainantID] AS [EDWComplainantID], 
+    [vComplainantDetail].[CommunityBasedComplaintID] AS [CommunityBasedComplaintID], 
+    [vComplainantDetail].[AgeYearNumber] AS [AgeYearNumber], 
+    [vComplainantDetail].[PrimaryLanguageDialectCode] AS [PrimaryLanguageDialectCode], 
+    [vComplainantDetail].[SexCode] AS [SexCode], 
+    [vComplainantDetail].[AnonymousFlag] AS [AnonymousFlag], 
+    [vComplainantDetail].[PersonName] AS [PersonName], 
+    [vComplainantDetail].[AddressText] AS [AddressText], 
+    [vComplainantDetail].[PhoneNumber] AS [PhoneNumber], 
+    [vComplainantDetail].[EmailAddress] AS [EmailAddress], 
+    [vComplainantDetail].[ComplainantProgramRelationshipText] AS [ComplainantProgramRelationshipText], 
+    [vComplainantDetail].[OtherCommunicationAvenueText] AS [OtherCommunicationAvenueText], 
+    [vComplainantDetail].[OtherLanguageDialectText] AS [OtherLanguageDialectText], 
+    [vComplainantDetail].[ComplainantAllowContactFlag] AS [ComplainantAllowContactFlag], 
+    [vComplainantDetail].[ComplainantAllowVisitFlag] AS [ComplainantAllowVisitFlag], 
+    [vComplainantDetail].[ComplainantQuestionsAddressedFlag] AS [ComplainantQuestionsAddressedFlag], 
+    [vComplainantDetail].[FollowUpContactDetailsFlag] AS [FollowUpContactDetailsFlag], 
+    [vComplainantDetail].[HandlingProcessExplainedFlag] AS [HandlingProcessExplainedFlag], 
+    [vComplainantDetail].[ProcessTimelineDiscussedFlag] AS [ProcessTimelineDiscussedFlag], 
+    [vComplainantDetail].[ResponseReceivalExplainedFlag] AS [ResponseReceivalExplainedFlag], 
+    [vComplainantDetail].[UpdateUser] AS [UpdateUser], 
+    [vComplainantDetail].[SourceDeletedFlag] AS [SourceDeletedFlag], 
+    [vComplainantDetail].[CreateTimestamp] AS [CreateTimestamp], 
+    [vComplainantDetail].[CreateUser] AS [CreateUser], 
+    [vComplainantDetail].[LastUpdateTimestamp] AS [LastUpdateTimestamp], 
+    [vComplainantDetail].[LastUpdateUser] AS [LastUpdateUser]
+    FROM [vOPS_CBF].[vComplainantDetail] AS [vComplainantDetail]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vComplainantVulnerability" EntityType="Self.vComplainantVulnerability" store:Type="Views" store:Schema="vOPS_CBF">
+      <DefiningQuery>SELECT 
+    [vComplainantVulnerability].[EDWComplainantID] AS [EDWComplainantID], 
+    [vComplainantVulnerability].[VulnerabilityTypeID] AS [VulnerabilityTypeID], 
+    [vComplainantVulnerability].[SourceDeletedFlag] AS [SourceDeletedFlag], 
+    [vComplainantVulnerability].[CreateTimestamp] AS [CreateTimestamp], 
+    [vComplainantVulnerability].[CreateUser] AS [CreateUser], 
+    [vComplainantVulnerability].[LastUpdateTimestamp] AS [LastUpdateTimestamp], 
+    [vComplainantVulnerability].[LastUpdateUser] AS [LastUpdateUser]
+    FROM [vOPS_CBF].[vComplainantVulnerability] AS [vComplainantVulnerability]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vComplaintAppeal" EntityType="Self.vComplaintAppeal" store:Type="Views" store:Schema="vOPS_CBF">
+      <DefiningQuery>SELECT 
+    [vComplaintAppeal].[CommunityBasedComplaintID] AS [CommunityBasedComplaintID], 
+    [vComplaintAppeal].[AppealDate] AS [AppealDate], 
+    [vComplaintAppeal].[ProcessDescription] AS [ProcessDescription], 
+    [vComplaintAppeal].[AppealReceivedCommunicationMethodID] AS [AppealReceivedCommunicationMethodID], 
+    [vComplaintAppeal].[OtherComplaintCommunicationMethodText] AS [OtherComplaintCommunicationMethodText], 
+    [vComplaintAppeal].[AppealResolutionDescription] AS [AppealResolutionDescription], 
+    [vComplaintAppeal].[AppealResolutionDate] AS [AppealResolutionDate], 
+    [vComplaintAppeal].[UpdateUser] AS [UpdateUser], 
+    [vComplaintAppeal].[SourceDeletedFlag] AS [SourceDeletedFlag], 
+    [vComplaintAppeal].[CreateTimestamp] AS [CreateTimestamp], 
+    [vComplaintAppeal].[CreateUser] AS [CreateUser], 
+    [vComplaintAppeal].[LastUpdateTimestamp] AS [LastUpdateTimestamp], 
+    [vComplaintAppeal].[LastUpdateUser] AS [LastUpdateUser]
+    FROM [vOPS_CBF].[vComplaintAppeal] AS [vComplaintAppeal]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vComplaintAppealCommittee" EntityType="Self.vComplaintAppealCommittee" store:Type="Views" store:Schema="vOPS_CBF">
+      <DefiningQuery>SELECT 
+    [vComplaintAppealCommittee].[CommunityBasedComplaintID] AS [CommunityBasedComplaintID], 
+    [vComplaintAppealCommittee].[EDWPersonID] AS [EDWPersonID], 
+    [vComplaintAppealCommittee].[UpdateUser] AS [UpdateUser], 
+    [vComplaintAppealCommittee].[SourceDeletedFlag] AS [SourceDeletedFlag], 
+    [vComplaintAppealCommittee].[CreateTimestamp] AS [CreateTimestamp], 
+    [vComplaintAppealCommittee].[CreateUser] AS [CreateUser], 
+    [vComplaintAppealCommittee].[LastUpdateTimestamp] AS [LastUpdateTimestamp], 
+    [vComplaintAppealCommittee].[LastUpdateUser] AS [LastUpdateUser]
+    FROM [vOPS_CBF].[vComplaintAppealCommittee] AS [vComplaintAppealCommittee]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vComplaintCategory" EntityType="Self.vComplaintCategory" store:Type="Views" store:Schema="vOPS_CBF">
+      <DefiningQuery>SELECT 
+    [vComplaintCategory].[ComplaintCategoryID] AS [ComplaintCategoryID], 
+    [vComplaintCategory].[ComplaintCategoryName] AS [ComplaintCategoryName], 
+    [vComplaintCategory].[ComplaintCategoryShortName] AS [ComplaintCategoryShortName], 
+    [vComplaintCategory].[ComplaintCategoryRating] AS [ComplaintCategoryRating], 
+    [vComplaintCategory].[ComplaintCategoryDescription] AS [ComplaintCategoryDescription], 
+    [vComplaintCategory].[ComplaintClassificationID] AS [ComplaintClassificationID]
+    FROM [vOPS_CBF].[vComplaintCategory] AS [vComplaintCategory]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vComplaintClassification" EntityType="Self.vComplaintClassification" store:Type="Views" store:Schema="vOPS_CBF">
+      <DefiningQuery>SELECT 
+    [vComplaintClassification].[ComplaintClassificationID] AS [ComplaintClassificationID], 
+    [vComplaintClassification].[ComplaintClassificationName] AS [ComplaintClassificationName], 
+    [vComplaintClassification].[ComplaintClassificationDescription] AS [ComplaintClassificationDescription], 
+    [vComplaintClassification].[DisplaySequenceNumber] AS [DisplaySequenceNumber]
+    FROM [vOPS_CBF].[vComplaintClassification] AS [vComplaintClassification]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vComplaintCommunication" EntityType="Self.vComplaintCommunication" store:Type="Views" store:Schema="vOPS_CBF">
+      <DefiningQuery>SELECT 
+    [vComplaintCommunication].[CommunityBasedComplaintID] AS [CommunityBasedComplaintID], 
+    [vComplaintCommunication].[EDWPersonID] AS [EDWPersonID], 
+    [vComplaintCommunication].[CommunicationDate] AS [CommunicationDate], 
+    [vComplaintCommunication].[CommunicationStageID] AS [CommunicationStageID], 
+    [vComplaintCommunication].[CommunicationMethodID] AS [CommunicationMethodID], 
+    [vComplaintCommunication].[Comment] AS [Comment], 
+    [vComplaintCommunication].[OtherComplaintCommunicationMethodText] AS [OtherComplaintCommunicationMethodText], 
+    [vComplaintCommunication].[FromPersonFlag] AS [FromPersonFlag], 
+    [vComplaintCommunication].[UpdateUser] AS [UpdateUser], 
+    [vComplaintCommunication].[CreateTimestamp] AS [CreateTimestamp], 
+    [vComplaintCommunication].[CreateUser] AS [CreateUser], 
+    [vComplaintCommunication].[LastUpdateTimestamp] AS [LastUpdateTimestamp], 
+    [vComplaintCommunication].[LastUpdateUser] AS [LastUpdateUser]
+    FROM [vOPS_CBF].[vComplaintCommunication] AS [vComplaintCommunication]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vComplaintResolution" EntityType="Self.vComplaintResolution" store:Type="Views" store:Schema="vOPS_CBF">
+      <DefiningQuery>SELECT 
+    [vComplaintResolution].[CommunityBasedComplaintID] AS [CommunityBasedComplaintID], 
+    [vComplaintResolution].[InvestigationDescription] AS [InvestigationDescription], 
+    [vComplaintResolution].[InvestigationPointOfContactName] AS [InvestigationPointOfContactName], 
+    [vComplaintResolution].[CorrectiveActionDescription] AS [CorrectiveActionDescription], 
+    [vComplaintResolution].[ResolutionDate] AS [ResolutionDate], 
+    [vComplaintResolution].[UpdateUser] AS [UpdateUser], 
+    [vComplaintResolution].[SourceDeletedFlag] AS [SourceDeletedFlag], 
+    [vComplaintResolution].[CreateTimestamp] AS [CreateTimestamp], 
+    [vComplaintResolution].[CreateUser] AS [CreateUser], 
+    [vComplaintResolution].[LastUpdateTimestamp] AS [LastUpdateTimestamp], 
+    [vComplaintResolution].[LastUpdateUser] AS [LastUpdateUser]
+    FROM [vOPS_CBF].[vComplaintResolution] AS [vComplaintResolution]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vComplaintStatus" EntityType="Self.vComplaintStatus" store:Type="Views" store:Schema="vOPS_CBF">
+      <DefiningQuery>SELECT 
+    [vComplaintStatus].[ComplaintStatusID] AS [ComplaintStatusID], 
+    [vComplaintStatus].[ComplaintStatusName] AS [ComplaintStatusName], 
+    [vComplaintStatus].[ComplaintStatusShortName] AS [ComplaintStatusShortName], 
+    [vComplaintStatus].[DisplaySequenceNumber] AS [DisplaySequenceNumber]
+    FROM [vOPS_CBF].[vComplaintStatus] AS [vComplaintStatus]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vExternalReferral" EntityType="Self.vExternalReferral" store:Type="Views" store:Schema="vOPS_CBF">
+      <DefiningQuery>SELECT 
+    [vExternalReferral].[CommunityBasedComplaintID] AS [CommunityBasedComplaintID], 
+    [vExternalReferral].[ReferralDate] AS [ReferralDate], 
+    [vExternalReferral].[ReferralAgencyName] AS [ReferralAgencyName], 
+    [vExternalReferral].[ReferralPersonName] AS [ReferralPersonName], 
+    [vExternalReferral].[ReferralPersonPositionText] AS [ReferralPersonPositionText], 
+    [vExternalReferral].[ContactComment] AS [ContactComment], 
+    [vExternalReferral].[HQDisclosureAuthorizationText] AS [HQDisclosureAuthorizationText], 
+    [vExternalReferral].[UpdateUser] AS [UpdateUser], 
+    [vExternalReferral].[SourceDeletedFlag] AS [SourceDeletedFlag], 
+    [vExternalReferral].[CreateTimestamp] AS [CreateTimestamp], 
+    [vExternalReferral].[CreateUser] AS [CreateUser], 
+    [vExternalReferral].[LastUpdateTimestamp] AS [LastUpdateTimestamp], 
+    [vExternalReferral].[LastUpdateUser] AS [LastUpdateUser]
+    FROM [vOPS_CBF].[vExternalReferral] AS [vExternalReferral]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vLanguageDialect" EntityType="Self.vLanguageDialect" store:Type="Views" store:Schema="vOPS_CBF">
+      <DefiningQuery>SELECT 
+    [vLanguageDialect].[LanguageDialectCode] AS [LanguageDialectCode], 
+    [vLanguageDialect].[LanguageName] AS [LanguageName], 
+    [vLanguageDialect].[LanguageShortName] AS [LanguageShortName], 
+    [vLanguageDialect].[ISOLanguageCode] AS [ISOLanguageCode], 
+    [vLanguageDialect].[DialectName] AS [DialectName], 
+    [vLanguageDialect].[DisplaySequenceNumber] AS [DisplaySequenceNumber]
+    FROM [vOPS_CBF].[vLanguageDialect] AS [vLanguageDialect]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vPersonVulnerabilityType" EntityType="Self.vPersonVulnerabilityType" store:Type="Views" store:Schema="vOPS_CBF">
+      <DefiningQuery>SELECT 
+    [vPersonVulnerabilityType].[VulnerabilityTypeID] AS [VulnerabilityTypeID], 
+    [vPersonVulnerabilityType].[VulnerabilityTypeName] AS [VulnerabilityTypeName], 
+    [vPersonVulnerabilityType].[VulnerabilityTypeShortName] AS [VulnerabilityTypeShortName], 
+    [vPersonVulnerabilityType].[DisplaySequenceNumber] AS [DisplaySequenceNumber]
+    FROM [vOPS_CBF].[vPersonVulnerabilityType] AS [vPersonVulnerabilityType]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vUserManager" EntityType="Self.vUserManager" store:Type="Views" store:Schema="vOPS_CBF">
+      <DefiningQuery>SELECT 
+    [vUserManager].[EDWPersonID] AS [EDWPersonID], 
+    [vUserManager].[GroupName] AS [GroupName], 
+    [vUserManager].[CountryCode] AS [CountryCode], 
+    [vUserManager].[FieldSiteName] AS [FieldSiteName], 
+    [vUserManager].[ReadAccessLevel] AS [ReadAccessLevel], 
+    [vUserManager].[SourceDeletedFlag] AS [SourceDeletedFlag], 
+    [vUserManager].[CreateTimestamp] AS [CreateTimestamp], 
+    [vUserManager].[CreateUser] AS [CreateUser], 
+    [vUserManager].[LastUpdateTimestamp] AS [LastUpdateTimestamp], 
+    [vUserManager].[LastUpdateUser] AS [LastUpdateUser]
+    FROM [vOPS_CBF].[vUserManager] AS [vUserManager]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

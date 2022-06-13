@@ -1,0 +1,1421 @@
+﻿@model CBFRM.Areas.ComplainManagement.Models.UserViewModel
+@{
+    ViewBag.Title = "Complain Form";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    //Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+
+@section styles{
+
+    @Styles.Render("~/Content/DataTable/css")
+    <!-- Styles -->
+
+    <link href="~/Content/assets/global/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css" rel="stylesheet" />
+    <link href="~/Content/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/assets/global/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/assets/global/plugins/select2/css/select2-bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/assets/global/plugins/bootstrap-multiselect/css/bootstrap-multiselect.css" rel="stylesheet" />
+}
+
+
+<style>
+    .form-group.form-md-line-input.form-md-floating-label .form-control ~ label {
+        font-size: 16px !important;
+        top: 15px;
+        left: 0px !important;
+        transition: 0.2s ease all !important;
+        color: #999 !important;
+        padding-left: 10px;
+    }
+
+    .form-group.form-md-line-input.form-md-floating-label .form-control:focus ~ label {
+        font-size: 13px !important;
+        top: 0px;
+        left: 0px !important;
+        transition: 0.2s ease all !important;
+        color: #999 !important;
+        padding-left: 10px;
+    }
+
+    .form-group.form-md-line-input .form-control ~ .form-control-focus, .form-group.form-md-line-input .form-control:focus ~ label {
+        font-size: 13px !important;
+    }
+
+    .form-group.form-md-line-input.form-md-floating-label .form-control[readonly] ~ label, .form-group.form-md-line-input.form-md-floating-label .form-control.edited ~ label, .form-group.form-md-line-input.form-md-floating-label .form-control.form-control-static ~ label, .form-group.form-md-line-input.form-md-floating-label .form-control:focus:not([readonly]) ~ label, .form-group.form-md-line-input.form-md-floating-label .form-control.focus:not([readonly]) ~ label {
+        top: 0 !important;
+        font-size: 13px !important;
+    }
+
+
+    .form-group.form-md-line-input .form-control {
+        background: none !important;
+        border: 0 !important;
+        border-bottom: none !important;
+        font-size: 16px !important;
+        font-weight: 600 !important;
+    }
+
+    .customclass {
+        position: relative !important;
+        margin: 0 0 35px !important;
+        padding-top: 15px !important;
+        background: border-box !important;
+        border: 2px solid #C0C0C0 !important;
+        border-radius: 5px !important;
+        padding-right: 10px !important;
+        padding-left: 10px !important;
+    }
+
+    .customclassPII {
+        position: relative !important;
+        margin: 0 0 35px !important;
+        padding-top: 15px !important;
+        background: border-box !important;
+        border: 2px solid #e43b3b !important;
+        border-radius: 5px !important;
+        padding-right: 10px !important;
+        padding-left: 10px !important;
+    }
+
+    .select2-container--bootstrap .select2-selection--multiple .select2-search--inline .select2-search__field {
+        background: transparent;
+        padding: 0 12px;
+        height: 32px;
+        line-height: 1.42857;
+        margin-top: 0;
+        min-width: 15em;
+    }
+</style>
+
+<div class="page-container">
+    <div class="page-content-wrapper">
+        <!-- BEGIN CONTENT BODY -->
+        <div class="page-content">
+            <div class="portlet box">
+
+
+                <div class="portlet-body" style="background-color:#eff3f8;font-weight:bold">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-3 col-xs-3">
+                            <ul class="nav nav-tabs tabs-left" id="tabstrip">
+                                <li class="active">
+                                    <a href="#tab_6_1" data-toggle="tab">Complaint Details</a>
+                                </li>
+                                <li>
+                                    <a href="#tab_6_2" data-toggle="tab">Categorization</a>
+                                </li>
+                                <li>
+                                    <a href="#tab_6_3" data-toggle="tab">Referral </a>
+                                </li>
+
+                                <li>
+                                    <a href="#tab_6_4" data-toggle="tab">Resolution</a>
+                                </li>
+
+                                <li>
+                                    <a href="#tab_6_5" data-toggle="tab">Response to Complainant</a>
+                                </li>
+                                <li>
+                                    <a href="#tab_6_6" data-toggle="tab">Appeal by Complainant</a>
+                                </li>
+                                <li>
+                                    <a href="#tab_6_7" data-toggle="tab">Appeal Decision</a>
+                                </li>
+                                <li>
+                                    <a href="#tab_6_8" data-toggle="tab">Closure</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-9 col-sm-9 col-xs-9">
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="tab_6_1">
+                                    <div class="portlet box blue-soft">
+                                        <div class="portlet-title">
+                                            <div class="caption">
+                                                <i class="fa fa-gift"></i> Complaint
+                                            </div>
+                                            <div class="tools">
+                                                <a href="" class="collapse" data-original-title="" title=""> </a>
+
+                                            </div>
+                                        </div>
+                                        <div class="portlet-body form">
+                                            <div class="form-body">
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label style="color:#999;font-size: 13px">Complaint No:</label>
+                                                            <label style="color:black; font-weight: 600" id="lblCommunityBasedComplaintID" name="CommunityBasedComplaintID">10001</label>
+
+                                                        </div>
+                                                    </div>
+                                                    <!--/span-->
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label style="color:#999; font-size: 13px">Entry Date:</label>
+                                                            <label style="color:black;font-weight: 600" id="lblSubmitDate" name="SubmitDate">16-11-2020</label>
+                                                        </div>
+                                                        <!--/span-->
+                                                    </div>
+
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label style="color:#999; font-size: 13px">Logged By:</label>
+                                                            <label style="color:black;font-weight: 600" id="lblEnteredByEDWPersonID" name="EnteredByEDWPersonID">ABC</label>
+
+
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <div class="form-group form-md-line-input form-md-floating-label customclass">
+                                                            <input id="txtReceivedDate" data-date-format="dd/mm/yyyy" name="ReceivedDate" data-date-end-date="+0d" class="form-control  datepicker" size="16" type="text" value="" />
+                                                            <label for="txtReceivedDate">Date Received</label>
+                                                        </div>
+
+
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group form-md-line-input form-md-floating-label customclass">
+
+                                                            <select class="form-control" id="dllReceivedByEDWPersonID" name="ReceivedByEDWPersonID">
+                                                                <option value=""></option>
+                                                                <option value="1">A</option>
+                                                                <option value="2">B</option>
+                                                                @*@foreach (var item in Model.spGetvvUser.OrderBy(x => x.FullName))
+                                                                    {
+                                                                        <option value="@item.EDWPersonID">@item.FullName</option>
+                                                                    }*@
+
+                                                            </select>
+                                                            <label for="dllReceivedByEDWPersonID">Received by</label>
+
+                                                        </div>
+
+
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group form-md-line-input form-md-floating-label customclass">
+                                                            <input id="txtInitialEntryDate" data-date-format="dd/mm/yyyy" name="ReceivedDate" data-date-end-date="+0d" class="form-control  datepicker" size="16" type="text" value="" />
+
+
+                                                            <label for="txtInitialEntryDate">Date Complain was raised</label>
+                                                        </div>
+                                                    </div>
+
+
+
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-4">
+
+                                                        <div class="form-group form-md-line-input form-md-floating-label customclass">
+
+
+                                                            <select class="form-control" id="dllComplaintCommunicationMethodID" name="ComplaintCommunicationMethodID">
+                                                                <option value=""></option>
+                                                                @foreach (var item in Model.spGetCommunicationMethod.OrderBy(x => x.CommunicationMethodName))
+                                                                {
+                                                                    <option value="@item.CommunicationMethodID">@item.CommunicationMethodName</option>
+                                                                }
+
+                                                            </select>
+
+                                                            <label for="dllComplaintCommunicationMethodID">Complaint Channel</label>
+                                                        </div>
+
+
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group form-md-line-input form-md-floating-label customclass">
+
+
+                                                            <input id="txtProvinceText" text" class="form-control" value="" name="ProvinceText" />
+                                                            <label for="txtProvinceText">Governorate/Provincial</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group form-md-line-input form-md-floating-label customclass">
+
+                                                            <input id="txtDistrictText" text" class="form-control" value="" name="DistrictText" />
+                                                            <label for="txtDistrictText">District</label>
+                                                        </div>
+
+                                                    </div>
+
+
+                                                </div>
+                                                <div class="row">
+
+                                                    <div class="col-md-4">
+                                                        <div class="form-group form-md-line-input form-md-floating-label customclass">
+
+
+                                                            <input id="txtLocationText" text" class="form-control" value="" name="LocationText" />
+                                                            <label for="txtLocationText">Location/ camp /facility</label>
+
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group form-md-line-input form-md-floating-label customclass">
+
+
+                                                            <input id="txtCommunityText" text" class="form-control" value="" name="CommunityText" />
+
+                                                            <label for="txtCommunityText">Village/ community</label>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="col-md-4">
+
+                                                        <div class="form-group form-md-line-input form-md-floating-label customclass">
+
+
+                                                            <select class="form-control" id="ddlDonorCompanyCode" name="DonorIdentifier">
+                                                                <option value=""></option>
+                                                                <option value="1">Health</option>
+                                                                <option value="2">Wash</option>
+                                                                <option value="3">GBV</option>
+                                                                <option value="4">FSL</option>
+                                                                <option value="5">MHPPS</option>
+                                                                <option value="6">CP</option>
+                                                                <option value="7">Nutrition</option>
+                                                                <option value="8">Shelter/NFL</option>
+                                                            </select>
+                                                            <label for="ddlDonorCompanyCode">Select/Program</label>
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                                <div class="row">
+
+                                                    <div class="col-md-4">
+                                                        <div class="form-group form-md-line-input form-md-floating-label customclass">
+
+
+                                                            <select class="form-control" id="ddlDonorIdentifier" name="DonorIdentifier">
+                                                                <option value=""></option>
+                                                                <option value="1">elderly</option>
+                                                                <option value="2">child/youth</option>
+                                                                <option value="3">person living with disability</option>
+                                                                <option value="4">other</option>
+                                                            </select>
+                                                            <label for="ddlDonorIdentifier">Grant Code</label>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group form-md-line-input form-md-floating-label customclass">
+
+
+                                                            <select class="form-control" id="ddlVulnerabilityTypeID" name="VulnerabilityTypeID">
+                                                                <option value=""> </option>
+                                                                <option value="1">elderly</option>
+                                                                <option value="2">child/youth</option>
+                                                                <option value="3">person living with disability</option>
+                                                                <option value="4">other</option>
+                                                            </select>
+                                                            <label for="ddlVulnerabilityTypeID">Vulnerability</label>
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+
+                                                        <div class="form-group form-md-line-input form-md-floating-label customclassPII">
+
+                                                            <input id="txtSubject" text" class="form-control " value="" name="Subject" />
+
+                                                            <label for="txtSubject">Subject</label>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+
+                                                        <div class="form-group form-md-line-input form-md-floating-label customclass">
+
+                                                            <textarea id="txtComplaintDescription" text" class="form-control " value="" name="ComplaintDescription"></textarea>
+
+                                                            <label for="txtComplaintDescription">Description</label>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="portlet box blue-soft">
+                                        <div class="portlet-title">
+                                            <div class="caption">
+                                                <i class="fa fa-gift"></i>Complainant Details:
+                                            </div>
+                                            <div class="tools">
+                                                <a href="javascript:;" class="expand" data-original-title="" title=""> </a>
+
+                                            </div>
+                                        </div>
+                                        <div class="portlet-body">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="form-group form-md-line-input form-md-floating-label customclass">
+                                                        <input type="text" id="txtAgeYearNumber" name="AgeYearNumber" class="form-control " />
+                                                        <label for="txtAgeYearNumber">Age</label>
+
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group form-md-line-input form-md-floating-label customclass">
+
+                                                        <select class="form-control " id="ddlSexCode" name="SexCode">
+                                                            <option value=""></option>
+                                                            <option value="1">Male</option>
+                                                            <option value="2">Female</option>
+                                                            <option value="3">Other</option>
+                                                        </select>
+                                                        <label for="ddlSexCode">Gender</label>
+
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group form-md-line-input form-md-floating-label customclass">
+
+                                                        <select class="form-control " id="ddlLanguageDialectCode" name="LanguageDialectCode">
+                                                            <option value=""></option>
+                                                            <option value="1">English</option>
+                                                            <option value="2">Chinies</option>
+                                                            <option value="3">Urdu</option>
+                                                            <option value="3">Arabic</option>
+                                                        </select>
+                                                        <label for="ddlLanguageDialectCode">Language understood</label>
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="form-group form-md-line-input form-md-floating-label customclassPII">
+
+
+                                                        <input id="txtPersonName" type="text" class="form-control " value="" name="txtPersonName" onkeyup="myFunction()" />
+                                                        <label for="txtPersonName">Name</label>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-4">
+                                                    <div class="form-group form-md-line-input form-md-floating-label customclassPII">
+
+                                                        <input id="txtPhoneNumber" type="text" class="form-control" value="" name="PhoneNumber" onkeyup="myFunction()" />
+                                                        <label for="txtPhoneNumber">Phone Number</label>
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group form-md-line-input form-md-floating-label customclassPII">
+                                                        <input id="txtEmailAddress" type="email" class="form-control" value="" name="EmailAddress" onkeyup="myFunction()" />
+                                                        <label for="txtEmailAddress">Email</label>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="row">
+
+                                                <div class="col-md-12">
+
+                                                    <div class="form-group form-md-line-input form-md-floating-label customclassPII">
+
+                                                        <textarea id="txtAddressText" text" class="form-control " value="" name="AddressText" onkeyup="myFunction()"></textarea>
+                                                        <label for="txtAddressText">Address</label>
+                                                    </div>
+
+                                                </div>
+
+
+
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="form-group form-md-line-input form-md-floating-label customclass">
+
+
+                                                        <input id="txtComplaintantProgramRelationshipText" text" class="form-control" value="" name="ComplaintantProgramRelationshipText" />
+                                                        <label for="txtComplaintantProgramRelationshipText">Complainant relation to the program</label>
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <div class="form-group form-md-line-input form-md-floating-label customclass">
+                                                        <input id="txtBeneficiaryCommunicationAvenueText" text" class="form-control" value="" name="BeneficiaryCommunicationAvenueText" />
+                                                        <label for="txtBeneficiaryCommunicationAvenueText">Other means of communication with complainant</label>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label style="color:#999">Can we contact the complainant?:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        <input type="checkbox" id="chkComplaintantAllowContactFlag" name="ComplaintantAllowContactFlag" class="make-switch pull-right" data-on-text="Yes" data-off-text="No">
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label style="color:#999">Can we visit the complainant?:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        <input type="checkbox" id="chkComplaintantAllowVisitFlag" name="ComplaintantAllowVisitFlag" class="make-switch" data-on-text="Yes" data-off-text="No" data-default-text-on="Yes">
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="portlet box blue-soft" id="AcknowledgmentDetails" style="display:none">
+                                        <div class="portlet-title">
+                                            <div class="caption">
+                                                <i class="fa fa-gift"></i>Acknowledgment
+                                            </div>
+                                            <div class="tools">
+                                                <a href="javascript:;" class="expand" data-original-title="" title=""> </a>
+
+                                            </div>
+                                        </div>
+                                        <div class="portlet-body">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="form-group form-md-line-input form-md-floating-label customclass">
+
+                                                        <input id="txtAcknowledgementProvidedDate" data-date-format="dd/mm/yyyy" name="AcknowledgementProvidedDate" data-date-end-date="+0d" class="form-control datepicker" size="16" type="text" value="" />
+                                                        <label for="txtAcknowledgementProvidedDate">Date</label>
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <div class="form-group form-md-line-input form-md-floating-label customclass">
+                                                        <select class="form-control" id="ddlAcknowledgementCommunicationMethodID" name="AcknowledgementCommunicationMethodID">
+                                                            <option value=""></option>
+                                                            <option value="1">Complaint/suggestion box</option>
+                                                            <option value="2">Survey (e.g. satisfaction, Exit interviews)</option>
+                                                            <option value="3">Community meeting</option>
+                                                            <option value="4">Help / Information desk</option>
+                                                            <option value="5">Field visit /direct observation</option>
+                                                            <option value="6">Hotline</option>
+                                                            <option value="7">SMS</option>
+                                                            <option value="8">WhatsApp</option>
+                                                            <option value="9">Email</option>
+                                                            <option value="10">In person (e.g. office visit)</option>
+                                                            <option value="11">Others</option>
+                                                        </select>
+                                                        <label for="ddlAcknowledgementCommunicationMethodID">Communicated Via</label>
+
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-8">
+                                                    <style>
+                                                        .customlablecheck {
+                                                            color: #999;
+                                                            font-size: 13px;
+                                                        }
+
+                                                        .customlablechecklist {
+                                                            font-weight: bold;
+                                                            color: #999;
+                                                        }
+                                                    </style>
+                                                    <div class="form-group">
+                                                        <label class="customlablechecklist">Checklist</label>
+                                                        <div class="input-group">
+                                                            <div>
+                                                                <label class="customlablecheck">
+                                                                </label><br />
+                                                                <label class="customlablecheck">
+                                                                    <input type="checkbox" id="chkInformedConsentProvidedFlag" name="HandlingProcessExplainedFlag" class="icheckbox_minimal-red checked">&nbsp;&nbsp;Informed consent provided
+                                                                </label><br />
+                                                                <label class="customlablecheck">
+                                                                    <input type="checkbox" id="chkHandlingProcessExplainedFlag" class="icheckbox_minimal-red checked">&nbsp;&nbsp;Explain complaint handling process (what happens next)
+                                                                </label><br />
+                                                                <label class="customlablecheck">
+                                                                    <input type="checkbox" id="chkProcessTimelineDiscussedFlag" name="ProcessTimelineDiscussedFlag" class="icheckbox_minimal-red checked">&nbsp;&nbsp;Discuss timeline (how long will the process take)
+                                                                </label><br />
+                                                                <label class="customlablecheck">
+                                                                    <input type="checkbox" id="chkResponseReceivalExplainedFlag" name="ResponseReceivalExplainedFlag" class="icheck">&nbsp;&nbsp;Explain how they will receive response
+                                                                </label><br />
+                                                                <label class="customlablecheck">
+                                                                    <input type="checkbox" id="chkFollowUpContactDetailsFlag" name="FollowUpContactDetailsFlag" class="icheck">&nbsp;&nbsp;Provide follow-up contact details (explain how they can contact IMC with additional details
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="portlet box blue-soft" id="DocumentFileDetails" style="display:none">
+                                        <div class="portlet-title">
+                                            <div class="caption">
+                                                <i class="fa fa-gift"></i>Add Documents:
+                                            </div>
+                                            <div class="tools">
+                                                <a href="javascript:;" class="expand" data-original-title="" title=""> </a>
+
+                                            </div>
+                                        </div>
+                                        <div class="portlet-body form">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <!-- BEGIN PORTLET-->
+                                                    <div class="portlet light form-fit ">
+
+                                                        <div class="portlet-body form">
+                                                            <!-- BEGIN FORM-->
+                                                            <form action="#" class="form-horizontal form-bordered">
+                                                                <div class="form-body">
+
+                                                                    <div class="form-group">
+                                                                        <label class="control-label col-md-2 pull-left" style="color:#999">Add Files <span style="color:red;">  </span></label>
+                                                                        <div class="col-md-10">
+                                                                            <div class="fileinput fileinput-new" data-provides="fileinput">
+                                                                                <span class="btn blue btn-file">
+                                                                                    <span class="fileinput-new"> Select file <i class="fa fa-copy"></i> </span>
+
+                                                                                    <input type="hidden"><input id="FileUpload" type="file" multiple name="...">
+                                                                                </span>
+
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="table-scrollable">
+                                                                        <script>var sr = 0;</script>
+                                                                        <table class="table table-striped table-bordered table-hover" id="TableFiles">
+                                                                            <thead>
+                                                                                <tr>
+                                                                                    <th style="color:#999"> Sr No </th>
+                                                                                    <th style="color:#999"> File Name </th>
+                                                                                    <th style="display:none"> Document Title <span style="color:red;"> * </span></th>
+                                                                                    <th style="display:none"> Remarks </th>
+                                                                                    <th>  </th>
+                                                                                    <th>  </th>
+                                                                                    <th style="display:none"> Status </th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody>
+
+
+
+
+                                                                                <tr>
+                                                                                    <td>d</td>
+                                                                                    <td>d</td>
+                                                                                    <td style="display:none">d</td>
+                                                                                    <td style="display:none">d</td>
+                                                                                    <td><a download href="" class="btn btn-sm btn-primary"><i class='fa fa-download'></i>  Download </a></td>
+                                                                                    <td> <button id='btnDelete' onclick='showMessageConfirmation(this,)' type='button' class='btn btn-sm btn-danger'> <i class='fa fa-trash'></i> Delete </button></td>
+                                                                                    <td style="display:none">2</td>
+                                                                                </tr>
+
+
+
+
+                                                                            </tbody>
+                                                                        </table>
+                                                                        <script></script>
+                                                                    </div>
+
+
+
+
+                                                                </div>
+
+                                                            </form>
+                                                            <!-- END FORM-->
+                                                        </div>
+                                                    </div>
+                                                    <!-- END PORTLET-->
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="tab_6_2">
+                                    <div class="portlet box blue-soft">
+                                        <div class="portlet-title">
+                                            <div class="caption">
+                                                <i class="fa fa-gift"></i>Categorization
+                                            </div>
+                                            <div class="tools">
+                                                <a href="javascript:;" class="expand" data-original-title="" title=""> </a>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="portlet-body">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="form-group form-md-line-input form-md-floating-label customclass">
+
+                                                        <select class="form-control" id="ddlComplaintCategory" name="ComplaintCategoryID">
+                                                            <option value=""></option>
+                                                            <option value="1">
+                                                                Category 1
+                                                            </option>
+                                                            <option value="2">
+                                                                Category 2
+                                                            </option>
+                                                            <option value="3">
+                                                                Category 3
+                                                            </option>
+                                                            <option value="4">
+                                                                Category 4
+                                                            </option>
+                                                            <option value="5">
+                                                                Category 5
+                                                            </option>
+                                                            <option value="6">
+                                                                Category 6
+                                                            </option>
+                                                        </select>
+                                                        <label for="ddlComplaintCategory">Category</label>
+
+                                                    </div>
+
+                                                </div>
+
+
+
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+                                <div class="tab-pane fade" id="tab_6_3">
+                                    <div class="portlet box blue-soft">
+                                        <div class="portlet-title">
+                                            <div class="caption">
+                                                <i class="fa fa-gift"></i>Referral
+                                            </div>
+                                            <div class="tools">
+                                                <a href="javascript:;" class="expand" data-original-title="" title=""> </a>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="portlet-body">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <label style="color:#999">
+                                                        Referral Required?
+                                                    </label>
+
+                                                </div>
+                                                <div class="col-md-4">
+
+                                                    <div class="form-group">
+
+                                                        <input type="checkbox" id="ChkReferralRequiredFlag" name="ReferralRequiredFlag" class="make-switch" data-on-text="Yes" data-off-text="No">
+
+
+                                                    </div>
+
+                                                </div>
+
+
+                                            </div>
+                                            <div class="row">
+
+                                                <div class="col-md-12" id="ifNoDetails">
+                                                    <div class="form-group form-md-line-input form-md-floating-label customclass">
+
+
+                                                        <textarea id="txtNoReferralReasonDescription" text" class="form-control" value="" name="NoReferralReasonDescription"></textarea>
+
+                                                        <label for="txtNoReferralReasonDescription">
+                                                            Comments
+                                                        </label>
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-md-4" id="TypeofReferalDetails" style="display:none">
+                                                    <div class="form-group form-md-line-input form-md-floating-label customclass">
+
+
+                                                        <select class="form-control" id="dllReferralTypeID" name="ReferralTypeID">
+                                                            <option value=""></option>
+                                                            <option value="1">
+                                                                Internal
+                                                            </option>
+                                                            <option value="2">
+                                                                External
+                                                            </option>
+
+                                                        </select>
+                                                        <label for="dllReferralTypeID">
+                                                            Type of Referral
+                                                        </label>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="col-md-4" id="UserAssignedDetails" style="display:none">
+                                                    <div class="form-group form-md-line-input form-md-floating-label customclass">
+                                                        <select class="form-control" id="dllReferedTo" name="dllUserAssigned">
+                                                            <option value=""></option>
+                                                            <option value="1">
+                                                                A
+                                                            </option>
+                                                            <option value="2">
+                                                                B
+                                                            </option>
+                                                            <option value="3">
+                                                                C
+                                                            </option>
+                                                            <option value="4">
+                                                                D
+                                                            </option>
+                                                            <option value="5">
+                                                                E
+                                                            </option>
+                                                        </select>
+                                                        <label for="dllReferedTo">
+                                                            Referred to
+                                                        </label>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+
+                                    <div class="portlet box blue-soft" id="ExternalReferralDetails" style="display:none">
+                                        <div class="portlet-title">
+                                            <div class="caption">
+                                                <i class="fa fa-gift"></i>External Referral
+                                            </div>
+                                            <div class="tools">
+                                                <a href="javascript:;" class="expand" data-original-title="" title=""> </a>
+                                            </div>
+                                        </div>
+                                        <div class="portlet-body">
+                                            <div class="row">
+
+
+                                                <div class="col-md-4">
+                                                    <div class="form-group form-md-line-input form-md-floating-label customclass">
+
+
+                                                        <input id="txtReferralAgencyName" type="text" class="form-control" value="" name="ReferralAgencyName" />
+                                                        <label for="txtReferralAgencyName">
+                                                            Organization
+                                                        </label>
+
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="col-md-4">
+
+                                                    <div class="form-group form-md-line-input form-md-floating-label customclass">
+
+
+                                                        <input id="txtReferralPersonName" type="text" class="form-control" value="" name="ReferralPersonName" />
+                                                        <label for="txtReferralPersonName">
+                                                            Person
+                                                        </label>
+
+                                                    </div>
+
+
+                                                </div>
+
+                                                <div class="col-md-4">
+
+                                                    <div class="form-group form-md-line-input form-md-floating-label customclass">
+
+                                                        <input id="txtReferralPersonPositionText" type="text" class="form-control" value="" name="ReferralPersonPositionText" />
+
+
+                                                        <label for="txtReferralPersonPositionText">
+                                                            Position
+                                                        </label>
+                                                    </div>
+
+
+
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="form-group form-md-line-input form-md-floating-label customclass">
+
+                                                        <input id="txtReferralDate" data-date-format="dd/mm/yyyy" name="ReferralDate" data-date-end-date="+0d" class="form-control datepicker" size="16" type="text" value="" />
+
+                                                        <label for="txtReferralDate">
+                                                            Date
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group form-md-line-input form-md-floating-label customclass">
+
+                                                        <input id="txtContactComment" name="ContactComment" class="form-control" type="text" value="" />
+                                                        <label for="txtContactComment">
+                                                            Contact
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="portlet box blue-soft" id="InternalReferralDetails" style="display:none">
+                                        <div class="portlet-title">
+                                            <div class="caption">
+                                                <i class="fa fa-gift"></i>Referee Comments
+                                            </div>
+                                            <div class="tools">
+                                                <a href="javascript:;" class="expand" data-original-title="" title=""> </a>
+
+                                            </div>
+                                        </div>
+                                        <div class="portlet-body ">
+                                            <div class="row">
+
+                                                <div class="col-md-4">
+                                                    <div class="form-group form-md-line-input form-md-floating-label customclass">
+                                                        <input id="txtInternalDateofreferral" data-date-format="dd/mm/yyyy" name="InternalDateofreferral" data-date-end-date="+0d" class="form-control datepicker" size="16" type="text" value="" />
+                                                        <label for="txtInternalDateofreferral">
+                                                            Date
+                                                        </label>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="form-group form-md-line-input form-md-floating-label customclass">
+
+
+                                                        <textarea id="txtInternalReferralcomments" type="text" class="form-control" value="" name="InternalReferralcomments"></textarea>
+                                                        <label for="txtInternalReferralcomments">
+                                                            Comments
+                                                        </label>
+
+                                                    </div>
+
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="tab_6_4">
+                                    <div class="portlet box blue-soft">
+                                        <div class="portlet-title">
+                                            <div class="caption">
+                                                <i class="fa fa-gift"></i>Resolution
+                                            </div>
+                                            <div class="tools">
+                                                <a href="javascript:;" class="expand" data-original-title="" title=""> </a>
+
+                                            </div>
+                                        </div>
+                                        <div class="portlet-body">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="form-group form-md-line-input form-md-floating-label customclass">
+
+                                                        <textarea id="txtInvestigationDescription" type="text" class="form-control" value="" name="InvestigationDescription"></textarea>
+
+                                                        <label for="txtInvestigationDescription">
+                                                            Description of investigation
+                                                        </label>
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-12">
+
+                                                    <div class="form-group form-md-line-input form-md-floating-label customclass">
+
+                                                        <textarea id="txtCorrectiveActionDescription" type="text" class="form-control" value="" name="CorrectiveActionDescription"></textarea>
+
+
+                                                        <label for="txtCorrectiveActionDescription">
+                                                            Description of corrective action and resolution process
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+
+                                                    <div class="form-group form-md-line-input form-md-floating-label customclass">
+
+
+                                                        <input id="txtInvestigationPointOfContactName" type="text" class="form-control" value="" name="InvestigationPointOfContactName" />
+                                                        <label for="txtInvestigationPointOfContactName">
+                                                            Point of contact for the investigation
+                                                        </label>
+
+                                                    </div>
+
+
+                                                </div>
+                                                <div class="col-md-6">
+
+                                                    <div class="form-group form-md-line-input form-md-floating-label customclass">
+
+                                                        <input id="txtResolutionDate" data-date-format="dd/mm/yyyy" name="ResolutionDate" data-date-end-date="+0d" class="form-control datepicker" size="16" type="text" value="" />
+
+                                                        <label for="txtResolutionDate">
+                                                            Date
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="tab_6_5">
+                                    <div class="portlet box blue-soft">
+                                        <div class="portlet-title">
+                                            <div class="caption">
+                                                <i class="fa fa-gift"></i>Response
+                                            </div>
+                                            <div class="tools">
+                                                <a href="javascript:;" class="expand" data-original-title="" title=""> </a>
+
+                                            </div>
+                                        </div>
+                                        <div class="portlet-body">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="form-group form-md-line-input form-md-floating-label customclass">
+                                                        <select class="form-control" id="dllResponseComplaintfeedbackType" name="ResponseComplaintfeedbackType">
+                                                            <option value=""></option>
+                                                            <option value="1">
+                                                                Complaint/feedback
+                                                            </option>
+                                                            <option value="2">
+                                                                Appeal
+                                                            </option>
+
+                                                        </select>
+                                                        <label for="dllResponseComplaintfeedbackType">
+                                                            Type
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group form-md-line-input form-md-floating-label customclass">
+                                                        <select class="form-control" id="ddlResponseCommunited" name="EDWPersonID">
+                                                            <option value=""></option>
+                                                            <option value="1">a</option>
+                                                            <option value="2">b</option>
+                                                            <option value="3">C</option>
+                                                            <option value="4">d</option>
+                                                            <option value="5">e</option>
+
+                                                        </select>
+                                                        <label for="ddlResponseCommunited">Response Communited by </label>
+                                                    </div>
+
+
+                                                </div>
+                                                <div class="col-md-4">
+
+                                                    <div class="form-group form-md-line-input form-md-floating-label customclass">
+
+                                                        <input id="txtCommunicationDate" data-date-format="dd/mm/yyyy" name="CommunicationDate" data-date-end-date="+0d" class="form-control datepicker" size="16" type="text" value="" />
+
+                                                        <label for="txtCommunicationDate">
+                                                            Date response sent to complainant
+                                                        </label>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="form-group form-md-line-input form-md-floating-label customclass">
+
+                                                        <select class="form-control" id="ddlCommunicationMethodID" name="CommunicationMethodID">
+                                                            <option value=""></option>
+                                                            <option value="1">Complaint/suggestion box</option>
+                                                            <option value="2">Survey (e.g. satisfaction, Exit interviews)</option>
+                                                            <option value="3">Community meeting</option>
+                                                            <option value="4">Help / Information desk</option>
+                                                            <option value="5">Field visit /direct observation</option>
+                                                            <option value="6">Hotline</option>
+                                                            <option value="7">SMS</option>
+                                                            <option value="8">WhatsApp</option>
+                                                            <option value="9">Email</option>
+                                                            <option value="10">In person (e.g. office visit)</option>
+                                                        </select>
+
+                                                        <label for="ddlCommunicationMethodID">
+                                                            Communication Method
+                                                        </label>
+
+
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="tab_6_6">
+                                    <div class="portlet box blue-soft">
+                                        <div class="portlet-title">
+                                            <div class="caption">
+                                                <i class="fa fa-gift"></i>Appeal
+                                            </div>
+                                            <div class="tools">
+                                                <a href="javascript:;" class="expand" data-original-title="" title=""> </a>
+
+                                            </div>
+                                        </div>
+                                        <div class="portlet-body">
+
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group form-md-line-input form-md-floating-label customclass">
+
+                                                        <input id="txtAppealDate" data-date-format="dd/mm/yyyy" name="AppealDate" data-date-end-date="+0d" class="form-control datepicker" size="16" type="text" value="" />
+
+                                                        <label for="txtAppealDate">
+                                                            Date
+                                                        </label>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="col-md-6">
+                                                    <div class="form-group form-md-line-input form-md-floating-label customclass">
+
+                                                        <select class="form-control" id="ddlAppealReceivedCommunicationMethodID" name="AppealReceivedCommunicationMethodID">
+                                                            <option value=""></option>
+                                                            <option value="1">Complaint/suggestion box</option>
+                                                            <option value="2">Survey (e.g. satisfaction, Exit interviews)</option>
+                                                            <option value="3">Community meeting</option>
+                                                            <option value="4">Help / Information desk</option>
+                                                            <option value="5">Field visit /direct observation</option>
+                                                            <option value="6">Hotline</option>
+                                                            <option value="7">SMS</option>
+                                                            <option value="8">WhatsApp</option>
+                                                            <option value="9">Email</option>
+                                                            <option value="10">In person (e.g. office visit)</option>
+                                                        </select>
+
+                                                        <label for="ddlAppealReceivedCommunicationMethodID">
+                                                            Appeal received via
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+
+                                                        <label style="color:#999">
+                                                            Appeal Assigned to
+                                                        </label>
+                                                        <select id="ddlEDWPersonIDAppeal" name="EDWPersonID" class="form-control select2" multiple data-label="left" data-select-all="true" data-width="100%" data-filter="true" data-action-onchange="true">
+                                                            <option value="0"></option>
+                                                            <option value="1">Mr A</option>
+                                                            <option value="2">Mr B</option>
+                                                        </select>
+
+
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="form-group form-md-line-input form-md-floating-label customclass">
+                                                        <textarea id="txtProtxtCorrectiveActionDescription" text" class="form-control" maxlength="300" value="" name="ProcesCorrectiveActionDescriptioneholder"></textarea>
+
+                                                        <label for="txtProtxtCorrectiveActionDescription">
+                                                            Description/Summary of appeal process
+                                                        </label>
+
+                                                        <span id="rrchars" class="customlablecheck">300</span><span class="customlablecheck"> Character(s) Remaining</span>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="tab-pane fade" id="tab_6_7">
+                                    <div class="portlet box blue-soft">
+                                        <div class="portlet-title">
+                                            <div class="caption">
+                                                <i class="fa fa-gift"></i>Appeal Committee Decision
+                                            </div>
+                                            <div class="tools">
+                                                <a href="javascript:;" class="expand" data-original-title="" title=""> </a>
+
+                                            </div>
+                                        </div>
+                                        <div class="portlet-body">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="form-group form-md-line-input form-md-floating-label customclass">
+
+                                                        <input id="txtAppealResolutionDate" data-date-format="dd/mm/yyyy" name="AppealResolutionDate" data-date-end-date="+0d" class="form-control datepicker" size="16" type="text" value="" />
+
+                                                        <label for="txtAppealResolutionDate">
+                                                            Appeal Resolution Date
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+
+                                                <div class="col-md-12">
+                                                    <div class="form-group form-md-line-input form-md-floating-label customclass">
+                                                        <textarea id="txtAppealResolutionDescription" text" class="form-control" value="" maxlength="300" name="AppealResolutionDescription"></textarea>
+
+                                                        <label for="txtAppealResolutionDescription">
+                                                            Comments
+                                                        </label>
+                                                        <span id="rchars" class="customlablecheck">300</span><span class="customlablecheck"> Character(s) Remaining</span>
+
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="tab_6_8">
+                                    <div class="portlet box blue-soft">
+                                        <div class="portlet-title">
+                                            <div class="caption">
+                                                <i class="fa fa-gift"></i>Closure
+                                            </div>
+                                            <div class="tools">
+                                                <a href="javascript:;" class="expand" data-original-title="" title=""> </a>
+
+                                            </div>
+                                        </div>
+                                        <div class="portlet-body">
+
+
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group form-md-line-input form-md-floating-label customclass">
+
+                                                        <input id="txtClosedDate" data-date-format="dd/mm/yyyy" name="ClosedDate" data-date-end-date="+0d" class="form-control datepicker" size="16" type="text" value="" />
+
+
+                                                        <label for="txtClosedDate">
+                                                            Date
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group form-md-line-input form-md-floating-label customclass">
+
+                                                        <select class="form-control" id="ddlClosedByEDWPersonID" name="ClosedByEDWPersonID">
+                                                            <option value=""></option>
+                                                            <option value="1">a</option>
+                                                            <option value="2">b</option>
+                                                            <option value="3">C</option>
+                                                            <option value="4">d</option>
+                                                            <option value="5">e</option>
+
+                                                        </select>
+                                                        <label for="ddlClosedByEDWPersonID"> Close By </label>
+
+                                                    </div>
+
+
+                                                </div>
+
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+
+                                <button type="submit" id="btnSaveUser" class="btn btn-lg btn-primary "> <i class="fa fa-save"></i> Save Complaint </button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+@section scripts{
+
+    @Scripts.Render("~/bundles/DataTable/jquery")
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js"></script>
+    <script src="~/Content/assets/global/plugins/select2/js/select2.full.min.js"></script>
+    <script src="~/Content/assets/pages/scripts/components-select2.min.js" type="text/javascript"></script>
+    <script>
+
+
+
+
+
+        var viewBag = "";
+        $(document).ready(function () {
+            $('.datepicker').datepicker({ todayHighlight: true });
+            debugger;
+            try {
+
+
+                 viewBag = "@TempData["message"]";
+                if (viewBag != null && viewBag != "" && viewBag.search("Appeal") != -1) {
+
+
+                    $('#tabstrip li').each(function () {
+                        console.log($(this));
+                    });
+
+                }
+                if (viewBag != null && viewBag != "" && viewBag.search("You have no rights to delete!") != -1) {
+                    showMessage("You have no rights to delete!", viewBag, "warning", "btn-danger");
+                }
+
+
+                else if (viewBag != null && viewBag != "" && viewBag.search("Final Incident Deleted Successfully!") != -1)
+                    {
+                    showMessage("Final Incident Deleted Successfully!", viewBag, "warning", "btn-danger");
+                    }
+                else if (viewBag != null && viewBag != "" && viewBag.search("You cannot delete this Final Incident  becuase it has Onsite Incident Created") != -1) {
+                    showMessage("You cannot delete this Final Incident  becuase it has Onsite Incident Created", viewBag, "warning", "btn-danger");
+                }
+            } catch (Exception) {
+
+            }
+        });
+
+
+
+        function myFunction() {
+            var phone = document.getElementById("txtPhoneNumber").value.length;
+            var PerName = document.getElementById("txtPersonName").value.length;
+            var addd = document.getElementById("txtAddressText").value.length;
+            var EmailAdd = document.getElementById("txtEmailAddress").value.length;
+
+            if (phone > 0 || PerName > 0 || addd > 0 || EmailAdd > 0 ) {
+                $("#AcknowledgmentDetails").show();
+                $("#DocumentFileDetails").show();
+            }
+            else if (phone < 1 || PerName < 1  || Email < 1  ||  Add < 1) {
+                $("#AcknowledgmentDetails").hide();
+                $("#DocumentFileDetails").hide();
+            }
+        }
+
+        //this code is use to hide and show Internal and external form
+        $('#ChkReferralRequiredFlag').on('switchChange.bootstrapSwitch', function (event, state) {
+            if (state == true) {
+                $("#ifNoDetails").hide();
+                $("#TypeofReferalDetails").show();
+
+            }
+            else {
+                $("#TypeofReferalDetails").hide();
+                $("#ifNoDetails").show();
+                $("#InternalReferralDetails").hide();
+                $("#ExternalReferralDetails").hide();
+                $("#UserAssignedDetails").hide();
+
+            }
+        });
+        $('#dllReferralTypeID').change(function () {
+
+            debugger;
+
+            if ($('#dllReferralTypeID').val() == 1) {
+                $("#InternalReferralDetails").show();
+                $("#ExternalReferralDetails").hide();
+                $("#UserAssignedDetails").show();
+            }
+            else if ($('#dllReferralTypeID').val() == 2) {
+                $("#ExternalReferralDetails").show();
+                $("#InternalReferralDetails").hide();
+
+                $("#UserAssignedDetails").hide();
+            }
+        });
+
+
+
+
+        var maxLength = 300;
+
+
+
+        $("#txtAppealResolutionDescription").on("keyup", function () {
+
+            var textlen = maxLength - $(this).val().length;
+            $('#rchars').text(textlen);
+            console.log(textlen);
+        });
+
+        $("#txtProtxtCorrectiveActionDescription").on("keyup", function () {
+
+            var textlen = maxLength - $(this).val().length;
+            $('#rrchars').text(textlen);
+            console.log(textlen);
+        });
+
+
+    </script>
+
+
+}
+

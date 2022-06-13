@@ -1,0 +1,1533 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EDWModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="vFieldSite">
+    <Key>
+      <PropertyRef Name="FieldSiteCode" />
+      <PropertyRef Name="FieldSiteName" />
+      <PropertyRef Name="FieldSiteShortName" />
+      <PropertyRef Name="CountryCode" />
+      <PropertyRef Name="ActiveFlag" />
+      <PropertyRef Name="DisplaySequenceNumber" />
+    </Key>
+    <Property Name="FieldSiteCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FieldSiteName" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FieldSiteShortName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CountryCode" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="ActiveFlag" Type="Boolean" Nullable="false" />
+    <Property Name="DisplaySequenceNumber" Type="Int16" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vSex">
+    <Key>
+      <PropertyRef Name="SexCode" />
+      <PropertyRef Name="SexName" />
+      <PropertyRef Name="SexShortName" />
+      <PropertyRef Name="DisplaySequenceNumber" />
+    </Key>
+    <Property Name="SexCode" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="SexName" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SexShortName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DisplaySequenceNumber" Type="Int16" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vCommunicationMethod">
+    <Key>
+      <PropertyRef Name="CommunicationMethodID" />
+      <PropertyRef Name="CommunicationMethodName" />
+      <PropertyRef Name="CommunicationMethodShortName" />
+      <PropertyRef Name="GeneralOptionFlag" />
+      <PropertyRef Name="GeneralDisplaySequenceNumber" />
+      <PropertyRef Name="SubmittalOptionFlag" />
+      <PropertyRef Name="SubmittalDisplaySequenceNumber" />
+      <PropertyRef Name="ReferralOptionFlag" />
+      <PropertyRef Name="ReferralDisplaySequenceNumber" />
+    </Key>
+    <Property Name="CommunicationMethodID" Type="Byte" Nullable="false" />
+    <Property Name="CommunicationMethodName" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CommunicationMethodShortName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="GeneralOptionFlag" Type="Boolean" Nullable="false" />
+    <Property Name="GeneralDisplaySequenceNumber" Type="Byte" Nullable="false" />
+    <Property Name="SubmittalOptionFlag" Type="Boolean" Nullable="false" />
+    <Property Name="SubmittalDisplaySequenceNumber" Type="Byte" Nullable="false" />
+    <Property Name="ReferralOptionFlag" Type="Boolean" Nullable="false" />
+    <Property Name="ReferralDisplaySequenceNumber" Type="Byte" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vCommunityBasedComplaintDocumentation">
+    <Key>
+      <PropertyRef Name="CommunityBasedComplaintDocID" />
+      <PropertyRef Name="CommunityBasedComplaintID" />
+      <PropertyRef Name="DocumentHyperlink" />
+      <PropertyRef Name="UpdateUser" />
+      <PropertyRef Name="SourceDeletedFlag" />
+      <PropertyRef Name="CreateTimestamp" />
+      <PropertyRef Name="CreateUser" />
+      <PropertyRef Name="LastUpdateTimestamp" />
+      <PropertyRef Name="LastUpdateUser" />
+      <PropertyRef Name="AppealDocumentFlag" />
+    </Key>
+    <Property Name="CommunityBasedComplaintDocID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CommunityBasedComplaintID" Type="Int32" Nullable="false" />
+    <Property Name="DocumentHyperlink" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SupportingDocumentDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="UpdateUser" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SourceDeletedFlag" Type="Boolean" Nullable="false" />
+    <Property Name="CreateTimestamp" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="CreateUser" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastUpdateTimestamp" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="LastUpdateUser" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AppealDocumentFlag" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vComplaintAppeal">
+    <Key>
+      <PropertyRef Name="CommunityBasedComplaintID" />
+      <PropertyRef Name="AppealDate" />
+      <PropertyRef Name="UpdateUser" />
+      <PropertyRef Name="SourceDeletedFlag" />
+      <PropertyRef Name="CreateTimestamp" />
+      <PropertyRef Name="CreateUser" />
+      <PropertyRef Name="LastUpdateTimestamp" />
+      <PropertyRef Name="LastUpdateUser" />
+    </Key>
+    <Property Name="CommunityBasedComplaintID" Type="Int32" Nullable="false" />
+    <Property Name="AppealDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ProcessDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="AppealReceivedCommunicationMethodID" Type="Byte" />
+    <Property Name="AppealResolutionDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="AppealResolutionDate" Type="DateTime" Precision="0" />
+    <Property Name="UpdateUser" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SourceDeletedFlag" Type="Boolean" Nullable="false" />
+    <Property Name="CreateTimestamp" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="CreateUser" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastUpdateTimestamp" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="LastUpdateUser" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="OtherComplaintCommunicationMethodText" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="vComplaintAppealCommittee">
+    <Key>
+      <PropertyRef Name="CommunityBasedComplaintID" />
+      <PropertyRef Name="EDWPersonID" />
+      <PropertyRef Name="UpdateUser" />
+      <PropertyRef Name="SourceDeletedFlag" />
+      <PropertyRef Name="CreateTimestamp" />
+      <PropertyRef Name="CreateUser" />
+      <PropertyRef Name="LastUpdateTimestamp" />
+      <PropertyRef Name="LastUpdateUser" />
+    </Key>
+    <Property Name="CommunityBasedComplaintID" Type="Int32" Nullable="false" />
+    <Property Name="EDWPersonID" Type="Int32" Nullable="false" />
+    <Property Name="UpdateUser" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SourceDeletedFlag" Type="Boolean" Nullable="false" />
+    <Property Name="CreateTimestamp" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="CreateUser" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastUpdateTimestamp" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="LastUpdateUser" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vComplaintCategory">
+    <Key>
+      <PropertyRef Name="ComplaintCategoryID" />
+      <PropertyRef Name="ComplaintCategoryName" />
+      <PropertyRef Name="ComplaintCategoryRating" />
+      <PropertyRef Name="ComplaintCategoryShortName" />
+      <PropertyRef Name="ComplaintCategoryDescription" />
+    </Key>
+    <Property Name="ComplaintCategoryID" Type="Byte" Nullable="false" />
+    <Property Name="ComplaintCategoryName" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ComplaintCategoryRating" Type="Byte" Nullable="false" />
+    <Property Name="ComplaintCategoryShortName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ComplaintCategoryDescription" Type="String" Nullable="false" MaxLength="400" FixedLength="false" Unicode="false" />
+    <Property Name="ComplaintClassificationID" Type="Byte" />
+  </EntityType>
+  <EntityType Name="vComplaintResolution">
+    <Key>
+      <PropertyRef Name="CommunityBasedComplaintID" />
+      <PropertyRef Name="InvestigationDescription" />
+      <PropertyRef Name="UpdateUser" />
+      <PropertyRef Name="SourceDeletedFlag" />
+      <PropertyRef Name="CreateTimestamp" />
+      <PropertyRef Name="CreateUser" />
+      <PropertyRef Name="LastUpdateTimestamp" />
+      <PropertyRef Name="LastUpdateUser" />
+    </Key>
+    <Property Name="CommunityBasedComplaintID" Type="Int32" Nullable="false" />
+    <Property Name="InvestigationDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="InvestigationPointOfContactName" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="CorrectiveActionDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ResolutionDate" Type="DateTime" Precision="0" />
+    <Property Name="UpdateUser" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SourceDeletedFlag" Type="Boolean" Nullable="false" />
+    <Property Name="CreateTimestamp" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="CreateUser" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastUpdateTimestamp" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="LastUpdateUser" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vComplaintStatus">
+    <Key>
+      <PropertyRef Name="ComplaintStatusID" />
+      <PropertyRef Name="ComplaintStatusName" />
+      <PropertyRef Name="ComplaintStatusShortName" />
+      <PropertyRef Name="DisplaySequenceNumber" />
+    </Key>
+    <Property Name="ComplaintStatusID" Type="Byte" Nullable="false" />
+    <Property Name="ComplaintStatusName" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ComplaintStatusShortName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DisplaySequenceNumber" Type="Int16" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vExternalReferral">
+    <Key>
+      <PropertyRef Name="CommunityBasedComplaintID" />
+      <PropertyRef Name="ReferralDate" />
+      <PropertyRef Name="ReferralAgencyName" />
+      <PropertyRef Name="UpdateUser" />
+      <PropertyRef Name="SourceDeletedFlag" />
+      <PropertyRef Name="CreateTimestamp" />
+      <PropertyRef Name="CreateUser" />
+      <PropertyRef Name="LastUpdateTimestamp" />
+      <PropertyRef Name="LastUpdateUser" />
+    </Key>
+    <Property Name="CommunityBasedComplaintID" Type="Int32" Nullable="false" />
+    <Property Name="ReferralDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ReferralAgencyName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ReferralPersonName" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="ReferralPersonPositionText" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="ContactComment" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="UpdateUser" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SourceDeletedFlag" Type="Boolean" Nullable="false" />
+    <Property Name="CreateTimestamp" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="CreateUser" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastUpdateTimestamp" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="LastUpdateUser" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="HQDisclosureAuthorizationText" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="vLanguageDialect">
+    <Key>
+      <PropertyRef Name="LanguageDialectCode" />
+      <PropertyRef Name="LanguageName" />
+      <PropertyRef Name="LanguageShortName" />
+      <PropertyRef Name="DisplaySequenceNumber" />
+    </Key>
+    <Property Name="LanguageDialectCode" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="LanguageName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LanguageShortName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ISOLanguageCode" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="DialectName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="DisplaySequenceNumber" Type="Int16" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vUserManager">
+    <Key>
+      <PropertyRef Name="EDWPersonID" />
+      <PropertyRef Name="GroupName" />
+      <PropertyRef Name="CountryCode" />
+      <PropertyRef Name="FieldSiteName" />
+      <PropertyRef Name="ReadAccessLevel" />
+      <PropertyRef Name="SourceDeletedFlag" />
+      <PropertyRef Name="CreateTimestamp" />
+      <PropertyRef Name="CreateUser" />
+      <PropertyRef Name="LastUpdateTimestamp" />
+      <PropertyRef Name="LastUpdateUser" />
+    </Key>
+    <Property Name="EDWPersonID" Type="Int32" Nullable="false" />
+    <Property Name="GroupName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CountryCode" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="FieldSiteName" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ReadAccessLevel" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SourceDeletedFlag" Type="Boolean" Nullable="false" />
+    <Property Name="CreateTimestamp" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="CreateUser" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastUpdateTimestamp" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="LastUpdateUser" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="EDWEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="vFieldSite" EntityType="Self.vFieldSite" />
+    <EntitySet Name="vSex" EntityType="Self.vSex" />
+    <EntitySet Name="vCommunicationMethod" EntityType="Self.vCommunicationMethod" />
+    <EntitySet Name="vCommunityBasedComplaintDocumentation" EntityType="Self.vCommunityBasedComplaintDocumentation" />
+    <EntitySet Name="vComplaintAppeal" EntityType="Self.vComplaintAppeal" />
+    <EntitySet Name="vComplaintAppealCommittee" EntityType="Self.vComplaintAppealCommittee" />
+    <EntitySet Name="vComplaintCategory" EntityType="Self.vComplaintCategory" />
+    <EntitySet Name="vComplaintResolution" EntityType="Self.vComplaintResolution" />
+    <EntitySet Name="vComplaintStatus" EntityType="Self.vComplaintStatus" />
+    <EntitySet Name="vExternalReferral" EntityType="Self.vExternalReferral" />
+    <EntitySet Name="vLanguageDialect" EntityType="Self.vLanguageDialect" />
+    <EntitySet Name="vUserManager" EntityType="Self.vUserManager" />
+    <FunctionImport Name="spGetvCommunicationMethod" ReturnType="Collection(EDWModel.spGetvCommunicationMethod_Result)" />
+    <FunctionImport Name="spGetvvUserDetails" ReturnType="Collection(EDWModel.spGetvvUserDetails_Result)">
+      <Parameter Name="UserName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spGetvUserManager" ReturnType="Collection(EDWModel.spGetvUserManager_Result)">
+      <Parameter Name="EDWPersonID" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="spGetvSearchUser" ReturnType="Collection(EDWModel.spGetvSearchUser_Result)">
+      <Parameter Name="FullName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spGetvUserAssign" ReturnType="Collection(EDWModel.spGetvUserAssign_Result)" />
+    <FunctionImport Name="spGetPersonVulnerabilityType" ReturnType="Collection(EDWModel.spGetPersonVulnerabilityType_Result)" />
+    <FunctionImport Name="spGetvGender" ReturnType="Collection(EDWModel.spGetvGender_Result)" />
+    <FunctionImport Name="spGetvLanguageDialect" ReturnType="Collection(EDWModel.spGetvLanguageDialect_Result)" />
+    <FunctionImport Name="spGetvComplaintCategory" ReturnType="Collection(EDWModel.spGetvComplaintCategory_Result)" />
+    <FunctionImport Name="spGetvUserAssign2" ReturnType="Collection(EDWModel.spGetvUserAssign2_Result)">
+      <Parameter Name="UserName" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="vCommunityBasedComplaintFieldSector" EntityType="EDWModel.vCommunityBasedComplaintFieldSector" />
+    <FunctionImport Name="spGetvFieldSector" ReturnType="Collection(EDWModel.spGetvFieldSector_Result)" />
+    <FunctionImport Name="spGetvCommunicationMethodGenral" ReturnType="Collection(EDWModel.spGetvCommunicationMethodGenral_Result)" />
+    <EntitySet Name="vComplainantVulnerability" EntityType="EDWModel.vComplainantVulnerability" />
+    <EntitySet Name="vComplaintClassification" EntityType="EDWModel.vComplaintClassification" />
+    <FunctionImport Name="spGetCountries" />
+    <FunctionImport Name="spGetReferralType" ReturnType="Collection(EDWModel.spGetReferralType_Result)" />
+    <FunctionImport Name="spGetComplainClassification" ReturnType="Collection(EDWModel.spGetComplainClassification_Result)" />
+    <FunctionImport Name="spGetReferrallevel" ReturnType="Collection(EDWModel.spGetReferrallevel_Result)" />
+    <FunctionImport Name="spGetvCommunicationMethodEthics" ReturnType="Collection(EDWModel.spGetvCommunicationMethodEthics_Result)" />
+    <FunctionImport Name="spGetCategoryByID" ReturnType="Collection(EDWModel.spGetCategoryByID_Result)">
+      <Parameter Name="ComplaintCategoryID" Mode="In" Type="Byte" />
+    </FunctionImport>
+    <FunctionImport Name="spGetComplaintStatus" ReturnType="Collection(EDWModel.spGetComplaintStatus_Result)" />
+    <FunctionImport Name="spInsert_vCBCDocumentation" ReturnType="Collection(EDWModel.spInsert_vCBCDocumentation_Result)">
+      <Parameter Name="CommunityBasedComplaintID" Mode="In" Type="Int32" />
+      <Parameter Name="DocumentHyperlink" Mode="In" Type="String" />
+      <Parameter Name="SupportingDocumentDescription" Mode="In" Type="String" />
+      <Parameter Name="UpdateUser" Mode="In" Type="String" />
+      <Parameter Name="AppealDocumentFlag" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="spInsert_vCBCDocumentationAppeal" ReturnType="Collection(EDWModel.spInsert_vCBCDocumentationAppeal_Result)">
+      <Parameter Name="CommunityBasedComplaintID" Mode="In" Type="Int32" />
+      <Parameter Name="DocumentHyperlink" Mode="In" Type="String" />
+      <Parameter Name="SupportingDocumentDescription" Mode="In" Type="String" />
+      <Parameter Name="AppealDocumentFlag" Mode="In" Type="Boolean" />
+      <Parameter Name="UpdateUser" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spSave_CBCAcknowledgement" ReturnType="Collection(EDWModel.spSave_CBCAcknowledgement_Result)">
+      <Parameter Name="CommunityBasedComplaintID" Mode="In" Type="Int32" />
+      <Parameter Name="EDWPersonID" Mode="In" Type="Int32" />
+      <Parameter Name="CommunicationDate" Mode="In" Type="DateTime" />
+      <Parameter Name="CommunicationStageID" Mode="In" Type="Byte" />
+      <Parameter Name="CommunicationMethodID" Mode="In" Type="Byte" />
+      <Parameter Name="Comment" Mode="In" Type="String" />
+      <Parameter Name="OtherComplaintCommunicationMethodText" Mode="In" Type="String" />
+      <Parameter Name="UpdateUser" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spSave_CBCExternalReferral" ReturnType="Collection(EDWModel.spSave_CBCExternalReferral_Result)">
+      <Parameter Name="CommunityBasedComplaintID" Mode="In" Type="Int32" />
+      <Parameter Name="ReferralDate" Mode="In" Type="DateTime" />
+      <Parameter Name="ReferralAgencyName" Mode="In" Type="String" />
+      <Parameter Name="ReferralPersonName" Mode="In" Type="String" />
+      <Parameter Name="ReferralPersonPositionText" Mode="In" Type="String" />
+      <Parameter Name="ContactComment" Mode="In" Type="String" />
+      <Parameter Name="HQDisclosureAuthorizationText" Mode="In" Type="String" />
+      <Parameter Name="UpdateUser" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spSave_CBCLocation" ReturnType="Collection(EDWModel.spSave_CBCLocation_Result)">
+      <Parameter Name="CommunityBasedComplaintID" Mode="In" Type="Int32" />
+      <Parameter Name="LocationText" Mode="In" Type="String" />
+      <Parameter Name="CommunityText" Mode="In" Type="String" />
+      <Parameter Name="DistrictText" Mode="In" Type="String" />
+      <Parameter Name="ProvinceText" Mode="In" Type="String" />
+      <Parameter Name="UpdateUser" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spSave_CBCResolution" ReturnType="Collection(EDWModel.spSave_CBCResolution_Result)">
+      <Parameter Name="CommunityBasedComplaintID" Mode="In" Type="Int32" />
+      <Parameter Name="InvestigationDescription" Mode="In" Type="String" />
+      <Parameter Name="InvestigationPointOfContactName" Mode="In" Type="String" />
+      <Parameter Name="CorrectiveActionDescription" Mode="In" Type="String" />
+      <Parameter Name="ResolutionDate" Mode="In" Type="DateTime" />
+      <Parameter Name="UpdateUser" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spSave_CBCResponse" ReturnType="Collection(EDWModel.spSave_CBCResponse_Result)">
+      <Parameter Name="CommunityBasedComplaintID" Mode="In" Type="Int32" />
+      <Parameter Name="EDWPersonID" Mode="In" Type="Int32" />
+      <Parameter Name="CommunicationDate" Mode="In" Type="DateTime" />
+      <Parameter Name="CommunicationStageID" Mode="In" Type="Byte" />
+      <Parameter Name="CommunicationMethodID" Mode="In" Type="Byte" />
+      <Parameter Name="Comment" Mode="In" Type="String" />
+      <Parameter Name="OtherComplaintCommunicationMethodText" Mode="In" Type="String" />
+      <Parameter Name="UpdateUser" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spSave_ComplaintAppeal" ReturnType="Collection(EDWModel.spSave_ComplaintAppeal_Result)">
+      <Parameter Name="CommunityBasedComplaintID" Mode="In" Type="Int32" />
+      <Parameter Name="AppealDate" Mode="In" Type="DateTime" />
+      <Parameter Name="ProcessDescription" Mode="In" Type="String" />
+      <Parameter Name="AppealReceivedCommunicationMethodID" Mode="In" Type="Byte" />
+      <Parameter Name="OtherComplaintCommunicationMethodText" Mode="In" Type="String" />
+      <Parameter Name="AppealResolutionDescription" Mode="In" Type="String" />
+      <Parameter Name="AppealResolutionDate" Mode="In" Type="DateTime" />
+      <Parameter Name="UpdateUser" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spSave_vComplainantDetail" ReturnType="Collection(EDWModel.spSave_vComplainantDetail_Result)">
+      <Parameter Name="EDWComplainantID" Mode="In" Type="Int32" />
+      <Parameter Name="CommunityBasedComplaintID" Mode="In" Type="Int32" />
+      <Parameter Name="AgeYearNumber" Mode="In" Type="Byte" />
+      <Parameter Name="PrimaryLanguageDialectCode" Mode="In" Type="String" />
+      <Parameter Name="SexCode" Mode="In" Type="String" />
+      <Parameter Name="PersonName" Mode="In" Type="String" />
+      <Parameter Name="AddressText" Mode="In" Type="String" />
+      <Parameter Name="PhoneNumber" Mode="In" Type="String" />
+      <Parameter Name="EmailAddress" Mode="In" Type="String" />
+      <Parameter Name="ComplainantProgramRelationshipText" Mode="In" Type="String" />
+      <Parameter Name="OtherCommunicationAvenueText" Mode="In" Type="String" />
+      <Parameter Name="OtherLanguageDialectText" Mode="In" Type="String" />
+      <Parameter Name="ComplainantAllowContactFlag" Mode="In" Type="Boolean" />
+      <Parameter Name="ComplainantAllowVisitFlag" Mode="In" Type="Boolean" />
+      <Parameter Name="ComplainantQuestionsAddressedFlag" Mode="In" Type="Boolean" />
+      <Parameter Name="FollowUpContactDetailsFlag" Mode="In" Type="Boolean" />
+      <Parameter Name="HandlingProcessExplainedFlag" Mode="In" Type="Boolean" />
+      <Parameter Name="ProcessTimelineDiscussedFlag" Mode="In" Type="Boolean" />
+      <Parameter Name="ResponseReceivalExplainedFlag" Mode="In" Type="Boolean" />
+      <Parameter Name="UpdateUser" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spSave_CBCFieldSector" ReturnType="Collection(EDWModel.spSave_CBCFieldSector_Result)">
+      <Parameter Name="CommunityBasedComplaintID" Mode="In" Type="Int32" />
+      <Parameter Name="FieldSectorCode" Mode="In" Type="String" />
+      <Parameter Name="OtherSectorText" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spSave_CBCVulnerability" ReturnType="Collection(EDWModel.spSave_CBCVulnerability_Result)">
+      <Parameter Name="EDWComplainantID" Mode="In" Type="Int32" />
+      <Parameter Name="VulnerabilityTypeID" Mode="In" Type="Byte" />
+    </FunctionImport>
+    <FunctionImport Name="spSave_CBFAppealCommittee" ReturnType="Collection(EDWModel.spSave_CBFAppealCommittee_Result)">
+      <Parameter Name="CommunityBasedComplaintID" Mode="In" Type="Int32" />
+      <Parameter Name="EDWPersonID" Mode="In" Type="Int32" />
+      <Parameter Name="UpdateUser" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spGetvProject_Name" ReturnType="Collection(EDWModel.spGetvProject_Name_Result)" />
+    <FunctionImport Name="spGetCategoryRefral" ReturnType="Collection(EDWModel.spGetCategoryRefral_Result)">
+      <Parameter Name="ClassificationID" Mode="In" Type="Byte" />
+    </FunctionImport>
+    <FunctionImport Name="spDelete_CBFFieldSector" ReturnType="Collection(EDWModel.spDelete_CBFFieldSector_Result)">
+      <Parameter Name="CommunityBasedComplaintID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spDelete_CBFAppealCommittee" ReturnType="Collection(EDWModel.spDelete_CBFAppealCommittee_Result)">
+      <Parameter Name="CommunityBasedComplaintID" Mode="In" Type="Int32" />
+      <Parameter Name="UpdateUser" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spDelete_CBFVulnerability" ReturnType="Collection(EDWModel.spDelete_CBFVulnerability_Result)">
+      <Parameter Name="EDWComplainantID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spGetFieldSite" ReturnType="Collection(EDWModel.spGetFieldSite_Result)">
+      <Parameter Name="CountryCode" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spSave_CommunityBasedComplaint" ReturnType="Collection(EDWModel.spSave_CommunityBasedComplaint_Result)">
+      <Parameter Name="ComplaintID" Mode="In" Type="Int32" />
+      <Parameter Name="CountryCode" Mode="In" Type="String" />
+      <Parameter Name="FieldSiteCode" Mode="In" Type="String" />
+      <Parameter Name="ComplaintCategoryID" Mode="In" Type="Byte" />
+      <Parameter Name="ComplaintClassificationID" Mode="In" Type="Byte" />
+      <Parameter Name="ComplaintCommunicationMethodID" Mode="In" Type="Byte" />
+      <Parameter Name="ComplaintStatusID" Mode="In" Type="Byte" />
+      <Parameter Name="ProjectIdentifier" Mode="In" Type="String" />
+      <Parameter Name="SubmitDate" Mode="In" Type="DateTime" />
+      <Parameter Name="ReceivedDate" Mode="In" Type="DateTime" />
+      <Parameter Name="ReceivedByEDWPersonID" Mode="In" Type="Int32" />
+      <Parameter Name="EnteredTimestamp" Mode="In" Type="DateTime" />
+      <Parameter Name="EnteredByEDWPersonID" Mode="In" Type="Int32" />
+      <Parameter Name="ClosedDate" Mode="In" Type="DateTime" />
+      <Parameter Name="ClosedByEDWPersonID" Mode="In" Type="Int32" />
+      <Parameter Name="ComplaintDescription" Mode="In" Type="String" />
+      <Parameter Name="OtherComplaintCommunicationMethodText" Mode="In" Type="String" />
+      <Parameter Name="SubjectText" Mode="In" Type="String" />
+      <Parameter Name="AcknowledgementProvidedFlag" Mode="In" Type="Boolean" />
+      <Parameter Name="AppealedFlag" Mode="In" Type="Boolean" />
+      <Parameter Name="ResponseProvidedFlag" Mode="In" Type="Boolean" />
+      <Parameter Name="ReferralRequiredFlag" Mode="In" Type="Boolean" />
+      <Parameter Name="InternalReferralLevelID" Mode="In" Type="Byte" />
+      <Parameter Name="NoAcknowledgementReasonDescription" Mode="In" Type="String" />
+      <Parameter Name="NoReferralReasonDescription" Mode="In" Type="String" />
+      <Parameter Name="NoResponseReasonDescription" Mode="In" Type="String" />
+      <Parameter Name="ReceivedByIMCStaffFlag" Mode="In" Type="Boolean" />
+      <Parameter Name="ReceivedByNonIMCName" Mode="In" Type="String" />
+      <Parameter Name="ResponseByNonIMCName" Mode="In" Type="String" />
+      <Parameter Name="UpdateUser" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spSave_CBCResponseAppeal" ReturnType="Collection(EDWModel.spSave_CBCResponseAppeal_Result)">
+      <Parameter Name="CommunityBasedComplaintID" Mode="In" Type="Int32" />
+      <Parameter Name="EDWPersonID" Mode="In" Type="Int32" />
+      <Parameter Name="CommunicationDate" Mode="In" Type="DateTime" />
+      <Parameter Name="CommunicationStageID" Mode="In" Type="Byte" />
+      <Parameter Name="CommunicationMethodID" Mode="In" Type="Byte" />
+      <Parameter Name="Comment" Mode="In" Type="String" />
+      <Parameter Name="OtherComplaintCommunicationMethodText" Mode="In" Type="String" />
+      <Parameter Name="UpdateUser" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spGetvCommunityBasedComplaintDocumentation" ReturnType="Collection(EDWModel.spGetvCommunityBasedComplaintDocumentation_Result)">
+      <Parameter Name="CommunityBasedComplaintID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spEDITComplaintVulnerability" ReturnType="Collection(EDWModel.spEDITComplaintVulnerability_Result)">
+      <Parameter Name="EDWComplainantID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spEDITFieldSector" ReturnType="Collection(EDWModel.spEDITFieldSector_Result)">
+      <Parameter Name="CommunityBasedComplaintID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spGetCategory" ReturnType="Collection(EDWModel.spGetCategory_Result)" />
+    <FunctionImport Name="spGetFieldSiteDetails" ReturnType="Collection(EDWModel.spGetFieldSiteDetails_Result)" />
+    <FunctionImport Name="spEDITComplaintResolution" ReturnType="Collection(EDWModel.spEDITComplaintResolution_Result)">
+      <Parameter Name="CommunityBasedComplaintID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spGetAppealCommitteNames" ReturnType="Collection(EDWModel.spGetAppealCommitteNames_Result)" />
+    <FunctionImport Name="spEDITComplaintAppeal" ReturnType="Collection(EDWModel.spEDITComplaintAppeal_Result)">
+      <Parameter Name="CommunityBasedComplaintID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spEDITExternalReferral" ReturnType="Collection(EDWModel.spEDITExternalReferral_Result)">
+      <Parameter Name="CommunityBasedComplaintID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spEDITComplainantDetail" ReturnType="Collection(EDWModel.spEDITComplainantDetail_Result)">
+      <Parameter Name="CommunityBasedComplaintID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spUpdate_vCBCDocumentation" ReturnType="Collection(EDWModel.spUpdate_vCBCDocumentation_Result)">
+      <Parameter Name="CommunityBasedComplaintDocID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spUpdate_vCBCDocumentationAppeal" ReturnType="Collection(EDWModel.spUpdate_vCBCDocumentationAppeal_Result)">
+      <Parameter Name="CommunityBasedComplaintDocID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spGetFieldSiteByID" ReturnType="Collection(EDWModel.spGetFieldSiteByID_Result)">
+      <Parameter Name="CountryCode" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spGetvProjectByID" ReturnType="Collection(EDWModel.spGetvProjectByID_Result)">
+      <Parameter Name="CountryCode" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spEDITAppealCommittee" ReturnType="Collection(EDWModel.spEDITAppealCommittee_Result)">
+      <Parameter Name="CommunityBasedComplaintID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spEDITAppealCommittee2" ReturnType="Collection(EDWModel.spEDITAppealCommittee2_Result)">
+      <Parameter Name="CommunityBasedComplaintID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spDelete_CBFAdminGroup" ReturnType="Collection(EDWModel.spDelete_CBFAdminGroup_Result)" />
+    <FunctionImport Name="spSave_CBFAdminGroup" ReturnType="Collection(EDWModel.spSave_CBFAdminGroup_Result)">
+      <Parameter Name="EDWPersonID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spDelete_CBFITGroup" ReturnType="Collection(EDWModel.spDelete_CBFITGroup_Result)" />
+    <FunctionImport Name="spSave_CBFITGroup" ReturnType="Collection(EDWModel.spSave_CBFITGroup_Result)">
+      <Parameter Name="EDWPersonID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spDelete_CBFHQGroup" ReturnType="Collection(EDWModel.spDelete_CBFHQGroup_Result)" />
+    <FunctionImport Name="spSave_CBFHQGroup" ReturnType="Collection(EDWModel.spSave_CBFHQGroup_Result)">
+      <Parameter Name="EDWPersonID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spSave_CBFMealCordinator" ReturnType="Collection(EDWModel.spSave_CBFMealCordinator_Result)">
+      <Parameter Name="EDWPersonID" Mode="In" Type="Int32" />
+      <Parameter Name="CountryCode" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spDelete_CBFMealCordinator" ReturnType="Collection(EDWModel.spDelete_CBFMealCordinator_Result)">
+      <Parameter Name="countryCode" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spMealCordinator" ReturnType="Collection(EDWModel.spMealCordinator_Result)">
+      <Parameter Name="countrycode" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spDelete_CBFOfficers" ReturnType="Collection(EDWModel.spDelete_CBFOfficers_Result)">
+      <Parameter Name="countryCode" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spSave_CBFOfficer" ReturnType="Collection(EDWModel.spSave_CBFOfficer_Result)">
+      <Parameter Name="EDWPersonID" Mode="In" Type="Int32" />
+      <Parameter Name="CountryCode" Mode="In" Type="String" />
+      <Parameter Name="FieldSiteName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spGetUserRoles" ReturnType="Collection(EDWModel.spGetUserRoles_Result)">
+      <Parameter Name="EDWPersonID" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="spGetPrivateData" ReturnType="Collection(EDWModel.spGetPrivateData_Result)" />
+    <FunctionImport Name="spGetCountry" ReturnType="Collection(EDWModel.spGetCountry_Result)" />
+    <FunctionImport Name="spDeleteExternal" ReturnType="Collection(EDWModel.spDeleteExternal_Result)">
+      <Parameter Name="CommunitComplainID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spDeleteCountryLevel" ReturnType="Collection(EDWModel.spDeleteCountryLevel_Result)">
+      <Parameter Name="CommunitComplainID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spDeleteHQLevel" ReturnType="Collection(EDWModel.spDeleteHQLevel_Result)">
+      <Parameter Name="CommunitComplainID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spGetCountriesOnForm" ReturnType="Collection(EDWModel.spGetCountriesOnForm_Result)">
+      <Parameter Name="EDWperosnID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spGetCountriesforUserManager" ReturnType="Collection(EDWModel.spGetCountriesforUserManager_Result)">
+      <Parameter Name="EDWperosnID" Mode="In" Type="Int32" />
+      <Parameter Name="AddViewEdit" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spDelete_CBCDetails" ReturnType="Collection(EDWModel.spDelete_CBCDetails_Result)">
+      <Parameter Name="CommunityBasedComplaintID" Mode="In" Type="Int32" />
+      <Parameter Name="LastUpdateUser" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spGetFieldSiteByCountryCodeUserID" ReturnType="Collection(EDWModel.spGetFieldSiteByCountryCodeUserID_Result)">
+      <Parameter Name="CountryCode" Mode="In" Type="String" />
+      <Parameter Name="EDWPersonsID" Mode="In" Type="Int32" />
+      <Parameter Name="AddViewEdit" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spGetMealTeam" ReturnType="Collection(EDWModel.spGetMealTeam_Result)">
+      <Parameter Name="CountryCode" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spEDITAdminGroup" ReturnType="Collection(EDWModel.spEDITAdminGroup_Result)" />
+    <FunctionImport Name="spEDITHQGroup" ReturnType="Collection(EDWModel.spEDITHQGroup_Result)" />
+    <FunctionImport Name="spEDITMealCordinator" ReturnType="Collection(EDWModel.spEDITMealCordinator_Result)" />
+    <FunctionImport Name="spEditOfficer" ReturnType="Collection(EDWModel.spEditOfficer_Result)">
+      <Parameter Name="countrycode" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spEDITITGroup" ReturnType="Collection(EDWModel.spEDITITGroup_Result)" />
+    <FunctionImport Name="spGetClassificationDesc" ReturnType="Collection(EDWModel.spGetClassificationDesc_Result)">
+      <Parameter Name="ClassificationID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetFacilityDetails" ReturnType="Collection(EDWModel.GetFacilityDetails_Result)">
+      <Parameter Name="FacilityID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetFacilityCountryCode" ReturnType="Collection(EDWModel.GetFacilityCountryCode_Result)">
+      <Parameter Name="CountryCode" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="vPersonVulnerabilityType" EntityType="EDWModel.vPersonVulnerabilityType" />
+    <FunctionImport Name="spEDITComplaintCommunication" ReturnType="Collection(EDWModel.spEDITComplaintCommunication_Result)">
+      <Parameter Name="CommunityBasedComplaintID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="vCommunicationStage" EntityType="EDWModel.vCommunicationStage" />
+    <FunctionImport Name="spEDITComplaintCommunicationACK" ReturnType="Collection(EDWModel.spEDITComplaintCommunicationACK_Result)">
+      <Parameter Name="CommunityBasedComplaintID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spEDITComplaintCommunicationAR" ReturnType="Collection(EDWModel.spEDITComplaintCommunicationAR_Result)">
+      <Parameter Name="CommunityBasedComplaintID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spEDITComplaintCommunicationFR" ReturnType="Collection(EDWModel.spEDITComplaintCommunicationFR_Result)">
+      <Parameter Name="CommunityBasedComplaintID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spEDITComplaintCommunicationHQ" ReturnType="Collection(EDWModel.spEDITComplaintCommunicationHQ_Result)">
+      <Parameter Name="CommunityBasedComplaintID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="vComplaintCommunication" EntityType="EDWModel.vComplaintCommunication" />
+    <FunctionImport Name="spGetCommunicationStage" ReturnType="Collection(EDWModel.spGetCommunicationStage_Result)" />
+    <FunctionImport Name="spGetvCommunicationStage" ReturnType="Collection(EDWModel.spGetvCommunicationStage_Result)" />
+    <FunctionImport Name="spSave_CBCInternalReferralCountryLevel" ReturnType="Collection(EDWModel.spSave_CBCInternalReferralCountryLevel_Result)">
+      <Parameter Name="CommunityBasedComplaintID" Mode="In" Type="Int32" />
+      <Parameter Name="EDWPersonID" Mode="In" Type="Int32" />
+      <Parameter Name="CommunicationDate" Mode="In" Type="DateTime" />
+      <Parameter Name="CommunicationStageID" Mode="In" Type="Byte" />
+      <Parameter Name="Comment" Mode="In" Type="String" />
+      <Parameter Name="UpdateUser" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spSave_CBCInternalReferralHQLevel" ReturnType="Collection(EDWModel.spSave_CBCInternalReferralHQLevel_Result)">
+      <Parameter Name="CommunityBasedComplaintID" Mode="In" Type="Int32" />
+      <Parameter Name="EDWPersonID" Mode="In" Type="Int32" />
+      <Parameter Name="CommunicationDate" Mode="In" Type="DateTime" />
+      <Parameter Name="CommunicationStageID" Mode="In" Type="Byte" />
+      <Parameter Name="CommunicationMethodID" Mode="In" Type="Byte" />
+      <Parameter Name="Comment" Mode="In" Type="String" />
+      <Parameter Name="OtherComplaintCommunicationMethodText" Mode="In" Type="String" />
+      <Parameter Name="UpdateUser" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spSave_CommunityBasedComplaintCopy" ReturnType="Collection(EDWModel.spSave_CommunityBasedComplaintCopy_Result)">
+      <Parameter Name="ComplaintID" Mode="In" Type="Int32" />
+      <Parameter Name="CountryCode" Mode="In" Type="String" />
+      <Parameter Name="FacilityID" Mode="In" Type="Int32" />
+      <Parameter Name="FieldSiteCode" Mode="In" Type="String" />
+      <Parameter Name="ComplaintCategoryID" Mode="In" Type="Byte" />
+      <Parameter Name="ComplaintClassificationID" Mode="In" Type="Byte" />
+      <Parameter Name="ComplaintCommunicationMethodID" Mode="In" Type="Byte" />
+      <Parameter Name="ComplaintStatusID" Mode="In" Type="Byte" />
+      <Parameter Name="ProjectIdentifier" Mode="In" Type="String" />
+      <Parameter Name="SubmitDate" Mode="In" Type="DateTime" />
+      <Parameter Name="ReceivedDate" Mode="In" Type="DateTime" />
+      <Parameter Name="ReceivedByEDWPersonID" Mode="In" Type="Int32" />
+      <Parameter Name="EnteredTimestamp" Mode="In" Type="DateTime" />
+      <Parameter Name="EnteredByEDWPersonID" Mode="In" Type="Int32" />
+      <Parameter Name="ClosedDate" Mode="In" Type="DateTime" />
+      <Parameter Name="ClosedByEDWPersonID" Mode="In" Type="Int32" />
+      <Parameter Name="ComplaintDescription" Mode="In" Type="String" />
+      <Parameter Name="OtherComplaintCommunicationMethodText" Mode="In" Type="String" />
+      <Parameter Name="SubjectText" Mode="In" Type="String" />
+      <Parameter Name="AcknowledgementProvidedFlag" Mode="In" Type="Boolean" />
+      <Parameter Name="AppealedFlag" Mode="In" Type="Boolean" />
+      <Parameter Name="ResponseProvidedFlag" Mode="In" Type="Boolean" />
+      <Parameter Name="ReferralRequiredFlag" Mode="In" Type="Boolean" />
+      <Parameter Name="InternalReferralLevelID" Mode="In" Type="Byte" />
+      <Parameter Name="NoAcknowledgementReasonDescription" Mode="In" Type="String" />
+      <Parameter Name="NoReferralReasonDescription" Mode="In" Type="String" />
+      <Parameter Name="NoResponseReasonDescription" Mode="In" Type="String" />
+      <Parameter Name="ReceivedByIMCStaffFlag" Mode="In" Type="Boolean" />
+      <Parameter Name="ReceivedByNonIMCName" Mode="In" Type="String" />
+      <Parameter Name="ResponseByNonIMCName" Mode="In" Type="String" />
+      <Parameter Name="UpdateUser" Mode="In" Type="String" />
+      <Parameter Name="OtherVulnerabilityText" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="vCommunityBasedComplaint" EntityType="EDWModel.vCommunityBasedComplaint" />
+    <EntitySet Name="vComplainantDetail" EntityType="EDWModel.vComplainantDetail" />
+    <FunctionImport Name="spEDITCommunityBasedComplaintDetails" ReturnType="Collection(EDWModel.spEDITCommunityBasedComplaintDetails_Result)">
+      <Parameter Name="CommunityBasedComplaintID" Mode="In" Type="Int32" />
+      <Parameter Name="SDate" Mode="In" Type="String" />
+      <Parameter Name="EDate" Mode="In" Type="String" />
+      <Parameter Name="StatusID" Mode="In" Type="String" />
+      <Parameter Name="CountryCode" Mode="In" Type="String" />
+      <Parameter Name="EDWPersonsID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spEDITCommunityBasedComplaintDetailsCopy" ReturnType="Collection(EDWModel.spEDITCommunityBasedComplaintDetailsCopy_Result)">
+      <Parameter Name="CommunityBasedComplaintID" Mode="In" Type="Int32" />
+      <Parameter Name="SDate" Mode="In" Type="String" />
+      <Parameter Name="EDate" Mode="In" Type="String" />
+      <Parameter Name="StatusID" Mode="In" Type="String" />
+      <Parameter Name="CountryCode" Mode="In" Type="String" />
+      <Parameter Name="EDWPersonsID" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="spGetvCommunicationMethod_Result">
+    <Property Type="Byte" Name="CommunicationMethodID" Nullable="false" />
+    <Property Type="String" Name="CommunicationMethodName" Nullable="false" MaxLength="80" />
+    <Property Type="String" Name="CommunicationMethodShortName" Nullable="false" MaxLength="20" />
+    <Property Type="Boolean" Name="GeneralOptionFlag" Nullable="false" />
+    <Property Type="Byte" Name="GeneralDisplaySequenceNumber" Nullable="false" />
+    <Property Type="Boolean" Name="SubmittalOptionFlag" Nullable="false" />
+    <Property Type="Byte" Name="SubmittalDisplaySequenceNumber" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="spGetvvUserDetails_Result">
+    <Property Type="Int32" Name="EDWPersonID" Nullable="false" />
+    <Property Type="String" Name="CPMasterEmployeeId" Nullable="true" MaxLength="12" />
+    <Property Type="String" Name="FirstName" Nullable="false" MaxLength="80" />
+    <Property Type="String" Name="LastName" Nullable="false" MaxLength="80" />
+    <Property Type="String" Name="FullName" Nullable="false" MaxLength="300" />
+    <Property Type="String" Name="saMAccountName" Nullable="true" MaxLength="4000" />
+    <Property Type="String" Name="WorkEmailAddress" Nullable="true" MaxLength="255" />
+  </ComplexType>
+  <ComplexType Name="spGetvUserManager_Result">
+    <Property Type="Int32" Name="EDWPersonID" Nullable="false" />
+    <Property Type="String" Name="GroupName" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="CountryCode" Nullable="false" MaxLength="3" />
+    <Property Type="String" Name="FieldSiteName" Nullable="false" MaxLength="80" />
+    <Property Type="String" Name="ReadAccessLevel" Nullable="false" MaxLength="20" />
+    <Property Type="Boolean" Name="SourceDeletedFlag" Nullable="false" />
+    <Property Type="DateTime" Name="CreateTimestamp" Nullable="false" />
+    <Property Type="String" Name="CreateUser" Nullable="false" MaxLength="128" />
+    <Property Type="DateTime" Name="LastUpdateTimestamp" Nullable="false" />
+    <Property Type="String" Name="LastUpdateUser" Nullable="false" MaxLength="128" />
+  </ComplexType>
+  <ComplexType Name="spGetvSearchUser_Result">
+    <Property Type="Int32" Name="EDWPersonID" Nullable="false" />
+    <Property Type="String" Name="FullName" Nullable="false" MaxLength="300" />
+  </ComplexType>
+  <ComplexType Name="spGetvUserAssign_Result">
+    <Property Type="Int32" Name="EDWPersonID" Nullable="false" />
+    <Property Type="String" Name="FullName" Nullable="false" MaxLength="300" />
+  </ComplexType>
+  <ComplexType Name="spGetPersonVulnerabilityType_Result">
+    <Property Type="Byte" Name="VulnerabilityTypeID" Nullable="false" />
+    <Property Type="String" Name="VulnerabilityTypeName" Nullable="true" MaxLength="80" />
+    <Property Type="String" Name="VulnerabilityTypeShortName" Nullable="true" MaxLength="20" />
+    <Property Type="Int16" Name="DisplaySequenceNumber" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="spGetvGender_Result">
+    <Property Type="String" Name="SexCode" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="SexName" Nullable="false" MaxLength="80" />
+    <Property Type="String" Name="SexShortName" Nullable="false" MaxLength="20" />
+    <Property Type="Int16" Name="DisplaySequenceNumber" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="spGetvLanguageDialect_Result">
+    <Property Type="String" Name="LanguageDialectCode" Nullable="false" MaxLength="8" />
+    <Property Type="String" Name="LanguageName" Nullable="false" MaxLength="40" />
+    <Property Type="String" Name="LanguageShortName" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="ISOLanguageCode" Nullable="true" MaxLength="2" />
+    <Property Type="String" Name="DialectName" Nullable="true" MaxLength="40" />
+    <Property Type="Int16" Name="DisplaySequenceNumber" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="spGetvComplaintCategory_Result">
+    <Property Type="Byte" Name="ComplaintCategoryID" Nullable="false" />
+    <Property Type="String" Name="ComplaintCategoryName" Nullable="false" MaxLength="80" />
+    <Property Type="Byte" Name="ComplaintCategoryRating" Nullable="false" />
+    <Property Type="String" Name="ComplaintCategoryShortName" Nullable="false" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="spGetvUserAssign2_Result">
+    <Property Type="Int32" Name="EDWPersonID" Nullable="false" />
+    <Property Type="String" Name="FullName" Nullable="false" MaxLength="300" />
+  </ComplexType>
+  <EntityType Name="vCommunityBasedComplaintFieldSector">
+    <Key>
+      <PropertyRef Name="CommunityBasedComplaintID" />
+      <PropertyRef Name="FieldSectorCode" />
+      <PropertyRef Name="SourceDeletedFlag" />
+      <PropertyRef Name="CreateTimestamp" />
+      <PropertyRef Name="CreateUser" />
+      <PropertyRef Name="LastUpdateTimestamp" />
+      <PropertyRef Name="LastUpdateUser" />
+    </Key>
+    <Property Name="CommunityBasedComplaintID" Type="Int32" Nullable="false" />
+    <Property Name="FieldSectorCode" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="OtherSectorText" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="SourceDeletedFlag" Type="Boolean" Nullable="false" />
+    <Property Name="CreateTimestamp" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="CreateUser" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="LastUpdateTimestamp" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="LastUpdateUser" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <ComplexType Name="spGetvFieldSector_Result">
+    <Property Type="String" Name="FieldSectorCode" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="FieldSectorName" Nullable="false" MaxLength="80" />
+    <Property Type="String" Name="FieldSectorShortName" Nullable="false" MaxLength="20" />
+    <Property Type="Boolean" Name="ActiveFlag" Nullable="false" />
+    <Property Type="Int16" Name="DisplaySequenceNumber" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="spGetvCommunicationMethodGenral_Result">
+    <Property Type="Byte" Name="CommunicationMethodID" Nullable="false" />
+    <Property Type="String" Name="CommunicationMethodName" Nullable="false" MaxLength="80" />
+    <Property Type="String" Name="CommunicationMethodShortName" Nullable="false" MaxLength="20" />
+    <Property Type="Boolean" Name="GeneralOptionFlag" Nullable="false" />
+    <Property Type="Byte" Name="GeneralDisplaySequenceNumber" Nullable="false" />
+    <Property Type="Boolean" Name="SubmittalOptionFlag" Nullable="false" />
+    <Property Type="Byte" Name="SubmittalDisplaySequenceNumber" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="vComplainantVulnerability">
+    <Key>
+      <PropertyRef Name="EDWComplainantID" />
+      <PropertyRef Name="VulnerabilityTypeID" />
+      <PropertyRef Name="SourceDeletedFlag" />
+      <PropertyRef Name="CreateTimestamp" />
+      <PropertyRef Name="CreateUser" />
+      <PropertyRef Name="LastUpdateTimestamp" />
+      <PropertyRef Name="LastUpdateUser" />
+    </Key>
+    <Property Name="EDWComplainantID" Type="Int32" Nullable="false" />
+    <Property Name="VulnerabilityTypeID" Type="Byte" Nullable="false" />
+    <Property Name="SourceDeletedFlag" Type="Boolean" Nullable="false" />
+    <Property Name="CreateTimestamp" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="CreateUser" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="LastUpdateTimestamp" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="LastUpdateUser" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="vComplaintClassification">
+    <Key>
+      <PropertyRef Name="ComplaintClassificationID" />
+      <PropertyRef Name="ComplaintClassificationName" />
+      <PropertyRef Name="DisplaySequenceNumber" />
+    </Key>
+    <Property Name="ComplaintClassificationID" Type="Byte" Nullable="false" />
+    <Property Name="ComplaintClassificationName" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="ComplaintClassificationDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="DisplaySequenceNumber" Type="Int16" Nullable="false" />
+  </EntityType>
+  <ComplexType Name="spGetReferralType_Result">
+    <Property Type="Byte" Name="ReferralTypeID" Nullable="false" />
+    <Property Type="String" Name="ReferralTypeName" Nullable="false" MaxLength="20" />
+    <Property Type="Int16" Name="DisplaySequenceNumber" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="spGetComplainClassification_Result">
+    <Property Type="Byte" Name="ComplaintClassificationID" Nullable="false" />
+    <Property Type="String" Name="ComplaintClassificationName" Nullable="false" MaxLength="80" />
+    <Property Type="String" Name="ComplaintClassificationDescription" Nullable="true" MaxLength="255" />
+    <Property Type="Int16" Name="DisplaySequenceNumber" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="spGetReferrallevel_Result">
+    <Property Type="Byte" Name="ReferralLevelID" Nullable="false" />
+    <Property Type="String" Name="ReferralLevelName" Nullable="false" MaxLength="80" />
+    <Property Type="String" Name="ReferralLevelShortName" Nullable="false" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="spGetvCommunicationMethodEthics_Result">
+    <Property Type="Byte" Name="CommunicationMethodID" Nullable="false" />
+    <Property Type="String" Name="CommunicationMethodName" Nullable="false" MaxLength="80" />
+    <Property Type="String" Name="CommunicationMethodShortName" Nullable="false" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="spGetCategoryByID_Result">
+    <Property Type="Byte" Name="ComplaintCategoryID" Nullable="false" />
+    <Property Type="String" Name="ComplaintCategoryName" Nullable="false" MaxLength="200" />
+    <Property Type="Byte" Name="ComplaintCategoryRating" Nullable="false" />
+    <Property Type="String" Name="ComplaintCategoryShortName" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="ComplaintCategoryDescription" Nullable="false" MaxLength="2000" />
+  </ComplexType>
+  <ComplexType Name="spGetComplaintStatus_Result">
+    <Property Type="Byte" Name="ComplaintStatusID" Nullable="false" />
+    <Property Type="String" Name="ComplaintStatusName" Nullable="false" MaxLength="80" />
+    <Property Type="String" Name="ComplaintStatusShortName" Nullable="false" MaxLength="20" />
+    <Property Type="Int16" Name="DisplaySequenceNumber" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="spInsert_vCBCDocumentation_Result">
+    <Property Type="String" Name="rowdata" Nullable="false" MaxLength="13" />
+    <Property Type="Int32" Name="numberOfRows" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spInsert_vCBCDocumentationAppeal_Result">
+    <Property Type="String" Name="rowdata" Nullable="false" MaxLength="13" />
+    <Property Type="Int32" Name="numberOfRows" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spSave_CBCAcknowledgement_Result">
+    <Property Type="String" Name="rowdata" Nullable="false" MaxLength="13" />
+    <Property Type="Int32" Name="numberOfRows" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spSave_CBCExternalReferral_Result">
+    <Property Type="String" Name="rowdata" Nullable="false" MaxLength="13" />
+    <Property Type="Int32" Name="numberOfRows" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spSave_CBCLocation_Result">
+    <Property Type="String" Name="rowdata" Nullable="false" MaxLength="13" />
+    <Property Type="Int32" Name="numberOfRows" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spSave_CBCResolution_Result">
+    <Property Type="String" Name="rowdata" Nullable="false" MaxLength="13" />
+    <Property Type="Int32" Name="numberOfRows" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spSave_CBCResponse_Result">
+    <Property Type="String" Name="rowdata" Nullable="false" MaxLength="13" />
+    <Property Type="Int32" Name="numberOfRows" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spSave_ComplaintAppeal_Result">
+    <Property Type="String" Name="rowdata" Nullable="false" MaxLength="13" />
+    <Property Type="Int32" Name="numberOfRows" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spSave_vComplainantDetail_Result">
+    <Property Type="String" Name="Result" Nullable="false" MaxLength="8" />
+    <Property Type="Int32" Name="EDWComplainantID" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spSave_CBCFieldSector_Result">
+    <Property Type="String" Name="rowdata" Nullable="false" MaxLength="13" />
+    <Property Type="Int32" Name="numberOfRows" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spSave_CBCVulnerability_Result">
+    <Property Type="String" Name="rowdata" Nullable="false" MaxLength="13" />
+    <Property Type="Int32" Name="numberOfRows" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spSave_CBFAppealCommittee_Result">
+    <Property Type="String" Name="rowdata" Nullable="false" MaxLength="13" />
+    <Property Type="Int32" Name="numberOfRows" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spGetvProject_Name_Result">
+    <Property Type="String" Name="ProjectIdentifier" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="DropDownDisplay" Nullable="true" MaxLength="73" />
+    <Property Type="String" Name="ProjectName" Nullable="false" MaxLength="80" />
+    <Property Type="String" Name="OwningInternalOrganizationCode" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="DonorName" Nullable="true" MaxLength="80" />
+    <Property Type="String" Name="DonorShortName" Nullable="true" MaxLength="40" />
+    <Property Type="Boolean" Name="SourceActiveFlag" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="spGetCategoryRefral_Result">
+    <Property Type="Byte" Name="ComplaintCategoryID" Nullable="false" />
+    <Property Type="String" Name="ComplaintCategoryName" Nullable="false" MaxLength="200" />
+  </ComplexType>
+  <ComplexType Name="spDelete_CBFFieldSector_Result">
+    <Property Type="String" Name="rowdata" Nullable="false" MaxLength="13" />
+    <Property Type="Int32" Name="numberOfRows" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spDelete_CBFAppealCommittee_Result">
+    <Property Type="String" Name="rowdata" Nullable="false" MaxLength="13" />
+    <Property Type="Int32" Name="numberOfRows" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spDelete_CBFVulnerability_Result">
+    <Property Type="String" Name="rowdata" Nullable="false" MaxLength="13" />
+    <Property Type="Int32" Name="numberOfRows" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spGetFieldSite_Result">
+    <Property Type="String" Name="FieldSiteCode" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="FieldSiteName" Nullable="false" MaxLength="80" />
+    <Property Type="String" Name="FieldSiteShortName" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="CountryCode" Nullable="false" MaxLength="3" />
+    <Property Type="Boolean" Name="ActiveFlag" Nullable="false" />
+    <Property Type="Int16" Name="DisplaySequenceNumber" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="spSave_CommunityBasedComplaint_Result">
+    <Property Type="String" Name="Result" Nullable="false" MaxLength="8" />
+    <Property Type="Int32" Name="ComplaintID" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spSave_CBCResponseAppeal_Result">
+    <Property Type="String" Name="rowdata" Nullable="false" MaxLength="13" />
+    <Property Type="Int32" Name="numberOfRows" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spGetvCommunityBasedComplaintDocumentation_Result">
+    <Property Type="Int32" Name="CommunityBasedComplaintDocID" Nullable="false" />
+    <Property Type="Int32" Name="CommunityBasedComplaintID" Nullable="false" />
+    <Property Type="String" Name="DocumentHyperlink" Nullable="false" MaxLength="255" />
+    <Property Type="String" Name="SupportingDocumentDescription" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="UpdateUser" Nullable="false" MaxLength="80" />
+    <Property Type="Boolean" Name="AppealDocumentFlag" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="spEDITComplaintVulnerability_Result">
+    <Property Type="Int32" Name="EDWComplainantID" Nullable="false" />
+    <Property Type="Byte" Name="VulnerabilityTypeID" Nullable="false" />
+    <Property Type="Boolean" Name="SourceDeletedFlag" Nullable="false" />
+    <Property Type="DateTime" Name="CreateTimestamp" Nullable="false" />
+    <Property Type="String" Name="CreateUser" Nullable="false" MaxLength="128" />
+    <Property Type="DateTime" Name="LastUpdateTimestamp" Nullable="false" />
+    <Property Type="String" Name="LastUpdateUser" Nullable="false" MaxLength="128" />
+  </ComplexType>
+  <ComplexType Name="spEDITFieldSector_Result">
+    <Property Type="Int32" Name="CommunityBasedComplaintID" Nullable="false" />
+    <Property Type="String" Name="FieldSectorCode" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="OtherSectorText" Nullable="true" MaxLength="80" />
+    <Property Type="Boolean" Name="SourceDeletedFlag" Nullable="false" />
+    <Property Type="DateTime" Name="CreateTimestamp" Nullable="false" />
+    <Property Type="String" Name="CreateUser" Nullable="false" MaxLength="128" />
+    <Property Type="DateTime" Name="LastUpdateTimestamp" Nullable="false" />
+    <Property Type="String" Name="LastUpdateUser" Nullable="false" MaxLength="128" />
+  </ComplexType>
+  <ComplexType Name="spGetCategory_Result">
+    <Property Type="Byte" Name="ComplaintCategoryID" Nullable="false" />
+    <Property Type="String" Name="ComplaintCategoryName" Nullable="false" MaxLength="200" />
+    <Property Type="Byte" Name="ComplaintCategoryRating" Nullable="false" />
+    <Property Type="String" Name="ComplaintCategoryShortName" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="ComplaintCategoryDescription" Nullable="false" MaxLength="2000" />
+  </ComplexType>
+  <ComplexType Name="spGetFieldSiteDetails_Result">
+    <Property Type="String" Name="FieldSiteCode" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="FieldSiteName" Nullable="false" MaxLength="80" />
+    <Property Type="String" Name="FieldSiteShortName" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="CountryCode" Nullable="false" MaxLength="3" />
+    <Property Type="Boolean" Name="ActiveFlag" Nullable="false" />
+    <Property Type="Int16" Name="DisplaySequenceNumber" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="spEDITComplaintResolution_Result">
+    <Property Type="Int32" Name="CommunityBasedComplaintID" Nullable="false" />
+    <Property Type="String" Name="InvestigationDescription" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="InvestigationPointOfContactName" Nullable="true" MaxLength="80" />
+    <Property Type="String" Name="CorrectiveActionDescription" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="ResolutionDate" Nullable="true" MaxLength="4000" />
+    <Property Type="String" Name="UpdateUser" Nullable="false" MaxLength="80" />
+  </ComplexType>
+  <ComplexType Name="spGetAppealCommitteNames_Result">
+    <Property Type="Int32" Name="EDWPersonID" Nullable="false" />
+    <Property Type="String" Name="FullName" Nullable="false" MaxLength="300" />
+  </ComplexType>
+  <ComplexType Name="spEDITComplaintAppeal_Result">
+    <Property Type="Int32" Name="CommunityBasedComplaintID" Nullable="false" />
+    <Property Type="String" Name="AppealDate" Nullable="true" MaxLength="4000" />
+    <Property Type="String" Name="ProcessDescription" Nullable="true" MaxLength="255" />
+    <Property Type="Byte" Name="AppealReceivedCommunicationMethodID" Nullable="true" />
+    <Property Type="String" Name="OtherComplaintCommunicationMethodText" Nullable="true" MaxLength="80" />
+    <Property Type="String" Name="AppealResolutionDescription" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="AppealResolutionDate" Nullable="true" MaxLength="4000" />
+    <Property Type="String" Name="UpdateUser" Nullable="false" MaxLength="80" />
+  </ComplexType>
+  <ComplexType Name="spEDITExternalReferral_Result">
+    <Property Type="Int32" Name="CommunityBasedComplaintID" Nullable="false" />
+    <Property Type="String" Name="ReferralDate" Nullable="true" MaxLength="4000" />
+    <Property Type="String" Name="ReferralAgencyName" Nullable="false" MaxLength="40" />
+    <Property Type="String" Name="ReferralPersonName" Nullable="true" MaxLength="80" />
+    <Property Type="String" Name="ReferralPersonPositionText" Nullable="true" MaxLength="80" />
+    <Property Type="String" Name="ContactComment" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="HQDisclosureAuthorizationText" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="UpdateUser" Nullable="false" MaxLength="80" />
+  </ComplexType>
+  <ComplexType Name="spEDITComplainantDetail_Result">
+    <Property Type="Int32" Name="EDWComplainantID" Nullable="false" />
+    <Property Type="Int32" Name="CommunityBasedComplaintID" Nullable="false" />
+    <Property Type="Byte" Name="AgeYearNumber" Nullable="true" />
+    <Property Type="String" Name="PrimaryLanguageDialectCode" Nullable="true" MaxLength="8" />
+    <Property Type="String" Name="SexCode" Nullable="true" MaxLength="1" />
+    <Property Type="Boolean" Name="AnonymousFlag" Nullable="true" />
+    <Property Type="String" Name="PersonName" Nullable="true" MaxLength="40" />
+    <Property Type="String" Name="AddressText" Nullable="true" MaxLength="400" />
+    <Property Type="String" Name="PhoneNumber" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="EmailAddress" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="ComplainantProgramRelationshipText" Nullable="true" MaxLength="80" />
+    <Property Type="String" Name="OtherCommunicationAvenueText" Nullable="true" MaxLength="80" />
+    <Property Type="String" Name="OtherLanguageDialectText" Nullable="true" MaxLength="80" />
+    <Property Type="Boolean" Name="ComplainantAllowContactFlag" Nullable="true" />
+    <Property Type="Boolean" Name="ComplainantAllowVisitFlag" Nullable="true" />
+    <Property Type="Boolean" Name="ComplainantQuestionsAddressedFlag" Nullable="true" />
+    <Property Type="Boolean" Name="FollowUpContactDetailsFlag" Nullable="true" />
+    <Property Type="Boolean" Name="HandlingProcessExplainedFlag" Nullable="true" />
+    <Property Type="Boolean" Name="ProcessTimelineDiscussedFlag" Nullable="true" />
+    <Property Type="Boolean" Name="ResponseReceivalExplainedFlag" Nullable="true" />
+    <Property Type="String" Name="UpdateUser" Nullable="false" MaxLength="80" />
+    <Property Type="Boolean" Name="SourceDeletedFlag" Nullable="false" />
+    <Property Type="DateTime" Name="CreateTimestamp" Nullable="false" />
+    <Property Type="String" Name="CreateUser" Nullable="false" MaxLength="128" />
+    <Property Type="DateTime" Name="LastUpdateTimestamp" Nullable="false" />
+    <Property Type="String" Name="LastUpdateUser" Nullable="false" MaxLength="128" />
+  </ComplexType>
+  <ComplexType Name="spUpdate_vCBCDocumentation_Result">
+    <Property Type="String" Name="rowdata" Nullable="false" MaxLength="13" />
+    <Property Type="Int32" Name="numberOfRows" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spUpdate_vCBCDocumentationAppeal_Result">
+    <Property Type="String" Name="rowdata" Nullable="false" MaxLength="13" />
+    <Property Type="Int32" Name="numberOfRows" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spGetFieldSiteByID_Result">
+    <Property Type="String" Name="FieldSiteCode" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="FieldSiteName" Nullable="false" MaxLength="80" />
+    <Property Type="String" Name="FieldSiteShortName" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="CountryCode" Nullable="false" MaxLength="3" />
+    <Property Type="Boolean" Name="ActiveFlag" Nullable="false" />
+    <Property Type="Int16" Name="DisplaySequenceNumber" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="spGetvProjectByID_Result">
+    <Property Type="String" Name="ProjectIdentifier" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="DropDownDisplay" Nullable="true" MaxLength="73" />
+    <Property Type="String" Name="ProjectName" Nullable="false" MaxLength="80" />
+    <Property Type="String" Name="OwningInternalOrganizationCode" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="InternalOrganizationName" Nullable="true" MaxLength="80" />
+    <Property Type="String" Name="CountryCode" Nullable="false" MaxLength="3" />
+    <Property Type="String" Name="CountryName" Nullable="false" MaxLength="80" />
+    <Property Type="String" Name="DonorName" Nullable="true" MaxLength="80" />
+    <Property Type="String" Name="DonorShortName" Nullable="true" MaxLength="40" />
+    <Property Type="Boolean" Name="SourceActiveFlag" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="spEDITAppealCommittee_Result">
+    <Property Type="Int32" Name="CommunityBasedComplaintID" Nullable="false" />
+    <Property Type="Int32" Name="EDWPersonID" Nullable="false" />
+    <Property Type="String" Name="FullName" Nullable="true" MaxLength="300" />
+  </ComplexType>
+  <ComplexType Name="spEDITAppealCommittee2_Result">
+    <Property Type="Int32" Name="CommunityBasedComplaintID" Nullable="false" />
+    <Property Type="Int32" Name="EDWPersonID" Nullable="false" />
+    <Property Type="String" Name="FullName" Nullable="true" MaxLength="300" />
+  </ComplexType>
+  <ComplexType Name="spDelete_CBFAdminGroup_Result">
+    <Property Type="String" Name="rowdata" Nullable="false" MaxLength="13" />
+    <Property Type="Int32" Name="numberOfRows" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spSave_CBFAdminGroup_Result">
+    <Property Type="String" Name="rowdata" Nullable="false" MaxLength="13" />
+    <Property Type="Int32" Name="numberOfRows" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spDelete_CBFITGroup_Result">
+    <Property Type="String" Name="rowdata" Nullable="false" MaxLength="13" />
+    <Property Type="Int32" Name="numberOfRows" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spSave_CBFITGroup_Result">
+    <Property Type="String" Name="rowdata" Nullable="false" MaxLength="13" />
+    <Property Type="Int32" Name="numberOfRows" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spDelete_CBFHQGroup_Result">
+    <Property Type="String" Name="rowdata" Nullable="false" MaxLength="13" />
+    <Property Type="Int32" Name="numberOfRows" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spSave_CBFHQGroup_Result">
+    <Property Type="String" Name="rowdata" Nullable="false" MaxLength="13" />
+    <Property Type="Int32" Name="numberOfRows" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spSave_CBFMealCordinator_Result">
+    <Property Type="String" Name="rowdata" Nullable="false" MaxLength="13" />
+    <Property Type="Int32" Name="numberOfRows" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spDelete_CBFMealCordinator_Result">
+    <Property Type="String" Name="rowdata" Nullable="false" MaxLength="13" />
+    <Property Type="Int32" Name="numberOfRows" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spMealCordinator_Result">
+    <Property Type="Int32" Name="EDWPersonID" Nullable="false" />
+    <Property Type="String" Name="GroupName" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="CountryCode" Nullable="false" MaxLength="3" />
+    <Property Type="String" Name="FieldSiteName" Nullable="false" MaxLength="80" />
+    <Property Type="String" Name="ReadAccessLevel" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="FullName" Nullable="false" MaxLength="300" />
+  </ComplexType>
+  <ComplexType Name="spDelete_CBFOfficers_Result">
+    <Property Type="String" Name="rowdata" Nullable="false" MaxLength="13" />
+    <Property Type="Int32" Name="numberOfRows" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spSave_CBFOfficer_Result">
+    <Property Type="String" Name="rowdata" Nullable="false" MaxLength="13" />
+    <Property Type="Int32" Name="numberOfRows" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spGetUserRoles_Result">
+    <Property Type="Int32" Name="EDWPersonID" Nullable="false" />
+    <Property Type="String" Name="GroupName" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="CountryCode" Nullable="false" MaxLength="3" />
+    <Property Type="String" Name="FieldSiteName" Nullable="false" MaxLength="80" />
+    <Property Type="String" Name="ReadAccessLevel" Nullable="false" MaxLength="20" />
+    <Property Type="Boolean" Name="SourceDeletedFlag" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="spGetPrivateData_Result">
+    <Property Type="String" Name="SchemaName" Nullable="false" MaxLength="128" />
+    <Property Type="String" Name="DatabaseObjectName" Nullable="false" MaxLength="128" />
+    <Property Type="String" Name="ColumnName" Nullable="true" MaxLength="128" />
+  </ComplexType>
+  <ComplexType Name="spGetCountry_Result">
+    <Property Type="Int16" Name="EDMCountryID" Nullable="false" />
+    <Property Type="String" Name="CountryCode" Nullable="false" MaxLength="3" />
+    <Property Type="String" Name="CountryName" Nullable="true" MaxLength="80" />
+    <Property Type="String" Name="ISOCode" Nullable="true" MaxLength="2" />
+  </ComplexType>
+  <ComplexType Name="spDeleteExternal_Result">
+    <Property Type="String" Name="rowdata" Nullable="false" MaxLength="13" />
+    <Property Type="Int32" Name="numberOfRows" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spDeleteCountryLevel_Result">
+    <Property Type="String" Name="rowdata" Nullable="false" MaxLength="13" />
+    <Property Type="Int32" Name="numberOfRows" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spDeleteHQLevel_Result">
+    <Property Type="String" Name="rowdata" Nullable="false" MaxLength="13" />
+    <Property Type="Int32" Name="numberOfRows" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spGetCountriesOnForm_Result">
+    <Property Type="Int16" Name="EDMCountryID" Nullable="false" />
+    <Property Type="String" Name="CountryCode" Nullable="false" MaxLength="3" />
+    <Property Type="String" Name="CountryName" Nullable="true" MaxLength="80" />
+  </ComplexType>
+  <ComplexType Name="spGetCountriesforUserManager_Result">
+    <Property Type="Int16" Name="EDMCountryID" Nullable="false" />
+    <Property Type="String" Name="CountryCode" Nullable="false" MaxLength="3" />
+    <Property Type="String" Name="CountryName" Nullable="true" MaxLength="80" />
+  </ComplexType>
+  <ComplexType Name="spDelete_CBCDetails_Result">
+    <Property Type="String" Name="rowdata" Nullable="false" MaxLength="13" />
+    <Property Type="Int32" Name="numberOfRows" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spGetFieldSiteByCountryCodeUserID_Result">
+    <Property Type="String" Name="FieldSiteCode" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="FieldSiteName" Nullable="false" MaxLength="80" />
+    <Property Type="String" Name="FieldSiteShortName" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="CountryCode" Nullable="false" MaxLength="3" />
+  </ComplexType>
+  <ComplexType Name="spGetMealTeam_Result">
+    <Property Type="Int32" Name="EDWPersonID" Nullable="true" />
+    <Property Type="String" Name="FullName" Nullable="true" MaxLength="4000" />
+    <Property Type="Int16" Name="EDMCountryID" Nullable="false" />
+    <Property Type="String" Name="CountryCode" Nullable="false" MaxLength="3" />
+  </ComplexType>
+  <ComplexType Name="spEDITAdminGroup_Result">
+    <Property Type="Int32" Name="EDWPersonID" Nullable="false" />
+    <Property Type="String" Name="GroupName" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="CountryCode" Nullable="false" MaxLength="3" />
+    <Property Type="String" Name="FieldSiteName" Nullable="false" MaxLength="80" />
+    <Property Type="String" Name="ReadAccessLevel" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="CPMasterEmployeeId" Nullable="true" MaxLength="14" />
+    <Property Type="String" Name="FullName" Nullable="true" MaxLength="4000" />
+  </ComplexType>
+  <ComplexType Name="spEDITHQGroup_Result">
+    <Property Type="Int32" Name="EDWPersonID" Nullable="false" />
+    <Property Type="String" Name="GroupName" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="CountryCode" Nullable="false" MaxLength="3" />
+    <Property Type="String" Name="FieldSiteName" Nullable="false" MaxLength="80" />
+    <Property Type="String" Name="ReadAccessLevel" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="CPMasterEmployeeId" Nullable="true" MaxLength="14" />
+    <Property Type="String" Name="FullName" Nullable="true" MaxLength="4000" />
+  </ComplexType>
+  <ComplexType Name="spEDITMealCordinator_Result">
+    <Property Type="Int32" Name="EDWPersonID" Nullable="false" />
+    <Property Type="String" Name="GroupName" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="CountryCode" Nullable="false" MaxLength="3" />
+    <Property Type="String" Name="FieldSiteName" Nullable="false" MaxLength="80" />
+    <Property Type="String" Name="ReadAccessLevel" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="CPMasterEmployeeId" Nullable="true" MaxLength="14" />
+    <Property Type="String" Name="FullName" Nullable="true" MaxLength="4000" />
+  </ComplexType>
+  <ComplexType Name="spEditOfficer_Result">
+    <Property Type="Int32" Name="EDWPersonID" Nullable="false" />
+    <Property Type="String" Name="GroupName" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="CountryCode" Nullable="false" MaxLength="3" />
+    <Property Type="String" Name="FieldSiteName" Nullable="false" MaxLength="80" />
+    <Property Type="String" Name="ReadAccessLevel" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="CPMasterEmployeeId" Nullable="true" MaxLength="14" />
+    <Property Type="String" Name="FullName" Nullable="true" MaxLength="4000" />
+  </ComplexType>
+  <ComplexType Name="spEDITITGroup_Result">
+    <Property Type="Int32" Name="EDWPersonID" Nullable="false" />
+    <Property Type="String" Name="GroupName" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="CountryCode" Nullable="false" MaxLength="3" />
+    <Property Type="String" Name="FieldSiteName" Nullable="false" MaxLength="80" />
+    <Property Type="String" Name="ReadAccessLevel" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="CPMasterEmployeeId" Nullable="true" MaxLength="14" />
+    <Property Type="String" Name="FullName" Nullable="true" MaxLength="4000" />
+  </ComplexType>
+  <ComplexType Name="spGetClassificationDesc_Result">
+    <Property Type="Byte" Name="ComplaintClassificationID" Nullable="false" />
+    <Property Type="String" Name="ComplaintClassificationName" Nullable="false" MaxLength="80" />
+    <Property Type="String" Name="ComplaintClassificationDescription" Nullable="true" MaxLength="800" />
+    <Property Type="Int16" Name="DisplaySequenceNumber" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="GetFacilityDetails_Result">
+    <Property Type="String" Name="AdminOneName" Nullable="true" MaxLength="254" />
+    <Property Type="String" Name="AdminTwoName" Nullable="true" MaxLength="254" />
+    <Property Type="String" Name="CityAdminName" Nullable="true" MaxLength="80" />
+  </ComplexType>
+  <ComplexType Name="GetFacilityCountryCode_Result">
+    <Property Type="Int16" Name="FacilityID" Nullable="false" />
+    <Property Type="String" Name="FacilityName" Nullable="false" MaxLength="162" />
+  </ComplexType>
+  <EntityType Name="vPersonVulnerabilityType">
+    <Key>
+      <PropertyRef Name="VulnerabilityTypeID" />
+      <PropertyRef Name="DisplaySequenceNumber" />
+    </Key>
+    <Property Name="VulnerabilityTypeID" Type="Byte" Nullable="false" />
+    <Property Name="VulnerabilityTypeName" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="VulnerabilityTypeShortName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="DisplaySequenceNumber" Type="Int16" Nullable="false" />
+  </EntityType>
+  <ComplexType Name="spEDITComplaintCommunication_Result">
+    <Property Type="Int32" Name="CommunityBasedComplaintID" Nullable="false" />
+    <Property Type="Int32" Name="EDWPersonID" Nullable="true" />
+    <Property Type="String" Name="CommunicationDate" Nullable="true" MaxLength="4000" />
+    <Property Type="Byte" Name="CommunicationStageID" Nullable="false" />
+    <Property Type="Byte" Name="CommunicationMethodID" Nullable="true" />
+    <Property Type="String" Name="Comment" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="OtherComplaintCommunicationMethodText" Nullable="true" MaxLength="80" />
+    <Property Type="String" Name="UpdateUser" Nullable="false" MaxLength="80" />
+    <Property Type="String" Name="FullName" Nullable="false" MaxLength="4000" />
+  </ComplexType>
+  <EntityType Name="vCommunicationStage">
+    <Key>
+      <PropertyRef Name="CommunicationStageID" />
+      <PropertyRef Name="CommunicationStageName" />
+      <PropertyRef Name="CommunicationStageShortName" />
+      <PropertyRef Name="DisplaySequenceNumber" />
+    </Key>
+    <Property Name="CommunicationStageID" Type="Byte" Nullable="false" />
+    <Property Name="CommunicationStageName" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="CommunicationStageShortName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="DisplaySequenceNumber" Type="Int16" Nullable="false" />
+  </EntityType>
+  <ComplexType Name="spEDITComplaintCommunicationACK_Result">
+    <Property Type="Int32" Name="CommunityBasedComplaintID" Nullable="false" />
+    <Property Type="Int32" Name="EDWPersonID" Nullable="true" />
+    <Property Type="String" Name="CommunicationDate" Nullable="true" MaxLength="4000" />
+    <Property Type="Byte" Name="CommunicationStageID" Nullable="false" />
+    <Property Type="Byte" Name="CommunicationMethodID" Nullable="true" />
+    <Property Type="String" Name="Comment" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="OtherComplaintCommunicationMethodText" Nullable="true" MaxLength="80" />
+    <Property Type="String" Name="UpdateUser" Nullable="false" MaxLength="80" />
+    <Property Type="String" Name="FullName" Nullable="false" MaxLength="4000" />
+  </ComplexType>
+  <ComplexType Name="spEDITComplaintCommunicationAR_Result">
+    <Property Type="Int32" Name="CommunityBasedComplaintID" Nullable="false" />
+    <Property Type="Int32" Name="EDWPersonID" Nullable="true" />
+    <Property Type="String" Name="CommunicationDate" Nullable="true" MaxLength="4000" />
+    <Property Type="Byte" Name="CommunicationStageID" Nullable="false" />
+    <Property Type="Byte" Name="CommunicationMethodID" Nullable="true" />
+    <Property Type="String" Name="Comment" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="OtherComplaintCommunicationMethodText" Nullable="true" MaxLength="80" />
+    <Property Type="String" Name="UpdateUser" Nullable="false" MaxLength="80" />
+    <Property Type="String" Name="FullName" Nullable="false" MaxLength="4000" />
+  </ComplexType>
+  <ComplexType Name="spEDITComplaintCommunicationFR_Result">
+    <Property Type="Int32" Name="CommunityBasedComplaintID" Nullable="false" />
+    <Property Type="Int32" Name="EDWPersonID" Nullable="true" />
+    <Property Type="String" Name="CommunicationDate" Nullable="true" MaxLength="4000" />
+    <Property Type="Byte" Name="CommunicationStageID" Nullable="false" />
+    <Property Type="Byte" Name="CommunicationMethodID" Nullable="true" />
+    <Property Type="String" Name="Comment" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="OtherComplaintCommunicationMethodText" Nullable="true" MaxLength="80" />
+    <Property Type="String" Name="UpdateUser" Nullable="false" MaxLength="80" />
+    <Property Type="String" Name="FullName" Nullable="false" MaxLength="4000" />
+  </ComplexType>
+  <ComplexType Name="spEDITComplaintCommunicationHQ_Result">
+    <Property Type="Int32" Name="CommunityBasedComplaintID" Nullable="false" />
+    <Property Type="Int32" Name="EDWPersonID" Nullable="true" />
+    <Property Type="String" Name="CommunicationDate" Nullable="true" MaxLength="4000" />
+    <Property Type="Byte" Name="CommunicationStageID" Nullable="false" />
+    <Property Type="Byte" Name="CommunicationMethodID" Nullable="true" />
+    <Property Type="String" Name="Comment" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="OtherComplaintCommunicationMethodText" Nullable="true" MaxLength="80" />
+    <Property Type="String" Name="UpdateUser" Nullable="false" MaxLength="80" />
+    <Property Type="String" Name="FullName" Nullable="false" MaxLength="4000" />
+  </ComplexType>
+  <EntityType Name="vComplaintCommunication">
+    <Key>
+      <PropertyRef Name="CommunityBasedComplaintID" />
+      <PropertyRef Name="EDWPersonID" />
+      <PropertyRef Name="CommunicationDate" />
+      <PropertyRef Name="CommunicationStageID" />
+      <PropertyRef Name="UpdateUser" />
+      <PropertyRef Name="CreateTimestamp" />
+      <PropertyRef Name="CreateUser" />
+      <PropertyRef Name="LastUpdateTimestamp" />
+      <PropertyRef Name="LastUpdateUser" />
+    </Key>
+    <Property Name="CommunityBasedComplaintID" Type="Int32" Nullable="false" />
+    <Property Name="EDWPersonID" Type="Int32" Nullable="false" />
+    <Property Name="CommunicationDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CommunicationStageID" Type="Byte" Nullable="false" />
+    <Property Name="CommunicationMethodID" Type="Byte" />
+    <Property Name="Comment" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="OtherComplaintCommunicationMethodText" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="UpdateUser" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="CreateTimestamp" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="CreateUser" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="LastUpdateTimestamp" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="LastUpdateUser" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <ComplexType Name="spGetCommunicationStage_Result">
+    <Property Type="Byte" Name="CommunicationStageID" Nullable="false" />
+    <Property Type="String" Name="CommunicationStageName" Nullable="false" MaxLength="80" />
+    <Property Type="String" Name="CommunicationStageShortName" Nullable="false" MaxLength="20" />
+    <Property Type="Int16" Name="DisplaySequenceNumber" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="spGetvCommunicationStage_Result">
+    <Property Type="Byte" Name="CommunicationStageID" Nullable="false" />
+    <Property Type="String" Name="CommunicationStageName" Nullable="false" MaxLength="80" />
+    <Property Type="String" Name="CommunicationStageShortName" Nullable="false" MaxLength="20" />
+    <Property Type="Int16" Name="DisplaySequenceNumber" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="spSave_CBCInternalReferralCountryLevel_Result">
+    <Property Type="String" Name="rowdata" Nullable="false" MaxLength="13" />
+    <Property Type="Int32" Name="numberOfRows" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spSave_CBCInternalReferralHQLevel_Result">
+    <Property Type="String" Name="rowdata" Nullable="false" MaxLength="13" />
+    <Property Type="Int32" Name="numberOfRows" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spSave_CommunityBasedComplaintCopy_Result">
+    <Property Type="String" Name="Result" Nullable="false" MaxLength="8" />
+    <Property Type="Int32" Name="ComplaintID" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="vCommunityBasedComplaint">
+    <Key>
+      <PropertyRef Name="CommunityBasedComplaintID" />
+      <PropertyRef Name="CountryCode" />
+      <PropertyRef Name="ComplaintStatusID" />
+      <PropertyRef Name="ReceivedDate" />
+      <PropertyRef Name="EnteredTimestamp" />
+      <PropertyRef Name="EnteredByEDWPersonID" />
+      <PropertyRef Name="UpdateUser" />
+      <PropertyRef Name="SourceDeletedFlag" />
+      <PropertyRef Name="CreateTimestamp" />
+      <PropertyRef Name="CreateUser" />
+      <PropertyRef Name="LastUpdateTimestamp" />
+      <PropertyRef Name="LastUpdateUser" />
+    </Key>
+    <Property Name="CommunityBasedComplaintID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CountryCode" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="false" />
+    <Property Name="FacilityID" Type="Int16" />
+    <Property Name="FieldSiteCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ComplaintCategoryID" Type="Byte" />
+    <Property Name="ComplaintClassificationID" Type="Byte" />
+    <Property Name="ComplaintCommunicationMethodID" Type="Byte" />
+    <Property Name="ComplaintStatusID" Type="Byte" Nullable="false" />
+    <Property Name="ProjectIdentifier" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="SubmitDate" Type="DateTime" Precision="0" />
+    <Property Name="ReceivedDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ReceivedByEDWPersonID" Type="Int32" />
+    <Property Name="ReceivedByNonIMCName" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="ResponseByNonIMCName" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="EnteredTimestamp" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="EnteredByEDWPersonID" Type="Int32" Nullable="false" />
+    <Property Name="ClosedDate" Type="DateTime" Precision="0" />
+    <Property Name="ClosedByEDWPersonID" Type="Int32" />
+    <Property Name="ComplaintDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="OtherComplaintCommunicationMethodText" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="SubjectText" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="AcknowledgementProvidedFlag" Type="Boolean" />
+    <Property Name="AppealedFlag" Type="Boolean" />
+    <Property Name="ReceivedByIMCStaffFlag" Type="Boolean" />
+    <Property Name="ResponseProvidedFlag" Type="Boolean" />
+    <Property Name="ReferralRequiredFlag" Type="Boolean" />
+    <Property Name="ReferralTypeID" Type="Byte" />
+    <Property Name="InternalReferralLevelID" Type="Byte" />
+    <Property Name="NoAcknowledgementReasonDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="NoReferralReasonDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="NoResponseReasonDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="OtherVulnerabilityText" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="UpdateUser" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="SourceDeletedFlag" Type="Boolean" Nullable="false" />
+    <Property Name="CreateTimestamp" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="CreateUser" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="LastUpdateTimestamp" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="LastUpdateUser" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="vComplainantDetail">
+    <Key>
+      <PropertyRef Name="EDWComplainantID" />
+      <PropertyRef Name="CommunityBasedComplaintID" />
+      <PropertyRef Name="UpdateUser" />
+      <PropertyRef Name="SourceDeletedFlag" />
+      <PropertyRef Name="CreateTimestamp" />
+      <PropertyRef Name="CreateUser" />
+      <PropertyRef Name="LastUpdateTimestamp" />
+      <PropertyRef Name="LastUpdateUser" />
+    </Key>
+    <Property Name="EDWComplainantID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CommunityBasedComplaintID" Type="Int32" Nullable="false" />
+    <Property Name="AgeYearNumber" Type="Byte" />
+    <Property Name="PrimaryLanguageDialectCode" Type="String" MaxLength="8" FixedLength="true" Unicode="false" />
+    <Property Name="SexCode" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="AnonymousFlag" Type="Boolean" />
+    <Property Name="PersonName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="AddressText" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="EmailAddress" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ComplainantProgramRelationshipText" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="OtherCommunicationAvenueText" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="OtherLanguageDialectText" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="ComplainantAllowContactFlag" Type="Boolean" />
+    <Property Name="ComplainantAllowVisitFlag" Type="Boolean" />
+    <Property Name="ComplainantQuestionsAddressedFlag" Type="Boolean" />
+    <Property Name="FollowUpContactDetailsFlag" Type="Boolean" />
+    <Property Name="HandlingProcessExplainedFlag" Type="Boolean" />
+    <Property Name="ProcessTimelineDiscussedFlag" Type="Boolean" />
+    <Property Name="ResponseReceivalExplainedFlag" Type="Boolean" />
+    <Property Name="UpdateUser" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="SourceDeletedFlag" Type="Boolean" Nullable="false" />
+    <Property Name="CreateTimestamp" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="CreateUser" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="LastUpdateTimestamp" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="LastUpdateUser" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <ComplexType Name="spEDITCommunityBasedComplaintDetails_Result">
+    <Property Type="Int32" Name="CommunityBasedComplaintID" Nullable="false" />
+    <Property Type="String" Name="CountryCode" Nullable="false" MaxLength="3" />
+    <Property Type="Int16" Name="FacilityID" Nullable="true" />
+    <Property Type="String" Name="FieldSiteCode" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="CountryName" Nullable="true" MaxLength="80" />
+    <Property Type="Byte" Name="ComplaintCategoryID" Nullable="true" />
+    <Property Type="Byte" Name="ComplaintClassificationID" Nullable="false" />
+    <Property Type="Byte" Name="ComplaintCommunicationMethodID" Nullable="false" />
+    <Property Type="Byte" Name="ComplaintStatusID" Nullable="false" />
+    <Property Type="String" Name="ProjectIdentifier" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="SubmitDate" Nullable="true" MaxLength="4000" />
+    <Property Type="String" Name="ReceivedDate" Nullable="true" MaxLength="4000" />
+    <Property Type="DateTime" Name="ReceivedDateForGrid" Nullable="false" />
+    <Property Type="Int32" Name="DaysafterRecived" Nullable="true" />
+    <Property Type="Int32" Name="ReceivedByEDWPersonID" Nullable="false" />
+    <Property Type="String" Name="ReceivedByNonIMCName" Nullable="true" MaxLength="80" />
+    <Property Type="String" Name="ResponseByNonIMCName" Nullable="true" MaxLength="80" />
+    <Property Type="String" Name="EnteredTimestamp" Nullable="true" MaxLength="4000" />
+    <Property Type="Int32" Name="EnteredByEDWPersonID" Nullable="false" />
+    <Property Type="String" Name="ClosedDate" Nullable="true" MaxLength="4000" />
+    <Property Type="Int32" Name="ClosedByEDWPersonID" Nullable="false" />
+    <Property Type="String" Name="ComplaintDescription" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="OtherComplaintCommunicationMethodText" Nullable="true" MaxLength="80" />
+    <Property Type="String" Name="SubjectText" Nullable="true" MaxLength="80" />
+    <Property Type="Boolean" Name="AcknowledgementProvidedFlag" Nullable="true" />
+    <Property Type="Boolean" Name="ReceivedByIMCStaffFlag" Nullable="true" />
+    <Property Type="Boolean" Name="ResponseProvidedFlag" Nullable="true" />
+    <Property Type="Boolean" Name="ReferralRequiredFlag" Nullable="true" />
+    <Property Type="Byte" Name="InternalReferralLevelID" Nullable="true" />
+    <Property Type="String" Name="NoAcknowledgementReasonDescription" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="NoReferralReasonDescription" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="NoResponseReasonDescription" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="OtherVulnerabilityText" Nullable="true" MaxLength="80" />
+    <Property Type="String" Name="AssignedName" Nullable="true" MaxLength="4000" />
+    <Property Type="String" Name="UpdateUser" Nullable="false" MaxLength="80" />
+    <Property Type="Boolean" Name="ResponseAppeal" Nullable="true" />
+    <Property Type="Byte" Name="StatusID" Nullable="true" />
+    <Property Type="String" Name="ComplaintStatusName" Nullable="true" MaxLength="80" />
+    <Property Type="String" Name="ProjectName" Nullable="true" MaxLength="73" />
+    <Property Type="String" Name="ProhectIdentity" Nullable="true" MaxLength="30" />
+    <Property Type="Byte" Name="CategoryID" Nullable="true" />
+    <Property Type="String" Name="ComplaintCategoryName" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="ComplaintCategoryShortName" Nullable="false" MaxLength="101" />
+    <Property Type="String" Name="FieldSectorCode" Nullable="true" />
+    <Property Type="String" Name="VulnerabilityTypeName" Nullable="true" />
+    <Property Type="String" Name="FullName" Nullable="false" MaxLength="4000" />
+    <Property Type="String" Name="ClosedbyPerson" Nullable="true" MaxLength="4000" />
+  </ComplexType>
+  <ComplexType Name="spEDITCommunityBasedComplaintDetailsCopy_Result">
+    <Property Type="Int32" Name="CommunityBasedComplaintID" Nullable="false" />
+    <Property Type="String" Name="CountryCode" Nullable="false" MaxLength="3" />
+    <Property Type="String" Name="FieldSiteCode" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="CountryName" Nullable="true" MaxLength="80" />
+    <Property Type="Byte" Name="ComplaintCategoryID" Nullable="true" />
+    <Property Type="Byte" Name="ComplaintClassificationID" Nullable="false" />
+    <Property Type="Byte" Name="ComplaintCommunicationMethodID" Nullable="false" />
+    <Property Type="Byte" Name="ComplaintStatusID" Nullable="false" />
+    <Property Type="String" Name="ProjectIdentifier" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="SubmitDate" Nullable="true" MaxLength="4000" />
+    <Property Type="String" Name="ReceivedDate" Nullable="true" MaxLength="4000" />
+    <Property Type="DateTime" Name="ReceivedDateForGrid" Nullable="false" />
+    <Property Type="Int32" Name="DaysafterRecived" Nullable="true" />
+    <Property Type="Int32" Name="ReceivedByEDWPersonID" Nullable="false" />
+    <Property Type="String" Name="ReceivedByNonIMCName" Nullable="true" MaxLength="80" />
+    <Property Type="String" Name="ResponseByNonIMCName" Nullable="true" MaxLength="80" />
+    <Property Type="String" Name="EnteredTimestamp" Nullable="true" MaxLength="4000" />
+    <Property Type="Int32" Name="EnteredByEDWPersonID" Nullable="false" />
+    <Property Type="String" Name="ClosedDate" Nullable="true" MaxLength="4000" />
+    <Property Type="Int32" Name="ClosedByEDWPersonID" Nullable="false" />
+    <Property Type="String" Name="ComplaintDescription" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="OtherComplaintCommunicationMethodText" Nullable="true" MaxLength="80" />
+    <Property Type="String" Name="SubjectText" Nullable="true" MaxLength="80" />
+    <Property Type="Boolean" Name="AcknowledgementProvidedFlag" Nullable="true" />
+    <Property Type="Boolean" Name="ReceivedByIMCStaffFlag" Nullable="true" />
+    <Property Type="Boolean" Name="ResponseProvidedFlag" Nullable="true" />
+    <Property Type="Boolean" Name="ReferralRequiredFlag" Nullable="true" />
+    <Property Type="Byte" Name="InternalReferralLevelID" Nullable="true" />
+    <Property Type="String" Name="NoAcknowledgementReasonDescription" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="NoReferralReasonDescription" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="NoResponseReasonDescription" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="AssignedName" Nullable="true" MaxLength="4000" />
+    <Property Type="String" Name="UpdateUser" Nullable="false" MaxLength="80" />
+    <Property Type="Boolean" Name="ResponseAppeal" Nullable="true" />
+    <Property Type="Byte" Name="StatusID" Nullable="true" />
+    <Property Type="String" Name="ComplaintStatusName" Nullable="true" MaxLength="80" />
+    <Property Type="String" Name="ProjectName" Nullable="true" MaxLength="73" />
+    <Property Type="String" Name="ProhectIdentity" Nullable="true" MaxLength="30" />
+    <Property Type="Byte" Name="CategoryID" Nullable="true" />
+    <Property Type="String" Name="ComplaintCategoryName" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="ComplaintCategoryShortName" Nullable="false" MaxLength="101" />
+    <Property Type="String" Name="FieldSectorCode" Nullable="true" />
+    <Property Type="String" Name="VulnerabilityTypeName" Nullable="true" />
+    <Property Type="String" Name="FullName" Nullable="false" MaxLength="4000" />
+    <Property Type="String" Name="ClosedbyPerson" Nullable="true" MaxLength="4000" />
+  </ComplexType>
+</Schema>

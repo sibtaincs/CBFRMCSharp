@@ -1,0 +1,1128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EDWModelStoreContainer" CdmEntityContainer="EDWEntities">
+    <EntitySetMapping Name="vDonor_Name">
+      <EntityTypeMapping TypeName="EDWModel.vDonor_Name">
+        <MappingFragment StoreEntitySet="vDonor_Name">
+          <ScalarProperty Name="CompanyCode" ColumnName="CompanyCode" />
+          <ScalarProperty Name="DonorIdentifier" ColumnName="DonorIdentifier" />
+          <ScalarProperty Name="DonorName" ColumnName="DonorName" />
+          <ScalarProperty Name="DonorShortName" ColumnName="DonorShortName" />
+          <ScalarProperty Name="DonorTypeCode" ColumnName="DonorTypeCode" />
+          <ScalarProperty Name="DonorCategoryCode" ColumnName="DonorCategoryCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vFieldSite">
+      <EntityTypeMapping TypeName="EDWModel.vFieldSite">
+        <MappingFragment StoreEntitySet="vFieldSite">
+          <ScalarProperty Name="FieldSiteCode" ColumnName="FieldSiteCode" />
+          <ScalarProperty Name="FieldSiteName" ColumnName="FieldSiteName" />
+          <ScalarProperty Name="FieldSiteShortName" ColumnName="FieldSiteShortName" />
+          <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+          <ScalarProperty Name="ActiveFlag" ColumnName="ActiveFlag" />
+          <ScalarProperty Name="DisplaySequenceNumber" ColumnName="DisplaySequenceNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vSex">
+      <EntityTypeMapping TypeName="EDWModel.vSex">
+        <MappingFragment StoreEntitySet="vSex">
+          <ScalarProperty Name="SexCode" ColumnName="SexCode" />
+          <ScalarProperty Name="SexName" ColumnName="SexName" />
+          <ScalarProperty Name="SexShortName" ColumnName="SexShortName" />
+          <ScalarProperty Name="DisplaySequenceNumber" ColumnName="DisplaySequenceNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vCommunicationMethod">
+      <EntityTypeMapping TypeName="EDWModel.vCommunicationMethod">
+        <MappingFragment StoreEntitySet="vCommunicationMethod">
+          <ScalarProperty Name="ReferralDisplaySequenceNumber" ColumnName="ReferralDisplaySequenceNumber" />
+          <ScalarProperty Name="ReferralOptionFlag" ColumnName="ReferralOptionFlag" />
+          <ScalarProperty Name="CommunicationMethodID" ColumnName="CommunicationMethodID" />
+          <ScalarProperty Name="CommunicationMethodName" ColumnName="CommunicationMethodName" />
+          <ScalarProperty Name="CommunicationMethodShortName" ColumnName="CommunicationMethodShortName" />
+          <ScalarProperty Name="GeneralOptionFlag" ColumnName="GeneralOptionFlag" />
+          <ScalarProperty Name="GeneralDisplaySequenceNumber" ColumnName="GeneralDisplaySequenceNumber" />
+          <ScalarProperty Name="SubmittalOptionFlag" ColumnName="SubmittalOptionFlag" />
+          <ScalarProperty Name="SubmittalDisplaySequenceNumber" ColumnName="SubmittalDisplaySequenceNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vCommunicationStage">
+      <EntityTypeMapping TypeName="EDWModel.vCommunicationStage">
+        <MappingFragment StoreEntitySet="vCommunicationStage">
+          <ScalarProperty Name="CommunicationStageID" ColumnName="CommunicationStageID" />
+          <ScalarProperty Name="CommunicationStageName" ColumnName="CommunicationStageName" />
+          <ScalarProperty Name="CommunicationStageShortName" ColumnName="CommunicationStageShortName" />
+          <ScalarProperty Name="ReminderDayCount" ColumnName="ReminderDayCount" />
+          <ScalarProperty Name="DisplaySequenceNumber" ColumnName="DisplaySequenceNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vCommunityBasedComplaintDocumentation">
+      <EntityTypeMapping TypeName="EDWModel.vCommunityBasedComplaintDocumentation">
+        <MappingFragment StoreEntitySet="vCommunityBasedComplaintDocumentation">
+          <ScalarProperty Name="AppealDocumentFlag" ColumnName="AppealDocumentFlag" />
+          <ScalarProperty Name="CommunityBasedComplaintDocID" ColumnName="CommunityBasedComplaintDocID" />
+          <ScalarProperty Name="CommunityBasedComplaintID" ColumnName="CommunityBasedComplaintID" />
+          <ScalarProperty Name="DocumentHyperlink" ColumnName="DocumentHyperlink" />
+          <ScalarProperty Name="SupportingDocumentDescription" ColumnName="SupportingDocumentDescription" />
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+          <ScalarProperty Name="SourceDeletedFlag" ColumnName="SourceDeletedFlag" />
+          <ScalarProperty Name="CreateTimestamp" ColumnName="CreateTimestamp" />
+          <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+          <ScalarProperty Name="LastUpdateTimestamp" ColumnName="LastUpdateTimestamp" />
+          <ScalarProperty Name="LastUpdateUser" ColumnName="LastUpdateUser" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vCommunityBasedComplaintLocation">
+      <EntityTypeMapping TypeName="EDWModel.vCommunityBasedComplaintLocation">
+        <MappingFragment StoreEntitySet="vCommunityBasedComplaintLocation">
+          <ScalarProperty Name="CommunityBasedComplaintID" ColumnName="CommunityBasedComplaintID" />
+          <ScalarProperty Name="LocationText" ColumnName="LocationText" />
+          <ScalarProperty Name="CommunityText" ColumnName="CommunityText" />
+          <ScalarProperty Name="DistrictText" ColumnName="DistrictText" />
+          <ScalarProperty Name="ProvinceText" ColumnName="ProvinceText" />
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+          <ScalarProperty Name="SourceDeletedFlag" ColumnName="SourceDeletedFlag" />
+          <ScalarProperty Name="CreateTimestamp" ColumnName="CreateTimestamp" />
+          <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+          <ScalarProperty Name="LastUpdateTimestamp" ColumnName="LastUpdateTimestamp" />
+          <ScalarProperty Name="LastUpdateUser" ColumnName="LastUpdateUser" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vComplaintAppeal">
+      <EntityTypeMapping TypeName="EDWModel.vComplaintAppeal">
+        <MappingFragment StoreEntitySet="vComplaintAppeal">
+          <ScalarProperty Name="OtherComplaintCommunicationMethodText" ColumnName="OtherComplaintCommunicationMethodText" />
+          <ScalarProperty Name="CommunityBasedComplaintID" ColumnName="CommunityBasedComplaintID" />
+          <ScalarProperty Name="AppealDate" ColumnName="AppealDate" />
+          <ScalarProperty Name="ProcessDescription" ColumnName="ProcessDescription" />
+          <ScalarProperty Name="AppealReceivedCommunicationMethodID" ColumnName="AppealReceivedCommunicationMethodID" />
+          <ScalarProperty Name="AppealResolutionDescription" ColumnName="AppealResolutionDescription" />
+          <ScalarProperty Name="AppealResolutionDate" ColumnName="AppealResolutionDate" />
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+          <ScalarProperty Name="SourceDeletedFlag" ColumnName="SourceDeletedFlag" />
+          <ScalarProperty Name="CreateTimestamp" ColumnName="CreateTimestamp" />
+          <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+          <ScalarProperty Name="LastUpdateTimestamp" ColumnName="LastUpdateTimestamp" />
+          <ScalarProperty Name="LastUpdateUser" ColumnName="LastUpdateUser" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vComplaintAppealCommittee">
+      <EntityTypeMapping TypeName="EDWModel.vComplaintAppealCommittee">
+        <MappingFragment StoreEntitySet="vComplaintAppealCommittee">
+          <ScalarProperty Name="CommunityBasedComplaintID" ColumnName="CommunityBasedComplaintID" />
+          <ScalarProperty Name="EDWPersonID" ColumnName="EDWPersonID" />
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+          <ScalarProperty Name="SourceDeletedFlag" ColumnName="SourceDeletedFlag" />
+          <ScalarProperty Name="CreateTimestamp" ColumnName="CreateTimestamp" />
+          <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+          <ScalarProperty Name="LastUpdateTimestamp" ColumnName="LastUpdateTimestamp" />
+          <ScalarProperty Name="LastUpdateUser" ColumnName="LastUpdateUser" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vComplaintCategory">
+      <EntityTypeMapping TypeName="EDWModel.vComplaintCategory">
+        <MappingFragment StoreEntitySet="vComplaintCategory">
+          <ScalarProperty Name="ComplaintClassificationID" ColumnName="ComplaintClassificationID" />
+          <ScalarProperty Name="ComplaintCategoryDescription" ColumnName="ComplaintCategoryDescription" />
+          <ScalarProperty Name="ComplaintCategoryID" ColumnName="ComplaintCategoryID" />
+          <ScalarProperty Name="ComplaintCategoryName" ColumnName="ComplaintCategoryName" />
+          <ScalarProperty Name="ComplaintCategoryRating" ColumnName="ComplaintCategoryRating" />
+          <ScalarProperty Name="ComplaintCategoryShortName" ColumnName="ComplaintCategoryShortName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vComplaintCommunication">
+      <EntityTypeMapping TypeName="EDWModel.vComplaintCommunication">
+        <MappingFragment StoreEntitySet="vComplaintCommunication">
+          <ScalarProperty Name="FromPersonFlag" ColumnName="FromPersonFlag" />
+          <ScalarProperty Name="OtherComplaintCommunicationMethodText" ColumnName="OtherComplaintCommunicationMethodText" />
+          <ScalarProperty Name="CommunityBasedComplaintID" ColumnName="CommunityBasedComplaintID" />
+          <ScalarProperty Name="EDWPersonID" ColumnName="EDWPersonID" />
+          <ScalarProperty Name="CommunicationDate" ColumnName="CommunicationDate" />
+          <ScalarProperty Name="CommunicationStageID" ColumnName="CommunicationStageID" />
+          <ScalarProperty Name="CommunicationMethodID" ColumnName="CommunicationMethodID" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+          <ScalarProperty Name="CreateTimestamp" ColumnName="CreateTimestamp" />
+          <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+          <ScalarProperty Name="LastUpdateTimestamp" ColumnName="LastUpdateTimestamp" />
+          <ScalarProperty Name="LastUpdateUser" ColumnName="LastUpdateUser" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vComplaintResolution">
+      <EntityTypeMapping TypeName="EDWModel.vComplaintResolution">
+        <MappingFragment StoreEntitySet="vComplaintResolution">
+          <ScalarProperty Name="CommunityBasedComplaintID" ColumnName="CommunityBasedComplaintID" />
+          <ScalarProperty Name="InvestigationDescription" ColumnName="InvestigationDescription" />
+          <ScalarProperty Name="InvestigationPointOfContactName" ColumnName="InvestigationPointOfContactName" />
+          <ScalarProperty Name="CorrectiveActionDescription" ColumnName="CorrectiveActionDescription" />
+          <ScalarProperty Name="ResolutionDate" ColumnName="ResolutionDate" />
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+          <ScalarProperty Name="SourceDeletedFlag" ColumnName="SourceDeletedFlag" />
+          <ScalarProperty Name="CreateTimestamp" ColumnName="CreateTimestamp" />
+          <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+          <ScalarProperty Name="LastUpdateTimestamp" ColumnName="LastUpdateTimestamp" />
+          <ScalarProperty Name="LastUpdateUser" ColumnName="LastUpdateUser" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vComplaintStatus">
+      <EntityTypeMapping TypeName="EDWModel.vComplaintStatus">
+        <MappingFragment StoreEntitySet="vComplaintStatus">
+          <ScalarProperty Name="ComplaintStatusID" ColumnName="ComplaintStatusID" />
+          <ScalarProperty Name="ComplaintStatusName" ColumnName="ComplaintStatusName" />
+          <ScalarProperty Name="ComplaintStatusShortName" ColumnName="ComplaintStatusShortName" />
+          <ScalarProperty Name="DisplaySequenceNumber" ColumnName="DisplaySequenceNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vExternalReferral">
+      <EntityTypeMapping TypeName="EDWModel.vExternalReferral">
+        <MappingFragment StoreEntitySet="vExternalReferral">
+          <ScalarProperty Name="HQDisclosureAuthorizationText" ColumnName="HQDisclosureAuthorizationText" />
+          <ScalarProperty Name="CommunityBasedComplaintID" ColumnName="CommunityBasedComplaintID" />
+          <ScalarProperty Name="ReferralDate" ColumnName="ReferralDate" />
+          <ScalarProperty Name="ReferralAgencyName" ColumnName="ReferralAgencyName" />
+          <ScalarProperty Name="ReferralPersonName" ColumnName="ReferralPersonName" />
+          <ScalarProperty Name="ReferralPersonPositionText" ColumnName="ReferralPersonPositionText" />
+          <ScalarProperty Name="ContactComment" ColumnName="ContactComment" />
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+          <ScalarProperty Name="SourceDeletedFlag" ColumnName="SourceDeletedFlag" />
+          <ScalarProperty Name="CreateTimestamp" ColumnName="CreateTimestamp" />
+          <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+          <ScalarProperty Name="LastUpdateTimestamp" ColumnName="LastUpdateTimestamp" />
+          <ScalarProperty Name="LastUpdateUser" ColumnName="LastUpdateUser" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vLanguageDialect">
+      <EntityTypeMapping TypeName="EDWModel.vLanguageDialect">
+        <MappingFragment StoreEntitySet="vLanguageDialect">
+          <ScalarProperty Name="LanguageDialectCode" ColumnName="LanguageDialectCode" />
+          <ScalarProperty Name="LanguageName" ColumnName="LanguageName" />
+          <ScalarProperty Name="LanguageShortName" ColumnName="LanguageShortName" />
+          <ScalarProperty Name="ISOLanguageCode" ColumnName="ISOLanguageCode" />
+          <ScalarProperty Name="DialectName" ColumnName="DialectName" />
+          <ScalarProperty Name="DisplaySequenceNumber" ColumnName="DisplaySequenceNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vPersonVulnerabilityType">
+      <EntityTypeMapping TypeName="EDWModel.vPersonVulnerabilityType">
+        <MappingFragment StoreEntitySet="vPersonVulnerabilityType">
+          <ScalarProperty Name="VulnerabilityTypeID" ColumnName="VulnerabilityTypeID" />
+          <ScalarProperty Name="VulnerabilityTypeName" ColumnName="VulnerabilityTypeName" />
+          <ScalarProperty Name="VulnerabilityTypeShortName" ColumnName="VulnerabilityTypeShortName" />
+          <ScalarProperty Name="DisplaySequenceNumber" ColumnName="DisplaySequenceNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vUserManager">
+      <EntityTypeMapping TypeName="EDWModel.vUserManager">
+        <MappingFragment StoreEntitySet="vUserManager">
+          <ScalarProperty Name="EDWPersonID" ColumnName="EDWPersonID" />
+          <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+          <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+          <ScalarProperty Name="FieldSiteName" ColumnName="FieldSiteName" />
+          <ScalarProperty Name="ReadAccessLevel" ColumnName="ReadAccessLevel" />
+          <ScalarProperty Name="SourceDeletedFlag" ColumnName="SourceDeletedFlag" />
+          <ScalarProperty Name="CreateTimestamp" ColumnName="CreateTimestamp" />
+          <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+          <ScalarProperty Name="LastUpdateTimestamp" ColumnName="LastUpdateTimestamp" />
+          <ScalarProperty Name="LastUpdateUser" ColumnName="LastUpdateUser" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="spGetvCommunicationMethod" FunctionName="EDWModel.Store.spGetvCommunicationMethod">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EDWModel.spGetvCommunicationMethod_Result">
+          <ScalarProperty Name="CommunicationMethodID" ColumnName="CommunicationMethodID" />
+          <ScalarProperty Name="CommunicationMethodName" ColumnName="CommunicationMethodName" />
+          <ScalarProperty Name="CommunicationMethodShortName" ColumnName="CommunicationMethodShortName" />
+          <ScalarProperty Name="GeneralOptionFlag" ColumnName="GeneralOptionFlag" />
+          <ScalarProperty Name="GeneralDisplaySequenceNumber" ColumnName="GeneralDisplaySequenceNumber" />
+          <ScalarProperty Name="SubmittalOptionFlag" ColumnName="SubmittalOptionFlag" />
+          <ScalarProperty Name="SubmittalDisplaySequenceNumber" ColumnName="SubmittalDisplaySequenceNumber" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetvCommunicationStage" FunctionName="EDWModel.Store.spGetvCommunicationStage">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EDWModel.spGetvCommunicationStage_Result">
+          <ScalarProperty Name="CommunicationStageID" ColumnName="CommunicationStageID" />
+          <ScalarProperty Name="CommunicationStageName" ColumnName="CommunicationStageName" />
+          <ScalarProperty Name="CommunicationStageShortName" ColumnName="CommunicationStageShortName" />
+          <ScalarProperty Name="ReminderDayCount" ColumnName="ReminderDayCount" />
+          <ScalarProperty Name="DisplaySequenceNumber" ColumnName="DisplaySequenceNumber" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetvDonor_Name" FunctionName="EDWModel.Store.spGetvDonor_Name">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EDWModel.spGetvDonor_Name_Result">
+          <ScalarProperty Name="CompanyCode" ColumnName="CompanyCode" />
+          <ScalarProperty Name="DonorIdentifier" ColumnName="DonorIdentifier" />
+          <ScalarProperty Name="DonorName" ColumnName="DonorName" />
+          <ScalarProperty Name="DonorShortName" ColumnName="DonorShortName" />
+          <ScalarProperty Name="DonorTypeCode" ColumnName="DonorTypeCode" />
+          <ScalarProperty Name="DonorCategoryCode" ColumnName="DonorCategoryCode" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetvvUserDetails" FunctionName="EDWModel.Store.spGetvvUserDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EDWModel.spGetvvUserDetails_Result">
+          <ScalarProperty Name="EDWPersonID" ColumnName="EDWPersonID" />
+          <ScalarProperty Name="CPMasterEmployeeId" ColumnName="CPMasterEmployeeId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="saMAccountName" ColumnName="saMAccountName" />
+          <ScalarProperty Name="WorkEmailAddress" ColumnName="WorkEmailAddress" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetvUserManager" FunctionName="EDWModel.Store.spGetvUserManager">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EDWModel.spGetvUserManager_Result">
+          <ScalarProperty Name="EDWPersonID" ColumnName="EDWPersonID" />
+          <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+          <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+          <ScalarProperty Name="FieldSiteName" ColumnName="FieldSiteName" />
+          <ScalarProperty Name="ReadAccessLevel" ColumnName="ReadAccessLevel" />
+          <ScalarProperty Name="SourceDeletedFlag" ColumnName="SourceDeletedFlag" />
+          <ScalarProperty Name="CreateTimestamp" ColumnName="CreateTimestamp" />
+          <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+          <ScalarProperty Name="LastUpdateTimestamp" ColumnName="LastUpdateTimestamp" />
+          <ScalarProperty Name="LastUpdateUser" ColumnName="LastUpdateUser" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetvSearchUser" FunctionName="EDWModel.Store.spGetvSearchUser">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EDWModel.spGetvSearchUser_Result">
+          <ScalarProperty Name="EDWPersonID" ColumnName="EDWPersonID" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetvUserAssign" FunctionName="EDWModel.Store.spGetvUserAssign">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EDWModel.spGetvUserAssign_Result">
+          <ScalarProperty Name="EDWPersonID" ColumnName="EDWPersonID" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetPersonVulnerabilityType" FunctionName="EDWModel.Store.spGetPersonVulnerabilityType">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EDWModel.spGetPersonVulnerabilityType_Result">
+          <ScalarProperty Name="VulnerabilityTypeID" ColumnName="VulnerabilityTypeID" />
+          <ScalarProperty Name="VulnerabilityTypeName" ColumnName="VulnerabilityTypeName" />
+          <ScalarProperty Name="VulnerabilityTypeShortName" ColumnName="VulnerabilityTypeShortName" />
+          <ScalarProperty Name="DisplaySequenceNumber" ColumnName="DisplaySequenceNumber" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetvGender" FunctionName="EDWModel.Store.spGetvGender">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EDWModel.spGetvGender_Result">
+          <ScalarProperty Name="SexCode" ColumnName="SexCode" />
+          <ScalarProperty Name="SexName" ColumnName="SexName" />
+          <ScalarProperty Name="SexShortName" ColumnName="SexShortName" />
+          <ScalarProperty Name="DisplaySequenceNumber" ColumnName="DisplaySequenceNumber" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetvLanguageDialect" FunctionName="EDWModel.Store.spGetvLanguageDialect">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EDWModel.spGetvLanguageDialect_Result">
+          <ScalarProperty Name="LanguageDialectCode" ColumnName="LanguageDialectCode" />
+          <ScalarProperty Name="LanguageName" ColumnName="LanguageName" />
+          <ScalarProperty Name="LanguageShortName" ColumnName="LanguageShortName" />
+          <ScalarProperty Name="ISOLanguageCode" ColumnName="ISOLanguageCode" />
+          <ScalarProperty Name="DialectName" ColumnName="DialectName" />
+          <ScalarProperty Name="DisplaySequenceNumber" ColumnName="DisplaySequenceNumber" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetvComplaintCategory" FunctionName="EDWModel.Store.spGetvComplaintCategory">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EDWModel.spGetvComplaintCategory_Result">
+          <ScalarProperty Name="ComplaintCategoryID" ColumnName="ComplaintCategoryID" />
+          <ScalarProperty Name="ComplaintCategoryName" ColumnName="ComplaintCategoryName" />
+          <ScalarProperty Name="ComplaintCategoryRating" ColumnName="ComplaintCategoryRating" />
+          <ScalarProperty Name="ComplaintCategoryShortName" ColumnName="ComplaintCategoryShortName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetvUserAssign2" FunctionName="EDWModel.Store.spGetvUserAssign2">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EDWModel.spGetvUserAssign2_Result">
+          <ScalarProperty Name="EDWPersonID" ColumnName="EDWPersonID" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="vCommunityBasedComplaintFieldSector">
+      <EntityTypeMapping TypeName="EDWModel.vCommunityBasedComplaintFieldSector">
+        <MappingFragment StoreEntitySet="vCommunityBasedComplaintFieldSector">
+          <ScalarProperty Name="LastUpdateUser" ColumnName="LastUpdateUser" />
+          <ScalarProperty Name="LastUpdateTimestamp" ColumnName="LastUpdateTimestamp" />
+          <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+          <ScalarProperty Name="CreateTimestamp" ColumnName="CreateTimestamp" />
+          <ScalarProperty Name="SourceDeletedFlag" ColumnName="SourceDeletedFlag" />
+          <ScalarProperty Name="OtherSectorText" ColumnName="OtherSectorText" />
+          <ScalarProperty Name="FieldSectorCode" ColumnName="FieldSectorCode" />
+          <ScalarProperty Name="CommunityBasedComplaintID" ColumnName="CommunityBasedComplaintID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="spGetvFieldSector" FunctionName="EDWModel.Store.spGetvFieldSector">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EDWModel.spGetvFieldSector_Result">
+          <ScalarProperty Name="FieldSectorCode" ColumnName="FieldSectorCode" />
+          <ScalarProperty Name="FieldSectorName" ColumnName="FieldSectorName" />
+          <ScalarProperty Name="FieldSectorShortName" ColumnName="FieldSectorShortName" />
+          <ScalarProperty Name="ActiveFlag" ColumnName="ActiveFlag" />
+          <ScalarProperty Name="DisplaySequenceNumber" ColumnName="DisplaySequenceNumber" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetvCommunicationMethodGenral" FunctionName="EDWModel.Store.spGetvCommunicationMethodGenral">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EDWModel.spGetvCommunicationMethodGenral_Result">
+          <ScalarProperty Name="CommunicationMethodID" ColumnName="CommunicationMethodID" />
+          <ScalarProperty Name="CommunicationMethodName" ColumnName="CommunicationMethodName" />
+          <ScalarProperty Name="CommunicationMethodShortName" ColumnName="CommunicationMethodShortName" />
+          <ScalarProperty Name="GeneralOptionFlag" ColumnName="GeneralOptionFlag" />
+          <ScalarProperty Name="GeneralDisplaySequenceNumber" ColumnName="GeneralDisplaySequenceNumber" />
+          <ScalarProperty Name="SubmittalOptionFlag" ColumnName="SubmittalOptionFlag" />
+          <ScalarProperty Name="SubmittalDisplaySequenceNumber" ColumnName="SubmittalDisplaySequenceNumber" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="vComplainantVulnerability">
+      <EntityTypeMapping TypeName="EDWModel.vComplainantVulnerability">
+        <MappingFragment StoreEntitySet="vComplainantVulnerability">
+          <ScalarProperty Name="LastUpdateUser" ColumnName="LastUpdateUser" />
+          <ScalarProperty Name="LastUpdateTimestamp" ColumnName="LastUpdateTimestamp" />
+          <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+          <ScalarProperty Name="CreateTimestamp" ColumnName="CreateTimestamp" />
+          <ScalarProperty Name="SourceDeletedFlag" ColumnName="SourceDeletedFlag" />
+          <ScalarProperty Name="VulnerabilityTypeID" ColumnName="VulnerabilityTypeID" />
+          <ScalarProperty Name="EDWComplainantID" ColumnName="EDWComplainantID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vComplaintClassification">
+      <EntityTypeMapping TypeName="EDWModel.vComplaintClassification">
+        <MappingFragment StoreEntitySet="vComplaintClassification">
+          <ScalarProperty Name="DisplaySequenceNumber" ColumnName="DisplaySequenceNumber" />
+          <ScalarProperty Name="ComplaintClassificationDescription" ColumnName="ComplaintClassificationDescription" />
+          <ScalarProperty Name="ComplaintClassificationName" ColumnName="ComplaintClassificationName" />
+          <ScalarProperty Name="ComplaintClassificationID" ColumnName="ComplaintClassificationID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="spGetCountry" FunctionName="EDWModel.Store.spGetCountry">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EDWModel.spGetCountry_Result">
+          <ScalarProperty Name="EDMCountryID" ColumnName="EDMCountryID" />
+          <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+          <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetReferralType" FunctionName="EDWModel.Store.spGetReferralType">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EDWModel.spGetReferralType_Result">
+          <ScalarProperty Name="ReferralTypeID" ColumnName="ReferralTypeID" />
+          <ScalarProperty Name="ReferralTypeName" ColumnName="ReferralTypeName" />
+          <ScalarProperty Name="DisplaySequenceNumber" ColumnName="DisplaySequenceNumber" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetComplainClassification" FunctionName="EDWModel.Store.spGetComplainClassification">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EDWModel.spGetComplainClassification_Result">
+          <ScalarProperty Name="ComplaintClassificationID" ColumnName="ComplaintClassificationID" />
+          <ScalarProperty Name="ComplaintClassificationName" ColumnName="ComplaintClassificationName" />
+          <ScalarProperty Name="ComplaintClassificationDescription" ColumnName="ComplaintClassificationDescription" />
+          <ScalarProperty Name="DisplaySequenceNumber" ColumnName="DisplaySequenceNumber" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetReferrallevel" FunctionName="EDWModel.Store.spGetReferrallevel">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EDWModel.spGetReferrallevel_Result">
+          <ScalarProperty Name="ReferralLevelID" ColumnName="ReferralLevelID" />
+          <ScalarProperty Name="ReferralLevelName" ColumnName="ReferralLevelName" />
+          <ScalarProperty Name="ReferralLevelShortName" ColumnName="ReferralLevelShortName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetvCommunicationMethodEthics" FunctionName="EDWModel.Store.spGetvCommunicationMethodEthics">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EDWModel.spGetvCommunicationMethodEthics_Result">
+          <ScalarProperty Name="CommunicationMethodID" ColumnName="CommunicationMethodID" />
+          <ScalarProperty Name="CommunicationMethodName" ColumnName="CommunicationMethodName" />
+          <ScalarProperty Name="CommunicationMethodShortName" ColumnName="CommunicationMethodShortName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetCategoryByID" FunctionName="EDWModel.Store.spGetCategoryByID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EDWModel.spGetCategoryByID_Result">
+          <ScalarProperty Name="ComplaintCategoryID" ColumnName="ComplaintCategoryID" />
+          <ScalarProperty Name="ComplaintCategoryName" ColumnName="ComplaintCategoryName" />
+          <ScalarProperty Name="ComplaintCategoryRating" ColumnName="ComplaintCategoryRating" />
+          <ScalarProperty Name="ComplaintCategoryShortName" ColumnName="ComplaintCategoryShortName" />
+          <ScalarProperty Name="ComplaintCategoryDescription" ColumnName="ComplaintCategoryDescription" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetComplaintStatus" FunctionName="EDWModel.Store.spGetComplaintStatus">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EDWModel.spGetComplaintStatus_Result">
+          <ScalarProperty Name="ComplaintStatusID" ColumnName="ComplaintStatusID" />
+          <ScalarProperty Name="ComplaintStatusName" ColumnName="ComplaintStatusName" />
+          <ScalarProperty Name="ComplaintStatusShortName" ColumnName="ComplaintStatusShortName" />
+          <ScalarProperty Name="DisplaySequenceNumber" ColumnName="DisplaySequenceNumber" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spInsert_vCBCDocumentation" FunctionName="EDWModel.Store.spInsert_vCBCDocumentation">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EDWModel.spInsert_vCBCDocumentation_Result">
+          <ScalarProperty Name="rowdata" ColumnName="rowdata" />
+          <ScalarProperty Name="numberOfRows" ColumnName="numberOfRows" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spInsert_vCBCDocumentationAppeal" FunctionName="EDWModel.Store.spInsert_vCBCDocumentationAppeal">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EDWModel.spInsert_vCBCDocumentationAppeal_Result">
+          <ScalarProperty Name="rowdata" ColumnName="rowdata" />
+          <ScalarProperty Name="numberOfRows" ColumnName="numberOfRows" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spSave_CBCAcknowledgement" FunctionName="EDWModel.Store.spSave_CBCAcknowledgement">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EDWModel.spSave_CBCAcknowledgement_Result">
+          <ScalarProperty Name="rowdata" ColumnName="rowdata" />
+          <ScalarProperty Name="numberOfRows" ColumnName="numberOfRows" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spSave_CBCExternalReferral" FunctionName="EDWModel.Store.spSave_CBCExternalReferral">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EDWModel.spSave_CBCExternalReferral_Result">
+          <ScalarProperty Name="rowdata" ColumnName="rowdata" />
+          <ScalarProperty Name="numberOfRows" ColumnName="numberOfRows" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spSave_CBCInternalReferralCountryLevel" FunctionName="EDWModel.Store.spSave_CBCInternalReferralCountryLevel">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EDWModel.spSave_CBCInternalReferralCountryLevel_Result">
+          <ScalarProperty Name="rowdata" ColumnName="rowdata" />
+          <ScalarProperty Name="numberOfRows" ColumnName="numberOfRows" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spSave_CBCInternalReferralHQLevel" FunctionName="EDWModel.Store.spSave_CBCInternalReferralHQLevel">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EDWModel.spSave_CBCInternalReferralHQLevel_Result">
+          <ScalarProperty Name="rowdata" ColumnName="rowdata" />
+          <ScalarProperty Name="numberOfRows" ColumnName="numberOfRows" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spSave_CBCLocation" FunctionName="EDWModel.Store.spSave_CBCLocation">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EDWModel.spSave_CBCLocation_Result">
+          <ScalarProperty Name="rowdata" ColumnName="rowdata" />
+          <ScalarProperty Name="numberOfRows" ColumnName="numberOfRows" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spSave_CBCResolution" FunctionName="EDWModel.Store.spSave_CBCResolution">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EDWModel.spSave_CBCResolution_Result">
+          <ScalarProperty Name="rowdata" ColumnName="rowdata" />
+          <ScalarProperty Name="numberOfRows" ColumnName="numberOfRows" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spSave_CBCResponse" FunctionName="EDWModel.Store.spSave_CBCResponse">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EDWModel.spSave_CBCResponse_Result">
+          <ScalarProperty Name="rowdata" ColumnName="rowdata" />
+          <ScalarProperty Name="numberOfRows" ColumnName="numberOfRows" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spSave_ComplaintAppeal" FunctionName="EDWModel.Store.spSave_ComplaintAppeal">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EDWModel.spSave_ComplaintAppeal_Result">
+          <ScalarProperty Name="rowdata" ColumnName="rowdata" />
+          <ScalarProperty Name="numberOfRows" ColumnName="numberOfRows" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spSave_vComplainantDetail" FunctionName="EDWModel.Store.spSave_vComplainantDetail">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EDWModel.spSave_vComplainantDetail_Result">
+          <ScalarProperty Name="Result" ColumnName="Result" />
+          <ScalarProperty Name="EDWComplainantID" ColumnName="EDWComplainantID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spSave_CBCFieldSector" FunctionName="EDWModel.Store.spSave_CBCFieldSector">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EDWModel.spSave_CBCFieldSector_Result">
+          <ScalarProperty Name="rowdata" ColumnName="rowdata" />
+          <ScalarProperty Name="numberOfRows" ColumnName="numberOfRows" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spSave_CBCVulnerability" FunctionName="EDWModel.Store.spSave_CBCVulnerability">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EDWModel.spSave_CBCVulnerability_Result">
+          <ScalarProperty Name="rowdata" ColumnName="rowdata" />
+          <ScalarProperty Name="numberOfRows" ColumnName="numberOfRows" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spSave_CBFAppealCommittee" FunctionName="EDWModel.Store.spSave_CBFAppealCommittee">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EDWModel.spSave_CBFAppealCommittee_Result">
+          <ScalarProperty Name="rowdata" ColumnName="rowdata" />
+          <ScalarProperty Name="numberOfRows" ColumnName="numberOfRows" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetvProject_Name" FunctionName="EDWModel.Store.spGetvProject_Name">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EDWModel.spGetvProject_Name_Result">
+          <ScalarProperty Name="ProjectIdentifier" ColumnName="ProjectIdentifier" />
+          <ScalarProperty Name="DropDownDisplay" ColumnName="DropDownDisplay" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+          <ScalarProperty Name="OwningInternalOrganizationCode" ColumnName="OwningInternalOrganizationCode" />
+          <ScalarProperty Name="DonorName" ColumnName="DonorName" />
+          <ScalarProperty Name="DonorShortName" ColumnName="DonorShortName" />
+          <ScalarProperty Name="SourceActiveFlag" ColumnName="SourceActiveFlag" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetCategoryRefral" FunctionName="EDWModel.Store.spGetCategoryRefral">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EDWModel.spGetCategoryRefral_Result">
+          <ScalarProperty Name="ComplaintCategoryID" ColumnName="ComplaintCategoryID" />
+          <ScalarProperty Name="ComplaintCategoryName" ColumnName="ComplaintCategoryName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="vCommunityBasedComplaint">
+      <EntityTypeMapping TypeName="EDWModel.vCommunityBasedComplaint">
+        <MappingFragment StoreEntitySet="vCommunityBasedComplaint">
+          <ScalarProperty Name="LastUpdateUser" ColumnName="LastUpdateUser" />
+          <ScalarProperty Name="LastUpdateTimestamp" ColumnName="LastUpdateTimestamp" />
+          <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+          <ScalarProperty Name="CreateTimestamp" ColumnName="CreateTimestamp" />
+          <ScalarProperty Name="SourceDeletedFlag" ColumnName="SourceDeletedFlag" />
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+          <ScalarProperty Name="NoResponseReasonDescription" ColumnName="NoResponseReasonDescription" />
+          <ScalarProperty Name="NoReferralReasonDescription" ColumnName="NoReferralReasonDescription" />
+          <ScalarProperty Name="NoAcknowledgementReasonDescription" ColumnName="NoAcknowledgementReasonDescription" />
+          <ScalarProperty Name="InternalReferralLevelID" ColumnName="InternalReferralLevelID" />
+          <ScalarProperty Name="ReferralTypeID" ColumnName="ReferralTypeID" />
+          <ScalarProperty Name="ReferralRequiredFlag" ColumnName="ReferralRequiredFlag" />
+          <ScalarProperty Name="ResponseProvidedFlag" ColumnName="ResponseProvidedFlag" />
+          <ScalarProperty Name="ReceivedByIMCStaffFlag" ColumnName="ReceivedByIMCStaffFlag" />
+          <ScalarProperty Name="AppealedFlag" ColumnName="AppealedFlag" />
+          <ScalarProperty Name="AcknowledgementProvidedFlag" ColumnName="AcknowledgementProvidedFlag" />
+          <ScalarProperty Name="SubjectText" ColumnName="SubjectText" />
+          <ScalarProperty Name="OtherComplaintCommunicationMethodText" ColumnName="OtherComplaintCommunicationMethodText" />
+          <ScalarProperty Name="ComplaintDescription" ColumnName="ComplaintDescription" />
+          <ScalarProperty Name="ClosedByEDWPersonID" ColumnName="ClosedByEDWPersonID" />
+          <ScalarProperty Name="ClosedDate" ColumnName="ClosedDate" />
+          <ScalarProperty Name="EnteredByEDWPersonID" ColumnName="EnteredByEDWPersonID" />
+          <ScalarProperty Name="EnteredTimestamp" ColumnName="EnteredTimestamp" />
+          <ScalarProperty Name="ResponseByNonIMCName" ColumnName="ResponseByNonIMCName" />
+          <ScalarProperty Name="ReceivedByNonIMCName" ColumnName="ReceivedByNonIMCName" />
+          <ScalarProperty Name="ReceivedByEDWPersonID" ColumnName="ReceivedByEDWPersonID" />
+          <ScalarProperty Name="ReceivedDate" ColumnName="ReceivedDate" />
+          <ScalarProperty Name="SubmitDate" ColumnName="SubmitDate" />
+          <ScalarProperty Name="ProjectIdentifier" ColumnName="ProjectIdentifier" />
+          <ScalarProperty Name="DonorIdentifier" ColumnName="DonorIdentifier" />
+          <ScalarProperty Name="DonorCompanyCode" ColumnName="DonorCompanyCode" />
+          <ScalarProperty Name="ComplaintStatusID" ColumnName="ComplaintStatusID" />
+          <ScalarProperty Name="ComplaintCommunicationMethodID" ColumnName="ComplaintCommunicationMethodID" />
+          <ScalarProperty Name="ComplaintClassificationID" ColumnName="ComplaintClassificationID" />
+          <ScalarProperty Name="ComplaintCategoryID" ColumnName="ComplaintCategoryID" />
+          <ScalarProperty Name="FieldSiteCode" ColumnName="FieldSiteCode" />
+          <ScalarProperty Name="FacilityID" ColumnName="FacilityID" />
+          <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+          <ScalarProperty Name="CommunityBasedComplaintID" ColumnName="CommunityBasedComplaintID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="spDelete_CBFFieldSector" FunctionName="EDWModel.Store.spDelete_CBFFieldSector">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EDWModel.spDelete_CBFFieldSector_Result">
+          <ScalarProperty Name="rowdata" ColumnName="rowdata" />
+          <ScalarProperty Name="numberOfRows" ColumnName="numberOfRows" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spDelete_CBFAppealCommittee" FunctionName="EDWModel.Store.spDelete_CBFAppealCommittee">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EDWModel.spDelete_CBFAppealCommittee_Result">
+          <ScalarProperty Name="rowdata" ColumnName="rowdata" />
+          <ScalarProperty Name="numberOfRows" ColumnName="numberOfRows" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spDelete_CBFVulnerability" FunctionName="EDWModel.Store.spDelete_CBFVulnerability">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EDWModel.spDelete_CBFVulnerability_Result">
+          <ScalarProperty Name="rowdata" ColumnName="rowdata" />
+          <ScalarProperty Name="numberOfRows" ColumnName="numberOfRows" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetCommunicationStage" FunctionName="EDWModel.Store.spGetCommunicationStage">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EDWModel.spGetCommunicationStage_Result">
+          <ScalarProperty Name="CommunicationStageID" ColumnName="CommunicationStageID" />
+          <ScalarProperty Name="CommunicationStageName" ColumnName="CommunicationStageName" />
+          <ScalarProperty Name="CommunicationStageShortName" ColumnName="CommunicationStageShortName" />
+          <ScalarProperty Name="ReminderDayCount" ColumnName="ReminderDayCount" />
+          <ScalarProperty Name="DisplaySequenceNumber" ColumnName="DisplaySequenceNumber" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetFieldSite" FunctionName="EDWModel.Store.spGetFieldSite">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EDWModel.spGetFieldSite_Result">
+          <ScalarProperty Name="FieldSiteCode" ColumnName="FieldSiteCode" />
+          <ScalarProperty Name="FieldSiteName" ColumnName="FieldSiteName" />
+          <ScalarProperty Name="FieldSiteShortName" ColumnName="FieldSiteShortName" />
+          <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+          <ScalarProperty Name="ActiveFlag" ColumnName="ActiveFlag" />
+          <ScalarProperty Name="DisplaySequenceNumber" ColumnName="DisplaySequenceNumber" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spSave_CommunityBasedComplaint" FunctionName="EDWModel.Store.spSave_CommunityBasedComplaint">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EDWModel.spSave_CommunityBasedComplaint_Result">
+          <ScalarProperty Name="Result" ColumnName="Result" />
+          <ScalarProperty Name="ComplaintID" ColumnName="ComplaintID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spSave_CBCResponseAppeal" FunctionName="EDWModel.Store.spSave_CBCResponseAppeal">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EDWModel.spSave_CBCResponseAppeal_Result">
+          <ScalarProperty Name="rowdata" ColumnName="rowdata" />
+          <ScalarProperty Name="numberOfRows" ColumnName="numberOfRows" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetvCommunityBasedComplaintDocumentation" FunctionName="EDWModel.Store.spGetvCommunityBasedComplaintDocumentation">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EDWModel.spGetvCommunityBasedComplaintDocumentation_Result">
+          <ScalarProperty Name="CommunityBasedComplaintDocID" ColumnName="CommunityBasedComplaintDocID" />
+          <ScalarProperty Name="CommunityBasedComplaintID" ColumnName="CommunityBasedComplaintID" />
+          <ScalarProperty Name="DocumentHyperlink" ColumnName="DocumentHyperlink" />
+          <ScalarProperty Name="SupportingDocumentDescription" ColumnName="SupportingDocumentDescription" />
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+          <ScalarProperty Name="AppealDocumentFlag" ColumnName="AppealDocumentFlag" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spEDITAppealCommittee" FunctionName="EDWModel.Store.spEDITAppealCommittee">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EDWModel.spEDITAppealCommittee_Result">
+          <ScalarProperty Name="CommunityBasedComplaintID" ColumnName="CommunityBasedComplaintID" />
+          <ScalarProperty Name="EDWPersonID" ColumnName="EDWPersonID" />
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spEDITComplaintLocation" FunctionName="EDWModel.Store.spEDITComplaintLocation">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EDWModel.spEDITComplaintLocation_Result">
+          <ScalarProperty Name="CommunityBasedComplaintID" ColumnName="CommunityBasedComplaintID" />
+          <ScalarProperty Name="LocationText" ColumnName="LocationText" />
+          <ScalarProperty Name="CommunityText" ColumnName="CommunityText" />
+          <ScalarProperty Name="DistrictText" ColumnName="DistrictText" />
+          <ScalarProperty Name="ProvinceText" ColumnName="ProvinceText" />
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+          <ScalarProperty Name="SourceDeletedFlag" ColumnName="SourceDeletedFlag" />
+          <ScalarProperty Name="CreateTimestamp" ColumnName="CreateTimestamp" />
+          <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+          <ScalarProperty Name="LastUpdateTimestamp" ColumnName="LastUpdateTimestamp" />
+          <ScalarProperty Name="LastUpdateUser" ColumnName="LastUpdateUser" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spEDITComplaintVulnerability" FunctionName="EDWModel.Store.spEDITComplaintVulnerability">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EDWModel.spEDITComplaintVulnerability_Result">
+          <ScalarProperty Name="EDWComplainantID" ColumnName="EDWComplainantID" />
+          <ScalarProperty Name="VulnerabilityTypeID" ColumnName="VulnerabilityTypeID" />
+          <ScalarProperty Name="SourceDeletedFlag" ColumnName="SourceDeletedFlag" />
+          <ScalarProperty Name="CreateTimestamp" ColumnName="CreateTimestamp" />
+          <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+          <ScalarProperty Name="LastUpdateTimestamp" ColumnName="LastUpdateTimestamp" />
+          <ScalarProperty Name="LastUpdateUser" ColumnName="LastUpdateUser" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spEDITFieldSector" FunctionName="EDWModel.Store.spEDITFieldSector">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EDWModel.spEDITFieldSector_Result">
+          <ScalarProperty Name="CommunityBasedComplaintID" ColumnName="CommunityBasedComplaintID" />
+          <ScalarProperty Name="FieldSectorCode" ColumnName="FieldSectorCode" />
+          <ScalarProperty Name="OtherSectorText" ColumnName="OtherSectorText" />
+          <ScalarProperty Name="SourceDeletedFlag" ColumnName="SourceDeletedFlag" />
+          <ScalarProperty Name="CreateTimestamp" ColumnName="CreateTimestamp" />
+          <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+          <ScalarProperty Name="LastUpdateTimestamp" ColumnName="LastUpdateTimestamp" />
+          <ScalarProperty Name="LastUpdateUser" ColumnName="LastUpdateUser" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetCategory" FunctionName="EDWModel.Store.spGetCategory">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EDWModel.spGetCategory_Result">
+          <ScalarProperty Name="ComplaintCategoryID" ColumnName="ComplaintCategoryID" />
+          <ScalarProperty Name="ComplaintCategoryName" ColumnName="ComplaintCategoryName" />
+          <ScalarProperty Name="ComplaintCategoryRating" ColumnName="ComplaintCategoryRating" />
+          <ScalarProperty Name="ComplaintCategoryShortName" ColumnName="ComplaintCategoryShortName" />
+          <ScalarProperty Name="ComplaintCategoryDescription" ColumnName="ComplaintCategoryDescription" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetFieldSiteDetails" FunctionName="EDWModel.Store.spGetFieldSiteDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EDWModel.spGetFieldSiteDetails_Result">
+          <ScalarProperty Name="FieldSiteCode" ColumnName="FieldSiteCode" />
+          <ScalarProperty Name="FieldSiteName" ColumnName="FieldSiteName" />
+          <ScalarProperty Name="FieldSiteShortName" ColumnName="FieldSiteShortName" />
+          <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+          <ScalarProperty Name="ActiveFlag" ColumnName="ActiveFlag" />
+          <ScalarProperty Name="DisplaySequenceNumber" ColumnName="DisplaySequenceNumber" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spEDITComplaintCommunication" FunctionName="EDWModel.Store.spEDITComplaintCommunication">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EDWModel.spEDITComplaintCommunication_Result">
+          <ScalarProperty Name="CommunityBasedComplaintID" ColumnName="CommunityBasedComplaintID" />
+          <ScalarProperty Name="EDWPersonID" ColumnName="EDWPersonID" />
+          <ScalarProperty Name="CommunicationDate" ColumnName="CommunicationDate" />
+          <ScalarProperty Name="CommunicationStageID" ColumnName="CommunicationStageID" />
+          <ScalarProperty Name="CommunicationMethodID" ColumnName="CommunicationMethodID" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="OtherComplaintCommunicationMethodText" ColumnName="OtherComplaintCommunicationMethodText" />
+          <ScalarProperty Name="FromPersonFlag" ColumnName="FromPersonFlag" />
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spEDITComplaintResolution" FunctionName="EDWModel.Store.spEDITComplaintResolution">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EDWModel.spEDITComplaintResolution_Result">
+          <ScalarProperty Name="CommunityBasedComplaintID" ColumnName="CommunityBasedComplaintID" />
+          <ScalarProperty Name="InvestigationDescription" ColumnName="InvestigationDescription" />
+          <ScalarProperty Name="InvestigationPointOfContactName" ColumnName="InvestigationPointOfContactName" />
+          <ScalarProperty Name="CorrectiveActionDescription" ColumnName="CorrectiveActionDescription" />
+          <ScalarProperty Name="ResolutionDate" ColumnName="ResolutionDate" />
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetAppealCommitteNames" FunctionName="EDWModel.Store.spGetAppealCommitteNames">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EDWModel.spGetAppealCommitteNames_Result">
+          <ScalarProperty Name="EDWPersonID" ColumnName="EDWPersonID" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spEDITComplaintAppeal" FunctionName="EDWModel.Store.spEDITComplaintAppeal">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EDWModel.spEDITComplaintAppeal_Result">
+          <ScalarProperty Name="CommunityBasedComplaintID" ColumnName="CommunityBasedComplaintID" />
+          <ScalarProperty Name="AppealDate" ColumnName="AppealDate" />
+          <ScalarProperty Name="ProcessDescription" ColumnName="ProcessDescription" />
+          <ScalarProperty Name="AppealReceivedCommunicationMethodID" ColumnName="AppealReceivedCommunicationMethodID" />
+          <ScalarProperty Name="OtherComplaintCommunicationMethodText" ColumnName="OtherComplaintCommunicationMethodText" />
+          <ScalarProperty Name="AppealResolutionDescription" ColumnName="AppealResolutionDescription" />
+          <ScalarProperty Name="AppealResolutionDate" ColumnName="AppealResolutionDate" />
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spEDITExternalReferral" FunctionName="EDWModel.Store.spEDITExternalReferral">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EDWModel.spEDITExternalReferral_Result">
+          <ScalarProperty Name="CommunityBasedComplaintID" ColumnName="CommunityBasedComplaintID" />
+          <ScalarProperty Name="ReferralDate" ColumnName="ReferralDate" />
+          <ScalarProperty Name="ReferralAgencyName" ColumnName="ReferralAgencyName" />
+          <ScalarProperty Name="ReferralPersonName" ColumnName="ReferralPersonName" />
+          <ScalarProperty Name="ReferralPersonPositionText" ColumnName="ReferralPersonPositionText" />
+          <ScalarProperty Name="ContactComment" ColumnName="ContactComment" />
+          <ScalarProperty Name="HQDisclosureAuthorizationText" ColumnName="HQDisclosureAuthorizationText" />
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="vComplainantDetail">
+      <EntityTypeMapping TypeName="EDWModel.vComplainantDetail">
+        <MappingFragment StoreEntitySet="vComplainantDetail">
+          <ScalarProperty Name="LastUpdateUser" ColumnName="LastUpdateUser" />
+          <ScalarProperty Name="LastUpdateTimestamp" ColumnName="LastUpdateTimestamp" />
+          <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+          <ScalarProperty Name="CreateTimestamp" ColumnName="CreateTimestamp" />
+          <ScalarProperty Name="SourceDeletedFlag" ColumnName="SourceDeletedFlag" />
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+          <ScalarProperty Name="ResponseReceivalExplainedFlag" ColumnName="ResponseReceivalExplainedFlag" />
+          <ScalarProperty Name="ProcessTimelineDiscussedFlag" ColumnName="ProcessTimelineDiscussedFlag" />
+          <ScalarProperty Name="HandlingProcessExplainedFlag" ColumnName="HandlingProcessExplainedFlag" />
+          <ScalarProperty Name="FollowUpContactDetailsFlag" ColumnName="FollowUpContactDetailsFlag" />
+          <ScalarProperty Name="ComplainantQuestionsAddressedFlag" ColumnName="ComplainantQuestionsAddressedFlag" />
+          <ScalarProperty Name="ComplainantAllowVisitFlag" ColumnName="ComplainantAllowVisitFlag" />
+          <ScalarProperty Name="ComplainantAllowContactFlag" ColumnName="ComplainantAllowContactFlag" />
+          <ScalarProperty Name="OtherLanguageDialectText" ColumnName="OtherLanguageDialectText" />
+          <ScalarProperty Name="OtherCommunicationAvenueText" ColumnName="OtherCommunicationAvenueText" />
+          <ScalarProperty Name="ComplainantProgramRelationshipText" ColumnName="ComplainantProgramRelationshipText" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="AddressText" ColumnName="AddressText" />
+          <ScalarProperty Name="PersonName" ColumnName="PersonName" />
+          <ScalarProperty Name="AnonymousFlag" ColumnName="AnonymousFlag" />
+          <ScalarProperty Name="SexCode" ColumnName="SexCode" />
+          <ScalarProperty Name="PrimaryLanguageDialectCode" ColumnName="PrimaryLanguageDialectCode" />
+          <ScalarProperty Name="AgeYearNumber" ColumnName="AgeYearNumber" />
+          <ScalarProperty Name="CommunityBasedComplaintID" ColumnName="CommunityBasedComplaintID" />
+          <ScalarProperty Name="EDWComplainantID" ColumnName="EDWComplainantID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="spEDITComplainantDetail" FunctionName="EDWModel.Store.spEDITComplainantDetail">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EDWModel.spEDITComplainantDetail_Result">
+          <ScalarProperty Name="EDWComplainantID" ColumnName="EDWComplainantID" />
+          <ScalarProperty Name="CommunityBasedComplaintID" ColumnName="CommunityBasedComplaintID" />
+          <ScalarProperty Name="AgeYearNumber" ColumnName="AgeYearNumber" />
+          <ScalarProperty Name="PrimaryLanguageDialectCode" ColumnName="PrimaryLanguageDialectCode" />
+          <ScalarProperty Name="SexCode" ColumnName="SexCode" />
+          <ScalarProperty Name="AnonymousFlag" ColumnName="AnonymousFlag" />
+          <ScalarProperty Name="PersonName" ColumnName="PersonName" />
+          <ScalarProperty Name="AddressText" ColumnName="AddressText" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="ComplainantProgramRelationshipText" ColumnName="ComplainantProgramRelationshipText" />
+          <ScalarProperty Name="OtherCommunicationAvenueText" ColumnName="OtherCommunicationAvenueText" />
+          <ScalarProperty Name="OtherLanguageDialectText" ColumnName="OtherLanguageDialectText" />
+          <ScalarProperty Name="ComplainantAllowContactFlag" ColumnName="ComplainantAllowContactFlag" />
+          <ScalarProperty Name="ComplainantAllowVisitFlag" ColumnName="ComplainantAllowVisitFlag" />
+          <ScalarProperty Name="ComplainantQuestionsAddressedFlag" ColumnName="ComplainantQuestionsAddressedFlag" />
+          <ScalarProperty Name="FollowUpContactDetailsFlag" ColumnName="FollowUpContactDetailsFlag" />
+          <ScalarProperty Name="HandlingProcessExplainedFlag" ColumnName="HandlingProcessExplainedFlag" />
+          <ScalarProperty Name="ProcessTimelineDiscussedFlag" ColumnName="ProcessTimelineDiscussedFlag" />
+          <ScalarProperty Name="ResponseReceivalExplainedFlag" ColumnName="ResponseReceivalExplainedFlag" />
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+          <ScalarProperty Name="SourceDeletedFlag" ColumnName="SourceDeletedFlag" />
+          <ScalarProperty Name="CreateTimestamp" ColumnName="CreateTimestamp" />
+          <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+          <ScalarProperty Name="LastUpdateTimestamp" ColumnName="LastUpdateTimestamp" />
+          <ScalarProperty Name="LastUpdateUser" ColumnName="LastUpdateUser" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spUpdate_vCBCDocumentation" FunctionName="EDWModel.Store.spUpdate_vCBCDocumentation">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EDWModel.spUpdate_vCBCDocumentation_Result">
+          <ScalarProperty Name="rowdata" ColumnName="rowdata" />
+          <ScalarProperty Name="numberOfRows" ColumnName="numberOfRows" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spUpdate_vCBCDocumentationAppeal" FunctionName="EDWModel.Store.spUpdate_vCBCDocumentationAppeal">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EDWModel.spUpdate_vCBCDocumentationAppeal_Result">
+          <ScalarProperty Name="rowdata" ColumnName="rowdata" />
+          <ScalarProperty Name="numberOfRows" ColumnName="numberOfRows" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetFieldSiteByID" FunctionName="EDWModel.Store.spGetFieldSiteByID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EDWModel.spGetFieldSiteByID_Result">
+          <ScalarProperty Name="FieldSiteCode" ColumnName="FieldSiteCode" />
+          <ScalarProperty Name="FieldSiteName" ColumnName="FieldSiteName" />
+          <ScalarProperty Name="FieldSiteShortName" ColumnName="FieldSiteShortName" />
+          <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+          <ScalarProperty Name="ActiveFlag" ColumnName="ActiveFlag" />
+          <ScalarProperty Name="DisplaySequenceNumber" ColumnName="DisplaySequenceNumber" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spEDITCommunityBasedComplaintDetails" FunctionName="EDWModel.Store.spEDITCommunityBasedComplaintDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EDWModel.spEDITCommunityBasedComplaintDetails_Result">
+          <ScalarProperty Name="CommunityBasedComplaintID" ColumnName="CommunityBasedComplaintID" />
+          <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+          <ScalarProperty Name="FieldSiteCode" ColumnName="FieldSiteCode" />
+          <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+          <ScalarProperty Name="ComplaintCategoryID" ColumnName="ComplaintCategoryID" />
+          <ScalarProperty Name="ComplaintClassificationID" ColumnName="ComplaintClassificationID" />
+          <ScalarProperty Name="ComplaintCommunicationMethodID" ColumnName="ComplaintCommunicationMethodID" />
+          <ScalarProperty Name="ComplaintStatusID" ColumnName="ComplaintStatusID" />
+          <ScalarProperty Name="ProjectIdentifier" ColumnName="ProjectIdentifier" />
+          <ScalarProperty Name="SubmitDate" ColumnName="SubmitDate" />
+          <ScalarProperty Name="ReceivedDate" ColumnName="ReceivedDate" />
+          <ScalarProperty Name="DaysafterRecived" ColumnName="DaysafterRecived" />
+          <ScalarProperty Name="ReceivedByEDWPersonID" ColumnName="ReceivedByEDWPersonID" />
+          <ScalarProperty Name="ReceivedByNonIMCName" ColumnName="ReceivedByNonIMCName" />
+          <ScalarProperty Name="ResponseByNonIMCName" ColumnName="ResponseByNonIMCName" />
+          <ScalarProperty Name="EnteredTimestamp" ColumnName="EnteredTimestamp" />
+          <ScalarProperty Name="EnteredByEDWPersonID" ColumnName="EnteredByEDWPersonID" />
+          <ScalarProperty Name="ClosedDate" ColumnName="ClosedDate" />
+          <ScalarProperty Name="ClosedByEDWPersonID" ColumnName="ClosedByEDWPersonID" />
+          <ScalarProperty Name="ComplaintDescription" ColumnName="ComplaintDescription" />
+          <ScalarProperty Name="OtherComplaintCommunicationMethodText" ColumnName="OtherComplaintCommunicationMethodText" />
+          <ScalarProperty Name="SubjectText" ColumnName="SubjectText" />
+          <ScalarProperty Name="AcknowledgementProvidedFlag" ColumnName="AcknowledgementProvidedFlag" />
+          <ScalarProperty Name="ReceivedByIMCStaffFlag" ColumnName="ReceivedByIMCStaffFlag" />
+          <ScalarProperty Name="ResponseProvidedFlag" ColumnName="ResponseProvidedFlag" />
+          <ScalarProperty Name="ReferralRequiredFlag" ColumnName="ReferralRequiredFlag" />
+          <ScalarProperty Name="InternalReferralLevelID" ColumnName="InternalReferralLevelID" />
+          <ScalarProperty Name="NoAcknowledgementReasonDescription" ColumnName="NoAcknowledgementReasonDescription" />
+          <ScalarProperty Name="NoReferralReasonDescription" ColumnName="NoReferralReasonDescription" />
+          <ScalarProperty Name="NoResponseReasonDescription" ColumnName="NoResponseReasonDescription" />
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+          <ScalarProperty Name="ResponseAppeal" ColumnName="ResponseAppeal" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="ComplaintStatusName" ColumnName="ComplaintStatusName" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+          <ScalarProperty Name="ProhectIdentity" ColumnName="ProhectIdentity" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="ComplaintCategoryName" ColumnName="ComplaintCategoryName" />
+          <ScalarProperty Name="ComplaintCategoryShortName" ColumnName="ComplaintCategoryShortName" />
+          <ScalarProperty Name="FieldSectorCode" ColumnName="FieldSectorCode" />
+          <ScalarProperty Name="VulnerabilityTypeName" ColumnName="VulnerabilityTypeName" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="ClosedbyPerson" ColumnName="ClosedbyPerson" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spDelete_CBCDetails" FunctionName="EDWModel.Store.spDelete_CBCDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EDWModel.spDelete_CBCDetails_Result">
+          <ScalarProperty Name="rowdata" ColumnName="rowdata" />
+          <ScalarProperty Name="numberOfRows" ColumnName="numberOfRows" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spEDITComplaintCommunicationACK" FunctionName="EDWModel.Store.spEDITComplaintCommunicationACK">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EDWModel.spEDITComplaintCommunicationACK_Result">
+          <ScalarProperty Name="CommunityBasedComplaintID" ColumnName="CommunityBasedComplaintID" />
+          <ScalarProperty Name="EDWPersonID" ColumnName="EDWPersonID" />
+          <ScalarProperty Name="CommunicationDate" ColumnName="CommunicationDate" />
+          <ScalarProperty Name="CommunicationStageID" ColumnName="CommunicationStageID" />
+          <ScalarProperty Name="CommunicationMethodID" ColumnName="CommunicationMethodID" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="OtherComplaintCommunicationMethodText" ColumnName="OtherComplaintCommunicationMethodText" />
+          <ScalarProperty Name="FromPersonFlag" ColumnName="FromPersonFlag" />
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spEDITComplaintCommunicationAR" FunctionName="EDWModel.Store.spEDITComplaintCommunicationAR">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EDWModel.spEDITComplaintCommunicationAR_Result">
+          <ScalarProperty Name="CommunityBasedComplaintID" ColumnName="CommunityBasedComplaintID" />
+          <ScalarProperty Name="EDWPersonID" ColumnName="EDWPersonID" />
+          <ScalarProperty Name="CommunicationDate" ColumnName="CommunicationDate" />
+          <ScalarProperty Name="CommunicationStageID" ColumnName="CommunicationStageID" />
+          <ScalarProperty Name="CommunicationMethodID" ColumnName="CommunicationMethodID" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="OtherComplaintCommunicationMethodText" ColumnName="OtherComplaintCommunicationMethodText" />
+          <ScalarProperty Name="FromPersonFlag" ColumnName="FromPersonFlag" />
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spEDITComplaintCommunicationFR" FunctionName="EDWModel.Store.spEDITComplaintCommunicationFR">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EDWModel.spEDITComplaintCommunicationFR_Result">
+          <ScalarProperty Name="CommunityBasedComplaintID" ColumnName="CommunityBasedComplaintID" />
+          <ScalarProperty Name="EDWPersonID" ColumnName="EDWPersonID" />
+          <ScalarProperty Name="CommunicationDate" ColumnName="CommunicationDate" />
+          <ScalarProperty Name="CommunicationStageID" ColumnName="CommunicationStageID" />
+          <ScalarProperty Name="CommunicationMethodID" ColumnName="CommunicationMethodID" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="OtherComplaintCommunicationMethodText" ColumnName="OtherComplaintCommunicationMethodText" />
+          <ScalarProperty Name="FromPersonFlag" ColumnName="FromPersonFlag" />
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spEDITComplaintCommunicationHQ" FunctionName="EDWModel.Store.spEDITComplaintCommunicationHQ">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EDWModel.spEDITComplaintCommunicationHQ_Result">
+          <ScalarProperty Name="CommunityBasedComplaintID" ColumnName="CommunityBasedComplaintID" />
+          <ScalarProperty Name="EDWPersonID" ColumnName="EDWPersonID" />
+          <ScalarProperty Name="CommunicationDate" ColumnName="CommunicationDate" />
+          <ScalarProperty Name="CommunicationStageID" ColumnName="CommunicationStageID" />
+          <ScalarProperty Name="CommunicationMethodID" ColumnName="CommunicationMethodID" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="OtherComplaintCommunicationMethodText" ColumnName="OtherComplaintCommunicationMethodText" />
+          <ScalarProperty Name="FromPersonFlag" ColumnName="FromPersonFlag" />
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetvProjectByID" FunctionName="EDWModel.Store.spGetvProjectByID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EDWModel.spGetvProjectByID_Result">
+          <ScalarProperty Name="ProjectIdentifier" ColumnName="ProjectIdentifier" />
+          <ScalarProperty Name="DropDownDisplay" ColumnName="DropDownDisplay" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+          <ScalarProperty Name="OwningInternalOrganizationCode" ColumnName="OwningInternalOrganizationCode" />
+          <ScalarProperty Name="InternalOrganizationName" ColumnName="InternalOrganizationName" />
+          <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+          <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+          <ScalarProperty Name="DonorName" ColumnName="DonorName" />
+          <ScalarProperty Name="DonorShortName" ColumnName="DonorShortName" />
+          <ScalarProperty Name="SourceActiveFlag" ColumnName="SourceActiveFlag" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>
